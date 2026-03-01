@@ -4,11 +4,11 @@ import { ArrowLeft, ArrowRight, Settings, Truck, Zap, HardHat, Drill, Box, Shiel
 
 export default function ServiciosPage() {
     const allServices = [
-        { title: "Construcción", icon: <HardHat />, desc: "Diseño y ejecución de obras civiles, mecánicas, eléctricas e instrumentación. Especialistas en oleoductos y facilidades.", items: ["Obras Civiles", "Montaje Mecánico", "Oleoductos y Gasoductos"] },
-        { title: "Mantenimiento", icon: <Settings />, desc: "Mantenimiento correctivo y reparación de equipos industriales rotatitvos y estáticos. Pruebas NDT.", items: ["Equipos Rotatorios", "Pruebas NDT", "Integridad de Tuberías"] },
-        { title: "Servicios a Pozos", icon: <Drill />, desc: "Estimulación, reacondicionamiento y soporte pesado para operaciones en pozos activos.", items: ["Estimulación de Pozos", "Reacondicionamiento", "Suministro de Equipos"] },
-        { title: "Servicio Ambiental", icon: <Box />, desc: "Manejo integral de residuos peligrosos y no peligrosos, saneamiento y remediación de suelos.", items: ["Manejo de Residuos", "Saneamiento Ambiental", "Remediación"] },
-        { title: "Servicio Logístico", icon: <Truck />, desc: "Transporte terrestre especializado y alquiler de maquinaria pesada. Gestión de izamiento.", items: ["Alquiler Maquinaria", "Izamiento de Cargas", "Transporte Pesado"] }
+        { title: "Construcción", icon: <HardHat />, desc: "Desarrollo integral de proyectos: diseño, adquisición de materiales y ejecución de obras civiles, mecánica, eléctrica y de instrumentación.", items: ["Baterías de Separación", "Estaciones de Flujo", "Oleoductos y Gasoductos"] },
+        { title: "Mantenimiento", icon: <Settings />, desc: "Mantenimiento correctivo y reparación de equipos rotatorios (bombas, compresores) y estáticos (tuberías, recipientes a presión).", items: ["Equipos Rotatorios", "Pruebas NDT", "Integridad de Tuberías"] },
+        { title: "Servicios a Pozos", icon: <Drill />, desc: "Estimulación para mejorar el flujo de hidrocarburos y reacondicionamiento de pozos. Sustitución de variadores y bombas PCP.", items: ["Estimulación de Pozos", "Reacondicionamiento", "Equipos Well Testing"] },
+        { title: "Servicio Ambiental", icon: <Box />, desc: "Manejo integral de residuos peligrosos y no peligrosos, recolección de cortes de perforación y fluidos contaminados.", items: ["Manejo de Residuos", "Saneamiento Ambiental", "Remediación de Suelos"] },
+        { title: "Servicio Logístico", icon: <Truck />, desc: "Transporte terrestre de equipos sobredimensionados, batea y lowboy. Izamiento crítico y gestión de flota.", items: ["Izaje Crítico", "Transporte Sobredimensionado", "Alquiler Maquinaria"] }
     ];
 
     return (

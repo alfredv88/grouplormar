@@ -31,15 +31,20 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-sm z-50 border-b border-black">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-black flex items-center justify-center">
-              <span className="text-white font-bold text-xl font-teko">L</span>
+          <Link href="/" className="flex items-center gap-4">
+            <div className="relative w-12 h-12">
+              <Image
+                src="/logo lormar sin rif.png"
+                alt="Logo Grupo Lormar"
+                fill
+                className="object-contain"
+              />
             </div>
             <div className="flex flex-col leading-none">
               <span className="text-black font-bold text-2xl tracking-tighter uppercase font-teko">LORMAR</span>
               <span className="text-[10px] font-bold tracking-[0.2em] uppercase">Servicios y Construcciones</span>
             </div>
-          </div>
+          </Link>
           <div className="hidden md:flex items-center gap-8 text-[10px] font-bold uppercase tracking-[0.2em]">
             <Link href="/" className="underline decoration-2 underline-offset-8">Inicio</Link>
             <Link href="/servicios" className="hover:opacity-50 transition-none">Servicios</Link>
@@ -51,25 +56,29 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section with Video Background */}
       <section className="relative h-screen flex items-center justify-start overflow-hidden" aria-label="Introducción">
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/hero-excavator.png"
-            alt="Excavadora Lormar en obra industrial"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/50 z-10"></div>
-          <div className="absolute top-20 left-20 bottom-20 right-20 z-20 pointer-events-none border border-white/10 border-r-0 border-b-0 hidden lg:block"></div>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover grayscale brightness-50"
+          >
+            <source src="/videos/lormar 7.mp4" type="video/mp4" />
+          </video>
+          {/* Industrial Grid Overlay over Video */}
+          <div className="absolute inset-0 bg-industrial-grid opacity-20 z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-20"></div>
+          <div className="absolute top-20 left-20 bottom-20 right-20 z-30 pointer-events-none border border-white/10 border-r-0 border-b-0 hidden lg:block"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-30 w-full pt-20">
+        <div className="max-w-7xl mx-auto px-6 relative z-40 w-full pt-20">
           <div className="max-w-3xl space-y-6">
             <div className="flex items-center gap-4">
               <div className="h-[2px] w-12 bg-white"></div>
-              <span className="text-white text-xs font-bold uppercase tracking-[0.4em]">Soluciones Globales</span>
+              <span className="text-white text-xs font-bold uppercase tracking-[0.4em]">Potencia Industrial en Movimiento</span>
             </div>
 
             <h1 className="text-7xl md:text-[140px] font-black text-white leading-[0.8] font-teko uppercase italic">
@@ -78,15 +87,15 @@ export default function Home() {
             </h1>
 
             <p className="text-xl text-white/80 max-w-xl leading-relaxed font-montserrat font-medium border-l-2 border-white/50 pl-6 italic">
-              Impulsamos el desarrollo industrial con maquinaria de última generación y personal altamente capacitado para proyectos de alta complejidad.
+              Impulsamos el desarrollo industrial con maquinaria propia y personal altamente capacitado para proyectos de alta complejidad.
             </p>
 
             <div className="flex flex-wrap gap-6 pt-6 uppercase tracking-[0.2em] font-bold text-xs">
-              <Link href="/contacto" aria-label="Ver brochure corporativo" className="px-10 py-5 bg-white text-black hover:bg-black hover:text-white border border-white transition-none flex items-center gap-3">
-                COTIZAR PROYECTO
+              <Link href="/contacto" className="px-10 py-5 bg-white text-black hover:bg-black hover:text-white border border-white transition-none flex items-center gap-3">
+                SOLICITAR COTIZACIÓN
                 <ArrowRight size={16} />
               </Link>
-              <Link href="/nosotros" aria-label="Ver maquinaria disponible" className="px-10 py-5 border border-white text-white hover:bg-white hover:text-black transition-none">
+              <Link href="/nosotros" className="px-10 py-5 border border-white text-white hover:bg-white hover:text-black transition-none">
                 NUESTRA FLOTA
               </Link>
             </div>
@@ -135,31 +144,31 @@ export default function Home() {
               <div className="relative">
                 <div className="absolute -left-4 top-0 w-1 h-full bg-black"></div>
                 <h2 className="text-6xl md:text-8xl font-black font-teko uppercase italic leading-[0.8]">
-                  FUERZA Y <br />
-                  <span className="bg-black text-white px-3 py-1">PRECISIÓN</span>
+                  MISIÓN Y <br />
+                  <span className="bg-black text-white px-3 py-1">PROPÓSITO</span>
                 </h2>
               </div>
 
               <div className="grid grid-cols-1 gap-6">
                 <div className="border border-black p-10 space-y-4 hover:bg-black hover:text-white transition-all group relative overflow-hidden">
                   <div className="absolute right-0 bottom-0 w-20 h-20 bg-black/5 group-hover:bg-white/5 rotate-45 translate-x-10 translate-y-10"></div>
-                  <span className="text-xs font-black uppercase tracking-[0.3em] block underline decoration-2">Estrategia</span>
-                  <p className="text-sm opacity-70 italic leading-relaxed">Ejecutar ingeniería de vanguardia con activos propios, garantizando la continuidad operativa de nuestros aliados.</p>
+                  <span className="text-xs font-black uppercase tracking-[0.3em] block underline decoration-2">Ingeniería de Alta Calidad</span>
+                  <p className="text-sm opacity-70 italic leading-relaxed">Brindar servicios de ingeniería de alta calidad en las áreas civiles, mecánica, eléctrica e instrumentación, comprometidos a satisfacer y superar las expectativas de nuestros clientes en todos los proyectos.</p>
                 </div>
               </div>
             </div>
 
             <div className="lg:col-span-7 space-y-16">
               <p className="text-3xl md:text-5xl font-teko font-medium text-black/80 leading-tight italic uppercase">
-                "Transformamos la <span className="underline">ingeniería pesada</span> en resultados tangibles."
+                "Administramos los recursos de manera <span className="underline">ética y transparente</span>, actuando con honradez."
               </p>
 
               <div className="grid grid-cols-2 gap-x-12 gap-y-16">
                 {[
-                  { v: "Responsabilidad", d: "Soporte técnico incondicional." },
-                  { v: "Integridad", d: "Ética en cada proceso." },
-                  { v: "Calidad", d: "Superando normativas ISO." },
-                  { v: "Innovación", d: "Tecnología de punta." }
+                  { v: "Responsabilidad", d: "Cumplimos con los compromisos adquiridos." },
+                  { v: "Integridad", d: "Ética en todas las operaciones." },
+                  { v: "Calidad", d: "Estándares nacionales e internacionales." },
+                  { v: "Eficiencia", d: "Optimización de recursos tangibles." }
                 ].map((val, i) => (
                   <div key={i} className={`space-y-4 ${i % 2 !== 0 ? 'mt-12' : ''}`}>
                     <div className="flex items-center gap-4">
@@ -355,9 +364,9 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 { label: "SENIAT", full: "RIF: J-30657965-6", desc: "Contribuyente Especial." },
-                { label: "MINEC", full: "Manejador Sustancias", desc: "Permisería Ambiental." },
-                { label: "RNC", full: "Habilitado", desc: "Registro Nacional de Contratistas." },
-                { label: "INSPSAL", full: "SSO Cumplimiento", desc: "Seguridad y Salud Laboral." }
+                { label: "RACDA", full: "N° 01-13-02-02-03-2025-635", desc: "Generador de Sustancias Peligrosas." },
+                { label: "RNC", full: "Válido hasta: 30/06/2026", desc: "Habilitado para Contratación Pública." },
+                { label: "RACDA", full: "N° 03-04-TSMDP-2024-11956", desc: "Manejador (Transporte) Peligroso." }
               ].map((c, i) => (
                 <div key={i} className={`p-10 border border-white/10 hover:border-white transition-all bg-black/40 backdrop-blur-sm group relative ${i === 1 ? 'sm:mt-8' : ''} ${i === 2 ? 'sm:-mt-8' : ''}`}>
                   <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-white/0 group-hover:border-white transition-all"></div>
@@ -483,6 +492,84 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Lormar en Acción - Video Gallery */}
+      <section className="py-40 px-6 bg-white border-b border-black overflow-hidden bg-industrial-grid">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-24 space-y-4">
+            <h2 className="text-7xl md:text-[120px] font-black font-teko uppercase italic leading-[0.7]">
+              LORMAR EN <br /> <span className="underline">ACCIÓN</span>
+            </h2>
+            <div className="flex items-center gap-6">
+              <div className="h-[1px] w-24 bg-black"></div>
+              <p className="text-[10px] font-black uppercase tracking-[0.6em] opacity-40">Operaciones en campo real</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-1 bg-black border border-black">
+            <div className="md:col-span-8 relative aspect-video group overflow-hidden bg-slate-900">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              >
+                <source src="/videos/lormar 1.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all pointer-events-none"></div>
+              <div className="absolute bottom-6 left-6 z-10">
+                <span className="text-[10px] font-black uppercase tracking-widest text-white border border-white/50 px-2 py-1 bg-black/50">Movimiento de Tierra</span>
+              </div>
+            </div>
+            <div className="md:col-span-4 relative aspect-square md:aspect-auto group overflow-hidden bg-slate-900">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              >
+                <source src="/videos/lormar 2.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all pointer-events-none"></div>
+              <div className="absolute bottom-6 left-6 z-10">
+                <span className="text-[10px] font-black uppercase tracking-widest text-white border border-white/50 px-2 py-1 bg-black/50">Logística Pesada</span>
+              </div>
+            </div>
+            <div className="md:col-span-4 relative aspect-square md:aspect-auto group overflow-hidden bg-slate-900">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              >
+                <source src="/videos/lormar 3.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all pointer-events-none"></div>
+              <div className="absolute bottom-6 left-6 z-10">
+                <span className="text-[10px] font-black uppercase tracking-widest text-white border border-white/50 px-2 py-1 bg-black/50">Ingeniería Mecánica</span>
+              </div>
+            </div>
+            <div className="md:col-span-8 relative aspect-video group overflow-hidden bg-slate-900">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              >
+                <source src="/videos/lormar 4.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all pointer-events-none"></div>
+              <div className="absolute bottom-6 left-6 z-10">
+                <span className="text-[10px] font-black uppercase tracking-widest text-white border border-white/50 px-2 py-1 bg-black/50">Proyectos Especiales</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Brochure CTA */}
       <section className="bg-black text-white py-32 px-6 relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10 space-y-10">
@@ -503,9 +590,14 @@ export default function Home() {
       <footer className="bg-white border-t border-black py-20 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-16 mb-20">
           <div className="col-span-2 space-y-8">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-black flex items-center justify-center">
-                <span className="text-white font-bold text-xl font-teko">L</span>
+            <div className="flex items-center gap-4">
+              <div className="relative w-10 h-10 bg-black p-1">
+                <Image
+                  src="/logo lormar blanco.png"
+                  alt="Lormar Logo Blanco"
+                  fill
+                  className="object-contain"
+                />
               </div>
               <span className="text-black font-bold text-2xl tracking-tighter uppercase font-teko">LORMAR</span>
             </div>
