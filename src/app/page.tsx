@@ -141,13 +141,13 @@ export default function Home() {
 
           <div className="lg:col-span-12 grid lg:grid-cols-12 gap-16">
             <div className="lg:col-span-5 space-y-12">
-              <div className="relative">
-                <div className="absolute -left-4 top-0 w-1 h-full bg-black"></div>
-                <h2 className="text-6xl md:text-8xl font-black font-teko uppercase italic leading-[0.8]">
-                  MISIÓN Y <br />
-                  <span className="bg-black text-white px-3 py-1">PROPÓSITO</span>
-                </h2>
+              <div className="inline-block px-4 py-1 bg-brand-yellow text-brand-black text-[10px] font-black uppercase tracking-widest mb-6 italic">
+                Trayectoria y Compromiso
               </div>
+              <h2 className="text-7xl md:text-[100px] font-black text-brand-black leading-[0.8] font-teko uppercase italic mb-8">
+                MISIÓN Y <br />
+                <span className="text-brand-yellow drop-shadow-sm">PROPÓSITO</span>
+              </h2>
 
               <div className="grid grid-cols-1 gap-6">
                 <div className="border border-black p-10 space-y-4 hover:bg-black hover:text-white transition-all group relative overflow-hidden">
@@ -165,17 +165,13 @@ export default function Home() {
 
               <div className="grid grid-cols-2 gap-x-12 gap-y-16">
                 {[
-                  { v: "Responsabilidad", d: "Cumplimos con los compromisos adquiridos." },
-                  { v: "Integridad", d: "Ética en todas las operaciones." },
-                  { v: "Calidad", d: "Estándares nacionales e internacionales." },
-                  { v: "Eficiencia", d: "Optimización de recursos tangibles." }
-                ].map((val, i) => (
-                  <div key={i} className={`space-y-4 ${i % 2 !== 0 ? 'mt-12' : ''}`}>
-                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-[1px] bg-black"></div>
-                      <span className="text-3xl font-black font-teko uppercase italic tracking-tight leading-none">{val.v}</span>
-                    </div>
-                    <p className="text-[10px] font-bold uppercase tracking-[0.4em] opacity-40 pl-14">{val.d}</p>
+                  { title: "CALIDAD", desc: "Excelencia en cada detalle operativo." },
+                  { title: "INTEGRIDAD", desc: "Honestidad absoluta en nuestras gestiones." },
+                  { title: "SEGURIDAD", desc: "Protección total de nuestro activo humano." }
+                ].map((v, i) => (
+                  <div key={i} className="bg-brand-black p-8 group hover:bg-brand-yellow transition-all duration-300">
+                    <h4 className="text-2xl font-black font-teko text-brand-white group-hover:text-brand-black transition-colors">{v.title}</h4>
+                    <p className="text-[10px] font-bold text-brand-white/40 uppercase tracking-widest group-hover:text-brand-black/60 transition-colors">{v.desc}</p>
                   </div>
                 ))}
               </div>
@@ -219,10 +215,10 @@ export default function Home() {
               { num: "03", title: "Ejecución", desc: "Operación en campo bajo norma de seguridad." },
               { num: "04", title: "Entrega", desc: "Certificación de obra y soporte post-proyecto." }
             ].map((step, idx) => (
-              <div key={idx} className="space-y-4 border-t border-black pt-8">
-                <span className="text-4xl font-black font-teko">{step.num}</span>
-                <h4 className="text-xl font-bold uppercase">{step.title}</h4>
-                <p className="text-xs opacity-60 font-bold uppercase tracking-widest leading-loose">{step.desc}</p>
+              <div key={idx} className="space-y-4 border-t border-brand-black pt-8 group hover:border-brand-yellow transition-colors">
+                <span className="text-4xl font-black font-teko text-brand-black group-hover:text-brand-yellow transition-colors">{step.num}</span>
+                <h4 className="text-xl font-bold uppercase text-brand-black">{step.title}</h4>
+                <p className="text-xs opacity-60 font-bold uppercase tracking-widest leading-loose text-brand-black/60">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -285,11 +281,11 @@ export default function Home() {
                 <div className="absolute right-0 top-0 w-32 h-32 bg-black/5 group-hover:bg-white/5 -translate-y-16 translate-x-16 rotate-45"></div>
 
                 <div className="space-y-8 relative z-10">
-                  <div className="w-16 h-16 bg-black text-white flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+                  <div className="w-16 h-16 bg-brand-black text-brand-white flex items-center justify-center group-hover:bg-brand-yellow group-hover:text-brand-black transition-all shadow-lg">
                     {s.icon}
                   </div>
                   <div>
-                    <h3 className="text-4xl font-black font-teko uppercase italic leading-none mb-4">{s.title}</h3>
+                    <h3 className="text-4xl font-black font-teko uppercase italic leading-none mb-4 group-hover:text-brand-yellow transition-colors">{s.title}</h3>
                     <p className="text-xs opacity-60 leading-relaxed italic max-w-xs">{s.desc}</p>
                   </div>
                 </div>
@@ -368,11 +364,11 @@ export default function Home() {
                 { label: "RNC", full: "Válido hasta: 30/06/2026", desc: "Habilitado para Contratación Pública." },
                 { label: "RACDA", full: "N° 03-04-TSMDP-2024-11956", desc: "Manejador (Transporte) Peligroso." }
               ].map((c, i) => (
-                <div key={i} className={`p-10 border border-white/10 hover:border-white transition-all bg-black/40 backdrop-blur-sm group relative ${i === 1 ? 'sm:mt-8' : ''} ${i === 2 ? 'sm:-mt-8' : ''}`}>
-                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-white/0 group-hover:border-white transition-all"></div>
-                  <span className="text-5xl font-black font-teko uppercase italic block mb-2">{c.label}</span>
-                  <span className="text-[9px] font-bold uppercase tracking-widest opacity-40 block mb-6">{c.full}</span>
-                  <p className="text-[10px] font-bold uppercase tracking-widest leading-loose opacity-60 border-t border-white/10 pt-4">{c.desc}</p>
+                <div key={i} className={`p-10 border border-brand-black/10 hover:border-brand-yellow transition-all bg-brand-white/40 backdrop-blur-sm group relative ${i === 1 ? 'sm:mt-8' : ''} ${i === 2 ? 'sm:-mt-8' : ''}`}>
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-brand-yellow/0 group-hover:border-brand-yellow transition-all"></div>
+                  <span className="text-5xl font-black font-teko uppercase italic block mb-2 text-brand-black group-hover:text-brand-yellow transition-colors">{c.label}</span>
+                  <span className="text-[9px] font-bold uppercase tracking-widest opacity-40 block mb-6 text-brand-black/60">{c.full}</span>
+                  <p className="text-[10px] font-bold uppercase tracking-widest leading-loose opacity-60 border-t border-brand-black/10 pt-4 text-brand-black/60">{c.desc}</p>
                 </div>
               ))}
             </div>
@@ -506,7 +502,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-1 bg-black border border-black">
-            <div className="md:col-span-8 relative aspect-video group overflow-hidden bg-slate-900">
+            <div className="md:col-span-8 relative aspect-video group overflow-hidden bg-brand-gray">
               <video
                 autoPlay
                 muted
@@ -516,12 +512,12 @@ export default function Home() {
               >
                 <source src="/videos/lormar 1.mp4" type="video/mp4" />
               </video>
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all pointer-events-none"></div>
+              <div className="absolute inset-0 bg-brand-black/40 group-hover:bg-transparent transition-all pointer-events-none"></div>
               <div className="absolute bottom-6 left-6 z-10">
-                <span className="text-[10px] font-black uppercase tracking-widest text-white border border-white/50 px-2 py-1 bg-black/50">Movimiento de Tierra</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-brand-white border border-brand-yellow px-2 py-1 bg-brand-black/80">Movimiento de Tierra</span>
               </div>
             </div>
-            <div className="md:col-span-4 relative aspect-square md:aspect-auto group overflow-hidden bg-slate-900">
+            <div className="md:col-span-4 relative aspect-square md:aspect-auto group overflow-hidden bg-brand-gray">
               <video
                 autoPlay
                 muted
@@ -531,9 +527,9 @@ export default function Home() {
               >
                 <source src="/videos/lormar 2.mp4" type="video/mp4" />
               </video>
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all pointer-events-none"></div>
+              <div className="absolute inset-0 bg-brand-black/40 group-hover:bg-transparent transition-all pointer-events-none"></div>
               <div className="absolute bottom-6 left-6 z-10">
-                <span className="text-[10px] font-black uppercase tracking-widest text-white border border-white/50 px-2 py-1 bg-black/50">Logística Pesada</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-brand-white border border-brand-yellow px-2 py-1 bg-brand-black/80">Logística Pesada</span>
               </div>
             </div>
             <div className="md:col-span-4 relative aspect-square md:aspect-auto group overflow-hidden bg-slate-900">
@@ -591,7 +587,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-16 mb-20">
           <div className="col-span-2 space-y-8">
             <div className="flex items-center gap-4">
-              <div className="relative w-10 h-10 bg-black p-1">
+              <div className="relative w-10 h-10 bg-brand-black p-1 border border-brand-yellow">
                 <Image
                   src="/logo lormar blanco.png"
                   alt="Lormar Logo Blanco"
@@ -599,7 +595,7 @@ export default function Home() {
                   className="object-contain"
                 />
               </div>
-              <span className="text-black font-bold text-2xl tracking-tighter uppercase font-teko">LORMAR</span>
+              <span className="text-brand-black font-bold text-2xl tracking-tighter uppercase font-teko">LORMAR</span>
             </div>
             <p className="text-sm opacity-50 max-w-sm leading-relaxed uppercase font-bold tracking-widest text-[10px]">
               Expertos en montaje mecánico e instalaciones civiles de alta complejidad.

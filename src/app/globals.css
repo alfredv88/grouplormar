@@ -6,17 +6,21 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter),
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
   --font-montserrat: var(--font-montserrat);
   --font-teko: var(--font-teko);
 
-  --color-primary: #000000;
-  --color-accent: #000000;
-  --color-slate-50: #f8fafc;
-  --color-slate-100: #f2f2f2;
-  --color-slate-200: #e5e5e5;
-  --color-slate-600: #4d4d4d;
-  --color-slate-900: #0f172a;
+  --color-brand-yellow: #FBB034;
+  --color-brand-gray: #3C3C3B;
+  --color-brand-black: #000000;
+  --color-brand-white: #FFFFFF;
+
+  /* Legacy aliases for easier transition */
+  --color-primary: var(--color-brand-black);
+  --color-accent: var(--color-brand-yellow);
 }
 
 @layer utilities {
