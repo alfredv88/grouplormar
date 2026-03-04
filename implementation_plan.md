@@ -1,66 +1,52 @@
-# Plan de Implementación - Maquetado Estructural Grupo Lormar
+# Plan de Implementación: Rediseño Premium Industrial — Grupo Lormar
 
-Este plan detalla la reestructuración del sitio web de Grupo Lormar para alinear su contenido y jerarquía con el brochure corporativo, manteniendo la fase de maquetado (sin color/monocromático).
+Este plan detalla la transformación visual del sitio web hacia un estilo "Dark Industrial" de alto nivel, alineado con el brochure corporativo y tendencias de diseño 2026.
 
-## 1. Definición del Escorial (Scope)
-Refinar la estructura del portal web alineándola con las 5 categorías de servicios del brochure y añadiendo la sección de certificaciones críticas (SENIAT/MINEC). Mejorar la jerarquía visual de la navegación y secciones principales.
+## Scope del Proyecto (Regla 1)
+Rediseño integral bajo estándar "Premium Industrial" (Amarillo #F2A900 / Negro #0F0F0F). Implementación de estructuras del brochure (diagonales, Bento Grids, Glassmorphism) y micro-animaciones técnicas para proyectar solidez, precisión y modernidad. 3 líneas máx.
 
-## 2. Cambios Estructurales Principales
+## User Review Required
 
-### 2.1. Navegación y Header
-- Ajustar links de navegación para reflejar la importancia de "Certificaciones" y "Flota".
-- Incorporar "Cotizar" como CTA principal destacado estructuralmente.
+> [!IMPORTANT]
+> Se cambiará el fondo de Blanco a Negro Carbón (#0F0F0F) como base principal del sitio, siguiendo la Guía de Diseño Visual y el brochure. El amarillo se usará exclusivamente como acento (15%) para mantener un aspecto sobrio y técnico.
 
-### 2.2. Hero Section
-- Refinar el copy para usar términos del brochure ("Servicios y Construcciones Lormar 77, C.A.").
-- Asegurar que el CTA secundario lleve a "Certificaciones" o "Servicios".
+## Proposed Changes
 
-### 2.3. Sección de Servicios (Alineación con Brochure)
-Reemplazar/Expandir las 3 categorías actuales por las 5 oficiales:
-1. **Construcción** (Obras civiles, mecánicas, oleoductos).
-2. **Mantenimiento** (Correctivo, equipos rotatorios/estáticos, NDT).
-3. **Servicios a Pozos** (Estimulación, reacondicionamiento).
-4. **Servicio Ambiental** (Residuos, saneamiento, remediación).
-5. **Servicio Logístico** (Transporte especializado, alquiler de maquinaria).
+### 🎨 Fundamentos y Tokens (CSS)
 
-### 2.4. Nueva Sección: Certificaciones y Confianza
-- Añadir sección con logos/gráficos representativos de:
-    - SENIAT (RUC/RIF).
-    - MINEC (Manejadores de sustancias).
-    - RNC (Registro Nacional de Contratistas).
+#### [MODIFY] [globals.css](file:///e:/Desarrollos/WEB%20GRUPO%20LORMAR/grouplormar-web/src/app/globals.css)
+- Implementar sistema de color 60/25/15:
+  - `--background`: `#0F0F0F` (Negro Carbón)
+  - `--foreground`: `#FFFFFF` (Blanco)
+  - `--primary`: `#F2A900` (Amarillo CAT)
+- Añadir texturas técnicas: `repeating-linear-gradient` para líneas de plano y efectos de metal cepillado.
+- Crear utilidades de **Glassmorphism** (bordes semi-transparentes blancos/amarillos con backdrop-blur).
 
-### 2.5. Maquinaria y Flota
-- Estructurar una sección o "preview" de la flota categorizada:
-    - Izamiento (Grúas).
-    - Movimiento de Tierra (Excavadoras, Retro).
-    - Transporte (Bateas, Chutos).
+---
 
-## 3. Diagrama de Arquitectura de Información
+### 🧱 Componentes y Secciones (React/Next.js)
 
-```mermaid
-graph TD
-    A[Home] --> B[Nosotros]
-    A --> C[Servicios]
-    A --> D[Proyectos]
-    A --> E[Certificaciones]
-    A --> F[Flota/Equipos]
-    A --> G[Contacto]
-    
-    C --> C1[Construcción]
-    C --> C2[Mantenimiento]
-    C --> C3[Servicios a Pozos]
-    C --> C4[Ambiental]
-    C --> C5[Logística]
-    
-    E --> E1[SENIAT]
-    E --> E2[MINEC]
-    E --> E3[RNC]
-```
+#### [MODIFY] [page.tsx](file:///e:/Desarrollos/WEB%20GRUPO%20LORMAR/grouplormar-web/src/app/page.tsx)
+- **Hero**: Aplicar overlay diagonal real (clip-path) y tipografía Teko Bold con tracking expandido.
+- **Servicios**: Implementar tabs con efecto "HMI Glass" y máscaras diagonales para las imágenes.
+- **Equipos**: Crear un **Bento Grid** industrial para mostrar la flota, integrando marcas de agua "LORMAR77" en baja opacidad.
+- **Certificaciones**: Rediseñar como sección hero-céntrica con bordes tipo "blueprint" y resaltado en amarillo.
+- **Animaciones**: Integrar `framer-motion` (o CSS transitions) para "drawing lines" y "fade-up" en secciones.
 
-## 4. Pasos de Ejecución
+---
 
-1. [ ] **Fase 1: Preparación** - Crear carpetas de assets si faltan.
-2. [ ] **Fase 2: Refactorización de `page.tsx`** - Actualizar copys y secciones de servicios.
-3. [ ] **Fase 3: Implementación de Certificaciones** - Nueva sección en la home.
-4. [ ] **Fase 4: Refinamiento de Footer/Header** - Sincronizar con datos oficiales del brochure.
-5. [ ] **Fase 5: Documentación** - Actualizar `README.md`.
+### ⚙️ Backend y Configuración
+
+#### [MODIFY] [tailwind.config.ts](file:///e:/Desarrollos/WEB%20GRUPO%20LORMAR/grouplormar-web/next.config.ts)
+- Asegurar que los colores y fuentes (Teko, Montserrat) estén correctamente mapeados.
+
+## Verification Plan
+
+### Automated Tests
+- Ejecutar `npm run build` para asegurar que los cambios de tipado y estructura no rompan el despliegue.
+- Validar accesibilidad (CRITICAL Contrast 4.5:1) en los textos amarillos sobre negro.
+
+### Manual Verification
+- **Visual Check**: Verificar que las diagonales no causen saltos de contenido (layout shifts).
+- **Responsive**: Probar en anchos 375px (Mobile) y 1440px (Desktop). Las diagonales se simplificarán a bordes rectos en mobile para legibilidad.
+- **Interacción**: Comprobar que todos los botones tengan el cursor pointer y feedback visual instantáneo (HMI style).

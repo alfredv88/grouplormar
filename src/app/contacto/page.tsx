@@ -40,16 +40,16 @@ export default function ContactoPage() {
                         <form className="space-y-8">
                             <div className="grid md:grid-cols-2 gap-8">
                                 <div className="space-y-2">
-                                    <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Nombre y Apellido</label>
+                                    <label className="text-[10px] font-black uppercase tracking-widest text-black">Nombre y Apellido</label>
                                     <input type="text" className="w-full bg-transparent border-b border-black py-4 focus:outline-none focus:border-black/30 transition-all font-montserrat text-sm" placeholder="Ej: Napoleón Bellaville" />
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Correo Corporativo</label>
+                                    <label className="text-[10px] font-black uppercase tracking-widest text-black">Correo Corporativo</label>
                                     <input type="email" className="w-full bg-transparent border-b border-black py-4 focus:outline-none focus:border-black/30 transition-all font-montserrat text-sm" placeholder="ejemplo@empresa.com" />
                                 </div>
                             </div>
                             <div className="space-y-2">
-                                <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Área de Interés</label>
+                                <label className="text-[10px] font-black uppercase tracking-widest text-black">Área de Interés</label>
                                 <select className="w-full bg-transparent border-b border-black py-4 focus:outline-none focus:border-black/30 transition-all font-montserrat text-sm uppercase font-bold tracking-widest">
                                     <option>Montaje Mecánico</option>
                                     <option>Obras Civiles</option>
@@ -59,7 +59,7 @@ export default function ContactoPage() {
                                 </select>
                             </div>
                             <div className="space-y-2">
-                                <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Descripción del Proyecto</label>
+                                <label className="text-[10px] font-black uppercase tracking-widest text-black">Descripción del Proyecto</label>
                                 <textarea rows={4} className="w-full bg-transparent border-b border-black py-4 focus:outline-none focus:border-black/30 transition-all font-montserrat text-sm" placeholder="Cuéntanos sobre el alcance, ubicación y tiempos estimados..."></textarea>
                             </div>
                             <button className="px-10 py-5 bg-black text-white hover:bg-slate-800 transition-all flex items-center justify-center gap-4 text-[10px] font-black uppercase tracking-widest w-full">
@@ -73,9 +73,16 @@ export default function ContactoPage() {
                         <div className="space-y-10">
                             <div className="flex gap-6 items-start">
                                 <div className="w-12 h-12 bg-black text-white flex items-center justify-center border border-black shrink-0"><Phone size={20} /></div>
-                                <div>
+                                <div className="space-y-4">
                                     <h4 className="text-xl font-black font-teko uppercase italic leading-none mb-2">Línea Directa</h4>
-                                    <p className="text-sm font-bold uppercase tracking-widest opacity-40">+58 41418161629 / +58 4129448672</p>
+                                    <div>
+                                        <p className="text-[10px] font-black uppercase tracking-widest text-black mb-1">Napoleón Bellaville</p>
+                                        <p className="text-sm font-bold uppercase tracking-widest">+58 414 181 61 629</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-[10px] font-black uppercase tracking-widest text-black mb-1">Brayhan Bellaville</p>
+                                        <p className="text-sm font-bold uppercase tracking-widest">+58 412 944 86 72</p>
+                                    </div>
                                 </div>
                             </div>
                             <div className="flex gap-6 items-start">
@@ -89,8 +96,8 @@ export default function ContactoPage() {
                                 <div className="w-12 h-12 bg-black text-white flex items-center justify-center border border-black shrink-0"><Clock size={20} /></div>
                                 <div>
                                     <h4 className="text-xl font-black font-teko uppercase italic leading-none mb-2">Horario Operativo</h4>
-                                    <p className="text-sm font-bold uppercase tracking-widest opacity-40">Lunes — Viernes: 08:00 AM - 05:00 PM</p>
-                                    <p className="text-[10px] italic opacity-40">Soporte 24/7 para emergencias críticas de planta.</p>
+                                    <p className="text-sm font-bold uppercase tracking-widest text-black">Lunes — Viernes: 08:00 AM - 05:00 PM</p>
+                                    <p className="text-[10px] italic text-black">Soporte 24/7 para emergencias críticas de planta.</p>
                                 </div>
                             </div>
                         </div>
@@ -98,7 +105,7 @@ export default function ContactoPage() {
                         <div className="pt-20 border-t border-black/10">
                             <div className="p-8 border-2 border-dashed border-black/30 text-center space-y-3">
                                 <h5 className="font-black text-[10px] uppercase tracking-widest">¿Eres Proveedor?</h5>
-                                <p className="text-[9px] font-montserrat opacity-40 uppercase font-bold tracking-widest">Escríbinos a procura@grouplormar.com con tu catálogo actualizado.</p>
+                                <p className="text-[9px] font-montserrat text-black uppercase font-bold tracking-widest">Escríbinos a procura@grouplormar.com con tu catálogo actualizado.</p>
                             </div>
                         </div>
                     </div>
@@ -111,10 +118,10 @@ export default function ContactoPage() {
                     <h2 className="text-6xl font-black font-teko uppercase italic underline">NUESTRAS <br /> SEDES</h2>
                     <div className="grid md:grid-cols-2 gap-12 font-teko">
                         <div className="space-y-6">
-                            <div className="aspect-video grayscale hover:grayscale-0 transition-all duration-700 bg-slate-200 border border-black overflow-hidden">
+                            <div className="aspect-video grayscale hover:grayscale-0 transition-all duration-700 bg-slate-200 border border-black overflow-hidden relative">
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3934.336!2d-64.678!3d10.183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c28ca3629571e19%3A0x6a1f1082c50e1898!2sLecher%C3%ADa!5e0!3m2!1ses!2sve!4v1709156000000!5m2!1ses!2sve"
-                                    className="w-full h-full border-0"
+                                    src="https://www.google.com/maps/d/u/0/embed?mid=17fVcJp0SYgXWSl1eCIFFLvQIRKkw5Ak&ehbc=2E312F"
+                                    className="absolute top-[-52px] left-0 w-full h-[calc(100%+52px)] border-0"
                                     allowFullScreen={true}
                                     loading="lazy"
                                     referrerPolicy="no-referrer-when-downgrade"
@@ -122,14 +129,14 @@ export default function ContactoPage() {
                             </div>
                             <div>
                                 <div className="flex items-center gap-2 mb-2"><MapPin size={20} /> <h4 className="text-3xl font-black uppercase italic leading-none">Oficina Administrativa</h4></div>
-                                <p className="text-sm font-montserrat font-bold uppercase tracking-[0.05em] opacity-40">Sector Las Garzas. Lechería - Anzoátegui.</p>
+                                <p className="text-sm font-montserrat font-bold uppercase tracking-[0.05em] text-black">AV. JORGE RODRÍGUEZ CC MT, NIVEL PB OF 05 SECTOR LAS GARZAS, LECHERÍA ANZOÁTEGUI. CP 6016</p>
                             </div>
                         </div>
                         <div className="space-y-6">
-                            <div className="aspect-video grayscale hover:grayscale-0 transition-all duration-700 bg-slate-200 border border-black overflow-hidden">
+                            <div className="aspect-video grayscale hover:grayscale-0 transition-all duration-700 bg-slate-200 border border-black overflow-hidden relative">
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3934.5!2d-64.7!3d10.15!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c28ca8d963f45d5%3A0x3300f89816298517!2sBarcelona!5e0!3m2!1ses!2sve!4v1709156000000!5m2!1ses!2sve"
-                                    className="w-full h-full border-0"
+                                    src="https://www.google.com/maps/d/u/0/embed?mid=17fVcJp0SYgXWSl1eCIFFLvQIRKkw5Ak&ehbc=2E312F"
+                                    className="absolute top-[-52px] left-0 w-full h-[calc(100%+52px)] border-0"
                                     allowFullScreen={true}
                                     loading="lazy"
                                     referrerPolicy="no-referrer-when-downgrade"
@@ -137,7 +144,7 @@ export default function ContactoPage() {
                             </div>
                             <div>
                                 <div className="flex items-center gap-2 mb-2"><Factory size={20} /> <h4 className="text-3xl font-black uppercase italic leading-none">Base Operativa</h4></div>
-                                <p className="text-sm font-montserrat font-bold uppercase tracking-[0.05em] opacity-40">Sect. Los Potocos. Barcelona - Edo. Anzoátegui.</p>
+                                <p className="text-sm font-montserrat font-bold uppercase tracking-[0.05em] text-black">AUTOPISTA RÓMULO BETANCOURT, TERRENO S/N, SECTOR LOS POTOCOS, BARCELONA EDO. ANZOÁTEGUI.</p>
                             </div>
                         </div>
                     </div>

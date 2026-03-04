@@ -34,7 +34,7 @@ export default function ProyectosPage() {
                     <h1 className="text-8xl md:text-[120px] font-black font-teko uppercase italic leading-[0.8] mb-12">
                         PORTAFOLIO <br /> <span className="underline decoration-4">EJECUTADO</span>
                     </h1>
-                    <p className="text-2xl font-montserrat font-medium text-black/80 leading-relaxed italic border-l-4 border-black pl-6 max-w-4xl">
+                    <p className="text-2xl font-montserrat font-medium text-black leading-relaxed italic border-l-4 border-black pl-6 max-w-4xl">
                         Evidencia técnica de nuestra capacidad de ejecución en diversos sectores estratégicos de la nación.
                     </p>
                 </div>
@@ -51,12 +51,12 @@ export default function ProyectosPage() {
                             </div>
                             <div className="p-10 space-y-6">
                                 <div className="space-y-2">
-                                    <span className="text-[9px] font-bold opacity-40 uppercase tracking-widest italic flex items-center gap-2">
+                                    <span className="text-[9px] font-bold uppercase tracking-widest italic flex items-center gap-2">
                                         <Calendar size={10} /> {p.year} / {p.client}
                                     </span>
                                     <h3 className="text-4xl font-black font-teko uppercase italic leading-none">{p.title}</h3>
                                 </div>
-                                <p className="text-sm opacity-60 leading-relaxed min-h-[48px]">{p.desc}</p>
+                                <p className="text-sm leading-relaxed min-h-[48px]">{p.desc}</p>
                                 <button className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest group-hover:underline">
                                     Ver Ficha Técnica <ArrowRight size={12} />
                                 </button>

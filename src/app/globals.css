@@ -1,25 +1,35 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #000000;
+  --background: #0F0F0F;
+  --foreground: #FFFFFF;
 }
 
 @theme inline {
-  --font-sans: var(--font-inter),
-    ui-sans-serif,
-    system-ui,
-    sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-montserrat: var(--font-montserrat);
-  --font-teko: var(--font-teko);
+  --font-orbitron: var(--font-orbitron);
 
-  --color-brand-yellow: #FBB034;
-  --color-brand-gray: #3C3C3B;
-  --color-brand-black: #000000;
+  --color-brand-yellow: #F2A900;
+  --color-brand-black: #0F0F0F;
+  --color-brand-surface: #1A1A1A;
+  --color-brand-border: #2D2D2D;
   --color-brand-white: #FFFFFF;
+  --color-brand-muted: #FFFFFF;
+  /* Control de Fondo Sección "Nuestro Proceso" */
+  /* Ajusta estos valores para cambiar el aspecto del panel de metodología */
+  --bg-proceso-color: var(--color-brand-yellow);
+  /* Color Oro Institucional (múltiplos de #F2A900) */
+  --bg-proceso-opacity: 0.65;
+  /* Transparencia (1 = sólido, 0 = invisible) */
+  --bg-proceso-blur: 2px;
+  /* Desenfoque del video detrás */
+  --bg-proceso-brightness: 1.25;
+  /* MULTIPLICADOR DE BRILLO (1 = normal, >1 revive el oro) */
+
 
   /* Legacy aliases for easier transition */
-  --color-primary: var(--color-brand-black);
+  --color-primary: var(--color-brand-yellow);
   --color-accent: var(--color-brand-yellow);
 }
 
@@ -28,16 +38,56 @@
     background-image: repeating-linear-gradient(45deg,
         transparent,
         transparent 10px,
-        rgba(0, 0, 0, 0.03) 10px,
-        rgba(0, 0, 0, 0.03) 11px);
+        rgba(255, 255, 255, 0.05) 10px,
+        rgba(255, 255, 255, 0.05) 11px);
   }
 
-  .bg-industrial-grid-dark {
-    background-image: repeating-linear-gradient(45deg,
+  .bg-industrial-lines {
+    background-image: repeating-linear-gradient(0deg,
         transparent,
-        transparent 10px,
-        rgba(255, 255, 255, 0.03) 10px,
-        rgba(255, 255, 255, 0.03) 11px);
+        transparent 39px,
+        rgba(255, 255, 255, 0.03) 39px,
+        rgba(255, 255, 255, 0.03) 40px);
+  }
+
+  .bg-metal-texture {
+    background-image: url('/bg-metal-texture-dark.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: overlay;
+  }
+
+  .bg-lormar-texture {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 40%, transparent 100%), url('/fondo lormar.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .bg-proceso-custom {
+    background-color: color-mix(in srgb, var(--bg-proceso-color) calc(var(--bg-proceso-opacity) * 100%), transparent);
+    backdrop-filter: blur(var(--bg-proceso-blur)) brightness(var(--bg-proceso-brightness));
+    -webkit-backdrop-filter: blur(var(--bg-proceso-blur)) brightness(var(--bg-proceso-brightness));
+  }
+
+  /* Glassmorphism HMI Style */
+  .glass-industrial {
+    @apply bg-brand-white/5 backdrop-blur-md border border-brand-white/10;
+  }
+
+  .glass-industrial-yellow {
+    @apply bg-brand-yellow/5 backdrop-blur-md border border-brand-yellow/20;
+  }
+
+  /* Industrial Cuts (Clip-paths) */
+  .clip-diagonal-hero {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+  }
+
+  .clip-trapeze-right {
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
   }
 
   .clip-diagonal-left {
@@ -51,11 +101,39 @@
   .clip-diagonal-both {
     clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
   }
+
+
+
+  /* Animations */
+  @keyframes drawLine {
+    from {
+      stroke-dashoffset: 1000;
+    }
+
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .animate-draw {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawLine 2s ease-out forwards;
+  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  @apply font-montserrat;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-orbitron {
+  @apply font-orbitron tracking-wide;
 }
 
 .text-balance {

@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Truck, HardHat, ShieldCheck, Settings, Zap, Drill } from "lucide-react";
+import { ArrowLeft, Truck, HardHat, ShieldCheck, Settings, Zap, Drill, Plus } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function NosotrosPage() {
     return (
@@ -26,43 +29,92 @@ export default function NosotrosPage() {
                 </div>
             </nav>
 
-            {/* Hero Section Nosotros */}
-            <section className="px-6 py-20 border-b border-brand-black bg-industrial-grid">
-                <div className="max-w-7xl mx-auto space-y-12">
-                    <div className="space-y-6 max-w-2xl">
-                        <div className="inline-block px-4 py-1 bg-brand-yellow text-brand-black text-[10px] font-black uppercase tracking-widest italic">
-                            Historia y Evolución
-                        </div>
-                        <h1 className="text-8xl md:text-[140px] font-black text-brand-black leading-[0.7] font-teko uppercase italic">
-                            NUESTRO <br /> <span className="text-brand-yellow">ORIGEN</span>
-                        </h1>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-20">
-                        <div className="space-y-8">
-                            <p className="text-2xl font-montserrat font-medium text-brand-black/80 leading-relaxed italic border-l-4 border-brand-yellow pl-6">
-                                “Somos una empresa que cuenta con un equipo de profesionales altamente capacitados, competitivos dentro del mercado nacional, con una visión internacional.”
-                            </p>
-                            <div className="space-y-6 text-sm opacity-70 leading-relaxed font-medium">
-                                <p>Continuamos con un constante crecimiento y desarrollo, basado en una gestión de aprendizaje y mejora continua con la finalidad de prestar un servicio profesional adaptado a las exigencias de nuestros clientes.</p>
-                                <p>Cumplimos con las normativas establecidas por nuestros clientes y estándares nacionales e internacionales en materia de calidad, seguridad y ambiente.</p>
-                            </div>
+            {/* Solidez Operativa Section (Traída desde Home) */}
+            <section className="py-32 px-6 border-b border-brand-white/5 bg-brand-black relative overflow-hidden">
+                <div className="max-w-7xl mx-auto relative z-10">
+                    <div className="grid lg:grid-cols-12 gap-20">
+                        <div className="hidden lg:block lg:col-span-1">
+                            <motion.span
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 0.15 }}
+                                viewport={{ once: true }}
+                                className="text-brand-yellow text-6xl font-black font-orbitron uppercase [writing-mode:vertical-lr] rotate-180"
+                            >
+                                EMPRESA
+                            </motion.span>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-brand-black text-brand-white p-10 flex flex-col justify-between aspect-square group hover:bg-brand-yellow hover:text-brand-black transition-all duration-500">
-                                <span className="text-5xl font-black font-teko tracking-tight group-hover:translate-x-2 transition-transform">V</span>
-                                <div>
-                                    <h4 className="font-bold uppercase text-xs mb-2">Visión Corporativa</h4>
-                                    <p className="text-[10px] opacity-60 leading-normal uppercase font-bold tracking-widest group-hover:opacity-100 italic">Ser de mayor prestigio nacional, ofreciendo calidad y responsabilidad a nuestros clientes.</p>
-                                </div>
+                        <div className="lg:col-span-11 space-y-20">
+                            <div className="grid lg:grid-cols-12 gap-16 items-center">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.8 }}
+                                    className="lg:col-span-7 space-y-8"
+                                >
+                                    <div className="inline-block px-4 py-1 bg-brand-yellow text-brand-black text-xs font-black uppercase tracking-widest italic">
+                                        Trayectoria y Compromiso
+                                    </div>
+                                    <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-brand-white leading-[0.9] font-orbitron uppercase">
+                                        SOLIDEZ <br />
+                                        <span className="text-brand-yellow">OPERATIVA</span>
+                                    </h2>
+                                    <p className="text-lg text-brand-white leading-relaxed font-montserrat max-w-xl">
+                                        Grupo Lormar es una organización líder en servicios industriales y soluciones logísticas, especializada en montajes mecánicos, movimiento de tierra y soporte operativo de alta complejidad para los sectores petrolero e industrial.
+                                    </p>
+                                </motion.div>
+
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.8 }}
+                                    className="lg:col-span-5 relative group"
+                                >
+                                    <div className="aspect-[4/3] bg-brand-surface relative overflow-hidden clip-trapeze-right border-l-4 border-brand-yellow">
+                                        <Image
+                                            src="/images/hero-excavator.png"
+                                            alt="Operaciones Lormar"
+                                            fill
+                                            className="object-cover transition-all duration-700"
+                                        />
+                                    </div>
+                                </motion.div>
                             </div>
-                            <div className="border border-brand-black p-10 flex flex-col justify-between aspect-square group hover:bg-brand-black hover:text-brand-white transition-all duration-500">
-                                <span className="text-5xl font-black font-teko tracking-tight italic group-hover:translate-x-2 transition-transform">M</span>
-                                <div>
-                                    <h4 className="font-bold uppercase text-xs mb-2 text-brand-yellow">Nuestra Misión</h4>
-                                    <p className="text-[10px] opacity-60 leading-normal uppercase font-bold tracking-widest group-hover:opacity-100 italic">Satisfacer las necesidades de la industria petrolera con servicios de calidad y rentabilidad.</p>
-                                </div>
+
+                            {/* Misión y Visión */}
+                            <div className="grid md:grid-cols-2 gap-10">
+                                <motion.div
+                                    initial={{ opacity: 0, x: -30 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6 }}
+                                    className="p-12 border border-brand-white/10 relative overflow-hidden group hover:border-brand-yellow/40 transition-colors"
+                                >
+                                    <div className="absolute top-0 left-0 w-2 h-16 bg-brand-yellow"></div>
+                                    <h3 className="text-4xl font-black font-orbitron text-brand-white uppercase mb-6 flex items-center gap-4 tracking-wider">
+                                        <span className="text-brand-yellow">01</span> MISIÓN
+                                    </h3>
+                                    <p className="text-brand-white font-montserrat italic leading-relaxed">
+                                        Brindar servicios industriales de alta calidad, comprometidos a superar las expectativas de nuestros clientes mediante la potencia de nuestra flota propia y el estricto cumplimiento de normas de seguridad.
+                                    </p>
+                                </motion.div>
+                                <motion.div
+                                    initial={{ opacity: 0, x: 30 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6 }}
+                                    className="p-12 border border-brand-white/10 relative overflow-hidden group hover:border-brand-yellow/40 transition-colors"
+                                >
+                                    <div className="absolute top-0 left-0 w-2 h-16 bg-brand-yellow"></div>
+                                    <h3 className="text-4xl font-black font-orbitron text-brand-white uppercase mb-6 flex items-center gap-4 tracking-wider">
+                                        <span className="text-brand-yellow">02</span> VISIÓN
+                                    </h3>
+                                    <p className="text-brand-white font-montserrat italic leading-relaxed">
+                                        Posicionarnos como el aliado operativo más confiable a nivel nacional, siendo referentes en disponibilidad de maquinaria, ejecución técnica y responsabilidad socio-ambiental.
+                                    </p>
+                                </motion.div>
                             </div>
                         </div>
                     </div>
@@ -75,7 +127,7 @@ export default function NosotrosPage() {
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="mb-20 space-y-4 text-center md:text-left">
                         <h2 className="text-6xl font-black font-teko uppercase italic underline decoration-brand-yellow underline-offset-8">CAPACIDAD <br /> TECNOLÓGICA PROPIA</h2>
-                        <p className="text-sm font-bold uppercase tracking-widest text-brand-black/40">Mantenimiento preventivo / 9 Categorías de especialización</p>
+                        <p className="text-sm font-bold uppercase tracking-widest text-brand-black">Mantenimiento preventivo / 9 Categorías de especialización</p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-1 border-brand-black bg-brand-black">
@@ -92,12 +144,12 @@ export default function NosotrosPage() {
                         ].map((equip, idx) => (
                             <div key={idx} className="bg-brand-white p-10 hover:bg-brand-black hover:text-brand-white transition-all duration-300 flex flex-col justify-between min-h-[300px] border-b border-r border-brand-black/5 group">
                                 <div className="flex justify-between items-start">
-                                    <div className="opacity-20 group-hover:opacity-100 transition-opacity text-brand-yellow">{equip.icon}</div>
-                                    <span className="text-[9px] font-black uppercase tracking-widest text-brand-black/40 group-hover:text-brand-yellow/60 border border-current px-2 py-0.5">{equip.cat}</span>
+                                    <div className="opacity-100 transition-opacity text-brand-yellow">{equip.icon}</div>
+                                    <span className="text-[9px] font-black uppercase tracking-widest text-brand-black group-hover:text-brand-yellow border border-brand-black px-2 py-0.5">{equip.cat}</span>
                                 </div>
                                 <div className="mt-8">
                                     <h4 className="text-3xl font-black font-teko uppercase italic leading-tight mb-2">{equip.name}</h4>
-                                    <p className="text-[10px] font-bold uppercase tracking-widest text-brand-black/40 group-hover:text-brand-white/80">{equip.desc}</p>
+                                    <p className="text-[10px] font-bold uppercase tracking-widest text-brand-black group-hover:text-brand-white">{equip.desc}</p>
                                 </div>
                             </div>
                         ))}
