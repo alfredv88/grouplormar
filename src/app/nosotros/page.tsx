@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -18,7 +18,7 @@ export default function NosotrosPage() {
                     <div className="flex items-center gap-4">
                         <div className="relative w-8 h-8 bg-brand-black p-1 border border-brand-yellow">
                             <Image
-                                src="/logo lormar blanco.png"
+                                src="/logos/logo lormar blanco.png"
                                 alt="Lormar"
                                 fill
                                 className="object-contain"
@@ -29,7 +29,7 @@ export default function NosotrosPage() {
                 </div>
             </nav>
 
-            {/* Solidez Operativa Section (Traída desde Home) */}
+            {/* Solidez Operativa Section (TraÃ­da desde Home) */}
             <section className="py-32 px-6 border-b border-brand-white/5 bg-brand-black relative overflow-hidden">
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="grid lg:grid-cols-12 gap-20">
@@ -61,7 +61,7 @@ export default function NosotrosPage() {
                                         <span className="text-brand-yellow">OPERATIVA</span>
                                     </h2>
                                     <p className="text-lg text-brand-white leading-relaxed font-montserrat max-w-xl">
-                                        Grupo Lormar es una organización líder en servicios industriales y soluciones logísticas, especializada en montajes mecánicos, movimiento de tierra y soporte operativo de alta complejidad para los sectores petrolero e industrial.
+                                        Grupo Lormar es una organizaciÃ³n lÃ­der en servicios industriales y soluciones logÃ­sticas, especializada en montajes mecÃ¡nicos, movimiento de tierra y soporte operativo de alta complejidad para los sectores petrolero e industrial.
                                     </p>
                                 </motion.div>
 
@@ -83,7 +83,7 @@ export default function NosotrosPage() {
                                 </motion.div>
                             </div>
 
-                            {/* Misión y Visión */}
+                            {/* MisiÃ³n y VisiÃ³n */}
                             <div className="grid md:grid-cols-2 gap-10">
                                 <motion.div
                                     initial={{ opacity: 0, x: -30 }}
@@ -94,7 +94,7 @@ export default function NosotrosPage() {
                                 >
                                     <div className="absolute top-0 left-0 w-2 h-16 bg-brand-yellow"></div>
                                     <h3 className="text-4xl font-black font-orbitron text-brand-white uppercase mb-6 flex items-center gap-4 tracking-wider">
-                                        <span className="text-brand-yellow">01</span> MISIÓN
+                                        <span className="text-brand-yellow">01</span> MISIÃ“N
                                     </h3>
                                     <p className="text-brand-white font-montserrat italic leading-relaxed">
                                         Brindar servicios industriales de alta calidad, comprometidos a superar las expectativas de nuestros clientes mediante la potencia de nuestra flota propia y el estricto cumplimiento de normas de seguridad.
@@ -109,10 +109,10 @@ export default function NosotrosPage() {
                                 >
                                     <div className="absolute top-0 left-0 w-2 h-16 bg-brand-yellow"></div>
                                     <h3 className="text-4xl font-black font-orbitron text-brand-white uppercase mb-6 flex items-center gap-4 tracking-wider">
-                                        <span className="text-brand-yellow">02</span> VISIÓN
+                                        <span className="text-brand-yellow">02</span> VISIÃ“N
                                     </h3>
                                     <p className="text-brand-white font-montserrat italic leading-relaxed">
-                                        Posicionarnos como el aliado operativo más confiable a nivel nacional, siendo referentes en disponibilidad de maquinaria, ejecución técnica y responsabilidad socio-ambiental.
+                                        Posicionarnos como el aliado operativo mÃ¡s confiable a nivel nacional, siendo referentes en disponibilidad de maquinaria, ejecuciÃ³n tÃ©cnica y responsabilidad socio-ambiental.
                                     </p>
                                 </motion.div>
                             </div>
@@ -126,21 +126,21 @@ export default function NosotrosPage() {
                 <div className="absolute inset-0 bg-industrial-grid opacity-30 pointer-events-none"></div>
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="mb-20 space-y-4 text-center md:text-left">
-                        <h2 className="text-6xl font-black font-teko uppercase italic underline decoration-brand-yellow underline-offset-8">CAPACIDAD <br /> TECNOLÓGICA PROPIA</h2>
-                        <p className="text-sm font-bold uppercase tracking-widest text-brand-black">Mantenimiento preventivo / 9 Categorías de especialización</p>
+                        <h2 className="text-6xl font-black font-teko uppercase italic underline decoration-brand-yellow underline-offset-8">CAPACIDAD <br /> TECNOLÃ“GICA PROPIA</h2>
+                        <p className="text-sm font-bold uppercase tracking-widest text-brand-black">Mantenimiento preventivo / 9 CategorÃ­as de especializaciÃ³n</p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-1 border-brand-black bg-brand-black">
                         {[
-                            { cat: "Izaje", name: "Grúas Telescópicas", desc: "15-100 TON / Brazo Hidráulico", icon: <Truck size={32} /> },
-                            { cat: "Pala Mecánica", name: "Línea Amarilla", desc: "Excavadoras, Cargadores, Retro", icon: <HardHat size={32} /> },
+                            { cat: "Izaje", name: "GrÃºas TelescÃ³picas", desc: "15-100 TON / Brazo HidrÃ¡ulico", icon: <Truck size={32} /> },
+                            { cat: "Pala MecÃ¡nica", name: "LÃ­nea Amarilla", desc: "Excavadoras, Cargadores, Retro", icon: <HardHat size={32} /> },
                             { cat: "Pozos", name: "Well Testing / Flush-By", desc: "Cabillero 350HP / Hot Oil", icon: <Drill size={32} /> },
-                            { cat: "Movimiento Tierra", name: "Maquinaria Pesada", desc: "Tractores, Mototraíllas, Rodillos", icon: <Settings size={32} /> },
-                            { cat: "Transporte", name: "Logística Pesada", desc: "Lowboy (140 Ton), Vacuum, Bateas", icon: <Truck size={32} /> },
-                            { cat: "Elevadores", name: "Acceso Seguro", desc: "Manlift / Camión Cesta", icon: <ShieldCheck size={32} /> },
-                            { cat: "Asfalto", name: "Pavimentación", desc: "Finisher, Escarificadora, Barredora", icon: <HardHat size={32} /> },
-                            { cat: "Concreto", name: "Mezclado Móvil", desc: "Camión Trompo / Mezcladora", icon: <Settings size={32} /> },
-                            { cat: "Equipos Menores", name: "Soporte Campo", desc: "Plantas Eléctricas, Compresores, Torres", icon: <Zap size={32} /> }
+                            { cat: "Movimiento Tierra", name: "Maquinaria Pesada", desc: "Tractores, MototraÃ­llas, Rodillos", icon: <Settings size={32} /> },
+                            { cat: "Transporte", name: "LogÃ­stica Pesada", desc: "Lowboy (140 Ton), Vacuum, Bateas", icon: <Truck size={32} /> },
+                            { cat: "Elevadores", name: "Acceso Seguro", desc: "Manlift / CamiÃ³n Cesta", icon: <ShieldCheck size={32} /> },
+                            { cat: "Asfalto", name: "PavimentaciÃ³n", desc: "Finisher, Escarificadora, Barredora", icon: <HardHat size={32} /> },
+                            { cat: "Concreto", name: "Mezclado MÃ³vil", desc: "CamiÃ³n Trompo / Mezcladora", icon: <Settings size={32} /> },
+                            { cat: "Equipos Menores", name: "Soporte Campo", desc: "Plantas ElÃ©ctricas, Compresores, Torres", icon: <Zap size={32} /> }
                         ].map((equip, idx) => (
                             <div key={idx} className="bg-brand-white p-10 hover:bg-brand-black hover:text-brand-white transition-all duration-300 flex flex-col justify-between min-h-[300px] border-b border-r border-brand-black/5 group">
                                 <div className="flex justify-between items-start">

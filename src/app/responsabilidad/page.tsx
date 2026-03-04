@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Leaf, Users, Award, ShieldCheck, Globe, CheckCircle2 } from "lucide-react";
 
@@ -37,10 +37,10 @@ export default function ResponsabilidadPage() {
                 <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-px bg-black border border-black overflow-hidden rounded-lg">
                     <article className="bg-white p-12 space-y-12 transition-all hover:bg-slate-50 relative group">
                         <Leaf size={48} className="mb-10 text-black group-hover:text-black transition-colors" />
-                        <h2 className="text-5xl font-black font-teko uppercase italic leading-none mb-4">Gestión <br /> Ambiental</h2>
-                        <p className="text-sm font-montserrat leading-relaxed">Implementamos programas de remediación de suelos y gestión de desechos industriales bajo normas MARNR.</p>
+                        <h2 className="text-5xl font-black font-teko uppercase italic leading-none mb-4">GestiÃ³n <br /> Ambiental</h2>
+                        <p className="text-sm font-montserrat leading-relaxed">Implementamos programas de remediaciÃ³n de suelos y gestiÃ³n de desechos industriales bajo normas MARNR.</p>
                         <ul className="space-y-3 pt-6">
-                            {["Control de Emisiones", "Manejo de Efluentes", "Remediación de Pasivos"].map((item, i) => (
+                            {["Control de Emisiones", "Manejo de Efluentes", "RemediaciÃ³n de Pasivos"].map((item, i) => (
                                 <li key={i} className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-black">
                                     <CheckCircle2 size={12} className="text-black" />
                                     {item}
@@ -52,7 +52,7 @@ export default function ResponsabilidadPage() {
                     <article className="bg-black text-white p-12 space-y-12 transition-all hover:bg-zinc-800 relative group border-x border-white/10">
                         <Users size={48} className="mb-10 text-white group-hover:text-white transition-colors" />
                         <h2 className="text-5xl font-black font-teko uppercase italic leading-none mb-4">Aporte <br /> Comunitario</h2>
-                        <p className="text-sm font-montserrat leading-relaxed">Fortalecemos el tejido social mediante el empleo local y el apoyo a las comunidades aledañas a nuestras bases operativas.</p>
+                        <p className="text-sm font-montserrat leading-relaxed">Fortalecemos el tejido social mediante el empleo local y el apoyo a las comunidades aledaÃ±as a nuestras bases operativas.</p>
                         <ul className="space-y-3 pt-6">
                             {["Becas Estudiantiles", "Obras Solidarias", "Empleo Local +80%"].map((item, i) => (
                                 <li key={i} className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-white">
@@ -65,8 +65,8 @@ export default function ResponsabilidadPage() {
 
                     <article className="bg-white p-12 space-y-12 transition-all hover:bg-slate-50 relative group">
                         <Award size={48} className="mb-10 text-black group-hover:text-black transition-colors" />
-                        <h2 className="text-5xl font-black font-teko uppercase italic leading-none mb-4">Garantía de <br /> Calidad</h2>
-                        <p className="text-sm font-montserrat leading-relaxed">Certificados por los entes reguladores nacionales e internacionales más exigentes de la industria.</p>
+                        <h2 className="text-5xl font-black font-teko uppercase italic leading-none mb-4">GarantÃ­a de <br /> Calidad</h2>
+                        <p className="text-sm font-montserrat leading-relaxed">Certificados por los entes reguladores nacionales e internacionales mÃ¡s exigentes de la industria.</p>
                         <ul className="space-y-3 pt-6">
                             {["RNC Vigente", "SENCAMER", "Normas ASTM / ASME"].map((item, i) => (
                                 <li key={i} className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest border-b border-black/5 pb-2 text-black">

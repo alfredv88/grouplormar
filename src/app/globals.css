@@ -51,7 +51,7 @@
   }
 
   .bg-metal-texture {
-    background-image: url('/bg-metal-texture-dark.png');
+    background-image: url('/textures/bg-metal-texture-dark.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -60,7 +60,7 @@
   }
 
   .bg-lormar-texture {
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 40%, transparent 100%), url('/fondo lormar.jpg');
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 40%, transparent 100%), url('/textures/fondo lormar.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

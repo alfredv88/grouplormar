@@ -1,4 +1,4 @@
-import { ArrowLeft, MapPin, Factory, Phone, Mail, Clock, Send } from "lucide-react";
+﻿import { ArrowLeft, MapPin, Factory, Phone, Mail, Clock, Send } from "lucide-react";
 import Link from "next/link";
 
 export default function ContactoPage() {
@@ -26,7 +26,7 @@ export default function ContactoPage() {
                         ASESORIA <br /> <span className="underline decoration-4">DIRECTA</span>
                     </h1>
                     <p className="text-2xl font-montserrat font-medium text-black/80 leading-relaxed italic border-l-4 border-black pl-6 max-w-4xl">
-                        Inicia el proceso de cotización para tu proyecto industrial. Nuestro equipo de procura e ingeniería evaluará tu requerimiento de inmediato.
+                        Inicia el proceso de cotizaciÃ³n para tu proyecto industrial. Nuestro equipo de procura e ingenierÃ­a evaluarÃ¡ tu requerimiento de inmediato.
                     </p>
                 </div>
             </section>
@@ -36,12 +36,12 @@ export default function ContactoPage() {
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20">
                     {/* Formulario */}
                     <div className="space-y-12">
-                        <h3 className="text-4xl font-black font-teko uppercase italic underline decoration-2 underline-offset-8">Solicitud Técnica</h3>
+                        <h3 className="text-4xl font-black font-teko uppercase italic underline decoration-2 underline-offset-8">Solicitud TÃ©cnica</h3>
                         <form className="space-y-8">
                             <div className="grid md:grid-cols-2 gap-8">
                                 <div className="space-y-2">
                                     <label className="text-[10px] font-black uppercase tracking-widest text-black">Nombre y Apellido</label>
-                                    <input type="text" className="w-full bg-transparent border-b border-black py-4 focus:outline-none focus:border-black/30 transition-all font-montserrat text-sm" placeholder="Ej: Napoleón Bellaville" />
+                                    <input type="text" className="w-full bg-transparent border-b border-black py-4 focus:outline-none focus:border-black/30 transition-all font-montserrat text-sm" placeholder="Ej: NapoleÃ³n Bellaville" />
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-[10px] font-black uppercase tracking-widest text-black">Correo Corporativo</label>
@@ -49,18 +49,18 @@ export default function ContactoPage() {
                                 </div>
                             </div>
                             <div className="space-y-2">
-                                <label className="text-[10px] font-black uppercase tracking-widest text-black">Área de Interés</label>
+                                <label className="text-[10px] font-black uppercase tracking-widest text-black">Ãrea de InterÃ©s</label>
                                 <select className="w-full bg-transparent border-b border-black py-4 focus:outline-none focus:border-black/30 transition-all font-montserrat text-sm uppercase font-bold tracking-widest">
-                                    <option>Montaje Mecánico</option>
+                                    <option>Montaje MecÃ¡nico</option>
                                     <option>Obras Civiles</option>
-                                    <option>Automatización</option>
+                                    <option>AutomatizaciÃ³n</option>
                                     <option>Procura Internacional</option>
                                     <option>Otros</option>
                                 </select>
                             </div>
                             <div className="space-y-2">
-                                <label className="text-[10px] font-black uppercase tracking-widest text-black">Descripción del Proyecto</label>
-                                <textarea rows={4} className="w-full bg-transparent border-b border-black py-4 focus:outline-none focus:border-black/30 transition-all font-montserrat text-sm" placeholder="Cuéntanos sobre el alcance, ubicación y tiempos estimados..."></textarea>
+                                <label className="text-[10px] font-black uppercase tracking-widest text-black">DescripciÃ³n del Proyecto</label>
+                                <textarea rows={4} className="w-full bg-transparent border-b border-black py-4 focus:outline-none focus:border-black/30 transition-all font-montserrat text-sm" placeholder="CuÃ©ntanos sobre el alcance, ubicaciÃ³n y tiempos estimados..."></textarea>
                             </div>
                             <button className="px-10 py-5 bg-black text-white hover:bg-slate-800 transition-all flex items-center justify-center gap-4 text-[10px] font-black uppercase tracking-widest w-full">
                                 <Send size={16} /> Enviar Requerimiento
@@ -74,9 +74,9 @@ export default function ContactoPage() {
                             <div className="flex gap-6 items-start">
                                 <div className="w-12 h-12 bg-black text-white flex items-center justify-center border border-black shrink-0"><Phone size={20} /></div>
                                 <div className="space-y-4">
-                                    <h4 className="text-xl font-black font-teko uppercase italic leading-none mb-2">Línea Directa</h4>
+                                    <h4 className="text-xl font-black font-teko uppercase italic leading-none mb-2">LÃ­nea Directa</h4>
                                     <div>
-                                        <p className="text-[10px] font-black uppercase tracking-widest text-black mb-1">Napoleón Bellaville</p>
+                                        <p className="text-[10px] font-black uppercase tracking-widest text-black mb-1">NapoleÃ³n Bellaville</p>
                                         <p className="text-sm font-bold uppercase tracking-widest">+58 414 181 61 629</p>
                                     </div>
                                     <div>
@@ -96,16 +96,16 @@ export default function ContactoPage() {
                                 <div className="w-12 h-12 bg-black text-white flex items-center justify-center border border-black shrink-0"><Clock size={20} /></div>
                                 <div>
                                     <h4 className="text-xl font-black font-teko uppercase italic leading-none mb-2">Horario Operativo</h4>
-                                    <p className="text-sm font-bold uppercase tracking-widest text-black">Lunes — Viernes: 08:00 AM - 05:00 PM</p>
-                                    <p className="text-[10px] italic text-black">Soporte 24/7 para emergencias críticas de planta.</p>
+                                    <p className="text-sm font-bold uppercase tracking-widest text-black">Lunes â€” Viernes: 08:00 AM - 05:00 PM</p>
+                                    <p className="text-[10px] italic text-black">Soporte 24/7 para emergencias crÃ­ticas de planta.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div className="pt-20 border-t border-black/10">
                             <div className="p-8 border-2 border-dashed border-black/30 text-center space-y-3">
-                                <h5 className="font-black text-[10px] uppercase tracking-widest">¿Eres Proveedor?</h5>
-                                <p className="text-[9px] font-montserrat text-black uppercase font-bold tracking-widest">Escríbinos a procura@grouplormar.com con tu catálogo actualizado.</p>
+                                <h5 className="font-black text-[10px] uppercase tracking-widest">Â¿Eres Proveedor?</h5>
+                                <p className="text-[9px] font-montserrat text-black uppercase font-bold tracking-widest">EscrÃ­binos a procura@grouplormar.com con tu catÃ¡logo actualizado.</p>
                             </div>
                         </div>
                     </div>
@@ -129,7 +129,7 @@ export default function ContactoPage() {
                             </div>
                             <div>
                                 <div className="flex items-center gap-2 mb-2"><MapPin size={20} /> <h4 className="text-3xl font-black uppercase italic leading-none">Oficina Administrativa</h4></div>
-                                <p className="text-sm font-montserrat font-bold uppercase tracking-[0.05em] text-black">AV. JORGE RODRÍGUEZ CC MT, NIVEL PB OF 05 SECTOR LAS GARZAS, LECHERÍA ANZOÁTEGUI. CP 6016</p>
+                                <p className="text-sm font-montserrat font-bold uppercase tracking-[0.05em] text-black">AV. JORGE RODRÃGUEZ CC MT, NIVEL PB OF 05 SECTOR LAS GARZAS, LECHERÃA ANZOÃTEGUI. CP 6016</p>
                             </div>
                         </div>
                         <div className="space-y-6">
@@ -144,7 +144,7 @@ export default function ContactoPage() {
                             </div>
                             <div>
                                 <div className="flex items-center gap-2 mb-2"><Factory size={20} /> <h4 className="text-3xl font-black uppercase italic leading-none">Base Operativa</h4></div>
-                                <p className="text-sm font-montserrat font-bold uppercase tracking-[0.05em] text-black">AUTOPISTA RÓMULO BETANCOURT, TERRENO S/N, SECTOR LOS POTOCOS, BARCELONA EDO. ANZOÁTEGUI.</p>
+                                <p className="text-sm font-montserrat font-bold uppercase tracking-[0.05em] text-black">AUTOPISTA RÃ“MULO BETANCOURT, TERRENO S/N, SECTOR LOS POTOCOS, BARCELONA EDO. ANZOÃTEGUI.</p>
                             </div>
                         </div>
                     </div>

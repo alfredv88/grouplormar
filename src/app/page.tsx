@@ -162,7 +162,7 @@ export default function Home() {
           <Link href="/" className="group">
             <div className="relative w-48 h-12 transition-all">
               <Image
-                src="/logo lormar blanco.png"
+                src="/logos/logo lormar blanco.png"
                 alt="Logo Grupo Lormar"
                 fill
                 className="object-contain"
@@ -646,7 +646,7 @@ export default function Home() {
             <div className="lg:col-span-4 space-y-10">
               <Link href="/" className="block">
                 <div className="relative w-64 h-20">
-                  <Image src="/logo lormar blanco.png" alt="Lormar" fill className="object-contain object-left" />
+                  <Image src="/logos/logo lormar blanco.png" alt="Lormar" fill className="object-contain object-left" />
                 </div>
               </Link>
               <p className="text-brand-white text-sm font-montserrat leading-relaxed italic border-l-2 border-brand-yellow/30 pl-6">
