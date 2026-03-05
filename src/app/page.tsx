@@ -41,11 +41,11 @@ export default function Home() {
   const [currentVideo, setCurrentVideo] = useState(0);
 
   const heroVideos = [
-    "/videos/lormar 7.mp4",
-    "/videos/lormar 1.mp4",
-    "/videos/lormar 3.mp4",
-    "/videos/lormar 4.mp4",
-    "/videos/lormar 5.mp4"
+    "/videos/lormar 7.webm",
+    "/videos/lormar 1.webm",
+    "/videos/lormar 3.webm",
+    "/videos/lormar 4.webm",
+    "/videos/lormar 5.webm"
   ];
 
   // Auto-play videos in carousel
@@ -457,7 +457,7 @@ export default function Home() {
             playsInline
             className="w-full h-full object-cover opacity-40 mix-blend-overlay"
           >
-            <source src="/videos/lormar 2.mp4" type="video/mp4" />
+            <source src="/videos/lormar 2.webm" type="video/webm" />
           </video>
           {/* Overlay de contraste (Abajo a Arriba) */}
           <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/40 to-transparent z-10"></div>
