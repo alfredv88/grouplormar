@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -39,6 +39,11 @@ import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 export default function Home() {
   const [activeTab, setActiveTab] = useState("PESADA");
   const [currentVideo, setCurrentVideo] = useState(0);
+
+  const containerRef = useRef(null);
+  const { scrollY } = useScroll();
+  const heroScale = useTransform(scrollY, [0, 800], [1, 0.9]);
+  const heroOpacity = useTransform(scrollY, [0, 800], [1, 0.3]);
 
   const heroVideos = [
     "/videos/lormar 7.webm",
@@ -83,7 +88,7 @@ export default function Home() {
       icon: <Truck size={32} />,
       items: ["TELESCÓPICAS 100T", "IZAMIENTO CRÍTICO"],
       cols: "md:col-span-8",
-      img: "/images/hero-excavator.png"
+      img: "/images/izamiento_critico_realista.png"
     },
     {
       id: 2,
@@ -93,7 +98,7 @@ export default function Home() {
       icon: <HardHat size={32} />,
       items: ["EXCAVACIÓN", "CARGA FRONTAL"],
       cols: "md:col-span-4",
-      img: "/images/hero-excavator.png"
+      img: "/images/hero-excavator.webp"
     },
     {
       id: 3,
@@ -103,7 +108,7 @@ export default function Home() {
       icon: <Drill size={32} />,
       items: ["WELL TESTING", "FLUSH-BY"],
       cols: "md:col-span-4",
-      img: "/images/hero-excavator.png"
+      img: "/images/hero-excavator.webp"
     },
     {
       id: 4,
@@ -113,7 +118,7 @@ export default function Home() {
       icon: <Settings size={32} />,
       items: ["TRACTORES", "VIALIDAD"],
       cols: "md:col-span-4",
-      img: "/images/hero-excavator.png"
+      img: "/images/hero-excavator.webp"
     },
     {
       id: 5,
@@ -123,7 +128,7 @@ export default function Home() {
       icon: <Truck size={32} />,
       items: ["LOWBOY 140T", "VACUUM"],
       cols: "md:col-span-6",
-      img: "/images/hero-excavator.png"
+      img: "/images/hero-excavator.webp"
     },
     {
       id: 6,
@@ -133,7 +138,7 @@ export default function Home() {
       icon: <Box size={32} />,
       items: ["MANLIFT CERTIFICADO", "CAMIÓN CESTA"],
       cols: "md:col-span-4",
-      img: "/images/hero-excavator.png"
+      img: "/images/hero-excavator.webp"
     },
     {
       id: 7,
@@ -143,7 +148,7 @@ export default function Home() {
       icon: <Construction size={32} />,
       items: ["FINISHER", "RODILLO LISO"],
       cols: "md:col-span-8",
-      img: "/images/hero-excavator.png"
+      img: "/images/hero-excavator.webp"
     },
     {
       id: 8,
@@ -153,7 +158,7 @@ export default function Home() {
       icon: <Zap size={32} />,
       items: ["TROMPO MEZCLADOR", "CONCRETO INDUSTRIAL"],
       cols: "md:col-span-4",
-      img: "/images/hero-excavator.png"
+      img: "/images/hero-excavator.webp"
     },
     {
       id: 9,
@@ -163,18 +168,18 @@ export default function Home() {
       icon: <ShieldCheck size={32} />,
       items: ["PLANTAS 1000KVA", "TORRES DE LUZ", "COMPRESORES"],
       cols: "md:col-span-6",
-      img: "/images/hero-excavator.png"
+      img: "/images/hero-excavator.webp"
     }
   ];
   return (
     <main className="min-h-screen bg-brand-black text-brand-white font-montserrat selection:bg-brand-yellow selection:text-brand-black">
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-brand-black/80 backdrop-blur-md z-50 border-b border-brand-white/5">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20 h-20 flex items-center justify-between">
           <Link href="/" className="group">
             <div className="relative w-48 h-12 transition-all">
               <Image
-                src="/logos/logo lormar blanco.png"
+                src="/logos/logo lormar blanco.webp"
                 alt="Logo Grupo Lormar"
                 fill
                 className="object-contain"
@@ -191,150 +196,156 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-start overflow-hidden" aria-label="Introducción">
-        <div className="absolute inset-0 z-0">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentVideo}
-              initial={{ opacity: 0, scale: 1.1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 2, ease: "easeInOut" }}
-              className="absolute inset-0 w-full h-full"
-            >
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
+      {/* Hero Section Wrapper for Stacking Parallax */}
+      <div className="h-[150vh] relative z-0">
+        <motion.section
+          className="sticky top-0 h-screen flex items-center justify-start overflow-hidden origin-top"
+          aria-label="Introducción"
+          style={{ scale: heroScale, opacity: heroOpacity }}
+        >
+          <div className="absolute inset-0 z-0">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentVideo}
+                initial={{ opacity: 0, scale: 1.1 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 2, ease: "easeInOut" }}
+                className="absolute inset-0 w-full h-full"
               >
-                <source src={heroVideos[currentVideo]} type="video/mp4" />
-              </video>
-            </motion.div>
-          </AnimatePresence>
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src={heroVideos[currentVideo]} type="video/mp4" />
+                </video>
+              </motion.div>
+            </AnimatePresence>
 
-          {/* HUD & industrial Overlays */}
-          <div className="absolute inset-0 z-10 pointer-events-none">
-            {/* Grid background */}
-            <div className="absolute inset-0 bg-industrial-grid opacity-[0.05]"></div>
+            {/* HUD & industrial Overlays */}
+            <div className="absolute inset-0 z-10 pointer-events-none">
+              {/* Grid background */}
+              <div className="absolute inset-0 bg-industrial-grid opacity-[0.05]"></div>
 
-            {/* HUD Corners */}
-            <div className="absolute top-24 left-6 w-8 h-8 border-t-2 border-l-2 border-brand-yellow/30"></div>
-            <div className="absolute top-24 right-6 w-8 h-8 border-t-2 border-r-2 border-brand-yellow/30"></div>
-            <div className="absolute bottom-6 left-6 w-8 h-8 border-b-2 border-l-2 border-brand-yellow/30"></div>
-            <div className="absolute bottom-6 right-6 w-8 h-8 border-b-2 border-r-2 border-brand-yellow/30"></div>
+              {/* HUD Corners */}
+              <div className="absolute top-24 left-6 w-8 h-8 border-t-2 border-l-2 border-brand-yellow/30"></div>
+              <div className="absolute top-24 right-6 w-8 h-8 border-t-2 border-r-2 border-brand-yellow/30"></div>
+              <div className="absolute bottom-6 left-6 w-8 h-8 border-b-2 border-l-2 border-brand-yellow/30"></div>
+              <div className="absolute bottom-6 right-6 w-8 h-8 border-b-2 border-r-2 border-brand-yellow/30"></div>
 
-            {/* Scrolling Scanning Line */}
-            <motion.div
-              animate={{ top: ["0%", "100%", "0%"] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-              className="absolute left-0 w-full h-[2px] bg-brand-yellow/10 blur-sm z-10"
-            />
+              {/* Scrolling Scanning Line */}
+              <motion.div
+                animate={{ top: ["0%", "100%", "0%"] }}
+                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                className="absolute left-0 w-full h-[2px] bg-brand-yellow/10 blur-sm z-10"
+              />
+            </div>
+
+            {/* Gradients for depth */}
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/50 to-transparent z-20"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent opacity-60 z-20"></div>
+
+            {/* Vertical Metadata Label */}
+            <div className="absolute right-10 bottom-40 z-30 hidden lg:flex flex-col items-end gap-4 overflow-hidden">
+              <motion.div
+                initial={{ height: 0 }}
+                animate={{ height: 100 }}
+                transition={{ duration: 1.5, delay: 1 }}
+                className="w-[1px] bg-brand-yellow/50"
+              />
+              <span className="text-brand-white/40 font-orbitron text-[9px] uppercase tracking-[0.6em] [writing-mode:vertical-lr] rotate-180">
+                SOLIDEZ OPERATIVA • EST. 1995 • 2026
+              </span>
+            </div>
           </div>
 
-          {/* Gradients for depth */}
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/70 to-transparent z-20"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent opacity-60 z-20"></div>
-
-          {/* Vertical Metadata Label */}
-          <div className="absolute right-10 bottom-40 z-30 hidden lg:flex flex-col items-end gap-4 overflow-hidden">
-            <motion.div
-              initial={{ height: 0 }}
-              animate={{ height: 100 }}
-              transition={{ duration: 1.5, delay: 1 }}
-              className="w-[1px] bg-brand-yellow/50"
-            />
-            <span className="text-brand-white/40 font-orbitron text-[9px] uppercase tracking-[0.6em] [writing-mode:vertical-lr] rotate-180">
-              SOLIDEZ OPERATIVA • EST. 1995 • 2026
-            </span>
-          </div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 relative z-40 w-full pt-20">
-          <div className="max-w-4xl space-y-10">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="flex items-center gap-6"
-            >
-              <div className="h-[2px] w-16 bg-brand-yellow shadow-[0_0_10px_#F2A900]"></div>
-              <span className="text-brand-yellow text-sm font-black uppercase tracking-[0.5em] font-orbitron">Potencia Industrial</span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="text-6xl md:text-[120px] font-black text-brand-white leading-[0.85] font-orbitron uppercase tracking-tighter"
-            >
-              POTENCIA <br />
-              <span className="text-brand-yellow drop-shadow-[0_0_20px_rgba(242,169,0,0.3)]">INDUSTRIAL</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.2, delay: 0.8 }}
-              className="text-xl md:text-2xl text-brand-white max-w-2xl leading-relaxed font-montserrat font-medium border-l-4 border-brand-yellow pl-8 italic"
-            >
-              Lideramos proyectos de alta complejidad con <span className="text-brand-yellow">maquinaria pesada propia</span> y precisión técnica inquebrantable.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.2 }}
-              className="flex flex-wrap gap-8 pt-8"
-            >
-              <Link
-                href="/servicios"
-                className="group relative px-10 py-5 bg-brand-yellow text-brand-black font-orbitron text-sm font-black tracking-[0.2em] overflow-hidden transition-all hover:scale-105 active:scale-95"
+          <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20 relative z-40 pt-20">
+            <div className="max-w-4xl space-y-10">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="flex items-center gap-6"
               >
-                <span className="relative z-10">EXPLORAR FLOTA</span>
-                <div className="absolute inset-0 bg-white translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500"></div>
-                <div className="absolute top-0 right-0 w-2 h-2 bg-brand-black transform rotate-45 translate-x-1 -translate-y-1"></div>
-              </Link>
+                <div className="h-[2px] w-16 bg-brand-yellow shadow-[0_0_10px_#F2A900]"></div>
+                <span className="text-brand-yellow text-sm font-black uppercase tracking-[0.5em] font-orbitron">Potencia Industrial</span>
+              </motion.div>
 
-              <Link
-                href="/contacto"
-                className="px-10 py-5 border-2 border-brand-white text-brand-white font-orbitron text-sm font-black tracking-[0.2em] hover:bg-brand-white hover:text-brand-black transition-all bg-brand-black/10 backdrop-blur-sm"
+              <motion.h1
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.3 }}
+                className="text-6xl md:text-[120px] font-black text-brand-white leading-[0.85] font-orbitron uppercase tracking-tighter"
               >
-                SOPORTE TÉCNICO
-              </Link>
-            </motion.div>
-          </div>
-        </div>
+                POTENCIA <br />
+                <span className="text-brand-yellow drop-shadow-[0_0_20px_rgba(242,169,0,0.3)]">INDUSTRIAL</span>
+              </motion.h1>
 
-        {/* Technical Video Indicators */}
-        <div className="absolute bottom-6 md:bottom-12 left-6 z-50 flex flex-col gap-6">
-          <div className="flex gap-3 md:gap-4">
-            {heroVideos.map((_, idx) => (
-              <motion.button
-                key={idx}
-                onClick={() => setCurrentVideo(idx)}
-                className={`group relative h-1 transition-all duration-700 ${currentVideo === idx ? 'w-12 md:w-16 bg-brand-yellow' : 'w-4 md:w-6 bg-white/20 hover:bg-white/40'}`}
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.2, delay: 0.8 }}
+                className="text-xl md:text-2xl text-brand-white max-w-2xl leading-relaxed font-montserrat font-medium border-l-4 border-brand-yellow pl-8 italic"
               >
-                {currentVideo === idx && (
-                  <motion.div
-                    layoutId="activeBar"
-                    className="absolute inset-0 bg-brand-yellow shadow-[0_0_10px_#F2A900]"
-                  />
-                )}
-                <span className={`absolute -top-6 left-0 text-[7px] md:text-[8px] font-black transition-opacity ${currentVideo === idx ? 'opacity-100 text-brand-yellow' : 'opacity-0'}`}>
-                  CAM_0{idx + 1}
-                </span>
-              </motion.button>
-            ))}
+                Lideramos proyectos de alta complejidad con <span className="text-brand-yellow">maquinaria pesada propia</span> y precisión técnica inquebrantable.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+                className="flex flex-wrap gap-8 pt-8"
+              >
+                <Link
+                  href="/servicios"
+                  className="group relative px-10 py-5 bg-brand-yellow text-brand-black font-orbitron text-sm font-black tracking-[0.2em] overflow-hidden transition-all hover:scale-105 active:scale-95"
+                >
+                  <span className="relative z-10">EXPLORAR FLOTA</span>
+                  <div className="absolute inset-0 bg-white translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500"></div>
+                  <div className="absolute top-0 right-0 w-2 h-2 bg-brand-black transform rotate-45 translate-x-1 -translate-y-1"></div>
+                </Link>
+
+                <Link
+                  href="/contacto"
+                  className="px-10 py-5 border-2 border-brand-white text-brand-white font-orbitron text-sm font-black tracking-[0.2em] hover:bg-brand-white hover:text-brand-black transition-all bg-brand-black/10 backdrop-blur-sm"
+                >
+                  SOPORTE TÉCNICO
+                </Link>
+              </motion.div>
+            </div>
           </div>
-        </div>
-      </section>
+
+          {/* Technical Video Indicators */}
+          <div className="absolute bottom-6 md:bottom-12 left-6 z-50 flex flex-col gap-6">
+            <div className="flex gap-3 md:gap-4">
+              {heroVideos.map((_, idx) => (
+                <motion.button
+                  key={idx}
+                  onClick={() => setCurrentVideo(idx)}
+                  className={`group relative h-1 transition-all duration-700 ${currentVideo === idx ? 'w-12 md:w-16 bg-brand-yellow' : 'w-4 md:w-6 bg-white/20 hover:bg-white/40'}`}
+                >
+                  {currentVideo === idx && (
+                    <motion.div
+                      layoutId="activeBar"
+                      className="absolute inset-0 bg-brand-yellow shadow-[0_0_10px_#F2A900]"
+                    />
+                  )}
+                  <span className={`absolute -top-6 left-0 text-[7px] md:text-[8px] font-black transition-opacity ${currentVideo === idx ? 'opacity-100 text-brand-yellow' : 'opacity-0'}`}>
+                    CAM_0{idx + 1}
+                  </span>
+                </motion.button>
+              ))}
+            </div>
+          </div>
+        </motion.section>
+      </div >
 
       {/* Client Logos / Trust Signals */}
-      <section className="py-16 border-b border-brand-white/5 bg-brand-black">
-        <div className="max-w-7xl mx-auto px-6 overflow-hidden">
+      < section className="relative z-10 py-16 border-t border-b border-brand-white/5 bg-brand-black shadow-[0_-20px_50px_rgba(0,0,0,0.8)]" >
+        <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20 overflow-hidden">
           <p className="text-[11px] font-bold uppercase tracking-[0.5em] text-center mb-10 text-brand-yellow italic">ALIADOS ESTRATÉGICOS E INSTITUCIONES</p>
           <div className="flex flex-wrap justify-around items-center gap-12 transition-opacity">
             <div className="text-4xl font-black font-orbitron tracking-widest text-brand-white">SIDOR</div>
@@ -344,12 +355,12 @@ export default function Home() {
             <div className="text-4xl font-black font-orbitron text-brand-white">TGI</div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Services Grid (Movido hacia arriba) */}
-      <section className="py-40 px-6 bg-lormar-texture relative overflow-hidden" id="servicios">
+      < section className="py-40 px-6 bg-lormar-texture relative z-10 overflow-hidden" id="servicios" >
 
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20 relative z-10">
           <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div className="space-y-4">
               <h2 className="text-7xl md:text-[120px] font-bold font-orbitron uppercase italic leading-[0.7]">
@@ -451,12 +462,12 @@ export default function Home() {
             </motion.div>
           </AnimatePresence>
         </div>
-      </section>
+      </section >
 
       {/* Contenedor con Video Fijo (Incluye Impact Numbers y Metodología) */}
-      <div className="relative overflow-hidden [clip-path:inset(0_0_0_0)]">
+      < div className="relative overflow-hidden [clip-path:inset(0_0_0_0)]" >
         {/* Background Video (Fixed Effect) */}
-        <div className="fixed inset-0 z-0 pointer-events-none">
+        < div className="fixed inset-0 z-0 pointer-events-none" >
           <video
             autoPlay
             muted
@@ -468,12 +479,12 @@ export default function Home() {
           </video>
           {/* Overlay de contraste (Abajo a Arriba) */}
           <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/40 to-transparent z-10"></div>
-        </div>
+        </div >
 
         {/* Impact Numbers / Stats */}
-        <section className="py-56 text-brand-white px-6 relative border-t border-brand-yellow/10 z-20">
+        < section className="py-56 text-brand-white px-6 relative border-t border-brand-yellow/10 z-20" >
 
-          <div className="max-w-7xl mx-auto relative z-20">
+          <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20 relative z-20">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -503,11 +514,11 @@ export default function Home() {
               ))}
             </motion.div>
           </div>
-        </section>
+        </section >
 
         {/* Our Methodology / Process */}
-        <section className="py-32 px-6 border-b-[4px] border-brand-white bg-proceso-custom relative z-20">
-          <div className="max-w-7xl mx-auto">
+        < section className="py-32 px-6 border-b-[4px] border-brand-white bg-proceso-custom relative z-20" >
+          <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -557,12 +568,12 @@ export default function Home() {
               ))}
             </motion.div>
           </div>
-        </section>
-      </div>
+        </section >
+      </div >
 
       {/* Projects Showcase */}
-      <section className="py-32 px-6 border-y border-brand-white/5 bg-brand-surface/10" id="proyectos">
-        <div className="max-w-7xl mx-auto">
+      < section className="py-32 px-6 border-y border-brand-white/5 bg-brand-surface/10" id="proyectos" >
+        <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
             <h2 className="text-5xl font-black font-orbitron uppercase leading-none">ÚLTIMOS <span className="text-brand-black bg-brand-white px-3">PROYECTOS</span></h2>
             <Link href="/proyectos" className="font-orbitron text-xl uppercase tracking-wider text-brand-yellow group flex items-center gap-3">
@@ -600,7 +611,7 @@ export default function Home() {
                 className="group glass-industrial hover:bg-brand-white/5 transition-all overflow-hidden border-b-4 border-b-transparent hover:border-b-brand-yellow"
               >
                 <div className="aspect-video relative">
-                  <Image src="/images/hero-excavator.png" alt={p.title} fill className="object-cover" />
+                  <Image src="/images/hero-excavator.webp" alt={p.title} fill className="object-cover" />
                 </div>
                 <div className="p-10 space-y-4">
                   <span className="text-[10px] font-bold text-brand-yellow tracking-[0.4em] italic">{p.cat}</span>
@@ -611,13 +622,29 @@ export default function Home() {
             ))}
           </motion.div>
         </div>
+      </section >
+
+
+
+
+      {/* Equipos Certificados */}
+      <section className="relative z-10 py-16 bg-brand-yellow overflow-hidden">
+        <div className="absolute inset-0 bg-industrial-grid opacity-[0.06] pointer-events-none" />
+        <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20 overflow-hidden">
+          <p className="text-[11px] font-bold uppercase tracking-[0.5em] text-center mb-10 text-brand-black/60 italic">EQUIPOS CERTIFICADOS Y MARCAS PREMIUM</p>
+          <div className="flex flex-wrap justify-around items-center gap-12 transition-opacity">
+            <div className="text-4xl font-black font-orbitron tracking-widest text-brand-black">CATERPILLAR</div>
+            <div className="text-3xl font-black font-orbitron border-b-2 border-brand-black/40 text-brand-black">JOHN DEERE</div>
+            <div className="text-4xl font-black font-orbitron italic text-brand-black">VOLVO</div>
+            <div className="text-3xl font-black font-orbitron underline decoration-brand-black/50 underline-offset-4 text-brand-black">MACK</div>
+            <div className="text-4xl font-black font-orbitron text-brand-black">LIEBHERR</div>
+            <div className="text-3xl font-black font-orbitron text-brand-black">TEREX</div>
+          </div>
+        </div>
       </section>
-
-
-
       {/* FAQ */}
-      <section className="py-40 px-6 border-y border-brand-white/5 bg-brand-surface/20">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20">
+      < section className="py-40 px-6 border-y border-brand-white/5 bg-brand-surface/20" >
+        <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20 grid lg:grid-cols-2 gap-20">
           <div>
             <h2 className="text-5xl font-black font-orbitron uppercase italic leading-none mb-8">PREGUNTAS <br /> <span className="text-brand-yellow">FRECUENTES</span></h2>
             <p className="text-lg text-brand-white italic border-l-4 border-brand-yellow pl-6">Consultas técnicas recurrentes para departamentos de procura e ingeniería.</p>
@@ -639,21 +666,21 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
 
 
       {/* Footer */}
-      <footer className="bg-brand-black pt-32 pb-12 px-6 border-t border-brand-white/10 relative overflow-hidden" id="contacto">
+      < footer className="bg-brand-black pt-32 pb-12 px-6 border-t border-brand-white/10 relative overflow-hidden" id="contacto" >
         <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-yellow/5 -skew-x-12 translate-x-1/2 pointer-events-none"></div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-20">
             {/* Branding & Description */}
             <div className="lg:col-span-4 space-y-10">
               <Link href="/" className="block">
                 <div className="relative w-64 h-20">
-                  <Image src="/logos/logo lormar blanco.png" alt="Lormar" fill className="object-contain object-left" />
+                  <Image src="/logos/logo lormar blanco.webp" alt="Lormar" fill className="object-contain object-left" />
                 </div>
               </Link>
               <p className="text-brand-white text-sm font-montserrat leading-relaxed italic border-l-2 border-brand-yellow/30 pl-6">
@@ -732,7 +759,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </footer>
-    </main>
+      </footer >
+    </main >
   );
 }

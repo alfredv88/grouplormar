@@ -27,7 +27,7 @@ export default function ServiciosPage() {
                     <div className="flex items-center gap-4">
                         <div className="relative w-8 h-8 bg-brand-black p-1 border border-brand-yellow">
                             <Image
-                                src="/logos/logo lormar blanco.png"
+                                src="/logos/logo lormar blanco.webp"
                                 alt="Lormar"
                                 fill
                                 className="object-contain"

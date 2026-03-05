@@ -18,7 +18,7 @@ export default function NosotrosPage() {
                     <div className="flex items-center gap-4">
                         <div className="relative w-8 h-8 bg-brand-black p-1 border border-brand-yellow">
                             <Image
-                                src="/logos/logo lormar blanco.png"
+                                src="/logos/logo lormar blanco.webp"
                                 alt="Lormar"
                                 fill
                                 className="object-contain"
@@ -74,7 +74,7 @@ export default function NosotrosPage() {
                                 >
                                     <div className="aspect-[4/3] bg-brand-surface relative overflow-hidden clip-trapeze-right border-l-4 border-brand-yellow">
                                         <Image
-                                            src="/images/hero-excavator.png"
+                                            src="/images/hero-excavator.webp"
                                             alt="Operaciones Lormar"
                                             fill
                                             className="object-cover transition-all duration-700"

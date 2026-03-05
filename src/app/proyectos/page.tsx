@@ -4,12 +4,12 @@ import { ArrowLeft, ArrowRight, MapPin, Calendar, Users, Briefcase } from "lucid
 
 export default function ProyectosPage() {
     const projects = [
-        { title: "Planta de TrituraciÃ³n â€” BolÃ­var", client: "Sector Minero", year: "2024", type: "Industrial", desc: "Montaje mecÃ¡nico completo y automatizaciÃ³n de procesos.", image: "/images/hero-excavator.png" },
-        { title: "Drenajes Sector Los Potocos", client: "Edo. AnzoÃ¡tegui", year: "2023", type: "Vialidad", desc: "Movimiento de tierra y canalizaciÃ³n de drenajes industriales.", image: "/images/hero-excavator.png" },
-        { title: "Mantenimiento Mayor Planta PDVSA", client: "Sector Petrolero", year: "2024", type: "EnergÃ­a", desc: "Overhaul de equipos rotativos y paradas de planta programadas.", image: "/images/hero-excavator.png" },
-        { title: "Suministros Planta Alimentos", client: "Sector Privado", year: "2022", type: "Procura", desc: "ImportaciÃ³n y montaje de lÃ­neas de empaquetado directo.", image: "/images/hero-excavator.png" },
-        { title: "SubestaciÃ³n ElÃ©ctrica Industrial", client: "Sector Automotriz", year: "2023", type: "ElÃ©ctrico", desc: "InstalaciÃ³n de tableros de alta tensiÃ³n y control SCADA.", image: "/images/hero-excavator.png" },
-        { title: "Vialidad Pesada Zona Industrial", client: "Sector PÃºblico", year: "2023", type: "Civil", desc: "PavimentaciÃ³n y estabilizaciÃ³n de terrenos de alta carga.", image: "/images/hero-excavator.png" }
+        { title: "Planta de TrituraciÃ³n â€” BolÃ­var", client: "Sector Minero", year: "2024", type: "Industrial", desc: "Montaje mecÃ¡nico completo y automatizaciÃ³n de procesos.", image: "/images/hero-excavator.webp" },
+        { title: "Drenajes Sector Los Potocos", client: "Edo. AnzoÃ¡tegui", year: "2023", type: "Vialidad", desc: "Movimiento de tierra y canalizaciÃ³n de drenajes industriales.", image: "/images/hero-excavator.webp" },
+        { title: "Mantenimiento Mayor Planta PDVSA", client: "Sector Petrolero", year: "2024", type: "EnergÃ­a", desc: "Overhaul de equipos rotativos y paradas de planta programadas.", image: "/images/hero-excavator.webp" },
+        { title: "Suministros Planta Alimentos", client: "Sector Privado", year: "2022", type: "Procura", desc: "ImportaciÃ³n y montaje de lÃ­neas de empaquetado directo.", image: "/images/hero-excavator.webp" },
+        { title: "SubestaciÃ³n ElÃ©ctrica Industrial", client: "Sector Automotriz", year: "2023", type: "ElÃ©ctrico", desc: "InstalaciÃ³n de tableros de alta tensiÃ³n y control SCADA.", image: "/images/hero-excavator.webp" },
+        { title: "Vialidad Pesada Zona Industrial", client: "Sector PÃºblico", year: "2023", type: "Civil", desc: "PavimentaciÃ³n y estabilizaciÃ³n de terrenos de alta carga.", image: "/images/hero-excavator.webp" }
     ];
 
     return (
