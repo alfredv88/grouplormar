@@ -3,6 +3,7 @@ import { Inter, Montserrat } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import ChatContactWidget from "@/components/ChatContactWidget";
+import MechanicalPageTransition from "@/components/MechanicalPageTransition";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat", weight: ["300", "400", "600"] });
@@ -26,7 +27,9 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} ${montserrat.variable} ${orbitron.variable}`} suppressHydrationWarning>
       <body className="antialiased font-montserrat selection:bg-[#F2A900] selection:text-[#0F0F0F]">
-        {children}
+        <MechanicalPageTransition>
+          {children}
+        </MechanicalPageTransition>
         <ChatContactWidget />
       </body>
     </html>

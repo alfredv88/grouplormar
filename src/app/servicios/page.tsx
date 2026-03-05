@@ -1,4 +1,5 @@
-﻿import Image from "next/image";
+﻿import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Settings, Truck, Zap, HardHat, Drill, Box, ShieldCheck, Construction } from "lucide-react";
 
@@ -16,16 +17,16 @@ export default function ServiciosPage() {
     ];
 
     return (
-        <main className="min-h-screen bg-brand-white text-brand-black font-sans selection:bg-brand-black selection:text-brand-white pt-32">
+        <main className="min-h-screen bg-iron-base text-brand-white font-montserrat tracking-tight selection:bg-brand-yellow selection:text-brand-black pt-40 overflow-hidden">
             {/* Navigation */}
-            <nav className="fixed top-0 w-full bg-brand-white/90 backdrop-blur-sm z-50 border-b border-brand-black">
-                <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-                    <Link href="/" className="flex items-center gap-2 group">
-                        <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                        <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Volver al Inicio</span>
+            <nav className="fixed top-0 w-full bg-brand-black/60 backdrop-blur-xl z-50 border-b border-white/5">
+                <div className="w-full max-w-[1800px] mx-auto px-10 h-24 flex items-center justify-between">
+                    <Link href="/" className="flex items-center gap-4 group">
+                        <ArrowLeft size={20} className="text-brand-yellow group-hover:-translate-x-2 transition-transform" />
+                        <span className="text-[10px] font-black uppercase tracking-[0.4em] font-orbitron group-hover:text-brand-yellow transition-colors">Volver al Inicio</span>
                     </Link>
-                    <div className="flex items-center gap-4">
-                        <div className="relative w-8 h-8 bg-brand-black p-1 border border-brand-yellow">
+                    <div className="flex items-center gap-6">
+                        <div className="relative w-32 h-8">
                             <Image
                                 src="/logos/logo lormar blanco.webp"
                                 alt="Lormar"
@@ -33,53 +34,69 @@ export default function ServiciosPage() {
                                 className="object-contain"
                             />
                         </div>
-                        <span className="text-brand-black font-bold text-xl tracking-tighter uppercase font-teko">LORMAR</span>
                     </div>
                 </div>
             </nav>
 
             {/* Hero Intermedio */}
-            <section className="px-6 py-20 border-b border-brand-black bg-industrial-grid">
-                <div className="max-w-7xl mx-auto space-y-8">
-                    <div className="inline-block px-4 py-1 bg-brand-yellow text-brand-black text-[10px] font-black uppercase tracking-widest italic">
-                        Portfolio TÃ©cnico
+            <section className="px-10 md:px-20 lg:px-32 py-32 border-b border-white/5 relative">
+                <div className="absolute inset-0 bg-industrial-grid opacity-10 pointer-events-none"></div>
+
+                <div className="max-w-[1800px] mx-auto space-y-10 relative z-10">
+                    <div className="inline-flex items-center gap-6">
+                        <span className="bg-brand-yellow text-brand-black px-4 py-1.5 text-[10px] font-black uppercase tracking-widest font-orbitron">
+                            PORTAFOLIO TÉCNICO
+                        </span>
+                        <div className="h-[1px] w-24 bg-brand-yellow/50"></div>
                     </div>
-                    <h1 className="text-6xl md:text-[100px] font-black font-orbitron uppercase leading-[0.8] mb-12">
-                        CATÃLOGO DE <br /> <span className="text-brand-yellow underline decoration-brand-black underline-offset-8">SOLUCIONES</span>
+
+                    <h1 className="text-7xl md:text-[130px] font-black font-orbitron uppercase leading-[0.75] tracking-tightest">
+                        CATÁLOGO DE <br />
+                        <span className="text-transparent stroke-brand-yellow" style={{ WebkitTextStroke: "2px #F2A900" }}>SOLUCIONES</span>
                     </h1>
-                    <p className="text-2xl font-montserrat font-medium text-brand-black leading-relaxed italic border-l-4 border-brand-yellow pl-6 max-w-4xl">
-                        Despliegue de potencia industrial para proyectos crÃ­ticos. Ejecutamos soluciones operativas con el respaldo de nuestra flota pesada propia.
+
+                    <p className="text-2xl md:text-3xl font-medium text-white/80 leading-snug italic border-l-[6px] border-brand-yellow pl-10 max-w-5xl">
+                        Despliegue de potencia industrial para proyectos críticos. Ejecutamos soluciones operativas con el respaldo de nuestra <span className="text-brand-yellow">flota pesada propia</span>.
                     </p>
                 </div>
             </section>
 
             {/* Grid de Servicios Detallado */}
-            <section className="py-24 px-6 relative">
-                <div className="absolute inset-0 bg-industrial-grid pointer-events-none"></div>
-                <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-1 bg-brand-black border border-brand-black">
+            <section className="py-40 px-10 md:px-20 lg:px-32 relative">
+                <div className="max-w-[1800px] mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {allServices.map((s, i) => (
-                        <article key={i} className="group bg-brand-white p-12 transition-all hover:bg-brand-black hover:text-brand-white flex flex-col justify-between min-h-[500px] border-b border-r border-brand-black/5 last:border-r-0">
-                            <div className="space-y-8">
-                                <div className="text-brand-black transition-all group-hover:text-brand-yellow mb-8">
-                                    {s.icon}
+                        <article key={i} className="group relative bg-iron-light/30 border-iron iron-bevel p-12 transition-all duration-500 hover:bg-brand-yellow/5 hover:shadow-[0_0_30px_rgba(242,169,0,0.1)] flex flex-col justify-between min-h-[550px]">
+                            {/* Industrial Details */}
+                            <div className="absolute inset-0 industrial-screws opacity-10 pointer-events-none"></div>
+
+                            <div className="space-y-10 relative z-10">
+                                <div className="w-16 h-16 flex items-center justify-center bg-brand-yellow text-brand-black iron-bevel group-hover:scale-110 transition-transform">
+                                    {React.cloneElement(s.icon as React.ReactElement<any>, { size: 28 })}
                                 </div>
                                 <div>
-                                    <h3 className="text-3xl font-black font-orbitron uppercase mb-4 group-hover:text-brand-yellow transition-colors">{s.title}</h3>
-                                    <p className="text-sm leading-relaxed italic font-medium">{s.desc}</p>
+                                    <h3 className="text-3xl font-black font-orbitron uppercase mb-4 leading-none tracking-tight group-hover:text-brand-yellow transition-colors">
+                                        {s.title}
+                                    </h3>
+                                    <p className="text-sm text-white/50 leading-relaxed italic font-medium group-hover:text-white/70 transition-colors lowercase">
+                                        {s.desc}
+                                    </p>
                                 </div>
                             </div>
 
-                            <div className="pt-10 border-t border-brand-black/10 group-hover:border-brand-white/20 mt-10">
-                                <ul className="space-y-4 mb-10">
+                            <div className="pt-10 border-t border-white/5 group-hover:border-brand-yellow/20 mt-10 relative z-10">
+                                <ul className="space-y-4 mb-12">
                                     {s.items.map((item, idx) => (
-                                        <li key={idx} className="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-brand-black group-hover:text-brand-white">
-                                            <div className="w-1.5 h-1.5 bg-brand-yellow rotate-45"></div>
+                                        <li key={idx} className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-white/60 group-hover:text-white transition-colors">
+                                            <div className="w-1.5 h-1.5 bg-brand-yellow rotate-45 group-hover:shadow-[0_0_8px_#F2A900]"></div>
                                             {item}
                                         </li>
                                     ))}
                                 </ul>
-                                <Link href="/contacto" className="text-[10px] font-black uppercase tracking-widest border-b-2 border-brand-yellow pb-1 group-hover:text-brand-yellow transition-colors">
-                                    Solicitar InformaciÃ³n TÃ©cnica
+                                <Link
+                                    href="/contacto"
+                                    className="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-brand-yellow border-b border-brand-yellow/30 pb-2 hover:border-brand-yellow transition-all"
+                                >
+                                    SOLICITAR INFORME TÉCNICO <ArrowRight size={14} />
                                 </Link>
                             </div>
                         </article>
@@ -88,13 +105,24 @@ export default function ServiciosPage() {
             </section>
 
             {/* CTA Final */}
-            <section className="py-32 px-6 bg-brand-black text-brand-white text-center bg-metal-texture relative">
-                <div className="max-w-3xl mx-auto space-y-8">
-                    <h2 className="text-5xl font-black font-orbitron uppercase">Â¿Listo para iniciar su proyecto?</h2>
-                    <p className="text-sm uppercase tracking-widest font-bold">Ofrecemos asesorÃ­a tÃ©cnica especializada sin compromiso.</p>
-                    <Link href="/contacto" className="inline-block px-12 py-5 bg-brand-yellow text-brand-black font-black uppercase tracking-widest hover:bg-brand-white transition-colors">
-                        Contactar Soporte Operativo
-                    </Link>
+            <section className="py-56 px-10 text-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-iron-base z-0"></div>
+                <div className="absolute inset-0 bg-industrial-grid opacity-10 pointer-events-none"></div>
+
+                <div className="max-w-5xl mx-auto space-y-12 relative z-10">
+                    <h2 className="text-6xl md:text-8xl font-black font-orbitron uppercase leading-none tracking-tightest">
+                        ¿LISTO PARA INICIAR <br /> <span className="text-brand-yellow italic">SU PROYECTO?</span>
+                    </h2>
+                    <p className="text-xl uppercase tracking-[0.4em] font-black text-white/40">ASESORÍA TÉCNICA ESPECIALIZADA SIN COMPROMISO</p>
+
+                    <div className="pt-8">
+                        <Link
+                            href="/contacto"
+                            className="inline-block px-16 py-8 bg-brand-yellow text-brand-black font-black uppercase tracking-[0.4em] font-orbitron text-xs iron-bevel hover:bg-white hover:scale-105 transition-all"
+                        >
+                            CONTACTAR SOPORTE OPERATIVO
+                        </Link>
+                    </div>
                 </div>
             </section>
         </main>
