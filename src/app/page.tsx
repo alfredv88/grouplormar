@@ -208,7 +208,7 @@ export default function Home() {
         >
           {/* Main Video Background with Industrial Frame */}
           <div className="absolute inset-0 z-0 p-4 md:p-10 pt-32 md:pt-40 pointer-events-none">
-            <div className="relative w-full h-full border-iron bg-brand-black overflow-hidden iron-bevel">
+            <div className="relative w-full h-full bg-brand-black overflow-hidden iron-bevel">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentVideo}
