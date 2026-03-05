@@ -42,8 +42,8 @@ export default function Home() {
 
   const containerRef = useRef(null);
   const { scrollY } = useScroll();
-  const heroScale = useTransform(scrollY, [0, 800], [1, 0.9]);
-  const heroOpacity = useTransform(scrollY, [0, 800], [1, 0.3]);
+  const heroScale = useTransform(scrollY, [0, 600], [1, 0.75]);
+  const heroOpacity = useTransform(scrollY, [0, 600], [1, 0.2]);
 
   const heroVideos = [
     "/videos/lormar 7.webm",
@@ -207,8 +207,8 @@ export default function Home() {
           style={{ scale: heroScale, opacity: heroOpacity }}
         >
           {/* Main Video Background with Industrial Frame */}
-          <div className="absolute inset-0 z-0 p-8 md:p-24 lg:p-32 pt-40 md:pt-48 pb-20 md:pb-32 pointer-events-none">
-            <div className="relative w-full h-full bg-brand-black overflow-hidden iron-bevel border border-white/5">
+          <div className="absolute inset-0 z-0 p-4 md:p-10 pt-32 md:pt-40 pointer-events-none">
+            <div className="relative w-full h-full bg-brand-black overflow-hidden iron-bevel">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentVideo}
@@ -240,29 +240,6 @@ export default function Home() {
                 <div className="absolute top-10 right-10 w-20 h-20 border-t-4 border-r-4 border-brand-yellow/30"></div>
                 <div className="absolute bottom-10 left-10 w-20 h-20 border-b-4 border-l-4 border-brand-yellow/30"></div>
                 <div className="absolute bottom-10 right-10 w-20 h-20 border-b-4 border-r-4 border-brand-yellow/30"></div>
-
-                {/* Technical Video Indicators (Now inside frame) */}
-                <div className="absolute bottom-10 left-10 z-50 flex flex-col gap-6 pointer-events-auto">
-                  <div className="flex gap-3 md:gap-4">
-                    {heroVideos.map((_, idx) => (
-                      <motion.button
-                        key={idx}
-                        onClick={() => setCurrentVideo(idx)}
-                        className={`group relative h-1 transition-all duration-700 ${currentVideo === idx ? 'w-12 md:w-16 bg-brand-yellow' : 'w-4 md:w-6 bg-white hover:bg-white'}`}
-                      >
-                        {currentVideo === idx && (
-                          <motion.div
-                            layoutId="activeBar"
-                            className="absolute inset-0 bg-brand-yellow shadow-[0_0_10px_#F2A900]"
-                          />
-                        )}
-                        <span className={`absolute -top-6 left-0 text-[7px] md:text-[8px] font-black transition-opacity ${currentVideo === idx ? 'opacity-100 text-brand-yellow' : 'opacity-0 text-white'}`}>
-                          CAM_0{idx + 1}
-                        </span>
-                      </motion.button>
-                    ))}
-                  </div>
-                </div>
 
                 {/* Vertical Metadata */}
                 <div className="absolute left-10 bottom-40 flex flex-col gap-6 text-[9px] font-black font-orbitron text-brand-yellow/40 tracking-[0.5em] [writing-mode:vertical-lr] rotate-180 uppercase">
@@ -335,6 +312,28 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Technical Video Indicators */}
+          <div className="absolute bottom-12 md:bottom-20 left-12 md:left-20 z-50 flex flex-col gap-6">
+            <div className="flex gap-3 md:gap-4">
+              {heroVideos.map((_, idx) => (
+                <motion.button
+                  key={idx}
+                  onClick={() => setCurrentVideo(idx)}
+                  className={`group relative h-1 transition-all duration-700 ${currentVideo === idx ? 'w-12 md:w-16 bg-brand-yellow' : 'w-4 md:w-6 bg-white hover:bg-white'}`}
+                >
+                  {currentVideo === idx && (
+                    <motion.div
+                      layoutId="activeBar"
+                      className="absolute inset-0 bg-brand-yellow shadow-[0_0_10px_#F2A900]"
+                    />
+                  )}
+                  <span className={`absolute -top-6 left-0 text-[7px] md:text-[8px] font-black transition-opacity ${currentVideo === idx ? 'opacity-100 text-brand-yellow' : 'opacity-0 text-white'}`}>
+                    CAM_0{idx + 1}
+                  </span>
+                </motion.button>
+              ))}
+            </div>
+          </div>
         </motion.section>
       </div >
 
