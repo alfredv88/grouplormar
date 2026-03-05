@@ -1,8 +1,8 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
@@ -49,12 +49,24 @@ export default function Home() {
   ];
 
   // Auto-play videos in carousel
-  useState(() => {
+  useEffect(() => {
     const timer = setInterval(() => {
       setCurrentVideo((prev) => (prev + 1) % heroVideos.length);
     }, 8000); // 8 seconds per video
     return () => clearInterval(timer);
-  });
+  }, [heroVideos.length]);
+
+  // Auto-play service tabs
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveTab((prev) => {
+        const currentIndex = serviceTabs.findIndex(t => t.id === prev);
+        const nextIndex = (currentIndex + 1) % serviceTabs.length;
+        return serviceTabs[nextIndex].id;
+      });
+    }, 6000); // 6 seconds per category
+    return () => clearInterval(timer);
+  }, []);
 
   const serviceTabs = [
     { id: "PESADA", label: "OPERACIÓN PESADA", index: "01" },
@@ -385,11 +397,11 @@ export default function Home() {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.4, ease: "circOut" }}
-              className="grid grid-cols-1 md:grid-cols-12 gap-6"
+              className="grid grid-cols-1 md:grid-cols-12 gap-3"
             >
               {servicesData
                 .filter(s => s.category === activeTab)
@@ -397,42 +409,37 @@ export default function Home() {
                   <motion.div
                     key={s.id}
                     layout
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
                     className={`${s.cols}`}
                   >
-                    <Link href="/servicios" className="group relative overflow-hidden glass-industrial min-h-[480px] flex flex-col p-12 transition-all duration-500 w-full border border-brand-white/5 hover:border-brand-yellow/40">
-                      {/* Hardware Corners (Visual Only on Hover) */}
-                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-brand-yellow opacity-0 group-hover:opacity-100 transition-all duration-500 -translate-x-2 -translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 z-30"></div>
-                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-brand-yellow opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 z-30"></div>
+                    <Link href="/servicios" className="group relative overflow-hidden glass-industrial min-h-[280px] flex flex-col p-6 transition-all duration-500 w-full border border-brand-white/5 hover:border-brand-yellow/40">
+                      {/* Hardware Corners */}
+                      <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-brand-yellow opacity-0 group-hover:opacity-100 transition-all duration-500 -translate-x-1 -translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 z-30"></div>
+                      <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-brand-yellow opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-1 translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 z-30"></div>
 
-                      {/* Imagen con overlay de contraste premium */}
                       <div className="absolute inset-0 z-0">
                         <Image
                           src={s.img}
                           alt={s.title}
                           fill
-                          className="object-cover transition-all duration-1000 ease-out brightness-[0.7] group-hover:brightness-90 group-hover:scale-110"
+                          className="object-cover transition-all duration-1000 ease-out brightness-[0.6] group-hover:brightness-75 group-hover:scale-110"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-br from-brand-black/80 via-transparent to-transparent z-10"></div>
-                        <div className="absolute inset-0 bg-brand-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br from-brand-black/90 via-transparent to-transparent z-10"></div>
                       </div>
 
                       <div className="relative z-20 h-full flex flex-col justify-between">
-                        <div className="space-y-8">
-                          <div className="text-brand-yellow transition-all duration-500 mb-8 relative z-10 drop-shadow-md group-hover:scale-110 origin-left">
-                            {s.icon}
+                        <div className="space-y-3">
+                          <div className="text-brand-yellow transition-all duration-500 mb-2 relative z-10 drop-shadow-md group-hover:scale-105 origin-left">
+                            {React.cloneElement(s.icon as React.ReactElement<any>, { size: 24 })}
                           </div>
                           <div>
-                            <h3 className="text-4xl font-black font-orbitron uppercase leading-tight mb-4 group-hover:text-brand-yellow transition-colors drop-shadow-lg tracking-tighter">{s.title}</h3>
-                            <p className="text-[13px] text-brand-white leading-relaxed font-montserrat max-w-xs drop-shadow-sm italic font-medium">{s.desc}</p>
+                            <h3 className="text-xl font-black font-orbitron uppercase leading-tight mb-1 group-hover:text-brand-yellow transition-colors tracking-tighter">{s.title}</h3>
+                            <p className="text-[9px] text-brand-white/80 leading-relaxed font-montserrat max-w-xs italic font-medium">{s.desc}</p>
                           </div>
                         </div>
 
-                        <div className="pt-10 flex flex-wrap gap-2 border-t border-brand-white/10 group-hover:border-brand-yellow/30">
+                        <div className="pt-4 flex flex-wrap gap-1.5 border-t border-brand-white/10 group-hover:border-brand-yellow/30">
                           {s.items.map((item, idx) => (
-                            <span key={idx} className="text-[9px] font-black uppercase tracking-[0.2em] text-brand-white border border-brand-white/20 px-4 py-2 bg-brand-black transition-all group-hover:border-brand-yellow/40 group-hover:shadow-[0_0_15px_rgba(242,169,0,0.1)]">
+                            <span key={idx} className="text-[8px] font-black uppercase tracking-[0.15em] text-brand-white/90 border border-brand-white/10 px-3 py-1.5 bg-brand-black/40 backdrop-blur-sm transition-all group-hover:border-brand-yellow/30">
                               {item}
                             </span>
                           ))}

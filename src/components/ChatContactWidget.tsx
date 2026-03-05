@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { MessageCircle, X, Send, CheckCircle2, Loader2, Bot } from 'lucide-react';
+import { MessageCircle, X, Send, CheckCircle2, Loader2, Construction, Headphones, UserCheck } from 'lucide-react';
 
 const contactSchema = z.object({
     name: z.string().min(2, 'El nombre es muy corto'),
@@ -62,8 +62,8 @@ export default function ChatContactWidget() {
                     {/* Header */}
                     <div className="bg-black p-4 text-white flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-white text-black rounded-none flex items-center justify-center border border-white">
-                                <Bot size={24} />
+                            <div className="w-10 h-10 bg-brand-yellow text-black rounded-none flex items-center justify-center border border-brand-yellow">
+                                <Construction size={22} />
                             </div>
                             <div>
                                 <h3 className="font-bold text-sm uppercase">Asistente Lormar</h3>
@@ -175,9 +175,12 @@ export default function ChatContactWidget() {
             {/* Trigger Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-14 h-14 rounded-none bg-black text-white flex items-center justify-center border border-black hover:bg-white hover:text-black transition-none shadow-none"
+                className={`w-14 h-14 rounded-full flex items-center justify-center border-2 transition-all duration-300 shadow-2xl ${isOpen
+                    ? 'bg-black border-white text-white rotate-90'
+                    : 'bg-black border-brand-yellow text-brand-yellow hover:scale-110 shadow-[0_0_20px_rgba(242,169,0,0.3)]'
+                    }`}
             >
-                {isOpen ? <X size={28} /> : <MessageCircle size={28} />}
+                {isOpen ? <X size={24} /> : <Headphones size={28} className="animate-pulse" />}
             </button>
         </div>
     );
