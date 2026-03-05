@@ -313,13 +313,13 @@ export default function Home() {
           </div>
 
           {/* Technical Video Indicators */}
-          <div className="absolute bottom-6 md:bottom-12 left-6 z-50 flex flex-col gap-6">
+          <div className="absolute bottom-12 md:bottom-20 left-12 md:left-20 z-50 flex flex-col gap-6">
             <div className="flex gap-3 md:gap-4">
               {heroVideos.map((_, idx) => (
                 <motion.button
                   key={idx}
                   onClick={() => setCurrentVideo(idx)}
-                  className={`group relative h-1 transition-all duration-700 ${currentVideo === idx ? 'w-12 md:w-16 bg-brand-yellow' : 'w-4 md:w-6 bg-white/40 hover:bg-white/60'}`}
+                  className={`group relative h-1 transition-all duration-700 ${currentVideo === idx ? 'w-12 md:w-16 bg-brand-yellow' : 'w-4 md:w-6 bg-white hover:bg-white'}`}
                 >
                   {currentVideo === idx && (
                     <motion.div
@@ -327,7 +327,7 @@ export default function Home() {
                       className="absolute inset-0 bg-brand-yellow shadow-[0_0_10px_#F2A900]"
                     />
                   )}
-                  <span className={`absolute -top-6 left-0 text-[7px] md:text-[8px] font-black transition-opacity ${currentVideo === idx ? 'opacity-100 text-brand-yellow' : 'opacity-0'}`}>
+                  <span className={`absolute -top-6 left-0 text-[7px] md:text-[8px] font-black transition-opacity ${currentVideo === idx ? 'opacity-100 text-brand-yellow' : 'opacity-0 text-white'}`}>
                     CAM_0{idx + 1}
                   </span>
                 </motion.button>
