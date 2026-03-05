@@ -77,7 +77,7 @@ export default function ServiciosPage() {
                                     <h3 className="text-3xl font-black font-orbitron uppercase mb-4 leading-none tracking-tight group-hover:text-brand-yellow transition-colors">
                                         {s.title}
                                     </h3>
-                                    <p className="text-sm text-white/50 leading-relaxed italic font-medium group-hover:text-white/70 transition-colors lowercase">
+                                    <p className="text-sm text-white/80 leading-relaxed italic font-medium group-hover:text-white transition-colors lowercase">
                                         {s.desc}
                                     </p>
                                 </div>
@@ -86,7 +86,7 @@ export default function ServiciosPage() {
                             <div className="pt-10 border-t border-white/5 group-hover:border-brand-yellow/20 mt-10 relative z-10">
                                 <ul className="space-y-4 mb-12">
                                     {s.items.map((item, idx) => (
-                                        <li key={idx} className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-white/60 group-hover:text-white transition-colors">
+                                        <li key={idx} className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-white/80 group-hover:text-white transition-colors">
                                             <div className="w-1.5 h-1.5 bg-brand-yellow rotate-45 group-hover:shadow-[0_0_8px_#F2A900]"></div>
                                             {item}
                                         </li>

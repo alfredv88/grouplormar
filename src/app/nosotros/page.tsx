@@ -80,7 +80,7 @@ export default function NosotrosPage() {
                                             src="/images/hero-excavator.webp"
                                             alt="Operaciones Lormar"
                                             fill
-                                            className="object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-90 transition-all duration-1000"
+                                            className="object-cover brightness-90 group-hover:brightness-100 transition-all duration-1000"
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-tr from-brand-black via-transparent to-brand-yellow/10 pointer-events-none"></div>
                                     </div>
@@ -111,7 +111,7 @@ export default function NosotrosPage() {
                                         <h3 className="text-5xl font-black font-orbitron text-white uppercase mb-8 flex items-baseline gap-6 tracking-tighter">
                                             <span className="text-brand-yellow text-2xl">{item.id}</span> {item.title}
                                         </h3>
-                                        <p className="text-white/50 text-xl font-montserrat italic leading-relaxed group-hover:text-white/80 transition-colors">
+                                        <p className="text-white/80 text-xl font-montserrat italic leading-relaxed group-hover:text-white transition-colors">
                                             {item.text}
                                         </p>
                                     </motion.div>

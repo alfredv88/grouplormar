@@ -67,7 +67,7 @@ export default function ProyectosPage() {
                                     src={p.image}
                                     alt={p.title}
                                     fill
-                                    className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 opacity-60 group-hover:opacity-100"
+                                    className="object-cover transition-all duration-1000 ease-out brightness-90 group-hover:brightness-100 group-hover:scale-105"
                                 />
                                 {/* Viewfinder Overlays */}
                                 <div className="absolute inset-4 border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -91,7 +91,7 @@ export default function ProyectosPage() {
                                     <h3 className="text-4xl font-black font-orbitron uppercase leading-none tracking-tight group-hover:text-brand-yellow transition-colors italic">
                                         {p.title}
                                     </h3>
-                                    <p className="text-sm text-white/50 leading-relaxed italic border-l-2 border-white/10 pl-6 group-hover:text-white/80 transition-colors">
+                                    <p className="text-sm text-white/80 leading-relaxed italic border-l-2 border-white/10 pl-6 group-hover:text-white transition-colors">
                                         {p.desc}
                                     </p>
                                 </div>

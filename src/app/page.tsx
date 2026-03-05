@@ -186,11 +186,11 @@ export default function Home() {
               />
             </div>
           </Link>
-          <div className="hidden md:flex items-center gap-10 text-[10px] font-black uppercase tracking-[0.3em] font-orbitron">
+          <div className="hidden md:flex items-center gap-10 text-[12px] font-black uppercase tracking-[0.3em] font-orbitron">
             <Link href="/" className="text-brand-yellow border-b-2 border-brand-yellow pb-1">INICIO</Link>
-            <Link href="/servicios" className="text-white/60 hover:text-brand-yellow transition-all">SERVICIOS</Link>
-            <Link href="/proyectos" className="text-white/60 hover:text-brand-yellow transition-all">PROYECTOS</Link>
-            <Link href="/nosotros" className="text-white/60 hover:text-brand-yellow transition-all">EMPRESA</Link>
+            <Link href="/servicios" className="text-white hover:text-brand-yellow transition-all">SERVICIOS</Link>
+            <Link href="/proyectos" className="text-white hover:text-brand-yellow transition-all">PROYECTOS</Link>
+            <Link href="/nosotros" className="text-white hover:text-brand-yellow transition-all">EMPRESA</Link>
             <Link href="/contacto" className="relative group px-8 py-3 bg-brand-yellow text-brand-black font-black tracking-[0.2em] transition-all hover:bg-white overflow-hidden">
               <span className="relative z-10">CONTACTO</span>
               <div className="absolute top-0 right-0 w-2 h-2 bg-brand-black rotate-45 translate-x-1 -translate-y-1"></div>
@@ -207,7 +207,7 @@ export default function Home() {
           style={{ scale: heroScale, opacity: heroOpacity }}
         >
           {/* Main Video Background with Industrial Frame */}
-          <div className="absolute inset-0 z-0 p-4 md:p-10 pointer-events-none">
+          <div className="absolute inset-0 z-0 p-4 md:p-10 pt-32 md:pt-40 pointer-events-none">
             <div className="relative w-full h-full border-iron bg-brand-black overflow-hidden iron-bevel">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -223,7 +223,7 @@ export default function Home() {
                     muted
                     loop
                     playsInline
-                    className="absolute inset-0 w-full h-full object-cover brightness-50"
+                    className="absolute inset-0 w-full h-full object-cover brightness-75"
                   >
                     <source src={heroVideos[currentVideo]} type="video/mp4" />
                   </video>
@@ -240,12 +240,6 @@ export default function Home() {
                 <div className="absolute top-10 right-10 w-20 h-20 border-t-4 border-r-4 border-brand-yellow/30"></div>
                 <div className="absolute bottom-10 left-10 w-20 h-20 border-b-4 border-l-4 border-brand-yellow/30"></div>
                 <div className="absolute bottom-10 right-10 w-20 h-20 border-b-4 border-r-4 border-brand-yellow/30"></div>
-
-                {/* Center Crosshair */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-brand-yellow/20 rounded-full flex items-center justify-center">
-                  <div className="w-1 h-8 bg-brand-yellow/40 absolute"></div>
-                  <div className="w-8 h-1 bg-brand-yellow/40 absolute"></div>
-                </div>
 
                 {/* Vertical Metadata */}
                 <div className="absolute left-10 bottom-40 flex flex-col gap-6 text-[9px] font-black font-orbitron text-brand-yellow/40 tracking-[0.5em] [writing-mode:vertical-lr] rotate-180 uppercase">
@@ -325,7 +319,7 @@ export default function Home() {
                 <motion.button
                   key={idx}
                   onClick={() => setCurrentVideo(idx)}
-                  className={`group relative h-1 transition-all duration-700 ${currentVideo === idx ? 'w-12 md:w-16 bg-brand-yellow' : 'w-4 md:w-6 bg-white/20 hover:bg-white/40'}`}
+                  className={`group relative h-1 transition-all duration-700 ${currentVideo === idx ? 'w-12 md:w-16 bg-brand-yellow' : 'w-4 md:w-6 bg-white/40 hover:bg-white/60'}`}
                 >
                   {currentVideo === idx && (
                     <motion.div
@@ -385,7 +379,7 @@ export default function Home() {
                 className="flex-1 relative py-12 group transition-all duration-300 overflow-hidden"
               >
                 <div className="flex flex-col items-center justify-center gap-2 relative z-10">
-                  <span className={`font-orbitron text-[13px] font-black tracking-[0.6em] transition-all uppercase ${activeTab === tab.id ? 'text-brand-yellow' : 'text-white/40 group-hover:text-white'}`}>
+                  <span className={`font-orbitron text-[13px] font-black tracking-[0.6em] transition-all uppercase ${activeTab === tab.id ? 'text-brand-yellow' : 'text-white/70 group-hover:text-white'}`}>
                     {tab.label}
                   </span>
                 </div>
@@ -436,7 +430,7 @@ export default function Home() {
                           src={s.img}
                           alt={s.title}
                           fill
-                          className="object-cover transition-all duration-1000 ease-out brightness-[0.3] group-hover:brightness-[0.4] group-hover:scale-105"
+                          className="object-cover transition-all duration-1000 ease-out brightness-90 group-hover:brightness-100 group-hover:scale-105"
                         />
                       </div>
 
@@ -449,7 +443,7 @@ export default function Home() {
                             <h3 className="text-2xl font-black font-orbitron uppercase leading-none mb-2 group-hover:text-brand-yellow transition-colors tracking-tight">
                               {s.title}
                             </h3>
-                            <p className="text-xs text-white/60 leading-relaxed font-montserrat max-w-xs italic italic font-medium">
+                            <p className="text-xs text-white/80 leading-relaxed font-montserrat max-w-xs italic font-medium">
                               {s.desc}
                             </p>
                           </div>
@@ -514,7 +508,7 @@ export default function Home() {
                     {stat.num}
                   </span>
                   <div className="w-12 h-[2px] bg-brand-yellow/50 mx-auto"></div>
-                  <span className="text-[12px] font-black uppercase tracking-[0.5em] text-white/50">{stat.label}</span>
+                  <span className="text-[12px] font-black uppercase tracking-[0.5em] text-white/80">{stat.label}</span>
                 </motion.div>
               ))}
             </motion.div>
@@ -554,7 +548,7 @@ export default function Home() {
                     {step.num}
                   </span>
                   <h4 className="text-2xl font-bold uppercase text-white tracking-tight">{step.title}</h4>
-                  <p className="text-[13px] text-white/60 font-montserrat leading-relaxed italic font-medium group-hover:text-white transition-colors">
+                  <p className="text-[13px] text-white/80 font-montserrat leading-relaxed italic font-medium group-hover:text-white transition-colors">
                     {step.desc}
                   </p>
                 </motion.div>
@@ -645,7 +639,7 @@ export default function Home() {
             <h2 className="text-6xl font-black font-orbitron uppercase leading-none text-white italic">
               CENTRO DE <br /> <span className="text-brand-yellow">CONSULTA</span>
             </h2>
-            <p className="text-xl text-white/50 italic border-l-4 border-brand-yellow pl-10 font-medium">
+            <p className="text-xl text-white/80 italic border-l-4 border-brand-yellow pl-10 font-medium">
               Respuestas técnicas críticas para la toma de decisiones en proyectos de infraestructura.
             </p>
           </div>
@@ -663,7 +657,7 @@ export default function Home() {
                   </h4>
                   <Plus size={24} className="text-brand-yellow group-hover:rotate-90 transition-transform flex-shrink-0" />
                 </div>
-                <p className="text-[14px] text-white/40 group-hover:text-white/70 leading-relaxed font-montserrat italic transition-colors">
+                <p className="text-[14px] text-white/70 group-hover:text-white leading-relaxed font-montserrat italic transition-colors">
                   {faq.a}
                 </p>
               </div>
@@ -686,7 +680,7 @@ export default function Home() {
                   <Image src="/logos/logo lormar blanco.webp" alt="Lormar" fill className="object-contain object-left" />
                 </div>
               </Link>
-              <p className="text-white/50 text-[15px] font-montserrat leading-relaxed italic border-l-2 border-brand-yellow/30 pl-8">
+              <p className="text-white/80 text-[15px] font-montserrat leading-relaxed italic border-l-2 border-brand-yellow/30 pl-8">
                 Impulsando la soberanía industrial de <span className="text-white font-black uppercase tracking-widest">Venezuela</span> con excelencia técnica y maquinaria de precisión desde 1995.
               </p>
               <div className="flex gap-6">
@@ -704,14 +698,14 @@ export default function Home() {
               <div className="space-y-8">
                 <div className="group">
                   <p className="text-brand-yellow font-black font-orbitron text-[10px] tracking-[0.4em] mb-3 uppercase">SEDE ADMINISTRATIVA</p>
-                  <p className="text-white/60 font-montserrat italic text-[12px] leading-tight group-hover:text-white transition-colors uppercase">
+                  <p className="text-white/80 font-montserrat italic text-[12px] leading-tight group-hover:text-white transition-colors uppercase">
                     Av. Jorge Rodríguez CC MT, PB Of 05<br />
                     Sector Las Garzas, Lechería Anzoátegui
                   </p>
                 </div>
                 <div className="group">
                   <p className="text-brand-yellow font-black font-orbitron text-[10px] tracking-[0.4em] mb-3 uppercase">CENTRO LOGÍSTICO</p>
-                  <p className="text-white/60 font-montserrat italic text-[12px] leading-tight group-hover:text-white transition-colors uppercase">
+                  <p className="text-white/80 font-montserrat italic text-[12px] leading-tight group-hover:text-white transition-colors uppercase">
                     Autopista Rómulo Betancourt, S/N<br />
                     Sector Los Potocos, Barcelona Edo. Anzoátegui
                   </p>
@@ -731,7 +725,7 @@ export default function Home() {
 
             {/* Map Integration */}
             <div className="lg:col-span-4">
-              <div className="h-full min-h-[350px] border-iron iron-bevel grayscale opacity-40 hover:opacity-100 hover:grayscale-0 transition-all duration-1000 overflow-hidden relative">
+              <div className="h-full min-h-[350px] border-iron iron-bevel grayscale-[0.5] opacity-80 hover:opacity-100 hover:grayscale-0 transition-all duration-1000 overflow-hidden relative">
                 <iframe
                   src="https://www.google.com/maps/d/u/0/embed?mid=17fVcJp0SYgXWSl1eCIFFLvQIRKkw5Ak&ehbc=2E312F"
                   className="absolute top-[-52px] left-0 w-full h-[calc(100%+52px)] border-0"
