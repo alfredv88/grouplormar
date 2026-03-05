@@ -516,7 +516,7 @@ export default function Home() {
         </section >
 
         {/* Our Methodology / Process */}
-        < section className="py-40 px-6 bg-iron-base border-t border-b border-brand-yellow/10 relative z-20" >
+        <section className="py-40 px-6 bg-brand-black border-t border-b border-white/5 relative z-20">
           <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20">
             <div className="flex flex-col md:flex-row items-center gap-10 mb-24">
               <h2 className="text-6xl font-black font-orbitron uppercase leading-none text-white">NUESTRO <span className="text-brand-yellow">PROCESO</span></h2>
@@ -539,16 +539,16 @@ export default function Home() {
               ].map((step, idx) => (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.1 }}
-                  className="space-y-8 p-10 bg-iron-light/20 border-iron iron-bevel group hover:bg-brand-yellow/5 transition-all"
+                  className="group relative p-10 bg-brand-white/5 border border-white/5 hover:bg-brand-white/10 transition-all border-b-4 border-b-transparent hover:border-b-brand-yellow"
                 >
-                  <span className="text-5xl font-black font-orbitron text-white/10 group-hover:text-brand-yellow/40 transition-colors leading-none block">
+                  <span className="text-5xl font-black font-orbitron text-white/10 group-hover:text-brand-yellow/40 transition-colors leading-none block mb-6">
                     {step.num}
                   </span>
-                  <h4 className="text-2xl font-bold uppercase text-white tracking-tight">{step.title}</h4>
-                  <p className="text-[13px] text-white/80 font-montserrat leading-relaxed italic font-medium group-hover:text-white transition-colors">
+                  <h4 className="text-2xl font-bold uppercase text-white tracking-tight mb-4">{step.title}</h4>
+                  <p className="text-[13px] text-white/60 font-montserrat leading-relaxed italic font-medium group-hover:text-white transition-colors">
                     {step.desc}
                   </p>
                 </motion.div>
@@ -615,19 +615,19 @@ export default function Home() {
 
 
       {/* Equipos Certificados */}
-      <section className="relative z-10 py-24 bg-brand-yellow overflow-hidden iron-bevel border-t-4 border-white/20">
+      <section className="relative z-10 py-24 bg-brand-black border-y border-white/5 overflow-hidden">
         <div className="absolute inset-0 bg-industrial-grid opacity-[0.1] pointer-events-none" />
         <div className="w-full max-w-[1800px] mx-auto px-10 md:px-20 lg:px-32 overflow-hidden">
-          <p className="text-[12px] font-black uppercase tracking-[0.6em] text-center mb-16 text-brand-black/80 font-orbitron">
-            <span className="border-b-2 border-brand-black/20 pb-2">MAQUINARIA CERTIFICADA & FLOTA PREMIUM</span>
+          <p className="text-[11px] font-black uppercase tracking-[0.5em] text-center mb-16 text-brand-yellow/40 font-orbitron">
+            MAQUINARIA CERTIFICADA & FLOTA PREMIUM
           </p>
-          <div className="flex flex-wrap justify-around items-center gap-16 transition-opacity opacity-90">
-            <div className="text-5xl font-black font-orbitron tracking-tight text-brand-black transform hover:scale-110 transition-transform cursor-default">CATERPILLAR</div>
-            <div className="text-4xl font-black font-orbitron text-brand-black/70 transform hover:scale-110 transition-transform cursor-default">JOHN DEERE</div>
-            <div className="text-5xl font-black font-orbitron italic text-brand-black transform hover:scale-110 transition-transform cursor-default">VOLVO</div>
-            <div className="text-4xl font-black font-orbitron text-brand-black/70 transform hover:scale-110 transition-transform cursor-default">MACK</div>
-            <div className="text-5xl font-black font-orbitron text-brand-black transform hover:scale-110 transition-transform cursor-default">LIEBHERR</div>
-            <div className="text-4xl font-black font-orbitron text-brand-black/70 transform hover:scale-110 transition-transform cursor-default">TEREX</div>
+          <div className="flex flex-wrap justify-around items-center gap-16 transition-opacity">
+            <div className="text-4xl font-black font-orbitron tracking-tighter text-white/40 transform hover:scale-110 hover:text-white transition-all cursor-default">CATERPILLAR</div>
+            <div className="text-3xl font-black font-orbitron text-white/30 transform hover:scale-110 hover:text-white transition-all cursor-default">JOHN DEERE</div>
+            <div className="text-4xl font-black font-orbitron italic text-white/50 transform hover:scale-110 hover:text-white transition-all cursor-default">VOLVO</div>
+            <div className="text-3xl font-black font-orbitron text-white/20 transform hover:scale-110 hover:text-white transition-all cursor-default">MACK</div>
+            <div className="text-4xl font-black font-orbitron text-white transform hover:scale-110 transition-all cursor-default">LIEBHERR</div>
+            <div className="text-4xl font-black font-orbitron text-white/30 transform hover:scale-110 hover:text-white transition-all cursor-default">TEREX</div>
           </div>
         </div>
       </section>
