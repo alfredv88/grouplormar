@@ -474,12 +474,12 @@ export default function Home() {
             muted
             loop
             playsInline
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover opacity-40 brightness-110"
           >
             <source src="/videos/lormar 2.webm" type="video/webm" />
           </video>
-          <div className="absolute inset-0 bg-brand-black/60 z-10"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-brand-black z-10"></div>
+          <div className="absolute inset-0 bg-brand-black/40 z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 via-transparent to-brand-black/80 z-10"></div>
         </div >
 
         {/* Impact Numbers / Stats */}
