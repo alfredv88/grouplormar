@@ -1,17 +1,27 @@
-import type { Metadata } from "next";
-import { Inter, Montserrat } from "next/font/google";
-import localFont from "next/font/local";
+import { Montserrat, Syncopate, Syne } from "next/font/google";
 import "./globals.css";
-import ChatContactWidget from "@/components/ChatContactWidget";
-import MechanicalPageTransition from "@/components/MechanicalPageTransition";
+import type { Metadata } from "next";
+import ChatContactWidget from "@/components/layout/ChatContactWidget";
+import MechanicalPageTransition from "@/components/layout/MechanicalPageTransition";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat", weight: ["300", "400", "600"] });
+const montserrat = Montserrat({ 
+  subsets: ["latin"], 
+  variable: "--font-montserrat", 
+  weight: ["300", "400", "500", "700"] 
+});
 
-const orbitron = localFont({
-  src: "./fonts/future-earth.ttf",
-  variable: "--font-orbitron",
-  display: "swap"
+const syncopate = Syncopate({ 
+  weight: ["700"], 
+  subsets: ["latin"], 
+  variable: "--font-syncopate" 
+});
+
+const syne = Syne({ 
+  weight: ["700", "800"], 
+  subsets: ["latin"], 
+  variable: "--font-syne" 
 });
 
 export const metadata: Metadata = {
@@ -25,11 +35,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${inter.variable} ${montserrat.variable} ${orbitron.variable}`} suppressHydrationWarning>
+    <html lang="es" className={`${montserrat.variable} ${syncopate.variable} ${syne.variable}`} suppressHydrationWarning>
       <body className="antialiased font-montserrat selection:bg-[#F2A900] selection:text-[#0F0F0F]">
+        <Navbar />
         <MechanicalPageTransition>
           {children}
         </MechanicalPageTransition>
+        <Footer />
         <ChatContactWidget />
       </body>
     </html>

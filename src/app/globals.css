@@ -1,174 +1,143 @@
 @import "tailwindcss";
 
-:root {
-  --background: #0F0F0F;
-  --foreground: #FFFFFF;
+@font-face {
+  font-family: 'FutureEarth';
+  src: url('/fonts/future-earth.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @theme inline {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* Brand Typography */
   --font-montserrat: var(--font-montserrat);
-  --font-orbitron: var(--font-orbitron);
+  --font-syncopate: var(--font-syncopate);
+  --font-syne: var(--font-syne);
+  --font-future: 'FutureEarth', var(--font-syncopate);
 
-  --color-brand-yellow: #F2A900;
-  --color-brand-black: #0F0F0F;
-  --color-brand-surface: #1A1A1A;
-  --color-brand-border: #2D2D2D;
-  --color-brand-white: #FFFFFF;
-  --color-brand-muted: #FFFFFF;
-  /* Control de Fondo Sección "Nuestro Proceso" */
-  /* Ajusta estos valores para cambiar el aspecto del panel de metodología */
-  --bg-proceso-color: var(--color-brand-yellow);
-  /* Color Oro Institucional (múltiplos de #F2A900) */
-  --bg-proceso-opacity: 0.65;
-  /* Transparencia (1 = sólido, 0 = invisible) */
-  --bg-proceso-blur: 2px;
-  /* Desenfoque del video detrás */
-  --bg-proceso-brightness: 1.25;
-  /* MULTIPLICADOR DE BRILLO (1 = normal, >1 revive el oro) */
+  /* Brand Palette (Brochure 7L) */
+  --color-7l-gold: #F2A900;
+  --color-7l-black: #080808;
+  --color-7l-gray: #373737;
+  --color-7l-white: #FFFFFF;
+  --color-7l-surface: #121212;
+  --color-7l-border: rgba(242, 169, 0, 0.2);
+  --color-7l-metal: #2A2A2A;
 
-  /* Iron Interface Tokens */
-  --color-iron-dark: #121212;
-  --color-iron-light: #2A2A2A;
-  --color-steel-blue: #232D3F;
-  --color-warning-glow: rgba(242, 169, 0, 0.4);
-
-  /* Legacy aliases for easier transition */
-  --color-primary: var(--color-brand-yellow);
-  --color-accent: var(--color-brand-yellow);
+  /* HUD & Mechanical Tokens */
+  --shadow-7l-glow: 0 0 20px rgba(242, 169, 0, 0.15);
+  --transition-mechanical: cubic-bezier(0.7, 0, 0.3, 1);
 }
 
 @layer utilities {
-  .bg-iron-base {
-    background-color: var(--color-iron-dark);
-    background-image: url('/textures/brushed-iron.png');
-    background-size: 500px;
-    background-repeat: repeat;
-    background-blend-mode: overlay;
+  /* --- BACKGROUND TEXTURES --- */
+
+  /* Industrial Carbon-Fiber/Diagonal Texture (Dark) */
+  .bg-7l-dark-texture {
+    background-color: var(--color-7l-black);
+    background-image: 
+      repeating-linear-gradient(45deg, 
+        transparent, 
+        transparent 10px, 
+        rgba(255, 255, 255, 0.02) 10px, 
+        rgba(255, 255, 255, 0.02) 11px),
+      radial-gradient(circle at 50% 50%, rgba(18, 18, 18, 1) 0%, rgba(8, 8, 8, 1) 100%);
   }
 
-  .border-iron {
-    @apply border border-white/5 border-b-white/10 border-r-white/10;
+  /* Premium White Section Texture */
+  .bg-7l-white-section {
+    background-color: var(--color-7l-white);
+    background-image: 
+      repeating-linear-gradient(-45deg, 
+        transparent, 
+        transparent 20px, 
+        rgba(0, 0, 0, 0.01) 20px, 
+        rgba(0, 0, 0, 0.01) 21px);
+    color: var(--color-7l-black);
   }
 
-  .iron-bevel {
-    box-shadow:
-      inset 1px 1px 0px rgba(255, 255, 255, 0.02),
-      inset -1px -1px 0px rgba(0, 0, 0, 0.4),
-      2px 2px 10px rgba(0, 0, 0, 0.5);
-  }
+  /* --- ARCHITECTURAL CUTS (DIAGONALS) --- */
 
-  /* Industrial Screw heads (Simulated with radial gradients) */
-  .industrial-screws {
-    background-image:
-      radial-gradient(circle at 4px 4px, #333 1px, transparent 1px),
-      radial-gradient(circle at calc(100% - 4px) 4px, #333 1px, transparent 1px),
-      radial-gradient(circle at 4px calc(100% - 4px), #333 1px, transparent 1px),
-      radial-gradient(circle at calc(100% - 4px) calc(100% - 4px), #333 1px, transparent 1px);
-  }
-
-  .bg-industrial-grid {
-    background-image: repeating-linear-gradient(45deg,
-        transparent,
-        transparent 10px,
-        rgba(255, 255, 255, 0.05) 10px,
-        rgba(255, 255, 255, 0.05) 11px);
-  }
-
-  .bg-industrial-lines {
-    background-image: repeating-linear-gradient(0deg,
-        transparent,
-        transparent 39px,
-        rgba(255, 255, 255, 0.03) 39px,
-        rgba(255, 255, 255, 0.03) 40px);
-  }
-
-  .bg-metal-texture {
-    background-image: url('/textures/bg-metal-texture-dark.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-blend-mode: overlay;
-  }
-
-  .bg-lormar-texture {
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 40%, transparent 100%), url('/textures/fondo lormar.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-
-  .bg-proceso-custom {
-    background-color: color-mix(in srgb, var(--bg-proceso-color) calc(var(--bg-proceso-opacity) * 100%), transparent);
-    backdrop-filter: blur(var(--bg-proceso-blur)) brightness(var(--bg-proceso-brightness));
-    -webkit-backdrop-filter: blur(var(--bg-proceso-blur)) brightness(var(--bg-proceso-brightness));
-  }
-
-  /* Glassmorphism HMI Style */
-  .glass-industrial {
-    @apply bg-brand-white/5 backdrop-blur-md border border-brand-white/10;
-  }
-
-  .glass-industrial-yellow {
-    @apply bg-brand-yellow/5 backdrop-blur-md border border-brand-yellow/20;
-  }
-
-  /* Industrial Cuts (Clip-paths) */
-  .clip-diagonal-hero {
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
-  }
-
-  .clip-trapeze-right {
-    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
-  }
-
-  .clip-diagonal-left {
+  .clip-7l-diagonal-right {
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
   }
 
-  .clip-diagonal-right {
-    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+  .clip-7l-diagonal-left {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 90%);
   }
 
-  .clip-diagonal-both {
-    clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+  .clip-7l-parallelogram {
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
   }
 
+  /* --- MECHANICAL UI ELEMENTS --- */
 
-
-  /* Animations */
-  @keyframes drawLine {
-    from {
-      stroke-dashoffset: 1000;
-    }
-
-    to {
-      stroke-dashoffset: 0;
-    }
+  .border-7l-industrial {
+    border: 1px solid var(--color-7l-border);
+    position: relative;
   }
 
-  .animate-draw {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: drawLine 2s ease-out forwards;
+  .border-7l-industrial::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 10px; height: 10px;
+    border-top: 2px solid var(--color-7l-gold);
+    border-left: 2px solid var(--color-7l-gold);
+  }
+
+  /* Button "Heavy Duty" */
+  .btn-7l-primary {
+    @apply relative px-8 py-4 bg-7l-gold text-7l-black font-syne text-[11px] font-extrabold tracking-[0.2em] overflow-hidden transition-all duration-300;
+    clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0% 100%);
+  }
+
+  .btn-7l-primary:hover {
+    @apply shadow-[0_0_25px_rgba(242,169,0,0.4)] scale-105;
+  }
+
+  /* Typography Utilities */
+  .font-extended {
+    font-family: 'FutureEarth', sans-serif;
+    @apply uppercase leading-none;
   }
 }
+
+/* --- BASE STYLES --- */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  @apply font-montserrat;
+  background: var(--color-7l-black);
+  color: var(--color-7l-white);
+  @apply font-montserrat antialiased selection:bg-7l-gold selection:text-7l-black;
 }
 
-h1,
-h2,
-h3,
-h4,
-.font-orbitron {
-  @apply font-orbitron tracking-wide;
+  h1 {
+    font-family: 'FutureEarth', sans-serif;
+    @apply uppercase;
+    letter-spacing: -0.02em; 
+    line-height: 0.9;
+  }
+  
+  h2, h3 {
+    @apply font-syne font-extrabold uppercase tracking-tight text-7l-white;
+    letter-spacing: -0.02em;
+  }
+
+/* Scrollbar Industrial */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-7l-black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-7l-gold);
+  border-radius: 10px;
 }
 
-.text-balance {
-  text-wrap: balance;
+/* Custom Utilities for Brochure Elements */
+.lormar-pipeline {
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-7l-gold) 0%, var(--color-7l-white) 100%);
+  @apply opacity-50;
 }
