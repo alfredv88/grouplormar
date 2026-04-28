@@ -28,6 +28,7 @@ export const BROCHURE_DATA = {
             items: [
                 "Correctivo y Reparación: Equipos rotatorios (bombas, compresores) y estáticos (tuberías, recipientes).",
                 "Integridad de Tuberías y Equipos: Limpieza, pruebas no destructivas (NDT) e inspección técnica.",
+                "Autonomía de Flota: Garantía de disponibilidad 24/7 mediante programas de mantenimiento interno preventivo y correctivo para toda la flota propia.",
             ],
         },
         {

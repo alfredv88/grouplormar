@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export function CertifiedStrip() {
   const labels = ["GRÚAS 100T", "LOWBOY 140T", "CATERPILLAR", "MACK", "WELL TESTING", "FLUSH-BY"];
   return (
-    <section className="relative z-10 py-24 bg-7l-black border-y border-white/5 overflow-hidden">
+    <section className="relative z-10 py-24 bg-[#080808] border-y border-white/5 overflow-hidden">
       <div className="absolute inset-0 bg-industrial-grid opacity-[0.1] pointer-events-none" />
       <div className="w-full max-w-[1800px] mx-auto px-10 md:px-20 lg:px-32 overflow-hidden">
         <p className="text-[10px] font-syncopate font-bold uppercase tracking-[0.5em] text-center mb-16 text-7l-gold">
@@ -22,8 +22,8 @@ export function CertifiedStrip() {
             {[...labels, ...labels, ...labels, ...labels].map((label, i) => (
               <div
                 key={i}
-                className={`text-3xl md:text-4xl font-syne font-black transform hover:scale-110 hover:text-white transition-all cursor-default ${i % 2 === 0 ? "text-white/40 tracking-widest" : "text-white/30 tracking-tight"
-                  } ${label === "CATERPILLAR" ? "text-white/50" : ""} ${label === "WELL TESTING" ? "text-white" : ""}`}
+                className={`text-3xl md:text-4xl font-syne font-black transform hover:scale-110 hover:text-white transition-all cursor-default ${i % 2 === 0 ? "text-white/60 tracking-widest" : "text-white/40 tracking-tight"
+                  } ${label === "CATERPILLAR" ? "text-white/70" : ""} ${label === "WELL TESTING" ? "text-white" : ""}`}
               >
                 {label}
               </div>
@@ -39,23 +39,32 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqs = [
-    { q: "¿Cuentan con maquinaria propia?", a: "Sí, disponemos de una flota robusta de grúas, excavadoras y transporte pesado propios, lo que optimiza costos logísticos y tiempos de respuesta." },
-    { q: "¿Cuál es su radio de acción?", a: "Nuestras bases principales están en El Tigre y Barcelona, pero operamos en todo el territorio nacional venezolano." },
-    { q: "¿Emiten facturación con solvencia fiscal?", a: "Somos Contribuyentes Especiales debidamente solventes ante el SENIAT y demás instituciones oficiales." },
-    { q: "¿Realizan mantenimientos de emergencia?", a: "Disponemos de cuadrillas operativas 24/7 para paradas de planta y contingencias técnicas críticas." }
+    { q: "¿CUENTAN CON MAQUINARIA PROPIA VIGENTE?", a: "Sí, disponemos de una flota robusta de grúas, excavadoras y transporte pesado propios, lo que optimiza costos logísticos y tiempos de respuesta bajo estándares internacionales." },
+    { q: "¿CUÁL ES SU RADIO DE ACCIÓN TÉCNICA?", a: "Nuestras bases principales están en El Tigre y Barcelona, pero operamos con plena autonomía logística en todo el territorio nacional venezolano." },
+    { q: "¿CUMPLEN CON SOLVENCIAS DE CONTRATISTAS?", a: "Somos Contribuyentes Especiales debidamente solventes ante el SENIAT y demás instituciones oficiales, listos para procesos de auditoría y licitación inmediata." },
+    { q: "¿REALIZAN SOPORTE DE EMERGENCIA 24/7?", a: "Disponemos de cuadrillas operativas y soporte de ingeniería 24/7 para paradas de planta, contingencias técnicas críticas y proyectos de alta prioridad." }
   ];
 
   return (
-    <section className="py-48 px-10 md:px-20 lg:px-32 bg-7l-black border-t border-white/5">
-      <div className="w-full max-w-[1800px] mx-auto grid lg:grid-cols-12 gap-24">
+    <section className="py-32 px-6 bg-[#131313] border-t border-white/5" id="faq">
+      <div className="w-full max-w-[1400px] mx-auto grid lg:grid-cols-12 gap-16 lg:gap-24">
+        
+        {/* LADO IZQUIERDO - BRANDING */}
         <div className="lg:col-span-5 space-y-10">
-          <h2 className="text-5xl font-future uppercase leading-none text-white tracking-widest">
-            CENTRO DE <br /> <span className="text-7l-gold">CONSULTA</span>
-          </h2>
-          <p className="text-xl text-white/70 border-l-2 border-7l-gold pl-10 font-montserrat font-light leading-relaxed">
-            Respuestas técnicas críticas para la toma de decisiones en proyectos de infraestructura.
+          <div className="space-y-6">
+            <span className="font-syncopate text-7l-gold text-[8px] font-bold tracking-[0.6em] uppercase block">
+              Support Center
+            </span>
+            <h2 className="text-4xl md:text-5xl font-future text-white uppercase tracking-tighter leading-[0.9]">
+              SOPORTE <br /> <span className="text-7l-gold">TÉCNICO</span>
+            </h2>
+          </div>
+          <p className="text-[15px] text-white/50 border-l border-7l-gold/40 pl-8 font-montserrat font-medium leading-relaxed italic">
+            Resolución de dudas críticas para la toma de decisiones en proyectos de infraestructura estratégica.
           </p>
         </div>
+
+        {/* LADO DERECHO - ACORDEÓN MINIMALISTA */}
         <div className="lg:col-span-7 divide-y divide-white/5 border-y border-white/5">
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
@@ -63,15 +72,15 @@ export function FAQ() {
               <div 
                 key={i} 
                 onClick={() => setOpenIndex(isOpen ? null : i)}
-                className="py-10 group cursor-pointer hover:bg-white/[0.02] px-8 transition-all relative overflow-hidden"
+                className="py-10 group cursor-pointer transition-all relative overflow-hidden"
               >
-                <div className="flex justify-between items-center mb-6">
-                  <h4 className={`text-[13px] font-syne uppercase transition-colors tracking-widest font-bold ${isOpen ? 'text-7l-gold' : 'text-white group-hover:text-7l-gold'}`}>
+                <div className="flex justify-between items-center">
+                  <h4 className={`text-[12px] font-syncopate uppercase transition-all tracking-[0.2em] font-bold max-w-[85%] ${isOpen ? 'text-7l-gold translate-x-2' : 'text-white'}`}>
                     {faq.q}
                   </h4>
-                  <motion.div animate={{ rotate: isOpen ? 45 : 0 }} transition={{ duration: 0.3 }} className="text-7l-gold flex-shrink-0">
+                  <div className={`transition-all duration-500 scale-75 ${isOpen ? 'rotate-45 text-white' : 'text-7l-gold'}`}>
                     <Plus size={24} />
-                  </motion.div>
+                  </div>
                 </div>
                 <AnimatePresence>
                   {isOpen && (
@@ -79,10 +88,10 @@ export function FAQ() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="text-[14px] text-white/60 leading-relaxed font-montserrat font-light pb-4 border-l-2 border-7l-gold/30 pl-6 ml-2">
+                      <p className="text-[14px] text-white/60 leading-relaxed font-montserrat font-medium pt-8 pb-4 pl-4 select-none">
                         {faq.a}
                       </p>
                     </motion.div>

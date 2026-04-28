@@ -28,7 +28,7 @@ export default function Footer() {
             </Link>
             
             <div className="max-w-md space-y-8">
-              <p className="text-white/60 text-[15px] font-montserrat leading-relaxed font-light border-l border-7l-gold/30 pl-8">
+              <p className="text-gray-300 text-[15px] font-montserrat leading-relaxed font-light border-l border-7l-gold/30 pl-8">
                 Liderazgo industrial con <span className="text-white font-bold tracking-widest uppercase">activos propios</span>. Ejecución técnica de alto nivel para los sectores estratégicos de Venezuela desde 2010.
               </p>
               
@@ -37,7 +37,7 @@ export default function Footer() {
                   <Link 
                     key={i} 
                     href="#" 
-                    className="relative text-white/30 hover:text-7l-gold group transition-all duration-300 pb-2"
+                    className="relative text-gray-400 hover:text-7l-gold group transition-all duration-300 pb-2"
                   >
                     <Icon size={20} className="transition-transform duration-500 group-hover:-translate-y-1" />
                     <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-7l-gold transition-all duration-300 group-hover:w-full"></span>
@@ -56,33 +56,33 @@ export default function Footer() {
              
              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 pt-4">
                 <div className="space-y-3">
-                  <p className="text-[10px] font-bold text-7l-gold/80 tracking-widest font-syncopate uppercase">DOMICILIO FISCAL</p>
-                  <p className="text-white/40 font-montserrat text-[13px] leading-relaxed">
+                  <p className="text-[10px] font-bold text-7l-gold tracking-widest font-syncopate uppercase">DOMICILIO FISCAL</p>
+                  <p className="text-gray-300 font-montserrat text-[13px] leading-relaxed">
                     Av. Jorge Rodríguez CC MT Nivel PB Local 05. <br/>
                     Sector Las Garzas, Lechería.
                   </p>
                 </div>
                 <div className="space-y-3">
-                  <p className="text-[10px] font-bold text-7l-gold/80 tracking-widest font-syncopate uppercase">DOMICILIO RACDA</p>
-                  <p className="text-white/40 font-montserrat text-[13px] leading-relaxed">
+                  <p className="text-[10px] font-bold text-7l-gold tracking-widest font-syncopate uppercase">DOMICILIO RACDA</p>
+                  <p className="text-gray-300 font-montserrat text-[13px] leading-relaxed">
                     Sector Palotal Calle Ricaurte, al lado Cir. Militar. <br/>
                     Barcelona, Estado Anzoátegui.
                   </p>
                 </div>
              </div>
 
-             <div className="pt-10 border-t border-white/5 space-y-4">
-                <div className="flex flex-col gap-3">
-                   <div className="flex items-center gap-4 text-white/60">
+             <div className="pt-10 border-t border-white/10 space-y-4">
+                <div className="flex flex-col gap-4">
+                   <div className="flex items-center gap-4 text-gray-200">
                       <Phone size={14} className="text-7l-gold" />
-                      <span className="text-[10px] font-syncopate tracking-widest"><span className="text-white/30 text-[8px] mr-2 text-nowrap">NAPOLEÓN B.</span> +58 414 181 61 62</span>
+                      <span className="text-[10px] font-syncopate tracking-widest"><span className="text-gray-400 text-[8px] mr-2 text-nowrap">NAPOLEÓN B.</span> +58 414 181 61 62</span>
                    </div>
-                   <div className="flex items-center gap-4 text-white/60">
-                      <Phone size={14} className="text-7l-gold opacity-30" />
-                      <span className="text-[10px] font-syncopate tracking-widest"><span className="text-white/30 text-[8px] mr-2 text-nowrap">BRAYHAN B.</span> +58 412 944 86 72</span>
+                   <div className="flex items-center gap-4 text-gray-200">
+                      <Phone size={14} className="text-7l-gold" />
+                      <span className="text-[10px] font-syncopate tracking-widest"><span className="text-gray-400 text-[8px] mr-2 text-nowrap">BRAYHAN B.</span> +58 412 944 86 72</span>
                    </div>
                 </div>
-                <div className="flex items-center gap-4 text-white/60 pt-2">
+                <div className="flex items-center gap-4 text-gray-200 pt-2">
                    <Mail size={14} className="text-7l-gold" />
                    <span className="text-[10px] font-syncopate tracking-widest">NEGOCIOS@GROUPLORMAR.COM</span>
                 </div>
@@ -99,35 +99,35 @@ export default function Footer() {
 
                <div className="space-y-px">
                  {/* Item RIF */}
-                 <div className="group flex items-center justify-between py-5 border-b border-white/5 hover:border-7l-gold/30 transition-colors">
+                 <div className="group flex items-center justify-between py-5 border-b border-white/10 hover:border-7l-gold/30 transition-colors">
                    <div className="space-y-1">
-                     <p className="text-[8px] font-bold text-white/30 uppercase tracking-[0.4em] font-syncopate">IDENTIFICACIÓN FISCAL</p>
-                     <p className="text-[10px] font-bold text-white/60 uppercase tracking-widest font-syncopate">RIF VENEZUELA</p>
+                     <p className="text-[8px] font-bold text-7l-gold uppercase tracking-[0.4em] font-syncopate">IDENTIFICACIÓN FISCAL</p>
+                     <p className="text-[10px] font-bold text-gray-300 uppercase tracking-widest font-syncopate">RIF VENEZUELA</p>
                    </div>
-                   <span className="text-sm font-future text-white/90 tracking-[0.2em]">J-306579656</span>
+                   <span className="text-sm font-future text-white tracking-[0.2em]">J-306579656</span>
                  </div>
 
                  {/* Item RACDA */}
-                 <div className="group flex items-center justify-between py-5 border-b border-white/5 hover:border-7l-gold/30 transition-colors">
+                 <div className="group flex items-center justify-between py-5 border-b border-white/10 hover:border-7l-gold/30 transition-colors">
                    <div className="space-y-1">
-                     <p className="text-[8px] font-bold text-white/30 uppercase tracking-[0.4em] font-syncopate">REGISTRO RACDA</p>
-                     <p className="text-[10px] font-bold text-white/60 uppercase tracking-widest font-syncopate">GEN-03-04-TSMDP-2024</p>
+                     <p className="text-[8px] font-bold text-7l-gold uppercase tracking-[0.4em] font-syncopate">REGISTRO RACDA</p>
+                     <p className="text-[10px] font-bold text-gray-300 uppercase tracking-widest font-syncopate">GEN-03-04-TSMDP-2024</p>
                    </div>
                    <span className="text-[10px] font-future text-7l-gold tracking-widest uppercase">HABILITADO</span>
                  </div>
 
                  {/* Item RNC */}
-                 <div className="group flex items-center justify-between py-5 border-b border-white/5 hover:border-7l-gold/30 transition-colors">
+                 <div className="group flex items-center justify-between py-5 border-b border-white/10 hover:border-7l-gold/30 transition-colors">
                    <div className="space-y-1">
-                     <p className="text-[8px] font-bold text-white/30 uppercase tracking-[0.4em] font-syncopate">NR CORREATIVO RNC</p>
-                     <p className="text-[10px] font-bold text-white/60 uppercase tracking-widest font-syncopate">SNC-2025060651014</p>
+                     <p className="text-[8px] font-bold text-7l-gold uppercase tracking-[0.4em] font-syncopate">NR CORREATIVO RNC</p>
+                     <p className="text-[10px] font-bold text-gray-300 uppercase tracking-widest font-syncopate">SNC-2025060651014</p>
                    </div>
-                   <span className="text-sm font-future text-white/90 tracking-[0.2em]">ACTIVO</span>
+                   <span className="text-sm font-future text-white tracking-[0.2em]">ACTIVO</span>
                  </div>
                </div>
 
                <div className="pt-8">
-                 <Link href="/portafolio" className="group flex items-center gap-4 text-white/40 hover:text-7l-gold transition-all">
+                 <Link href="/portafolio" className="group flex items-center gap-4 text-gray-300 hover:text-7l-gold transition-all">
                     <div className="w-8 h-[1px] bg-7l-gold/40 group-hover:w-12 transition-all"></div>
                     <span className="text-[9px] font-bold uppercase tracking-[0.5em] font-syncopate">Explorar Portafolio de Obras</span>
                     <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />

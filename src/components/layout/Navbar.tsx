@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone, Mail, Facebook, Instagram, Linkedin } from "lucide-react";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -23,7 +23,7 @@ export default function Navbar() {
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
-    setIsScrolled(latest > 50);
+    setIsScrolled(latest > 60);
     if (latest > previous && latest > 150) {
       setHidden(true);
     } else {
@@ -33,63 +33,120 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.nav 
+      <motion.div
         variants={{ visible: { y: 0 }, hidden: { y: "-100%" } }}
         animate={hidden ? "hidden" : "visible"}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-          isScrolled || isOpen ? "bg-7l-black/90 backdrop-blur-2xl py-4" : "bg-transparent py-10"
-        }`}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="fixed top-0 w-full z-50"
       >
-        <div className="w-full max-w-[1800px] mx-auto px-6 md:px-24 lg:px-44 h-16 flex items-center justify-between relative z-10">
-          
-          <Link href="/" className="group flex items-center gap-4">
-            <div className={`relative transition-all duration-500 ${isScrolled ? "w-36 h-9" : "w-44 h-11"}`}>
-              <Image
-                src="/logos/logo lormar sin rif.webp"
-                alt="Logo Grupo Lormar Industrial"
-                fill
-                priority
-                className="object-contain"
-              />
+        {/* ── TOP BAR (Utility / Institutional) ── */}
+        <div className="bg-[#080808] h-7 w-full flex items-center">
+          <div className="w-full max-w-[1800px] mx-auto px-6 md:px-16 lg:px-32 flex items-center justify-between">
+            {/* Left: ID Corporativo */}
+            <div className="flex items-center gap-6">
+              <span className="font-syncopate text-[9px] text-white/40 tracking-[0.3em] uppercase hidden sm:block">
+                RIF: J-30657965-6
+              </span>
             </div>
-          </Link>
 
-          {/* DESKTOP NAV */}
-          <div className="hidden md:flex items-center gap-12 lg:gap-16 text-[10px] font-syne font-extrabold uppercase tracking-[0.4em]">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`pb-1 transition-all duration-300 relative group/link ${
-                  pathname === link.href ? "text-7l-gold" : "text-white/60 hover:text-white"
-                }`}
-              >
-                {link.label}
-                <span className={`absolute -bottom-2 left-0 h-[1.5px] bg-7l-gold transition-all duration-500 ${
-                  pathname === link.href ? "w-full" : "w-0 group-hover/link:w-full"
-                }`}></span>
-              </Link>
-            ))}
-            
-            <Link
-              href="/contacto"
-              className="group relative px-10 py-3 border border-white/10 font-syne font-black tracking-[0.4em] text-[9px] overflow-hidden transition-all duration-500 hover:border-7l-gold"
-            >
-              <span className="relative z-10 text-white group-hover:text-7l-black transition-colors duration-500">COTIZAR</span>
-              <div className="absolute inset-0 bg-7l-gold translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-            </Link>
+             {/* Right: Contact Utilities & Social */}
+            <div className="flex items-center gap-8">
+              <div className="flex items-center gap-6 border-r border-white/10 pr-8 mr-2 hidden lg:flex">
+                <a href="tel:+584141816162" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors">
+                  <Phone size={10} className="text-[#F2A900]" />
+                  <span className="font-syncopate text-[8px] tracking-wider">+58 414 181 61 62</span>
+                </a>
+                <a href="mailto:negocios@grouplormar.com" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors">
+                  <Mail size={10} className="text-[#F2A900]" />
+                  <span className="font-syncopate text-[8px] tracking-wider uppercase">NEGOCIOS@GROUPLORMAR.COM</span>
+                </a>
+              </div>
+              
+              <div className="flex items-center gap-5">
+                {[Linkedin, Instagram, Facebook].map((Icon, i) => (
+                  <a 
+                    key={i} 
+                    href="#" 
+                    className="text-white/40 hover:text-[#F2A900] transition-all duration-300 transform hover:-translate-y-0.5"
+                  >
+                    <Icon size={12} />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
-
-          {/* MOBILE TOGGLE */}
-          <button 
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white p-2 hover:text-7l-gold transition-colors"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
-      </motion.nav>
+
+        {/* ── MAIN NAV ── */}
+        <div
+          className={`w-full transition-all duration-500 ${
+            isScrolled || isOpen
+              ? "bg-white/97 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.08)] py-1.5"
+              : "bg-transparent py-3"
+          }`}
+        >
+          <div className="w-full max-w-[1800px] mx-auto px-6 md:px-16 lg:px-32 h-11 flex items-center justify-between">
+
+            {/* LOGO */}
+            <Link href="/" className="flex items-center gap-4 group">
+              <div className={`relative transition-all duration-500 ${isScrolled ? "w-28 h-7" : "w-36 h-9"}`}>
+                <Image
+                  src={isScrolled || isOpen ? "/logos/logo lormar sin rif gris.webp" : "/logos/logo lormar sin rif.webp"}
+                  alt="Logo Grupo Lormar Industrial"
+                  fill
+                  priority
+                  className="object-contain"
+                />
+              </div>
+            </Link>
+
+            {/* DESKTOP LINKS */}
+            <div className="hidden md:flex items-center gap-10 lg:gap-14">
+              {links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`relative group/link pb-1 font-syncopate text-[10px] font-bold uppercase tracking-[0.3em] transition-colors duration-300 ${
+                    isScrolled || isOpen
+                      ? pathname === link.href
+                        ? "text-[#F2A900]"
+                        : "text-[#1A1A1A] hover:text-[#080808]"
+                      : pathname === link.href
+                      ? "text-[#F2A900]"
+                      : "text-white/70 hover:text-white"
+                  }`}
+                >
+                  {link.label}
+                  {/* Active underline gold */}
+                  <span
+                    className={`absolute -bottom-1 left-0 h-[2px] bg-[#F2A900] transition-all duration-400 ${
+                      pathname === link.href ? "w-full" : "w-0 group-hover/link:w-full"
+                    }`}
+                  />
+                </Link>
+              ))}
+
+              {/* CTA COTIZAR */}
+              <Link
+                href="/contacto"
+                className="group relative px-6 py-2 bg-[#F2A900] text-[#080808] font-syncopate font-black tracking-[0.3em] text-[8px] overflow-hidden transition-all duration-300 hover:shadow-[0_4px_20px_rgba(242,169,0,0.35)] hover:scale-105"
+              >
+                COTIZAR
+              </Link>
+            </div>
+
+            {/* MOBILE TOGGLE */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={`md:hidden p-2 transition-colors ${
+                isScrolled || isOpen ? "text-[#1A1A1A]" : "text-white"
+              }`}
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+      </motion.div>
 
       {/* MOBILE OVERLAY */}
       <AnimatePresence>
@@ -98,30 +155,49 @@ export default function Navbar() {
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[45] bg-7l-black pt-32 px-10 flex flex-col gap-8 md:hidden"
+            transition={{ type: "spring", damping: 28, stiffness: 200 }}
+            className="fixed inset-0 z-[45] bg-white pt-36 px-10 flex flex-col gap-8 md:hidden"
           >
-            <div className="flex flex-col gap-10">
+            <div className="flex flex-col gap-0 border-t border-[#E8E8E8]">
               {links.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="font-future text-4xl text-white tracking-widest uppercase flex items-center justify-between group"
+                  className="py-6 font-syncopate text-2xl uppercase tracking-widest flex items-center justify-between group border-b border-[#E8E8E8]"
                 >
-                  <span className={pathname === link.href ? "text-7l-gold" : "text-white/40"}>{link.label}</span>
-                  <div className="w-12 h-[1px] bg-white/10 group-hover:w-full group-hover:bg-7l-gold transition-all duration-500"></div>
+                  <span
+                    className={
+                      pathname === link.href
+                        ? "text-[#F2A900]"
+                        : "text-[#1A1A1A] group-hover:text-[#F2A900] transition-colors"
+                    }
+                  >
+                    {link.label}
+                  </span>
+                  <span className="text-[#E8E8E8] group-hover:text-[#F2A900] transition-colors text-xl">→</span>
                 </Link>
               ))}
             </div>
-            
+
             <Link
               href="/contacto"
               onClick={() => setIsOpen(false)}
-              className="mt-20 py-8 border-t border-white/5 font-syne font-black tracking-[0.6em] text-xs text-7l-gold uppercase text-center"
+              className="mt-8 py-5 bg-[#F2A900] text-[#080808] font-syncopate font-black tracking-[0.4em] text-sm uppercase text-center"
             >
               SOLICITAR COTIZACIÓN
             </Link>
+
+            <div className="mt-auto pb-10 flex flex-col gap-3 border-t border-[#E8E8E8] pt-8">
+              <a href="tel:+584141816162" className="flex items-center gap-3 text-[#6B7280]">
+                <Phone size={14} className="text-[#F2A900]" />
+                <span className="font-syncopate text-[10px] tracking-wider">+58 414 181 61 62</span>
+              </a>
+              <a href="mailto:negocios@grouplormar.com" className="flex items-center gap-3 text-[#6B7280]">
+                <Mail size={14} className="text-[#F2A900]" />
+                <span className="font-syncopate text-[10px] tracking-wider">NEGOCIOS@GROUPLORMAR.COM</span>
+              </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

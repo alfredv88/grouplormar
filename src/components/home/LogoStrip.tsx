@@ -1,25 +1,46 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function LogoStrip() {
-  const clients = ["SIDOR", "CVG VENALUM", "PDVSA", "FERROMINERA", "TGI"];
+  const clients = [
+    "SIDOR", "CVG VENALUM", "PDVSA", "FERROMINERA", "TGI", 
+    "PETROMONAGAS", "HYUNDAI", "STX", "SINOHYDRO", "HALLIBURTON"
+  ];
 
   return (
-    <section className="relative z-10 py-8 border-b border-7l-white/5 bg-7l-black">
-      <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20 overflow-hidden">
-        <p className="text-[10px] font-syne font-black uppercase tracking-[0.3em] text-center mb-16 text-7l-gold">
-          ALIADOS ESTRATÉGICOS E INSTITUCIONES
+    <section className="relative z-10 py-24 bg-transparent overflow-hidden">
+      
+      <div className="w-full max-w-[1800px] mx-auto overflow-hidden">
+        <p className="text-[10px] font-syncopate font-bold uppercase tracking-[0.6em] text-center mb-20 text-white/40">
+          SOCIOS <span className="text-7l-gold/80">ESTRATÉGICOS</span>
         </p>
-        <div className="flex flex-wrap justify-around items-center gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-          {clients.map((client, i) => (
-            <div
-              key={i}
-              className="font-future text-white text-3xl tracking-widest hover:text-7l-gold transition-colors duration-300"
-            >
-              {client}
-            </div>
-          ))}
+        
+        <div className="relative flex overflow-hidden group">
+          {/* Gradientes de desvanecimiento lateral para limpieza visual - Sincronizados con Negro Puro */}
+          <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
+
+          <motion.div 
+            animate={{ x: ["0%", "-50%"] }} 
+            transition={{ 
+              repeat: Infinity, 
+              ease: "linear", 
+              duration: 25,
+              repeatType: "loop"
+            }}
+            className="flex whitespace-nowrap gap-24 items-center px-12"
+          >
+            {[...clients, ...clients].map((client, i) => (
+              <div
+                key={i}
+                className="font-syne text-2xl md:text-3xl font-black text-white/50 hover:text-white transition-all cursor-default tracking-tighter"
+              >
+                {client}
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

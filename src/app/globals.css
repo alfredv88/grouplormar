@@ -9,119 +9,84 @@
 }
 
 @theme inline {
-  /* Brand Typography */
+  /* Brand Typography (As per Brochure Master Guide) */
   --font-montserrat: var(--font-montserrat);
   --font-syncopate: var(--font-syncopate);
   --font-syne: var(--font-syne);
   --font-future: 'FutureEarth', var(--font-syncopate);
 
-  /* Brand Palette (Brochure 7L) */
-  --color-7l-gold: #F2A900;
-  --color-7l-black: #080808;
-  --color-7l-gray: #373737;
-  --color-7l-white: #FFFFFF;
-  --color-7l-surface: #121212;
-  --color-7l-border: rgba(242, 169, 0, 0.2);
-  --color-7l-metal: #2A2A2A;
-
-  /* HUD & Mechanical Tokens */
+  /* Brand Palette (SISTEMA 7L - Official Brochure) */
+  --color-7l-black: #0d0d0d;      /* Negro Carbón: Base más clara */
+  --color-7l-gold: #F2A900;       /* Amarillo Oro: Seguridad y Acento */
+  --color-7l-gray: #D1D5DB;       /* Gris Corporativo: Ajustado para legibilidad (Gris Claro) */
+  --color-7l-white: #FFFFFF;      /* Blanco Puro: Claridad */
+  
+  /* Text Contrast Tokens */
+  --color-7l-text-primary: #FFFFFF;
+  --color-7l-text-secondary: rgba(255, 255, 255, 0.7);
+  --color-7l-text-muted: rgba(255, 255, 255, 0.5);
+  
+  /* UI Surface Tokens */
+  --color-7l-surface-light: #F8F9FA;
+  --color-7l-border-light: #E8E8E8;
+  
   --shadow-7l-glow: 0 0 20px rgba(242, 169, 0, 0.15);
-  --transition-mechanical: cubic-bezier(0.7, 0, 0.3, 1);
 }
 
 @layer utilities {
-  /* --- BACKGROUND TEXTURES --- */
+  /* --- BACKGROUND TEXTURES (Sistema 7L) --- */
 
-  /* Industrial Carbon-Fiber/Diagonal Texture (Dark) */
-  .bg-7l-dark-texture {
+  .bg-7l-industrial-dark {
     background-color: var(--color-7l-black);
     background-image: 
-      repeating-linear-gradient(45deg, 
-        transparent, 
-        transparent 10px, 
-        rgba(255, 255, 255, 0.02) 10px, 
-        rgba(255, 255, 255, 0.02) 11px),
-      radial-gradient(circle at 50% 50%, rgba(18, 18, 18, 1) 0%, rgba(8, 8, 8, 1) 100%);
+      radial-gradient(circle at 2px 2px, rgba(255,255,255,0.03) 1px, transparent 0);
+    background-size: 24px 24px;
+    color: var(--color-7l-white);
   }
 
-  /* Premium White Section Texture */
-  .bg-7l-white-section {
+  .bg-7l-industrial-light {
     background-color: var(--color-7l-white);
     background-image: 
-      repeating-linear-gradient(-45deg, 
-        transparent, 
-        transparent 20px, 
-        rgba(0, 0, 0, 0.01) 20px, 
-        rgba(0, 0, 0, 0.01) 21px);
+      linear-gradient(rgba(0,0,0,0.01) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.01) 1px, transparent 1px);
+    background-size: 40px 40px;
     color: var(--color-7l-black);
   }
 
-  /* --- ARCHITECTURAL CUTS (DIAGONALS) --- */
-
-  .clip-7l-diagonal-right {
-    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
-  }
-
-  .clip-7l-diagonal-left {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 90%);
-  }
-
-  .clip-7l-parallelogram {
-    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
-  }
-
-  /* --- MECHANICAL UI ELEMENTS --- */
-
-  .border-7l-industrial {
-    border: 1px solid var(--color-7l-border);
-    position: relative;
-  }
-
-  .border-7l-industrial::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 10px; height: 10px;
-    border-top: 2px solid var(--color-7l-gold);
-    border-left: 2px solid var(--color-7l-gold);
-  }
-
-  /* Button "Heavy Duty" */
-  .btn-7l-primary {
-    @apply relative px-8 py-4 bg-7l-gold text-7l-black font-syne text-[11px] font-extrabold tracking-[0.2em] overflow-hidden transition-all duration-300;
-    clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0% 100%);
-  }
-
-  .btn-7l-primary:hover {
-    @apply shadow-[0_0_25px_rgba(242,169,0,0.4)] scale-105;
-  }
-
-  /* Typography Utilities */
-  .font-extended {
-    font-family: 'FutureEarth', sans-serif;
-    @apply uppercase leading-none;
+  /* --- ARCHITECTURAL ELEMENTS --- */
+  .border-7l-accent {
+    border-left: 3px solid var(--color-7l-gold);
   }
 }
 
-/* --- BASE STYLES --- */
+/* --- BASE STYLES (Enforcing Brochure Standards) --- */
 
 body {
   background: var(--color-7l-black);
-  color: var(--color-7l-white);
   @apply font-montserrat antialiased selection:bg-7l-gold selection:text-7l-black;
 }
 
-  h1 {
-    font-family: 'FutureEarth', sans-serif;
-    @apply uppercase;
-    letter-spacing: -0.02em; 
-    line-height: 0.9;
-  }
-  
-  h2, h3 {
-    @apply font-syne font-extrabold uppercase tracking-tight text-7l-white;
-    letter-spacing: -0.02em;
-  }
+h1 {
+  font-family: 'FutureEarth', sans-serif;
+  @apply uppercase;
+  color: var(--color-7l-white);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  @apply font-syne font-extrabold uppercase;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  @apply font-syncopate font-bold uppercase;
+  color: var(--color-7l-text-primary);
+  letter-spacing: 0.1em;
+}
+
+p {
+  color: var(--color-7l-gray);
+}
 
 /* Scrollbar Industrial */
 ::-webkit-scrollbar {
@@ -135,9 +100,62 @@ body {
   border-radius: 10px;
 }
 
-/* Custom Utilities for Brochure Elements */
-.lormar-pipeline {
-  height: 2px;
-  background: linear-gradient(90deg, var(--color-7l-gold) 0%, var(--color-7l-white) 100%);
-  @apply opacity-50;
+/* --- HIGH-FIDELITY ATMOSPHERIC SYSTEM --- */
+
+.noise-overlay {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+  background-repeat: repeat;
+  animation: noise 0.2s infinite;
+  opacity: .05;
+  visibility: visible;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+@keyframes noise {
+  0% { transform: translate(0,0) }
+  10% { transform: translate(-5%,-5%) }
+  20% { transform: translate(-10%,5%) }
+  30% { transform: translate(5%,-10%) }
+  40% { transform: translate(-5%,15%) }
+  50% { transform: translate(-10%,5%) }
+  60% { transform: translate(15%,0) }
+  70% { transform: translate(0,10%) }
+  80% { transform: translate(-15%,0) }
+  90% { transform: translate(10%,5%) }
+  100% { transform: translate(5%,0) }
+}
+
+.mesh-gradient {
+  background-color: #0d0d0d;
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(42,100%,47%,0.15) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(0,0%,100%,0.05) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(42,100%,47%,0.1) 0, transparent 50%);
+}
+
+.cinematic-reveal {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+@keyframes reveal {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+@keyframes sheen {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }

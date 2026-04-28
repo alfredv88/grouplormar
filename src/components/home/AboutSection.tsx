@@ -6,95 +6,64 @@ import { BROCHURE_DATA } from "@/constants/brochureData";
 
 export default function AboutSection() {
   return (
-    <section id="nosotros" className="relative bg-7l-black py-40 overflow-hidden">
-      
-      {/* BACKGROUND TEXTURE [Subtle Depth] */}
-      <div className="absolute inset-0 z-0 opacity-20">
-         <div className="absolute inset-0 bg-7l-dark-texture opacity-30 grayscale"></div>
-      </div>
-
-      <div className="container mx-auto px-8 md:px-24 lg:px-40 relative z-10">
+    <section id="nosotros" className="py-24 bg-white relative overflow-hidden cinematic-reveal" style={{ backgroundImage: 'radial-gradient(at 0% 0%, hsla(42,100%,47%,0.03) 0, transparent 50%)' }}>
+      <div className="w-full max-w-[1200px] mx-auto px-6 relative z-10">
         
-        {/* TOP SEQUENCE: The Profile */}
-        <div className="max-w-7xl border-l border-white/10 pl-12 md:pl-20 py-10">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5 }}
-            className="space-y-12"
-          >
-            <span className="font-syne text-7l-gold tracking-[1em] text-[10px] font-bold uppercase block">
-              IDENTIDAD // 01
-            </span>
-            
-            <h2 className="text-[8vw] lg:text-[120px] font-future text-white leading-[0.8] tracking-tighter uppercase">
-              SOLIDEZ EN EL <br />
-              <span className="text-7l-gold/20">TERRENO</span>
-            </h2>
-
-            <div className="max-w-4xl">
-              <p className="text-2xl md:text-3xl font-montserrat font-light text-white/50 leading-relaxed italic">
-                "{BROCHURE_DATA.identity.profile}"
-              </p>
+        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+          
+          {/* IZQUIERDA: EL ALMA DE LORMAR (ESTILO S4 REFORZADO) */}
+          <div className="lg:col-span-5 space-y-12">
+            <div className="space-y-6">
+              <h2 className="font-future text-[#0d0d0d] uppercase tracking-tight leading-[0.9]" style={{ fontSize: 'clamp(2.5rem, 6vw, 48px)' }}>
+                NUESTRO <br /> <span className="text-7l-gold">ADN</span>
+              </h2>
+              <div className="w-16 h-[3px] bg-7l-gold"></div>
             </div>
-          </motion.div>
+
+            <div className="space-y-8">
+               <h3 className="font-future text-[#0d0d0d] leading-none uppercase tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 36px)' }}>
+                 SOLIDEZ <br />
+                 <span className="text-7l-gold">SIN FRONTERAS.</span>
+               </h3>
+               
+               <p className="font-montserrat text-xl leading-relaxed font-semibold italic" style={{ color: '#0d0d0d' }}>
+                 &ldquo;{BROCHURE_DATA.identity.profile}&rdquo;
+               </p>
+
+               <p className="font-montserrat text-[14px] leading-relaxed font-medium" style={{ color: '#555555' }}>
+                 Elevamos los estándares de ejecución en el oriente del país, consolidando una infraestructura de activos propia que garantiza respuestas inmediatas y soluciones de ingeniería de alta gama.
+               </p>
+            </div>
+          </div>
+
+          {/* DERECHA: LOS VALORES (ESTILO EXECUTIVE S4) */}
+          <div className="lg:col-span-7 border-l border-gray-100 lg:pl-16 pt-2">
+             <div className="flex items-center gap-3 mb-12">
+                <div className="w-1.5 h-1.5 bg-7l-gold"></div>
+                <span className="font-syncopate text-[8px] text-gray-400 tracking-[0.5em] uppercase font-bold">Principios Fundamentales</span>
+             </div>
+
+             <div className="space-y-10">
+               {BROCHURE_DATA.values.map((val, idx) => (
+                 <motion.div
+                   key={val.title}
+                   initial={{ opacity: 0, x: 10 }}
+                   whileInView={{ opacity: 1, x: 0 }}
+                   viewport={{ once: true }}
+                   className="group pb-8 border-b border-gray-50 last:border-0"
+                 >
+                   <div className="flex items-center gap-6">
+                     <span className="text-[11px] font-syncopate text-7l-gold font-bold">0{idx + 1}.</span>
+                     <h4 className="font-future text-xl text-[#0d0d0d] tracking-[0.1em] uppercase group-hover:text-7l-gold transition-colors duration-500">
+                       {val.title}
+                     </h4>
+                   </div>
+                 </motion.div>
+               ))}
+             </div>
+          </div>
+
         </div>
-
-        {/* MIDDLE SEQUENCE: Mission & Vision as Pillars */}
-        <div className="grid lg:grid-cols-2 gap-32 py-40">
-           <motion.div 
-             initial={{ opacity: 0, y: 40 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             className="space-y-10"
-           >
-              <div className="h-[1px] w-20 bg-7l-gold"></div>
-              <h3 className="font-syne text-white tracking-[0.6em] text-[10px] font-extrabold uppercase">PROPÓSITO CENTRAL // MISIÓN</h3>
-              <p className="text-2xl font-montserrat text-white/70 leading-relaxed font-medium">
-                {BROCHURE_DATA.identity.mission}
-              </p>
-           </motion.div>
-
-           <motion.div 
-             initial={{ opacity: 0, y: 40 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             transition={{ delay: 0.2 }}
-             className="space-y-10"
-           >
-              <div className="h-[1px] w-20 bg-white/20"></div>
-              <h3 className="font-syne text-white tracking-[0.6em] text-[10px] font-extrabold uppercase">VISIÓN ESTRATÉGICA // 2026</h3>
-              <p className="text-3xl font-montserrat text-white/60 leading-snug font-medium italic">
-                "{BROCHURE_DATA.identity.vision}"
-              </p>
-           </motion.div>
-        </div>
-
-        {/* BOTTOM SEQUENCE: The Values as a Kinetic List */}
-        <div className="pt-20 border-t border-white/5">
-           <div className="grid grid-cols-2 md:grid-cols-5 gap-12">
-              {BROCHURE_DATA.values.map((val, idx) => (
-                <motion.div
-                  key={val.title}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="space-y-6"
-                >
-                   <span className="text-7l-gold font-syne text-[8px] tracking-[0.5em] font-bold">0{idx + 1}</span>
-                   <h4 className="font-future text-white text-xl tracking-tighter uppercase leading-none break-words">
-                      {val.title}
-                   </h4>
-                   <p className="text-[10px] text-white/30 font-syne tracking-widest uppercase">
-                      EXCELENCIA OPERACIONAL
-                   </p>
-                </motion.div>
-              ))}
-           </div>
-        </div>
-
       </div>
     </section>
   );
