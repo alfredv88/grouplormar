@@ -10,6 +10,8 @@ import { BROCHURE_DATA } from "@/constants/brochureData";
 export default function ServicesGrid() {
   const [activeTab, setActiveTab] = useState(BROCHURE_DATA.services[0].category);
 
+  // Las coordenadas exactas seleccionadas por el usuario se han fijado de forma fija para producción. No se requiere estado dinámico.
+
   // Obtener los datos de la categoría activa
   const currentCategoryData = BROCHURE_DATA.services.find(s => s.category === activeTab);
   
@@ -74,9 +76,9 @@ export default function ServicesGrid() {
             <div className="w-24 h-[4px] bg-7l-gold mt-6"></div>
           </div>
           
-          <div className="max-w-sm pb-2 border-l-[3px] border-7l-gold pl-5">
-            <p className="font-montserrat text-[11px] text-[#0D0D0D]/70 tracking-[0.15em] uppercase leading-[1.8] font-bold">
-              Despliegue estratégico de capacidades operativas para sectores de <span className="text-[#0D0D0D] font-black">alta complejidad técnica y logística.</span>
+          <div className="max-w-md pb-2 border-l-[3px] border-7l-gold pl-5">
+            <p className="font-montserrat text-[12px] !text-black tracking-[0.05em] leading-[1.8] font-semibold">
+              Despliegue estratégico de capacidades operativas para sectores de <span className="text-7l-gold font-bold">alta complejidad técnica y logística.</span>
             </p>
           </div>
         </div>
@@ -118,7 +120,7 @@ export default function ServicesGrid() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
             >
                 {displayItems.map((item, idx) => {
                   // Variación dinámica del encuadre para evitar repetición visual
@@ -126,15 +128,15 @@ export default function ServicesGrid() {
                   const currentPosition = objectPositions[idx % objectPositions.length];
 
                   return (
-                  <div key={item.id} className="group bg-white border border-[#0D0D0D]/5 hover:border-7l-gold/30 transition-all duration-700 flex flex-col relative overflow-hidden cursor-pointer h-full min-h-[560px] w-full shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1">
+                  <div key={item.id} className="group bg-white border border-[#0D0D0D]/5 hover:border-7l-gold/30 transition-all duration-700 flex flex-col relative overflow-hidden cursor-pointer h-full min-h-[460px] w-full shadow-[0_4px_15px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1">
                     
                     {/* Technical ID (Contraste Sólido) */}
-                    <span className="absolute top-4 right-4 font-mono text-[10px] text-[#0D0D0D] font-bold tracking-[0.2em] z-40 bg-white/80 px-2 py-1 rounded">
+                    <span className="absolute top-4 right-4 font-mono text-[9px] text-[#0D0D0D] font-bold tracking-[0.2em] z-40 bg-white/80 px-2 py-1 rounded">
                       REF-0{idx + 1}
                     </span>
 
                     {/* Media Frame (Protagonismo Recuperado) */}
-                    <div className="relative h-[260px] shrink-0 w-full overflow-hidden transition-all duration-700">
+                    <div className="relative h-[190px] shrink-0 w-full overflow-hidden transition-all duration-700">
                       <Image
                         src={item.img}
                         alt={item.title}
@@ -144,43 +146,43 @@ export default function ServicesGrid() {
                     </div>
 
                     {/* Content Frame - Jerarquía Pro Max */}
-                    <div className="p-8 flex-1 flex flex-col relative z-30">
+                    <div className="p-6 flex-1 flex flex-col relative z-30">
                       
                       {/* Capability Tag */}
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-8 h-[2px] bg-7l-gold"></div>
-                        <span className="font-montserrat text-[10px] font-black text-7l-gold tracking-[0.2em] uppercase">{item.tag}</span>
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-6 h-[2px] bg-7l-gold"></div>
+                        <span className="font-montserrat text-[9px] font-black text-7l-gold tracking-[0.2em] uppercase">{item.tag}</span>
                       </div>
                       
                       {/* Title Group - Montserrat Black (Refinado y Armónico) */}
-                      <div className="mb-4 min-h-[50px] flex items-start">
+                      <div className="mb-2 min-h-[40px] flex items-start">
                         <h3 
-                          className="text-h3 !text-[#0D0D0D] !text-[17px] leading-[1.2] group-hover:text-7l-gold transition-colors duration-300"
+                          className="text-h3 !text-[#0D0D0D] !text-[15px] leading-[1.2] group-hover:text-7l-gold transition-colors duration-300 font-black"
                         >
                           {item.title}
                         </h3>
                       </div>
 
-                      {/* Description (Jerarquía Refinada - Gris Técnico) */}
+                      {/* Description (Jerarquía Refinada - Negro Puro Absoluto) */}
                       <div className="flex-1">
                         <p 
-                          className="text-[13px] font-montserrat font-medium text-[#0D0D0D]/70 leading-relaxed mb-6"
+                          className="text-[12px] font-montserrat font-semibold !text-black leading-relaxed mb-4"
                         >
                           {item.desc}
                         </p>
                       </div>
 
                       {/* Professional Action Footer - Alineación Perfecta */}
-                      <div className="pt-6 border-t border-[#0D0D0D]/10 flex items-center justify-between mt-auto">
+                      <div className="pt-4 border-t border-[#0D0D0D]/10 flex items-center justify-between mt-auto">
                         <Link 
                           href="/servicios" 
-                          className="group/btn inline-flex items-center gap-4 text-[11px] font-montserrat font-black tracking-[0.3em] text-[#0D0D0D] uppercase transition-all"
+                          className="group/btn inline-flex items-center gap-4 text-[10px] font-montserrat font-black tracking-[0.3em] text-[#0D0D0D] uppercase transition-all"
                         >
                           <span className="group-hover/btn:text-7l-gold transition-colors duration-500">CONSULTAR</span>
-                          <div className="w-8 h-[2px] bg-[#0D0D0D] group-hover/btn:w-16 group-hover/btn:bg-7l-gold transition-all duration-500 ease-out" />
+                          <div className="w-8 h-[2px] bg-[#0D0D0D] group-hover/btn:w-12 group-hover/btn:bg-7l-gold transition-all duration-500 ease-out" />
                         </Link>
                         
-                        <span className="font-montserrat font-black text-[28px] text-7l-gold transition-colors">
+                        <span className="font-montserrat font-black text-[24px] text-7l-gold transition-colors">
                           0{idx + 1}
                         </span>
                       </div>
@@ -208,9 +210,24 @@ export default function ServicesGrid() {
         </div>
       </div>
 
-      {/* Vertical Branding Detail (Logo Oficial - Versión Gris) */}
-      <div className="absolute top-1/2 -translate-y-1/2 right-[-15%] h-full w-[40%] flex items-center justify-center z-0 pointer-events-none select-none hidden xl:flex overflow-hidden">
-        <div className="relative w-[1200px] h-[450px] -rotate-90 opacity-20">
+      {/* Vertical Branding Detail (Logo Oficial - Posición Fija y Consolidada de Producción) */}
+      <div 
+        className="absolute h-full w-[40%] flex items-center justify-center z-0 pointer-events-none select-none hidden xl:flex overflow-hidden"
+        style={{
+          right: "-16%",
+          top: "50%",
+          transform: "translateY(calc(-50% + -125px))",
+        }}
+      >
+        <div 
+          className="relative"
+          style={{
+            width: "497px",
+            height: "374px",
+            transform: "rotate(-90deg)",
+            opacity: 1,
+          }}
+        >
           <Image
             src="/logos/logo lormar sin rif gris.webp"
             alt="Logo Lormar"
