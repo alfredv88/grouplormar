@@ -177,7 +177,7 @@ export default function AboutSection() {
                         </h4>
                       </div>
                       <p className="font-montserrat text-[13px] leading-relaxed font-bold !text-[#0D0D0D] opacity-90 group-hover:opacity-100 transition-opacity">
-                        {val.desc}
+                        {val.description}
                       </p>
                     </div>
                   </motion.div>

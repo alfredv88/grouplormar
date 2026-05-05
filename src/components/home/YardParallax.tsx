@@ -30,7 +30,7 @@ export default function YardParallax() {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover grayscale-[10%] brightness-[0.45] contrast-110"
+          className="w-full h-full object-cover opacity-75 brightness-75 contrast-120 saturate-150"
         >
           <source src="/videos/DJI_0323.webm" type="video/webm" />
         </video>
