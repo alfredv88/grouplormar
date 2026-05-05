@@ -19,7 +19,7 @@ const ProyectosHero = () => {
                     className="flex items-center gap-6"
                 >
                     <div className="w-12 h-[2px] bg-7l-gold"></div>
-                    <span className="text-7l-gold text-[10px] font-bold uppercase tracking-[0.5em] font-syncopate">
+                    <span className="text-7l-gold text-[10px] font-bold uppercase tracking-[0.5em] font-montserrat">
                         REGISTRO DE OPERACIONES // EVIDENCIA TÉCNICA
                     </span>
                 </motion.div>
@@ -28,7 +28,7 @@ const ProyectosHero = () => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-6xl md:text-[120px] font-syne font-black uppercase leading-[0.8] tracking-tighter text-white"
+                    className="text-6xl md:text-[120px] font-montserrat font-black uppercase leading-[0.8] tracking-tighter text-white"
                 >
                     PORTAFOLIO <br />
                     <span className="text-transparent" style={{ WebkitTextStroke: "1.5px rgba(255,191,0,0.3)" }}>EJECUTADO</span>
@@ -40,7 +40,7 @@ const ProyectosHero = () => {
                     transition={{ duration: 0.8, delay: 0.4 }}
                     className="max-w-4xl border-l-[1px] border-7l-gold/50 pl-10"
                 >
-                    <p className="text-xl md:text-2xl text-white/60 leading-relaxed font-montserrat font-light">
+                    <p className="text-xl md:text-2xl text-white/60 leading-relaxed font-montserrat font-normal">
                         Documentación técnica de nuestra trayectoria en <span className="text-white font-medium">sectores estratégicos</span>. Proyectos llave en mano que validan nuestra capacidad operativa y activos propios.
                     </p>
                 </motion.div>

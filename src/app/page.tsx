@@ -47,15 +47,21 @@ export default function Home() {
           {/* 2. TRUST — Autoridad Inmediata */}
           <LogoStrip />
 
-          {/* 3. EQUIPMENT SHOWCASE — Catálogo por Categorías */}
+          {/* 3. CORPORATE IDENTITY — Quiénes Somos */}
+          <AboutSection />
+
+          {/* 4. EQUIPMENT SHOWCASE — Catálogo por Categorías */}
           <EquipmentShowcase />
         </div>
       </div>
 
-      {/* 4. CAPABILITIES — Ejes de Negocio */}
+      {/* 5. VISUAL AUTHORITY — Capacidad Real (Yard Parallax) */}
+      <YardParallax />
+
+      {/* 6. CAPABILITIES — Ejes de Negocio */}
       <ServicesGrid />
 
-      {/* 5. AUTHORITY — Números Duros de Capacidad */}
+      {/* 7. AUTHORITY — Números Duros de Capacidad */}
       <div className="relative overflow-hidden [clip-path:inset(0_0_0_0)]">
         <StatsCounter />
       </div>
@@ -68,27 +74,24 @@ export default function Home() {
 
 
 
-      {/* 9. CORPORATE IDENTITY — Quiénes Somos */}
-      <AboutSection />
-
-      {/* 10. PROCESS — Metodología */}
+      {/* 9. PROCESS — Metodología */}
       <ProcessSection />
 
       {/* 11. HARD CTA — Cierre Comercial (UTILITY & CLEAN) */}
-      <section className="py-24 bg-[#080808] border-t border-white/5 relative overflow-hidden">
+      <section className="py-32 bg-[#080808] border-t border-white/10 relative overflow-hidden">
         <div className="w-full max-w-[1200px] mx-auto px-6 relative z-10 flex flex-col items-center text-center">
-          <span className="font-syncopate text-7l-gold text-[7px] font-bold tracking-[0.6em] uppercase mb-10 block">
+          <span className="font-montserrat text-7l-gold text-[9px] font-black tracking-[0.5em] uppercase mb-10 block">
             Executive Engagement
           </span>
-          <h2 className="text-4xl md:text-5xl font-future text-white uppercase tracking-tighter mb-12 max-w-4xl leading-[0.9]">
+          <h2 className="text-4xl md:text-5xl font-future text-white uppercase tracking-normal mb-12 max-w-4xl leading-[1.1]">
             CONSOLIDE SU PRÓXIMO <span className="text-7l-gold">PROYECTO</span>
           </h2>
 
           <Link href="/contacto" className="group flex items-center gap-8 mt-4 transition-all duration-500">
-            <div className="w-16 h-16 rounded-full border border-7l-gold flex items-center justify-center group-hover:bg-7l-gold transition-all duration-500">
-              <ArrowUpRight className="text-7l-gold group-hover:text-black transition-colors" size={28} />
+            <div className="w-20 h-20 rounded-full border-2 border-7l-gold flex items-center justify-center group-hover:bg-7l-gold transition-all duration-500 shadow-[0_0_30px_rgba(242,169,0,0.2)]">
+              <ArrowUpRight className="text-7l-gold group-hover:text-black transition-colors" size={32} />
             </div>
-            <span className="font-syncopate text-[11px] font-black text-white tracking-[0.4em] uppercase group-hover:text-7l-gold transition-colors">
+            <span className="font-montserrat text-[12px] font-black text-white tracking-[0.4em] uppercase group-hover:text-7l-gold transition-colors">
               INICIAR PROCESO DE LICITACIÓN
             </span>
           </Link>

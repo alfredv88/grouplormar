@@ -19,9 +19,9 @@ const HistoriaPoder = () => {
         <div className="mb-32 space-y-8 text-center md:text-left">
           <div className="flex items-center gap-6 justify-center md:justify-start">
             <div className="h-[1px] w-12 bg-7l-gold"></div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.5em] text-7l-gold font-syncopate">CRONOLOGÍA DE PODER</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.5em] text-7l-gold font-montserrat">CRONOLOGÍA DE PODER</p>
           </div>
-          <h2 className="text-5xl md:text-8xl font-syne font-black text-white uppercase leading-[0.8] tracking-tighter">
+          <h2 className="text-5xl md:text-8xl font-montserrat font-black text-white uppercase leading-[0.8] tracking-tighter">
             TRAYECTORIA <br /> 
             <span className="text-transparent" style={{ WebkitTextStroke: "1px rgba(255,255,255,0.2)" }}>DE EJECUCIÓN</span>
           </h2>
@@ -53,14 +53,14 @@ const HistoriaPoder = () => {
                     <div className="bg-[#0a0a0a] border border-white/5 p-12 hover:border-7l-gold/30 transition-all duration-700 group relative overflow-hidden">
                         {/* Technical HUD */}
                         <div className="absolute top-0 right-0 p-6 flex flex-col items-end gap-1">
-                             <span className="font-future text-[10px] text-white/10 group-hover:text-7l-gold/40 transition-colors uppercase tracking-widest">{item.status}</span>
+                             <span className="font-montserrat text-[10px] text-white/10 group-hover:text-7l-gold/40 transition-colors uppercase tracking-widest">{item.status}</span>
                              <div className="w-12 h-[1px] bg-white/5 group-hover:bg-7l-gold/20 transition-all"></div>
                         </div>
 
                         <div className="space-y-6">
                             <div className="flex items-center gap-4">
-                                <span className="text-5xl md:text-7xl font-future text-white group-hover:text-7l-gold transition-colors">{item.year}</span>
-                                <div className="text-[9px] font-bold font-syncopate text-white/20 whitespace-nowrap tracking-widest uppercase">{item.label}</div>
+                                <span className="text-5xl md:text-7xl font-montserrat font-black text-white group-hover:text-7l-gold transition-colors">{item.year}</span>
+                                <div className="text-[9px] font-bold font-montserrat text-white/20 whitespace-nowrap tracking-widest uppercase">{item.label}</div>
                             </div>
                             
                             <div className="w-16 h-[2px] bg-7l-gold/50 group-hover:w-32 transition-all duration-700"></div>

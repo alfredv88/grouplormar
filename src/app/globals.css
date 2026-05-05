@@ -1,19 +1,9 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: 'FutureEarth';
-  src: url('/fonts/future-earth.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 @theme inline {
-  /* Brand Typography (As per Brochure Master Guide) */
+  /* Brand Typography (As per Hierarchy 7L) */
   --font-montserrat: var(--font-montserrat);
-  --font-syncopate: var(--font-syncopate);
-  --font-syne: var(--font-syne);
-  --font-future: 'FutureEarth', var(--font-syncopate);
+  --font-future: var(--font-future);
 
   /* Brand Palette (SISTEMA 7L - Official Brochure) */
   --color-7l-black: #0d0d0d;      /* Negro Carbón: Base más clara */
@@ -59,32 +49,52 @@
   }
 }
 
-/* --- BASE STYLES (Enforcing Brochure Standards) --- */
+/* --- BASE STYLES (Enforcing Hierarchy 7L) --- */
 
 body {
   background: var(--color-7l-black);
   @apply font-montserrat antialiased selection:bg-7l-gold selection:text-7l-black;
 }
 
-h1 {
-  font-family: 'FutureEarth', sans-serif;
-  @apply uppercase;
-  color: var(--color-7l-white);
-  letter-spacing: -0.02em;
+/* ── 7L TYPOGRAPHIC ARCHITECTURE (FLUID & RESPONSIVE) ── */
+h1, .text-h1 { 
+  @apply font-future uppercase text-white tracking-normal; 
+  font-size: clamp(2.2rem, 8vw, 85px); 
+  line-height: 0.9; 
 }
 
-h2 {
-  @apply font-syne font-extrabold uppercase;
-  letter-spacing: -0.02em;
+h2, .text-h2 { 
+  @apply font-future uppercase text-white tracking-normal; 
+  font-size: clamp(1.8rem, 6vw, 54px); 
+  line-height: 1.1; 
 }
 
-h3 {
-  @apply font-syncopate font-bold uppercase;
-  color: var(--color-7l-text-primary);
-  letter-spacing: 0.1em;
+h3, .text-h3 { 
+  @apply font-montserrat font-black uppercase text-white tracking-tight; 
+  font-size: clamp(1.2rem, 3vw, 24px); 
+  line-height: 1.2; 
+}
+
+h4, .text-h4 { 
+  @apply font-montserrat font-bold uppercase text-white tracking-[0.2em]; 
+  font-size: clamp(0.9rem, 1.5vw, 14px); 
+  line-height: 1.4; 
+}
+
+h5, .text-h5 { 
+  @apply font-montserrat font-black uppercase text-white tracking-[0.3em]; 
+  font-size: clamp(0.7rem, 1vw, 10px); 
+  line-height: 1.5; 
+}
+
+h6, .text-h6 { 
+  @apply font-montserrat font-black uppercase text-white tracking-[0.4em]; 
+  font-size: clamp(0.6rem, 0.8vw, 8px); 
+  line-height: 1.5; 
 }
 
 p {
+  @apply font-montserrat;
   color: var(--color-7l-gray);
 }
 

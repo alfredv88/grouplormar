@@ -16,10 +16,10 @@ const ServiciosCTA = () => {
                     viewport={{ once: true }}
                     className="space-y-4"
                 >
-                    <h2 className="text-5xl md:text-8xl font-syne font-black uppercase leading-tight text-white tracking-tighter">
+                    <h2 className="text-5xl md:text-8xl font-montserrat font-black uppercase leading-tight text-white tracking-tighter">
                         ¿LISTO PARA <br /> <span className="text-transparent" style={{ WebkitTextStroke: "1px rgba(242,169,0,0.6)" }}>DESPLEGAR?</span>
                     </h2>
-                    <p className="text-[10px] md:text-[12px] font-bold font-syncopate uppercase tracking-[0.5em] text-white/30">
+                    <p className="text-[10px] md:text-[12px] font-bold font-montserrat uppercase tracking-[0.5em] text-white/30">
                         ASESORÍA TÉCNICA ESPECIALIZADA SIN COMPROMISO
                     </p>
                 </motion.div>
@@ -33,7 +33,7 @@ const ServiciosCTA = () => {
                 >
                     <Link
                         href="/contacto"
-                        className="inline-block px-12 py-6 bg-7l-gold text-7l-black font-bold uppercase tracking-[0.3em] font-syncopate text-[10px] hover:bg-white hover:scale-105 transition-all duration-500 shadow-[0_0_30px_rgba(242,169,0,0.2)]"
+                        className="inline-block px-12 py-6 bg-7l-gold text-7l-black font-bold uppercase tracking-[0.3em] font-montserrat text-[10px] hover:bg-white hover:scale-105 transition-all duration-500 shadow-[0_0_30px_rgba(242,169,0,0.2)]"
                     >
                         CONTACTAR SOPORTE OPERATIVO
                     </Link>

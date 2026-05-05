@@ -8,9 +8,9 @@ export function CertifiedStrip() {
   const labels = ["GRÚAS 100T", "LOWBOY 140T", "CATERPILLAR", "MACK", "WELL TESTING", "FLUSH-BY"];
   return (
     <section className="relative z-10 py-24 bg-[#080808] border-y border-white/5 overflow-hidden">
-      <div className="absolute inset-0 bg-industrial-grid opacity-[0.1] pointer-events-none" />
+      <div className="absolute inset-0 bg-industrial-grid pointer-events-none" />
       <div className="w-full max-w-[1800px] mx-auto px-10 md:px-20 lg:px-32 overflow-hidden">
-        <p className="text-[10px] font-syncopate font-bold uppercase tracking-[0.5em] text-center mb-16 text-7l-gold">
+        <p className="text-[10px] font-montserrat font-bold uppercase tracking-[0.5em] text-center mb-16 text-7l-gold">
           MAQUINARIA CERTIFICADA & FLOTA PREMIUM
         </p>
         <div className="relative flex overflow-hidden">
@@ -22,8 +22,8 @@ export function CertifiedStrip() {
             {[...labels, ...labels, ...labels, ...labels].map((label, i) => (
               <div
                 key={i}
-                className={`text-3xl md:text-4xl font-syne font-black transform hover:scale-110 hover:text-white transition-all cursor-default ${i % 2 === 0 ? "text-white/60 tracking-widest" : "text-white/40 tracking-tight"
-                  } ${label === "CATERPILLAR" ? "text-white/70" : ""} ${label === "WELL TESTING" ? "text-white" : ""}`}
+                className={`text-3xl md:text-4xl font-montserrat font-black transform hover:scale-110 hover:text-white transition-all cursor-default ${i % 2 === 0 ? "text-white tracking-widest" : "text-zinc-500 tracking-tight"
+                  } ${label === "CATERPILLAR" ? "text-7l-gold" : ""} ${label === "WELL TESTING" ? "text-white" : ""}`}
               >
                 {label}
               </div>
@@ -52,14 +52,14 @@ export function FAQ() {
         {/* LADO IZQUIERDO - BRANDING */}
         <div className="lg:col-span-5 space-y-10">
           <div className="space-y-6">
-            <span className="font-syncopate text-7l-gold text-[8px] font-bold tracking-[0.6em] uppercase block">
+            <span className="font-montserrat text-7l-gold text-[8px] font-bold tracking-[0.6em] uppercase block">
               Support Center
             </span>
-            <h2 className="text-4xl md:text-5xl font-future text-white uppercase tracking-tighter leading-[0.9]">
+            <h2 className="text-4xl md:text-5xl font-montserrat font-black text-white uppercase tracking-tighter leading-[0.9]">
               SOPORTE <br /> <span className="text-7l-gold">TÉCNICO</span>
             </h2>
           </div>
-          <p className="text-[15px] text-white/50 border-l border-7l-gold/40 pl-8 font-montserrat font-medium leading-relaxed italic">
+          <p className="text-[15px] text-white border-l-2 border-7l-gold pl-8 font-montserrat font-bold leading-relaxed italic">
             Resolución de dudas críticas para la toma de decisiones en proyectos de infraestructura estratégica.
           </p>
         </div>
@@ -75,7 +75,7 @@ export function FAQ() {
                 className="py-10 group cursor-pointer transition-all relative overflow-hidden"
               >
                 <div className="flex justify-between items-center">
-                  <h4 className={`text-[12px] font-syncopate uppercase transition-all tracking-[0.2em] font-bold max-w-[85%] ${isOpen ? 'text-7l-gold translate-x-2' : 'text-white'}`}>
+                  <h4 className={`text-[12px] font-montserrat uppercase transition-all tracking-[0.2em] font-bold max-w-[85%] ${isOpen ? 'text-7l-gold translate-x-2' : 'text-white'}`}>
                     {faq.q}
                   </h4>
                   <div className={`transition-all duration-500 scale-75 ${isOpen ? 'rotate-45 text-white' : 'text-7l-gold'}`}>
@@ -91,7 +91,7 @@ export function FAQ() {
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="text-[14px] text-white/60 leading-relaxed font-montserrat font-medium pt-8 pb-4 pl-4 select-none">
+                      <p className="text-[14px] text-white leading-relaxed font-montserrat font-bold pt-8 pb-4 pl-4 select-none">
                         {faq.a}
                       </p>
                     </motion.div>

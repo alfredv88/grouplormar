@@ -97,7 +97,7 @@ const ProjectGrid = () => {
                     <button
                         key={tab}
                         onClick={() => setActiveTab(tab)}
-                        className={`relative pb-4 text-[10px] font-syncopate font-black uppercase tracking-[0.5em] transition-all ${
+                        className={`relative pb-4 text-[10px] font-montserrat font-black uppercase tracking-[0.5em] transition-all ${
                             activeTab === tab ? "text-7l-gold" : "text-white/20 hover:text-white/60"
                         }`}
                     >
@@ -112,7 +112,7 @@ const ProjectGrid = () => {
                 ))}
             </div>
 
-            <div className="hidden xl:flex items-center gap-6 text-[9px] font-syncopate text-white/20 uppercase tracking-widest">
+            <div className="hidden xl:flex items-center gap-6 text-[9px] font-montserrat text-white/20 uppercase tracking-widest">
                 <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-7l-gold"></div> DATOS CERTIFICADOS</span>
                 <span className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-white/20"></div> ACTUALIZACIÓN 2024</span>
             </div>
@@ -147,7 +147,7 @@ const ProjectGrid = () => {
                             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-60"></div>
                             
                             <div className="absolute top-6 left-6 z-20">
-                                <div className="bg-7l-gold/10 backdrop-blur-md border border-7l-gold/20 text-7l-gold text-[8px] px-3 py-1 font-syncopate font-bold uppercase tracking-widest">
+                                <div className="bg-7l-gold/10 backdrop-blur-md border border-7l-gold/20 text-7l-gold text-[8px] px-3 py-1 font-montserrat font-bold uppercase tracking-widest">
                                     REF: {p.id}
                                 </div>
                             </div>
@@ -156,12 +156,12 @@ const ProjectGrid = () => {
                         {/* Content Area */}
                         <div className="p-10 md:p-12 space-y-8 flex-1 flex flex-col">
                             <div className="space-y-4">
-                                <div className="flex items-center gap-3 text-[9px] font-bold uppercase tracking-[0.4em] text-7l-gold/60 font-syncopate">
+                                <div className="flex items-center gap-3 text-[9px] font-bold uppercase tracking-[0.4em] text-7l-gold/60 font-montserrat">
                                     {activeTab === "proyectos" ? <Layers size={10} className="text-7l-gold" /> : <Tool size={10} className="text-7l-gold" />}
                                     {p.type}
                                 </div>
                                 
-                                <h3 className="text-2xl md:text-3xl font-syne font-black uppercase leading-tight tracking-tight text-white group-hover:text-7l-gold transition-colors">
+                                <h3 className="text-2xl md:text-3xl font-montserrat font-black uppercase leading-tight tracking-tight text-white group-hover:text-7l-gold transition-colors">
                                     {p.title}
                                 </h3>
                             </div>
@@ -175,22 +175,22 @@ const ProjectGrid = () => {
                                     <>
                                         <div className="flex items-center gap-3">
                                             <MapPin size={12} className="text-white/20" />
-                                            <span className="text-[10px] font-syncopate uppercase text-white/40 tracking-widest">{(p as any).client}</span>
+                                            <span className="text-[10px] font-montserrat uppercase text-white/40 tracking-widest">{(p as any).client}</span>
                                         </div>
                                         <div className="flex items-center gap-3">
                                             <Calendar size={12} className="text-white/20" />
-                                            <span className="text-[10px] font-syncopate uppercase text-white/40 tracking-widest">{(p as any).year}</span>
+                                            <span className="text-[10px] font-montserrat uppercase text-white/40 tracking-widest">{(p as any).year}</span>
                                         </div>
                                     </>
                                 ) : (
                                     <>
                                         <div className="flex items-center gap-3">
                                             <Anchor size={12} className="text-white/20" />
-                                            <span className="text-[10px] font-syncopate uppercase text-white/40 tracking-widest">{(p as any).capacity}</span>
+                                            <span className="text-[10px] font-montserrat uppercase text-white/40 tracking-widest">{(p as any).capacity}</span>
                                         </div>
                                         <div className="flex items-center gap-3">
                                             <div className="w-1.5 h-1.5 rounded-full bg-7l-gold animate-pulse"></div>
-                                            <span className="text-[10px] font-syncopate uppercase text-7l-gold tracking-widest">{(p as any).status}</span>
+                                            <span className="text-[10px] font-montserrat uppercase text-7l-gold tracking-widest">{(p as any).status}</span>
                                         </div>
                                     </>
                                 )}
@@ -204,7 +204,7 @@ const ProjectGrid = () => {
         {/* Cta */}
         <div className="mt-20 flex flex-col items-center gap-8">
             <div className="w-px h-20 bg-gradient-to-b from-7l-gold/50 to-transparent"></div>
-            <button className="px-12 py-5 border border-white/10 text-[10px] font-syncopate font-black uppercase tracking-[0.5em] text-white/60 hover:bg-7l-gold hover:text-7l-black transition-all hover:border-7l-gold">
+            <button className="px-12 py-5 border border-white/10 text-[10px] font-montserrat font-black uppercase tracking-[0.5em] text-white/60 hover:bg-7l-gold hover:text-7l-black transition-all hover:border-7l-gold">
                 {activeTab === "proyectos" ? "Explorar histórico completo" : "Solicitar cotización de alquiler"}
             </button>
         </div>

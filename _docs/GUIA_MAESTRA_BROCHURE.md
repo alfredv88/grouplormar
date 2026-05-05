@@ -186,22 +186,18 @@ Esta sección define cómo se interpreta visualmente el brochure físico en la p
 *   **Blanco Puro (Claridad):** `#FFFFFF` - Usado para secciones de alto contraste, fondos de lectura técnica y textos destacados.
 
 **2. JERARQUÍA TIPOGRÁFICA (IDENTIDAD REAL)**
-*   **H1 (Títulos Principales):** 
+*   **H1 (Títulos Monumentales):** 
     *   Fuente: `Future Earth` (Tipografía Corporativa Local).
     *   Atributos: Todo en mayúsculas, Tracking nativo, Line-height `0.8` a `0.9`.
-    *   Uso: Hero, portadas de sección y títulos de máximo impacto.
+    *   Uso: Hero, títulos de sección de máximo impacto y portadas.
 *   **H2 (Títulos de Sección):** 
-    *   Fuente: `Syne` (Extra Bold).
-    *   Atributos: Negrita, Tracking `tight`.
-    *   Uso: Encabezados de Misión, Visión y Servicios.
-*   **H3 (Subtítulos Técnicos):** 
-    *   Fuente: `Syncopate` (Bold).
-    *   Color: Gris Corporativo (#373737).
-    *   Uso: Categorías secundarias y labels técnicos.
-*   **Cuerpo (Información):** 
+    *   Fuente: `Future Earth` (o `Montserrat` Extra Bold).
+    *   Atributos: Negrita extrema, Tracking `normal`.
+    *   Uso: Encabezados de servicios y secciones narrativas.
+*   **Cuerpo, Datos y UI (Autoridad Industrial):** 
     *   Fuente: `Montserrat`.
-    *   Atributos: Peso 300 o 400.
-    *   Uso: Descripción de servicios, perfiles y datos legales.
+    *   Regla de Oro: **PROHIBIDO** el uso de fuentes con cifras "Oldstyle" (como Syne). Todo dato numérico (RIF, Teléfonos, Fichas Técnicas) debe usar Montserrat para garantizar alineación matemática y rigor técnico.
+    *   Uso: Párrafos, labels, botones, Footer y datos legales.
 
 **3. ARQUITECTURA VISUAL**
 *   **Cortes Angulares:** Uso de `clip-path` de 5° a 15° para emular los pliegues y solapas del brochure.

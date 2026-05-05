@@ -115,7 +115,7 @@ const ServiciosGrid = () => {
         {servicesByCategory.map((group, groupIdx) => (
           <div key={groupIdx} className="space-y-12">
             <div className="flex items-center gap-6">
-                <span className="text-white/20 text-[9px] font-bold font-syncopate tracking-[0.5em]">{group.category}</span>
+                <span className="text-white/20 text-[9px] font-bold font-montserrat tracking-[0.5em]">{group.category}</span>
                 <div className="flex-1 h-[1px] bg-white/5"></div>
             </div>
 
@@ -136,10 +136,10 @@ const ServiciosGrid = () => {
                     {/* Content Segment */}
                     <div className="flex-1 space-y-8 py-2">
                         <div className="space-y-4">
-                            <h3 className="text-3xl font-syne font-black text-white uppercase group-hover:text-7l-gold transition-colors">
+                            <h3 className="text-3xl font-montserrat font-black text-white uppercase group-hover:text-7l-gold transition-colors">
                                 {s.title}
                             </h3>
-                            <p className="text-sm text-white/40 font-montserrat font-light leading-relaxed max-w-md">
+                            <p className="text-sm text-white/40 font-montserrat font-normal leading-relaxed max-w-md">
                                 {s.desc}
                             </p>
                         </div>
@@ -148,13 +148,13 @@ const ServiciosGrid = () => {
                             {s.items.map((item, idx) => (
                                 <div key={idx} className="flex items-center gap-2">
                                     <div className="w-1 h-1 bg-7l-gold/30"></div>
-                                    <span className="text-[10px] font-bold font-syncopate text-white/30 uppercase tracking-widest">{item}</span>
+                                    <span className="text-[10px] font-bold font-montserrat text-white/30 uppercase tracking-widest">{item}</span>
                                 </div>
                             ))}
                         </div>
 
                         <div className="pt-6 border-t border-white/5">
-                            <Link href="/contacto" className="inline-flex items-center gap-4 text-[9px] font-bold font-syncopate text-7l-gold tracking-[0.3em] group/btn">
+                            <Link href="/contacto" className="inline-flex items-center gap-4 text-[9px] font-bold font-montserrat text-7l-gold tracking-[0.3em] group/btn">
                                 SOLICITAR COTIZACIÓN <ArrowRight size={14} className="group-hover/btn:translate-x-2 transition-transform" />
                             </Link>
                         </div>

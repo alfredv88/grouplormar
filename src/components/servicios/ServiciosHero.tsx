@@ -15,7 +15,7 @@ const ServiciosHero = () => {
             className="flex items-center gap-6"
         >
           <div className="w-12 h-[2px] bg-7l-gold"></div>
-          <span className="text-7l-gold text-[10px] font-bold uppercase tracking-[0.5em] font-syncopate">
+          <span className="text-7l-gold text-[10px] font-bold uppercase tracking-[0.5em] font-montserrat">
             CATÁLOGO DE DESPLIEGUE // 2024
           </span>
         </motion.div>
@@ -24,7 +24,7 @@ const ServiciosHero = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-6xl md:text-[110px] font-syne font-black uppercase leading-[0.8] tracking-tighter text-white"
+            className="text-6xl md:text-[110px] font-montserrat font-black uppercase leading-[0.8] tracking-tighter text-white"
         >
           SOLUCIONES <br />
           <span className="text-transparent" style={{ WebkitTextStroke: "1px rgba(242,169,0,0.4)" }}>OPERATIVAS</span>
@@ -34,7 +34,7 @@ const ServiciosHero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="text-xl md:text-2xl text-white/50 leading-relaxed font-montserrat font-light border-l-[1px] border-7l-gold/50 pl-10 max-w-4xl"
+            className="text-xl md:text-2xl text-white/50 leading-relaxed font-montserrat font-normal border-l-[1px] border-7l-gold/50 pl-10 max-w-4xl"
         >
           Ejecutamos proyectos de alta complejidad bajo los más estrictos regímenes de seguridad y ambiente. Nuestra capacidad operativa se basa en una <span className="text-white font-medium italic">flota propia certificada</span> y un equipo técnico de élite.
         </motion.p>

@@ -42,15 +42,15 @@ export default function TestimonialsCarousel() {
         {/* Header Corporativo */}
         <div className="px-6 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-12 gap-8 mb-16">
           <div className="md:col-span-4 lg:col-span-3">
-            <span className="text-[10px] uppercase font-syncopate tracking-[0.4em] text-7l-gold font-bold block pt-2 border-t-2 border-7l-gold w-16">
+            <span className="text-[10px] uppercase font-montserrat tracking-[0.4em] text-7l-gold font-bold block pt-2 border-t-2 border-7l-gold w-16">
               RESPALDO
             </span>
           </div>
           <div className="md:col-span-8 lg:col-span-6">
-            <h2 className="text-3xl md:text-4xl font-syne font-black text-7l-black uppercase leading-tight mb-4 tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-montserrat font-black text-7l-black uppercase leading-tight mb-4 tracking-tight">
               REFERENCIAS COMERCIALES
             </h2>
-            <p className="text-7l-gray text-[14px] leading-relaxed font-montserrat">
+            <p className="text-7l-gray text-[14px] leading-relaxed font-montserrat font-medium">
               No exigimos confianza ciega; la construimos. Las principales operadoras de los sectores estratégicos validan nuestro músculo financiero y capacidad de ejecución técnica.
             </p>
           </div>
@@ -93,15 +93,15 @@ export default function TestimonialsCarousel() {
                   <Quote size={20} className="text-[#E8E8E8] group-hover:text-7l-gold transition-colors" />
                 </div>
                 
-                <p className="text-7l-black font-syne font-bold text-[15px] md:text-[18px] leading-snug mb-8 flex-grow tracking-tight">
+                <p className="text-7l-black font-montserrat font-bold text-[15px] md:text-[18px] leading-snug mb-8 flex-grow tracking-tight">
                   "{item.quote}"
                 </p>
                 
                 <div className="flex flex-col mt-auto border-t border-[#E8E8E8] pt-4">
-                  <p className="text-[11px] font-bold font-syncopate text-7l-black tracking-widest uppercase">
+                  <p className="text-[11px] font-bold font-montserrat text-7l-black tracking-widest uppercase">
                     {item.name}
                   </p>
-                  <p className="text-[10px] text-7l-gray tracking-wider mt-1 line-clamp-1">
+                  <p className="text-[10px] text-7l-gray font-montserrat tracking-wider mt-1 line-clamp-1">
                     {item.role} <span className="text-7l-gold font-bold mx-1">|</span> {item.company}
                   </p>
                 </div>

@@ -2,15 +2,15 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 
 export default function ComplianceHSE() {
   const complianceHub = [
     { label: "RIF CORPORATIVO", status: "VERIFICADO", period: "2024-2025" },
-    { label: "RACDA TRANSPORTE", status: "VIGENTE", period: "VALIDO HASTA 2025" },
-    { label: "RACDA GENERADOR", status: "VIGENTE", period: "VALIDO HASTA 2025" },
-    { label: "RNC HABILITADO", status: "ACTIVO", period: "UP TO DATE" },
+    { label: "RACDA TRANSPORTE", status: "VIGENTE", period: "VÁLIDO HASTA 2025" },
+    { label: "RACDA GENERADOR", status: "VIGENTE", period: "VÁLIDO HASTA 2025" },
+    { label: "RNC HABILITADO", status: "ACTIVO", period: "ACTUALIZADO" },
   ];
 
   return (
@@ -22,13 +22,13 @@ export default function ComplianceHSE() {
           {/* SECTOR A: HSE STATEMENT */}
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-4">
-              <span className="font-syncopate text-7l-gold text-[7px] font-bold tracking-[0.6em] uppercase block mb-6">
-                Operational Sovereignty
+              <span className="font-montserrat text-7l-gold text-[7px] font-bold tracking-[0.6em] uppercase block mb-6">
+                Soberanía Operacional
               </span>
-              <h2 className="text-5xl md:text-6xl font-future text-white uppercase tracking-tighter leading-[0.9]">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-future text-white uppercase tracking-normal leading-[1.1]">
                 ESTATUS <br /> <span className="text-7l-gold">LEGAL</span>
               </h2>
-              <p className="font-montserrat text-[14px] text-white/50 leading-relaxed max-w-[350px] font-medium">
+              <p className="font-montserrat text-[14px] text-white leading-relaxed max-w-[350px] font-medium">
                 Pilar de transparencia técnica y administrativa. Documentación auditada y vigente para operaciones críticas de ingeniería.
               </p>
             </div>
@@ -40,16 +40,18 @@ export default function ComplianceHSE() {
               {complianceHub.map((item, idx) => (
                 <div key={idx} className="py-6 flex items-center justify-between group">
                   <div className="space-y-1">
-                    <span className="font-syncopate text-[9px] text-white tracking-[0.3em] font-black block group-hover:text-7l-gold transition-colors">
+                    <span className="font-montserrat text-[9px] text-white tracking-[0.3em] font-black block group-hover:text-7l-gold transition-colors">
                       {item.label}
                     </span>
-                    <span className="font-syncopate text-[8px] text-7l-gold font-bold tracking-[0.2em]">{item.period}</span>
+                    {/* Minimalist Divider */}
+                    <div className="w-10 h-[1.5px] bg-7l-gold"></div>
+                    <span className="font-montserrat text-[8px] text-7l-gold font-bold tracking-[0.2em]">{item.period}</span>
                   </div>
                   
                   <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-3 bg-white/10 px-5 py-2 rounded-full border border-white/10 group-hover:border-7l-gold transition-all duration-500">
+                    <div className="flex items-center gap-3 px-5 py-2 rounded-full border border-white/20 group-hover:border-7l-gold transition-all duration-500">
                        <CheckCircle2 size={12} className="text-green-400" />
-                       <span className="font-syncopate text-[8px] text-white font-black tracking-widest uppercase">{item.status}</span>
+                       <span className="font-montserrat text-[8px] text-white font-black tracking-widest uppercase">{item.status}</span>
                     </div>
                   </div>
                 </div>
@@ -60,15 +62,12 @@ export default function ComplianceHSE() {
             <div className="pt-8 px-2">
               <Link 
                 href="/transparencia" 
-                className="group inline-flex items-center gap-6 text-white hover:text-7l-gold transition-colors duration-500"
+                className="inline-flex items-center gap-4 bg-7l-gold px-6 py-3 transition-all hover:bg-7l-gold/90 group"
               >
-                 <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center group-hover:border-7l-gold group-hover:bg-7l-gold/10 transition-all duration-700 transform group-hover:scale-105">
-                    <ArrowUpRight size={20} className="group-hover:rotate-45 transition-transform duration-500" />
-                 </div>
-                 <div className="space-y-1">
-                    <span className="font-syncopate text-[10px] font-black tracking-[0.3em] block">SOLICITAR DOSSIER LEGAL</span>
-                    <span className="font-syncopate text-[7px] text-white/30 tracking-[0.2em] block uppercase">Technical & Legal Documentation Dashboard</span>
-                 </div>
+                <span className="font-montserrat text-[9px] font-bold text-7l-black tracking-[0.4em] uppercase">
+                  Solicitar Dossier Legal
+                </span>
+                <ArrowRight size={10} className="text-7l-black transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </div>

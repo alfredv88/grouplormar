@@ -22,12 +22,12 @@ export default function LabPage() {
       {/* 2. HUD ELEMENTS (Design Anchor) */}
       <div className="absolute inset-0 pointer-events-none border-[1px] border-white/5 m-4 md:m-8 lg:m-12 z-10">
         <div className="absolute top-0 left-0 p-4 border-b border-r border-white/10 bg-black/20 backdrop-blur-md">
-          <span className="text-[10px] font-syncopate tracking-[0.3em] text-7l-gold/50 uppercase">
+          <span className="text-[10px] font-montserrat font-bold tracking-[0.3em] text-7l-gold/50 uppercase">
             HFIP // PHASE.01
           </span>
         </div>
         <div className="absolute bottom-0 right-0 p-4 border-t border-l border-white/10 bg-black/20 backdrop-blur-md">
-          <span className="text-[10px] font-syncopate tracking-[0.3em] text-white/30 uppercase">
+          <span className="text-[10px] font-montserrat font-bold tracking-[0.3em] text-white/30 uppercase">
             LORMAR.SYSTEMS // 2026
           </span>
         </div>
@@ -42,8 +42,8 @@ export default function LabPage() {
         <div className="cinematic-reveal">
           <h1 className="leading-[0.85] mb-8" style={{ 
             fontSize: 'clamp(3.5rem, 12vw, 14rem)',
-            fontFamily: 'var(--font-syne)',
-            fontWeight: 800
+            fontFamily: 'var(--font-montserrat)',
+            fontWeight: 900
           }}>
             PRECISIÓN<br />
             <span className="text-7l-gold outline-text">EXTREMA</span>
@@ -58,7 +58,7 @@ export default function LabPage() {
             
             <button className="group relative px-8 py-4 overflow-hidden border border-7l-gold/30 bg-transparent transition-all duration-500 hover:border-7l-gold">
               <div className="absolute inset-0 bg-7l-gold translate-y-[101%] transition-transform duration-500 ease-out group-hover:translate-y-0" />
-              <span className="relative z-10 font-syncopate text-xs tracking-widest text-7l-gold group-hover:text-7l-black">
+              <span className="relative z-10 font-montserrat text-xs font-bold tracking-widest text-7l-gold group-hover:text-7l-black">
                 INICIAR EXPLORACIÓN
               </span>
             </button>

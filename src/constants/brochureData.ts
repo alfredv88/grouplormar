@@ -2,8 +2,8 @@ export const BROCHURE_DATA = {
     identity: {
         name: "Servicios y Construcciones Lormar 77, C.A.",
         rif: "J-30657965-6",
-        profile: "Equipo de profesionales con visión internacional, cumplimiento de normativas y gestión de mejora continua.",
-        mission: "Servicios de ingeniería de alta calidad (civil, mecánica, eléctrica e instrumentación) para el sector público y privado.",
+        profile: "Organización de profesionales con visión internacional, cumplimiento de normativas y gestión de mejora continua.",
+        mission: "Servicios de ingeniería de alta calidad (Civil, Mecánica, Eléctrica e Instrumentación) para el sector público y privado.",
         vision: "Objetivos de competitividad, crecimiento, solidez y certificación en aseguramiento de calidad.",
     },
     values: [
@@ -19,16 +19,16 @@ export const BROCHURE_DATA = {
             items: [
                 "Desarrollo Integral: Diseño, procura y ejecución de obras civiles, mecánicas, eléctricas e instrumentación.",
                 "Facilidades de Producción y Superficie: Baterías de separación, estaciones de flujo, oleoductos y gasoductos.",
-                "Infraestructura Civil y Soporte: Locaciones de pozos, vías de acceso, campamentos y tanques.",
+                "Infraestructura Civil y Soporte: Construcción de macollas, vías de acceso, campamentos y tanques.",
                 "Instalaciones Eléctricas e Instrumentación: Subestaciones, sistemas de control y automatización.",
             ],
         },
         {
             category: "Mantenimiento",
             items: [
-                "Correctivo y Reparación: Equipos rotatorios (bombas, compresores) y estáticos (tuberías, recipientes).",
+                "Correctivo y Reparación: Equipos rotatorios (bombas, compresores) y estáticos (tuberías, recipientes a presión).",
                 "Integridad de Tuberías y Equipos: Limpieza, pruebas no destructivas (NDT) e inspección técnica.",
-                "Autonomía de Flota: Garantía de disponibilidad 24/7 mediante programas de mantenimiento interno preventivo y correctivo para toda la flota propia.",
+                "Autonomía de Flota: Garantía de disponibilidad 24/7 de nuestros activos mediante programas de mantenimiento interno preventivo y correctivo.",
             ],
         },
         {
@@ -40,7 +40,7 @@ export const BROCHURE_DATA = {
             ],
         },
         {
-            category: "Servicio Ambiental",
+            category: "Gestión Ambiental",
             items: [
                 "Manejo Integral de Residuos: Recolección, transporte y disposición de desechos peligrosos (RACDA).",
                 "Saneamiento y Remediación: Limpieza de derrames de hidrocarburos y biorremediación de suelos.",
@@ -69,12 +69,12 @@ export const BROCHURE_DATA = {
         {
             id: "pala-mecanica",
             title: "Equipos de Pala Mecánica",
-            items: ["Cargadores Frontales", "Excavadoras", "Retroexcavadoras", "Minishowers"],
+            items: ["Cargadores Frontales", "Excavadoras", "Retroexcavadoras", "Minicargadores"],
         },
         {
             id: "servicios-pozo",
             title: "Equipos de Servicios a Pozo",
-            items: ["Cabilleros (350 HP)", "Camiones Hot Oil", "Equipos Well Testing", "Flush-By"],
+            items: ["Cabilleros (350 HP)", "Unidades Hot Oil", "Equipos Well Testing", "Flush-By"],
         },
         {
             id: "movimiento-tierra",
@@ -86,10 +86,10 @@ export const BROCHURE_DATA = {
             title: "Equipos de Transporte",
             items: [
                 "Chutos con Lowboy (60T - 140T)",
-                "Chutos con Vacuum (160 BLS)",
-                "Chutos con Batea / Volqueta",
-                "Camiones Supervactor",
-                "Camiones Volteo / Cisterna / Cava / 350",
+                "Unidades de Vacío (Vacuum 160 Bbl)",
+                "Chutos con Bateas / Volquetas",
+                "Equipos de Succión de Alta Potencia (Supervactor)",
+                "Furgones / Camiones 350",
                 "Camionetas Pick Up"
             ],
         },
@@ -100,12 +100,12 @@ export const BROCHURE_DATA = {
         },
         {
             id: "asfalto",
-            title: "Equipos para Colocación de Asfalto",
+            title: "Equipos de Pavimentación Asfáltica",
             items: ["Finishers", "Escarificadoras", "Rodillos Lisos / Neumáticos", "Camiones Rosco", "Barredoras Autopropulsadas"],
         },
         {
             id: "concreto",
-            title: "Equipos para Concreto",
+            title: "Equipos de Manejo de Concreto",
             items: ["Camiones Trompo Mezclador", "Trompos Mezcladores"],
         },
         {
@@ -118,7 +118,7 @@ export const BROCHURE_DATA = {
                 "Torres de Iluminación",
                 "Máquinas de Soldar",
                 "Sandblasting / Pintura Airless",
-                "Facilidades: Tráileres, Comedores, Vestidores, Baños Portátiles"
+                "Facilidades: Unidades de Habitabilidad (Tráileres), Comedores, Vestidores"
             ],
         },
     ],

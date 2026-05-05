@@ -40,36 +40,37 @@ export default function Navbar() {
         className="fixed top-0 w-full z-50"
       >
         {/* ── TOP BAR (Utility / Institutional) ── */}
-        <div className="bg-[#080808] h-7 w-full flex items-center">
+        <div className="h-10 w-full flex items-center bg-7l-black">
           <div className="w-full max-w-[1800px] mx-auto px-6 md:px-16 lg:px-32 flex items-center justify-between">
             {/* Left: ID Corporativo */}
             <div className="flex items-center gap-6">
-              <span className="font-syncopate text-[9px] text-white/40 tracking-[0.3em] uppercase hidden sm:block">
+              <span className="font-mono text-[10px] text-white tracking-[0.2em] uppercase hidden sm:block">
                 RIF: J-30657965-6
               </span>
             </div>
 
              {/* Right: Contact Utilities & Social */}
             <div className="flex items-center gap-8">
-              <div className="flex items-center gap-6 border-r border-white/10 pr-8 mr-2 hidden lg:flex">
-                <a href="tel:+584141816162" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors">
-                  <Phone size={10} className="text-[#F2A900]" />
-                  <span className="font-syncopate text-[8px] tracking-wider">+58 414 181 61 62</span>
-                </a>
-                <a href="mailto:negocios@grouplormar.com" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors">
-                  <Mail size={10} className="text-[#F2A900]" />
-                  <span className="font-syncopate text-[8px] tracking-wider uppercase">NEGOCIOS@GROUPLORMAR.COM</span>
-                </a>
-              </div>
+                <span className="font-mono text-[10px] text-7l-gold tracking-wider">RIF: J-30657965-6</span>
+                <div className="flex items-center gap-8">
+                  <a href="tel:+584141816152" className="flex items-center gap-2 group transition-colors">
+                    <Phone size={12} className="text-7l-gold" />
+                    <span className="font-mono text-[10px] text-white tracking-wider">+58 414 181 61 52</span>
+                  </a>
+                  <a href="mailto:negocios@grouplormar.com" className="flex items-center gap-2 group transition-colors">
+                    <Mail size={12} className="text-7l-gold" />
+                    <span className="font-mono text-[10px] text-white tracking-wider uppercase">negocios@grouplormar.com</span>
+                  </a>
+                </div>
               
               <div className="flex items-center gap-5">
                 {[Linkedin, Instagram, Facebook].map((Icon, i) => (
-                  <a 
-                    key={i} 
-                    href="#" 
-                    className="text-white/40 hover:text-[#F2A900] transition-all duration-300 transform hover:-translate-y-0.5"
+                  <a
+                    key={i}
+                    href="#"
+                    className="text-white hover:text-7l-gold transition-colors"
                   >
-                    <Icon size={12} />
+                    <Icon size={14} />
                   </a>
                 ))}
               </div>
@@ -81,17 +82,17 @@ export default function Navbar() {
         <div
           className={`w-full transition-all duration-500 ${
             isScrolled || isOpen
-              ? "bg-white/97 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.08)] py-1.5"
+              ? "bg-white shadow-[0_4px_30px_rgba(0,0,0,0.08)] py-1.5"
               : "bg-transparent py-3"
           }`}
         >
-          <div className="w-full max-w-[1800px] mx-auto px-6 md:px-16 lg:px-32 h-11 flex items-center justify-between">
+          <div className="w-full max-w-[1800px] mx-auto px-6 md:px-16 lg:px-32 h-[58px] flex items-center justify-between">
 
             {/* LOGO */}
             <Link href="/" className="flex items-center gap-4 group">
-              <div className={`relative transition-all duration-500 ${isScrolled ? "w-28 h-7" : "w-36 h-9"}`}>
+              <div className={`relative transition-all duration-500 ${isScrolled ? "w-36 h-9" : "w-48 h-12"}`}>
                 <Image
-                  src={isScrolled || isOpen ? "/logos/logo lormar sin rif gris.webp" : "/logos/logo lormar sin rif.webp"}
+                  src={isScrolled ? "/logos/logo lormar sin rif gris.webp" : "/logos/logo lormar blanco.webp"}
                   alt="Logo Grupo Lormar Industrial"
                   fill
                   priority
@@ -106,14 +107,10 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative group/link pb-1 font-syncopate text-[10px] font-bold uppercase tracking-[0.3em] transition-colors duration-300 ${
-                    isScrolled || isOpen
-                      ? pathname === link.href
-                        ? "text-[#F2A900]"
-                        : "text-[#1A1A1A] hover:text-[#080808]"
-                      : pathname === link.href
+                  className={`relative group/link pb-1 font-montserrat text-[13px] font-bold uppercase tracking-[0.3em] transition-colors duration-300 ${
+                    pathname === link.href
                       ? "text-[#F2A900]"
-                      : "text-white/70 hover:text-white"
+                      : isScrolled ? "text-[#1A1A1A] hover:text-[#080808]" : "text-white hover:text-7l-gold"
                   }`}
                 >
                   {link.label}
@@ -129,7 +126,7 @@ export default function Navbar() {
               {/* CTA COTIZAR */}
               <Link
                 href="/contacto"
-                className="group relative px-6 py-2 bg-[#F2A900] text-[#080808] font-syncopate font-black tracking-[0.3em] text-[8px] overflow-hidden transition-all duration-300 hover:shadow-[0_4px_20px_rgba(242,169,0,0.35)] hover:scale-105"
+                className="group relative px-6 py-3 bg-[#F2A900] text-[#080808] font-montserrat font-black tracking-[0.3em] text-[10px] overflow-hidden transition-all duration-300 hover:shadow-[0_4px_20px_rgba(242,169,0,0.35)] hover:scale-105"
               >
                 COTIZAR
               </Link>
@@ -138,9 +135,7 @@ export default function Navbar() {
             {/* MOBILE TOGGLE */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`md:hidden p-2 transition-colors ${
-                isScrolled || isOpen ? "text-[#1A1A1A]" : "text-white"
-              }`}
+              className={`md:hidden p-2 transition-colors ${isScrolled ? 'text-[#1A1A1A]' : 'text-white'}`}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -164,7 +159,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="py-6 font-syncopate text-2xl uppercase tracking-widest flex items-center justify-between group border-b border-[#E8E8E8]"
+                  className="py-6 font-montserrat text-2xl uppercase tracking-widest flex items-center justify-between group border-b border-[#E8E8E8]"
                 >
                   <span
                     className={
@@ -183,7 +178,7 @@ export default function Navbar() {
             <Link
               href="/contacto"
               onClick={() => setIsOpen(false)}
-              className="mt-8 py-5 bg-[#F2A900] text-[#080808] font-syncopate font-black tracking-[0.4em] text-sm uppercase text-center"
+              className="mt-8 py-5 bg-[#F2A900] text-[#080808] font-montserrat font-black tracking-[0.4em] text-sm uppercase text-center"
             >
               SOLICITAR COTIZACIÓN
             </Link>
@@ -191,11 +186,11 @@ export default function Navbar() {
             <div className="mt-auto pb-10 flex flex-col gap-3 border-t border-[#E8E8E8] pt-8">
               <a href="tel:+584141816162" className="flex items-center gap-3 text-[#6B7280]">
                 <Phone size={14} className="text-[#F2A900]" />
-                <span className="font-syncopate text-[10px] tracking-wider">+58 414 181 61 62</span>
+                <span className="font-montserrat text-[10px] tracking-wider">+58 414 181 61 62</span>
               </a>
               <a href="mailto:negocios@grouplormar.com" className="flex items-center gap-3 text-[#6B7280]">
                 <Mail size={14} className="text-[#F2A900]" />
-                <span className="font-syncopate text-[10px] tracking-wider">NEGOCIOS@GROUPLORMAR.COM</span>
+                <span className="font-montserrat text-[10px] tracking-wider">NEGOCIOS@GROUPLORMAR.COM</span>
               </a>
             </div>
           </motion.div>

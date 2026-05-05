@@ -11,18 +11,18 @@ export default function YardParallax() {
     offset: ["start end", "end start"],
   });
 
-  // Efecto de zoom y opacidad en el video mientras se hace scroll
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.2, 1, 1.1]);
+  // Efecto de opacidad y movimiento de texto (Parallax suave y ejecutivo)
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const textY = useTransform(scrollYProgress, [0, 1], [-80, 80]);
 
   return (
     <section 
       ref={containerRef}
-      className="relative h-[60vh] md:h-[80vh] overflow-hidden bg-7l-black"
+      className="relative h-[80vh] md:h-[100vh] overflow-hidden bg-7l-black"
     >
-      {/* Video Container - Fixed/Sticky during scroll */}
+      {/* Video Layer - Limpieza Absoluta */}
       <motion.div 
-        style={{ scale, opacity }}
+        style={{ opacity }}
         className="absolute inset-0 w-full h-full"
       >
         <video
@@ -30,44 +30,41 @@ export default function YardParallax() {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover grayscale-[30%] brightness-[0.6] contrast-125"
+          className="w-full h-full object-cover grayscale-[10%] brightness-[0.45] contrast-110"
         >
-          <source src="/videos/lormar 1.webm" type="video/webm" />
-          Tu navegador no soporta videos.
+          <source src="/videos/DJI_0323.webm" type="video/webm" />
         </video>
         
-        {/* Gradients to blend with sections above and below */}
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-7l-black to-transparent"></div>
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-7l-black to-transparent"></div>
+        {/* Soft atmospheric gradients */}
+        <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-7l-black to-transparent z-10"></div>
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-7l-black to-transparent z-10"></div>
       </motion.div>
 
-      {/* Floating Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
+      {/* Content Layer - Quiet Luxury Layout */}
+      <motion.div 
+        style={{ y: textY }}
+        className="relative z-20 h-full flex flex-col items-center justify-center text-center px-6"
+      >
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="space-y-6"
+          transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-5xl"
         >
-          <span className="font-syncopate text-7l-gold tracking-[0.6em] text-[10px] font-bold uppercase block">
+          <span className="font-montserrat text-7l-gold tracking-[0.8em] text-[9px] font-black uppercase mb-8 block opacity-80">
             VISIÓN DIRECTA // ACTIVOS
           </span>
-          <h2 className="text-4xl md:text-7xl font-future text-white uppercase leading-none tracking-tighter">
+          
+          <h2 className="text-5xl md:text-8xl font-montserrat font-black text-white uppercase leading-[0.9] tracking-tighter mb-10">
             CAPACIDAD <br /> <span className="text-7l-gold">INSTALADA</span> REAL
           </h2>
-          <div className="w-24 h-[1px] bg-white/30 mx-auto mt-8"></div>
+          
+          <div className="w-20 h-[1px] bg-white/20 mx-auto relative overflow-hidden">
+             <div className="absolute inset-0 bg-7l-gold w-full -translate-x-full animate-progress-slow"></div>
+          </div>
         </motion.div>
-      </div>
-
-      {/* Side Decorative Lines (HUD style) */}
-      <div className="absolute left-10 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-2 items-center opacity-40">
-        <div className="w-[1px] h-20 bg-7l-gold"></div>
-        <span className="font-syncopate text-[8px] text-white rotate-90 my-10 whitespace-nowrap tracking-widest uppercase">
-          YARD STATUS: OPERATIONAL
-        </span>
-        <div className="w-[1px] h-20 bg-7l-gold"></div>
-      </div>
+      </motion.div>
     </section>
   );
 }

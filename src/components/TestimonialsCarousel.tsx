@@ -70,14 +70,14 @@ export default function CompactTestimonials() {
                 <div className="flex items-center gap-6">
                     <div className="flex flex-col">
                         <div className="flex items-center gap-2">
-                            <span className="text-3xl font-black font-teko tracking-tighter">EXCELENCIA</span>
-                            <span className="text-sm font-bold uppercase tracking-widest opacity-30 italic">VALORADA</span>
+                            <span className="text-3xl font-black font-montserrat tracking-tighter">EXCELENCIA</span>
+                            <span className="text-sm font-bold font-montserrat uppercase tracking-widest opacity-30 italic">VALORADA</span>
                         </div>
                         <div className="flex items-center gap-2">
                             <div className="flex text-black">
                                 {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="black" />)}
                             </div>
-                            <span className="text-[10px] font-bold uppercase tracking-widest opacity-60">4.9 / 5.0 GOOGLE REVIEWS</span>
+                            <span className="text-[10px] font-bold font-montserrat uppercase tracking-widest opacity-60">4.9 / 5.0 GOOGLE REVIEWS</span>
                         </div>
                     </div>
                 </div>
@@ -124,13 +124,13 @@ export default function CompactTestimonials() {
                         </div>
 
                         <div className="mt-8 flex items-center gap-4 border-t border-black/5 pt-6">
-                            <div className="w-10 h-10 bg-black text-white shrink-0 flex items-center justify-center font-teko text-xl italic font-black">
+                            <div className="w-10 h-10 bg-black text-white shrink-0 flex items-center justify-center font-montserrat text-xl italic font-black">
                                 {t.initial}
                             </div>
                             <div className="flex flex-col min-w-0">
-                                <h4 className="text-sm font-black font-teko uppercase truncate italic leading-none">{t.name}</h4>
+                                <h4 className="text-sm font-black font-montserrat uppercase truncate italic leading-none">{t.name}</h4>
                                 <div className="flex items-center gap-1.5 overflow-hidden">
-                                    <span className="text-[9px] font-bold uppercase tracking-widest opacity-40 truncate">{t.role}</span>
+                                    <span className="text-[9px] font-bold font-montserrat uppercase tracking-widest opacity-40 truncate">{t.role}</span>
                                     <div className="w-3 h-3 bg-green-50 rounded-full flex items-center justify-center shrink-0">
                                         <Check size={8} className="text-green-600" />
                                     </div>

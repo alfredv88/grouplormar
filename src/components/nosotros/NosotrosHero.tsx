@@ -46,12 +46,12 @@ const NosotrosHero = () => {
             >
                 <div className="flex items-center gap-6">
                     <div className="w-12 h-[2px] bg-7l-gold"></div>
-                    <span className="text-7l-gold text-[10px] font-bold uppercase tracking-[0.5em] font-syncopate">
+                    <span className="text-7l-gold text-[10px] font-bold uppercase tracking-[0.5em] font-montserrat">
                         PERFIL CORPORATIVO // SERVICIOS Y CONSTRUCCIONES
                     </span>
                 </div>
 
-                <h1 className="text-5xl md:text-[100px] font-syne font-black leading-[0.8] tracking-tighter text-white uppercase">
+                <h1 className="text-5xl md:text-[100px] font-montserrat font-black leading-[0.8] tracking-tighter text-white uppercase">
                     ¿QUIÉNES <br />
                     <span className="text-transparent" style={{ WebkitTextStroke: "1px rgba(255,191,0,0.5)" }}>SOMOS?</span>
                 </h1>
@@ -83,7 +83,7 @@ const NosotrosHero = () => {
             ].map((item, i) => (
                 <div key={i} className="bg-7l-black p-12 md:p-20 space-y-10 group hover:bg-white/[0.02] transition-colors duration-500">
                     <div className="flex items-center justify-between">
-                        <h3 className="text-4xl font-syne font-black text-white uppercase tracking-tight">
+                        <h3 className="text-4xl font-montserrat font-black text-white uppercase tracking-tight">
                             {item.title}
                         </h3>
                         <div className="opacity-20 group-hover:opacity-100 transition-opacity duration-1000 group-hover:scale-110 transition-transform">
@@ -101,7 +101,7 @@ const NosotrosHero = () => {
         <div className="">
             <div className="flex items-center gap-6 mb-16">
                 <div className="w-12 h-[1px] bg-white/20"></div>
-                <span className="text-[10px] font-bold uppercase tracking-[0.6em] text-white/40 font-syncopate">VALORES CORPORATIVOS</span>
+                <span className="text-[10px] font-bold uppercase tracking-[0.6em] text-white/40 font-montserrat">VALORES CORPORATIVOS</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
@@ -114,7 +114,7 @@ const NosotrosHero = () => {
                         transition={{ delay: i * 0.1 }}
                         className="space-y-6 group"
                     >
-                        <h4 className="text-[11px] font-bold font-syncopate text-7l-gold tracking-widest leading-tight">{v.name}</h4>
+                        <h4 className="text-[11px] font-bold font-montserrat text-7l-gold tracking-widest leading-tight">{v.name}</h4>
                         <div className="w-8 h-[1px] bg-white/10 group-hover:w-full group-hover:bg-7l-gold/30 transition-all duration-700"></div>
                         <p className="text-[11px] text-white/40 leading-relaxed font-montserrat font-medium group-hover:text-white/70 transition-colors">
                           {v.desc}

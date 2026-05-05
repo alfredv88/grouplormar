@@ -35,10 +35,10 @@ const HumanCenter = () => {
         
         {/* Header Corporativo Dark */}
         <div className="mb-24 flex flex-col items-start">
-          <span className="block font-syncopate text-7l-gold tracking-[0.5em] text-[9px] font-bold uppercase mb-4">
+          <span className="block font-montserrat text-7l-gold tracking-[0.5em] text-[9px] font-bold uppercase mb-4">
             // INFRAESTRUCTURA HUMANA
           </span>
-          <h2 className="text-5xl md:text-7xl font-future font-normal uppercase leading-none text-7l-white tracking-tight">
+          <h2 className="text-5xl md:text-7xl font-montserrat font-black uppercase leading-none text-7l-white tracking-tight">
             NUESTRO <span className="text-7l-gold">CAPITAL</span>
           </h2>
           <div className="w-20 h-[1px] bg-7l-white/20 mt-10"></div>
@@ -68,10 +68,10 @@ const HumanCenter = () => {
 
               {/* Bloque de texto sólido clásico */}
               <div className="flex flex-col">
-                <span className="text-[10px] font-bold font-syncopate text-7l-gold tracking-[0.3em] uppercase block mb-3">
+                <span className="text-[10px] font-bold font-montserrat text-7l-gold tracking-[0.3em] uppercase block mb-3">
                   {person.role}
                 </span>
-                <h3 className="text-2xl font-future font-normal text-7l-white uppercase tracking-tight mb-4">
+                <h3 className="text-2xl font-montserrat font-black text-7l-white uppercase tracking-tight mb-4">
                   {person.name}
                 </h3>
                 <p className="text-[14px] text-7l-white/60 font-montserrat leading-relaxed border-l border-7l-gold/30 pl-6 group-hover:text-7l-white transition-colors">

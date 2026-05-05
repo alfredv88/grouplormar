@@ -24,7 +24,7 @@ export default function ServicesGrid() {
       "Construcción": "/images/services/construccion_real.png",
       "Mantenimiento": "/images/services/mantenimiento_real.png",
       "Servicios a Pozos": "/images/services/pozos_real.png",
-      "Servicio Ambiental": "/images/services/ambiental_real.png",
+      "Gestión Ambiental": "/images/services/ambiental_real.png",
       "Servicio Logístico": "/images/services/logistica_real.png",
     };
 
@@ -32,7 +32,7 @@ export default function ServicesGrid() {
       "Construcción": "Fases I+P+E",
       "Mantenimiento": "Inspección NDT",
       "Servicios a Pozos": "Faja Petrolífera",
-      "Servicio Ambiental": "RACDA G/M",
+      "Gestión Ambiental": "RACDA G/M",
       "Servicio Logístico": "Activos Propios",
     };
 
@@ -46,35 +46,47 @@ export default function ServicesGrid() {
   }) || [];
 
   return (
-    <section className="pt-48 pb-96 bg-white relative border-b border-gray-100" id="servicios">
-      <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20 relative z-10">
+    <section className="py-16 bg-white relative border-b border-[#0D0D0D] overflow-hidden" id="servicios">
+      {/* Background Vertical Branding (Margin Layer) */}
+      {/* Watermark removed to avoid gray tones */}
+
+      <div className="w-full max-w-[1600px] ml-8 px-6 md:px-12 lg:px-24 relative z-20">
         
-        {/* Título Refinado (Sin degradados, blanco puro) */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-future text-7l-black uppercase tracking-tight">
-            NUESTRAS <span className="text-gray-400">SOLUCIONES</span>
-          </h2>
-          <div className="w-16 h-[3px] bg-7l-gold mx-auto mt-6"></div>
+        {/* Título de Alto Impacto (Estilo Sección 4 - Balanceado) */}
+        <div className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-12">
+          <div className="space-y-1">
+            <h2 className="text-h2 flex flex-col">
+              <span className="text-7l-gold">SOLUCIONES</span>
+              <span className="text-[#0D0D0D]">CORPORATIVAS</span>
+            </h2>
+            <div className="w-24 h-[4px] bg-7l-gold mt-6"></div>
+          </div>
+          
+          <div className="max-w-sm pb-2">
+            <p className="font-montserrat text-[13px] !text-[#0D0D0D] tracking-[0.15em] uppercase leading-relaxed font-black">
+              Despliegue estratégico de capacidades operativas para sectores de alta complejidad técnica y logística.
+            </p>
+          </div>
         </div>
 
-        {/* Navegación Refinada */}
-        <div className="relative mb-12 border-b border-gray-200/50">
-          <div className="flex flex-nowrap overflow-x-auto no-scrollbar gap-8 md:gap-12 pb-0">
+        {/* Navegación Ejecutiva (Contraste Refinado) */}
+        <div className="relative mb-12 border-b border-[#0D0D0D]">
+          <div className="flex flex-nowrap overflow-x-auto no-scrollbar gap-10 md:gap-14 pb-0">
             {BROCHURE_DATA.services.map((service) => {
               const isActive = activeTab === service.category;
               return (
                 <button
                   key={service.category}
                   onClick={() => setActiveTab(service.category)}
-                  className={`relative py-4 text-[10px] font-syncopate font-bold uppercase tracking-[0.2em] transition-all whitespace-nowrap outline-none ${
-                    isActive ? "text-7l-black" : "text-gray-400 hover:text-7l-black"
+                  className={`relative py-5 text-[13px] font-montserrat font-black uppercase tracking-[0.2em] transition-all whitespace-nowrap outline-none ${
+                    isActive ? "text-[#0D0D0D]" : "text-[#0D0D0D] hover:text-7l-gold"
                   }`}
                 >
                   {service.category}
                   {isActive && (
                     <motion.div 
                       layoutId="activeTabRestored"
-                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-7l-gold z-20 shadow-[0_0_8px_rgba(242,169,0,0.4)]"
+                      className="absolute bottom-0 left-0 right-0 h-[4px] bg-7l-gold z-20"
                     />
                   )}
                 </button>
@@ -84,68 +96,112 @@ export default function ServicesGrid() {
         </div>
 
         {/* Services Grid with Animation */}
-        <div className="min-h-[400px]">
+        <div className="min-h-[450px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.4 }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
             >
-              {displayItems.map((item) => (
-                <div key={item.id} className="group bg-white border border-black/[0.03] shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-700 flex flex-col overflow-hidden">
-                  <div className="relative h-48 w-full overflow-hidden bg-gray-50">
-                    <Image
-                      src={item.img}
-                      alt={item.title}
-                      fill
-                      className="object-cover grayscale-[15%] transition-all duration-[1.5s] group-hover:grayscale-0 group-hover:scale-105"
-                    />
-                  </div>
+                {displayItems.map((item, idx) => {
+                  // Variación dinámica del encuadre para evitar repetición visual
+                  const objectPositions = ["object-center", "object-top", "object-bottom", "object-left"];
+                  const currentPosition = objectPositions[idx % objectPositions.length];
 
-                  <div className="p-8 flex-1 flex flex-col">
-                    <h3 
-                      className="text-[20px] font-syne font-black mb-4 leading-[1.1] uppercase tracking-tighter group-hover:text-7l-gold transition-colors duration-500"
-                      style={{ color: '#0d0d0d' }}
-                    >
-                      {item.title}
-                    </h3>
-                    <p 
-                      className="text-[13px] font-medium font-montserrat leading-relaxed mb-8 opacity-70"
-                      style={{ color: '#333333' }}
-                    >
-                      {item.desc}
-                    </p>
+                  return (
+                  <div key={item.id} className="group bg-white border border-[#0D0D0D]/10 hover:border-7l-gold/30 transition-all duration-500 flex flex-col relative overflow-hidden cursor-pointer h-[560px] w-full shadow-sm hover:shadow-xl">
+                    
+                    {/* Technical ID (Contraste Sólido) */}
+                    <span className="absolute top-4 right-4 font-mono text-[10px] text-[#0D0D0D] font-bold tracking-[0.2em] z-40 bg-white/80 px-2 py-1 rounded">
+                      REF-0{idx + 1}
+                    </span>
 
-                    <Link 
-                      href="/servicios" 
-                      className="mt-auto group/btn flex items-center gap-3 text-[10px] font-syncopate font-bold text-7l-black tracking-[0.3em] uppercase"
-                    >
-                      <span className="group-hover/btn:text-7l-gold transition-colors">Ficha Técnica</span>
-                      <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform duration-300" />
-                    </Link>
+                    {/* Media Frame (Protagonismo Recuperado) */}
+                    <div className="relative h-[260px] w-full overflow-hidden transition-all duration-700">
+                      <Image
+                        src={item.img}
+                        alt={item.title}
+                        fill
+                        className={`object-cover ${currentPosition} transition-all duration-1000 group-hover:scale-105`}
+                      />
+                    </div>
+
+                    {/* Content Frame - Jerarquía Pro Max */}
+                    <div className="p-8 flex-1 flex flex-col relative z-30">
+                      
+                      {/* Capability Tag */}
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-[2px] bg-7l-gold"></div>
+                        <span className="font-montserrat text-[10px] font-black text-7l-gold tracking-[0.2em] uppercase">{item.tag}</span>
+                      </div>
+                      
+                      {/* Title Group - Montserrat Black (Refinado y Armónico) */}
+                      <div className="mb-4 min-h-[50px] flex items-start">
+                        <h3 
+                          className="text-h3 !text-[#0D0D0D] !text-[17px] leading-[1.2] group-hover:text-7l-gold transition-colors duration-300"
+                        >
+                          {item.title}
+                        </h3>
+                      </div>
+
+                      {/* Description (Máximo Contraste - Negro Sólido y Bold) */}
+                      <div className="flex-1">
+                        <p 
+                          className="text-[13px] font-montserrat font-bold !text-[#0D0D0D] leading-relaxed mb-6"
+                        >
+                          {item.desc}
+                        </p>
+                      </div>
+
+                      {/* Professional Action Footer - Alineación Perfecta */}
+                      <div className="pt-6 border-t border-[#0D0D0D]/10 flex items-center justify-between mt-auto">
+                        <Link 
+                          href="/servicios" 
+                          className="group/btn inline-flex items-center gap-4 text-[11px] font-montserrat font-black tracking-[0.3em] text-[#0D0D0D] uppercase transition-all"
+                        >
+                          <span className="group-hover/btn:text-7l-gold transition-colors">CONSULTAR</span>
+                          <div className="w-8 h-[2px] bg-[#0D0D0D] group-hover/btn:w-12 group-hover/btn:bg-7l-gold transition-all duration-500" />
+                        </Link>
+                        
+                        <span className="font-montserrat font-black text-[28px] text-7l-gold transition-colors">
+                          0{idx + 1}
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                )})}
             </motion.div>
           </AnimatePresence>
         </div>
 
-        {/* Tus flechas de navegación compactadas */}
-        <div className="mt-4 flex justify-center gap-3 relative z-30">
-          <button className="w-12 h-12 rounded-full border border-gray-100 bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white hover:border-7l-black transition-all text-gray-400 hover:text-7l-black shadow-sm">
-            <ArrowRight size={20} className="rotate-180" />
+        {/* Navigation Arrows - Minimalist */}
+        <div className="mt-16 flex justify-center gap-5 relative z-30">
+          <button className="w-16 h-16 rounded-full border border-[#0D0D0D] bg-white flex items-center justify-center hover:bg-[#0D0D0D] hover:text-white transition-all text-[#0D0D0D] group">
+            <ArrowRight size={24} className="rotate-180 group-hover:-translate-x-1 transition-transform" />
           </button>
-          <button className="w-12 h-12 rounded-full border border-gray-100 bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white hover:border-7l-black transition-all text-gray-400 hover:text-7l-black shadow-sm">
-            <ArrowRight size={20} />
+          <button className="w-16 h-16 rounded-full border border-[#0D0D0D] bg-white flex items-center justify-center hover:bg-[#0D0D0D] hover:text-white transition-all text-[#0D0D0D] group">
+            <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
       </div>
 
+      {/* Vertical Branding Detail (Logo Oficial - Versión Gris) */}
+      <div className="absolute top-1/2 -translate-y-1/2 right-0 h-full w-[40%] flex items-center justify-center z-0 pointer-events-none select-none hidden xl:flex overflow-hidden">
+        <div className="relative w-[1200px] h-[450px] -rotate-90 opacity-20">
+          <Image
+            src="/logos/logo lormar sin rif gris.webp"
+            alt="Logo Lormar"
+            fill
+            className="object-contain"
+          />
+        </div>
+      </div>
+
       {/* WOW Element: MOTONIVELADORA Showcase - Corporate Style */}
-      <div className="absolute bottom-0 right-0 w-[45%] xl:w-[40%] pointer-events-none z-0 hidden lg:block overflow-hidden">
+      <div className="absolute bottom-0 right-[-5%] w-[45%] xl:w-[42%] pointer-events-none z-10 hidden lg:block overflow-hidden">
         <motion.div
            initial={{ x: 100, opacity: 0 }}
            whileInView={{ x: 20, opacity: 1 }}

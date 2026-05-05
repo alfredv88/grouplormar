@@ -13,8 +13,8 @@ export default function LogoStrip() {
     <section className="relative z-10 py-24 bg-transparent overflow-hidden">
       
       <div className="w-full max-w-[1800px] mx-auto overflow-hidden">
-        <p className="text-[10px] font-syncopate font-bold uppercase tracking-[0.6em] text-center mb-20 text-white/40">
-          SOCIOS <span className="text-7l-gold/80">ESTRATÉGICOS</span>
+        <p className="text-[10px] font-montserrat font-black uppercase tracking-[0.6em] text-center mb-20 text-white">
+          SOCIOS <span className="text-7l-gold">ESTRATÉGICOS</span>
         </p>
         
         <div className="relative flex overflow-hidden group">
@@ -35,7 +35,7 @@ export default function LogoStrip() {
             {[...clients, ...clients].map((client, i) => (
               <div
                 key={i}
-                className="font-syne text-2xl md:text-3xl font-black text-white/50 hover:text-white transition-all cursor-default tracking-tighter"
+                className="font-montserrat text-2xl md:text-3xl font-black text-zinc-600 hover:text-white transition-all cursor-default tracking-tighter"
               >
                 {client}
               </div>

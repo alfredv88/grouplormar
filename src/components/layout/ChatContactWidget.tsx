@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { MessageCircle, X, Send, CheckCircle2, Loader2, Construction, Headphones, UserCheck } from 'lucide-react';
+import { X, Send, CheckCircle2, Loader2, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const contactSchema = z.object({
     name: z.string().min(2, 'El nombre es muy corto'),
@@ -56,147 +57,163 @@ export default function ChatContactWidget() {
     };
 
     return (
-        <div className="fixed bottom-6 right-6 z-50 font-sans">
-            {isOpen && (
-                <div className="mb-4 w-[350px] sm:w-[400px] bg-white rounded-none shadow-none overflow-hidden border border-black">
-                    {/* Header */}
-                    <div className="bg-black p-4 text-white flex items-center justify-between industrial-screws industrial-screws-gold">
-                        <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-brand-yellow text-black rounded-none flex items-center justify-center border border-brand-yellow clip-cut-corner">
-                                <Construction size={22} />
-                            </div>
-                            <div>
-                                <h3 className="font-bold text-sm uppercase tracking-widest font-michroma">HMI: ASISTENTE</h3>
-                                <p className="text-[9px] text-brand-yellow/60 flex items-center gap-1 font-michroma">
-                                    SISTEMA_ACTIVO
-                                </p>
-                            </div>
-                        </div>
-                        <button
-                            onClick={() => setIsOpen(false)}
-                            className="p-1 hover:bg-brand-yellow hover:text-black transition-all border border-transparent hover:border-brand-yellow"
-                            aria-label="Cerrar"
-                        >
-                            <X size={20} />
-                        </button>
-                    </div>
-
-                    {/* Content / Form */}
-                    <div className="p-5 max-h-[500px] overflow-y-auto bg-white border-x border-b border-black">
-                        {isSuccess ? (
-                            <div className="py-10 text-center space-y-4">
-                                <div className="flex justify-center">
-                                    <CheckCircle2 size={64} className="text-black" />
-                                </div>
-                                <h4 className="text-xl font-bold text-black uppercase">¡Mensaje enviado!</h4>
-                                <p className="text-black text-sm">Gracias por contactarnos. Te responderemos a la brevedad posible.</p>
-                            </div>
-                        ) : (
-                            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                                <p className="text-sm text-black mb-2 italic">
-                                    Escribe tus datos y deja tu consulta.
-                                </p>
-
-                                <div className="space-y-1">
-                                    <label className="text-[10px] uppercase font-bold text-black ml-1">Nombre Completo</label>
-                                    <input
-                                        {...register('name')}
-                                        placeholder="Ej. Juan Pérez"
-                                        className={`w-full p-2 rounded-none border border-black bg-white focus:outline-none focus:bg-black focus:text-white transition-none text-sm ${errors.name ? 'bg-black text-white' : ''
-                                            }`}
-                                    />
-                                    {errors.name && <p className="text-[10px] text-black font-bold ml-1 uppercase">{errors.name.message}</p>}
-                                </div>
-
-                                <div className="space-y-1">
-                                    <label className="text-[10px] uppercase font-bold text-black ml-1">Correo Electrónico</label>
-                                    <input
-                                        {...register('email')}
-                                        type="email"
-                                        placeholder="ejemplo@correo.com"
-                                        className={`w-full p-2 rounded-none border border-black bg-white focus:outline-none focus:bg-black focus:text-white transition-none text-sm ${errors.email ? 'bg-black text-white' : ''
-                                            }`}
-                                    />
-                                    {errors.email && <p className="text-[10px] text-black font-bold ml-1 uppercase">{errors.email.message}</p>}
-                                </div>
-
-                                <div className="space-y-1">
-                                    <label className="text-[10px] uppercase font-bold text-black ml-1">Servicio de interés</label>
-                                    <select
-                                        {...register('subject')}
-                                        className="w-full p-2 rounded-none border border-black bg-white focus:outline-none text-sm appearance-none"
-                                    >
-                                        <option value="Consulta General">Consulta General</option>
-                                        <option value="Automatización Industrial">Automatización Industrial</option>
-                                        <option value="Montaje Industrial">Montaje Industrial</option>
-                                        <option value="Tableros Eléctricos">Tableros Eléctricos</option>
-                                        <option value="Mantenimiento">Mantenimiento</option>
-                                    </select>
-                                </div>
-
-                                <div className="space-y-1">
-                                    <label className="text-[10px] uppercase font-bold text-black ml-1">Tu Mensaje</label>
-                                    <textarea
-                                        {...register('message')}
-                                        rows={3}
-                                        placeholder="¿En qué podemos ayudarte?"
-                                        className={`w-full p-2 rounded-none border border-black bg-white focus:outline-none focus:bg-black focus:text-white transition-none text-sm resize-none ${errors.message ? 'bg-black text-white' : ''
-                                            }`}
-                                    />
-                                    {errors.message && <p className="text-[10px] text-black font-bold ml-1 uppercase">{errors.message.message}</p>}
-                                </div>
-
-                                {isError && (
-                                    <p className="text-xs text-white bg-black p-2 rounded-none border border-black">
-                                        Error al enviar. Inténtalo de nuevo.
-                                    </p>
-                                )}
-
-                                <button
-                                    type="submit"
-                                    disabled={isSubmitting}
-                                    className="w-full bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-3 rounded-none transition-none flex items-center justify-center gap-2 disabled:opacity-50"
-                                >
-                                    {isSubmitting ? (
-                                        <Loader2 className="animate-spin" size={18} />
-                                    ) : (
-                                        <>
-                                            <span className="uppercase tracking-widest">Enviar consulta</span>
-                                            <Send size={18} />
-                                        </>
-                                    )}
-                                </button>
-                            </form>
-                        )}
-                    </div>
-                </div>
-            )}
-
-            {/* Trigger Button: MATTE INDUSTRIAL DESIGN */}
-            <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="group relative w-16 h-16 flex items-center justify-center transition-all duration-500"
-            >
-                {/* Subtle Reference Rings (Non-emissive) */}
-                <div className={`absolute inset-0 rounded-full border border-white/[0.03] scale-110 ${isOpen ? 'opacity-0' : 'opacity-100'}`}></div>
-                <div className={`absolute inset-0 rounded-full border border-7l-gold/10 ${isOpen ? 'scale-90 opacity-0' : 'scale-100 opacity-100'}`}></div>
-
-                {/* Main Action Component (Matte Finish) */}
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 relative overflow-hidden
-                    ${isOpen 
-                        ? 'bg-white text-black rotate-90' 
-                        : 'bg-7l-black border border-7l-gold/30 text-7l-gold hover:border-7l-gold/60'
-                    }`}
+        <>
+            {/* GHOST MINIMALIST TRIGGER */}
+            <div className="fixed bottom-10 right-10 z-[60]">
+                <button
+                    onClick={() => setIsOpen(true)}
+                    className={`group relative w-16 h-16 flex items-center justify-center transition-all duration-700 ${isOpen ? 'scale-0 rotate-90' : 'scale-100 rotate-0'}`}
                 >
-                    {isOpen ? <X size={22} /> : (
-                        <div className="relative">
-                            <Headphones size={22} className="opacity-80 group-hover:opacity-100" />
-                            {/* Solid status indicator, no glow */}
-                            <div className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-7l-gold rounded-full"></div>
-                        </div>
-                    )}
-                </div>
-            </button>
-        </div>
+                    {/* Rotating Frames */}
+                    <div className="absolute inset-0 border border-white/5 group-hover:border-7l-gold/30 transition-all duration-700" />
+                    <div className="absolute inset-0 border border-white/5 rotate-45 group-hover:rotate-90 group-hover:border-7l-gold/30 transition-all duration-1000" />
+                    
+                    {/* Content */}
+                    <div className="relative z-10 flex flex-col items-center gap-1">
+                        <div className="w-1 h-1 bg-7l-gold rounded-full" />
+                        <span className="font-montserrat text-[7px] text-white/40 uppercase tracking-[0.3em] group-hover:text-white transition-colors">CONNECT</span>
+                    </div>
+
+                    {/* Hover Glow */}
+                    <div className="absolute inset-0 bg-7l-gold/0 group-hover:bg-7l-gold/5 blur-xl transition-all duration-700" />
+                </button>
+            </div>
+
+            {/* ATMOSPHERIC CONTACT PANEL */}
+            <AnimatePresence>
+                {isOpen && (
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 md:p-10">
+                        {/* Backdrop with extreme blur and dark tint */}
+                        <motion.div 
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsOpen(false)}
+                            className="absolute inset-0 bg-black/80 backdrop-blur-xl"
+                        />
+
+                        {/* Floating Ghost Card */}
+                        <motion.div 
+                            initial={{ y: 20, opacity: 0, scale: 0.95 }}
+                            animate={{ y: 0, opacity: 1, scale: 1 }}
+                            exit={{ y: 20, opacity: 0, scale: 0.95 }}
+                            transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+                            className="relative w-full max-w-[500px] bg-7l-black/40 border border-white/5 backdrop-blur-2xl shadow-[0_0_100px_rgba(0,0,0,0.5)] overflow-hidden"
+                        >
+                            {/* Decorative Lines */}
+                            <div className="absolute top-0 left-0 w-20 h-px bg-gradient-to-r from-7l-gold/50 to-transparent" />
+                            <div className="absolute top-0 left-0 w-px h-20 bg-gradient-to-b from-7l-gold/50 to-transparent" />
+                            <div className="absolute bottom-0 right-0 w-20 h-px bg-gradient-to-l from-white/10 to-transparent" />
+                            <div className="absolute bottom-0 right-0 w-px h-20 bg-gradient-to-t from-white/10 to-transparent" />
+
+                            {/* Header */}
+                            <div className="p-12 pb-6 flex items-start justify-between">
+                                <div className="space-y-4">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-8 h-[1px] bg-7l-gold" />
+                                        <span className="font-montserrat text-[9px] font-bold text-7l-gold uppercase tracking-[0.5em]">ENLACE OPERATIVO</span>
+                                    </div>
+                                    <h3 className="font-montserrat font-black text-3xl text-white uppercase tracking-tighter leading-none">
+                                        CONTACTO <br />
+                                        <span className="text-white/20">DIRECTO</span>
+                                    </h3>
+                                </div>
+                                <button 
+                                    onClick={() => setIsOpen(false)}
+                                    className="p-4 bg-white/5 hover:bg-white/10 transition-colors text-white/40 hover:text-white"
+                                >
+                                    <X size={18} />
+                                </button>
+                            </div>
+
+                            {/* Main Body */}
+                            <div className="p-12 pt-6 space-y-10">
+                                {isSuccess ? (
+                                    <motion.div 
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        className="py-20 flex flex-col items-center text-center space-y-8"
+                                    >
+                                        <div className="relative">
+                                            <div className="absolute inset-0 bg-7l-gold/20 blur-2xl animate-pulse" />
+                                            <CheckCircle2 size={60} className="text-7l-gold relative z-10" />
+                                        </div>
+                                        <div className="space-y-3">
+                                            <h4 className="font-montserrat font-black text-2xl text-white uppercase tracking-tighter">DATOS TRANSMITIDOS</h4>
+                                            <p className="font-montserrat text-xs text-white/40 leading-relaxed uppercase tracking-widest">Un especialista técnico procesará su solicitud.</p>
+                                        </div>
+                                    </motion.div>
+                                ) : (
+                                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
+                                        <div className="space-y-8">
+                                            <div className="grid grid-cols-2 gap-8">
+                                                <div className="space-y-3">
+                                                    <label className="block font-montserrat text-[8px] font-bold text-white/20 uppercase tracking-[0.3em]">Nombre</label>
+                                                    <input 
+                                                        {...register('name')}
+                                                        className="w-full bg-transparent border-b border-white/5 py-2 text-white font-montserrat text-sm focus:outline-none focus:border-7l-gold/50 transition-colors placeholder:text-white/5"
+                                                        placeholder="S. APELLIDO"
+                                                    />
+                                                </div>
+                                                <div className="space-y-3">
+                                                    <label className="block font-montserrat text-[8px] font-bold text-white/20 uppercase tracking-[0.3em]">Email</label>
+                                                    <input 
+                                                        {...register('email')}
+                                                        type="email"
+                                                        className="w-full bg-transparent border-b border-white/5 py-2 text-white font-montserrat text-sm focus:outline-none focus:border-7l-gold/50 transition-colors placeholder:text-white/5"
+                                                        placeholder="CORP@MAIL.COM"
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div className="space-y-3">
+                                                <label className="block font-montserrat text-[8px] font-bold text-white/20 uppercase tracking-[0.3em]">Departamento</label>
+                                                <select 
+                                                    {...register('subject')}
+                                                    className="w-full bg-transparent border-b border-white/5 py-2 text-white font-montserrat text-sm focus:outline-none focus:border-7l-gold/50 transition-colors appearance-none"
+                                                >
+                                                    <option value="Consulta General" className="bg-7l-black">CONSULTA GENERAL</option>
+                                                    <option value="Operaciones" className="bg-7l-black">OPERACIONES</option>
+                                                    <option value="Ingeniería" className="bg-7l-black">INGENIERÍA</option>
+                                                </select>
+                                            </div>
+
+                                            <div className="space-y-3">
+                                                <label className="block font-montserrat text-[8px] font-bold text-white/20 uppercase tracking-[0.3em]">Mensaje</label>
+                                                <textarea 
+                                                    {...register('message')}
+                                                    rows={3}
+                                                    className="w-full bg-transparent border-b border-white/5 py-2 text-white font-montserrat text-sm focus:outline-none focus:border-7l-gold/50 transition-colors placeholder:text-white/5 resize-none"
+                                                    placeholder="REQUERIMIENTO TÉCNICO..."
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <button
+                                            type="submit"
+                                            disabled={isSubmitting}
+                                            className="group w-full py-6 border border-white/5 hover:border-7l-gold/50 transition-all duration-700 flex items-center justify-center gap-6 overflow-hidden relative"
+                                        >
+                                            <div className="absolute inset-0 bg-7l-gold/5 translate-y-full group-hover:translate-y-0 transition-transform duration-700" />
+                                            {isSubmitting ? (
+                                                <Loader2 className="animate-spin text-7l-gold" size={16} />
+                                            ) : (
+                                                <>
+                                                    <span className="relative z-10 font-montserrat text-[9px] font-black uppercase tracking-[0.5em] text-white/40 group-hover:text-7l-gold transition-colors">
+                                                        ENVIAR REQUERIMIENTO
+                                                    </span>
+                                                    <ArrowRight size={14} className="relative z-10 text-white/20 group-hover:text-7l-gold group-hover:translate-x-2 transition-all" />
+                                                </>
+                                            )}
+                                        </button>
+                                    </form>
+                                )}
+                            </div>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
+        </>
     );
 }
+

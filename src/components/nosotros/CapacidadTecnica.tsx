@@ -70,10 +70,10 @@ const CapacidadTecnica = () => {
         <div className="mb-24 space-y-8">
             <div className="flex items-center gap-6">
                 <div className="w-12 h-[px] bg-7l-gold"></div>
-                <span className="text-7l-gold text-[10px] font-bold uppercase tracking-[0.6em] font-syncopate">PODER OPERATIVO</span>
+                <span className="text-7l-gold text-[10px] font-bold uppercase tracking-[0.6em] font-montserrat">PODER OPERATIVO</span>
             </div>
             
-            <h2 className="text-5xl md:text-8xl font-syne font-black text-white uppercase leading-[0.9] tracking-tighter">
+            <h2 className="text-5xl md:text-8xl font-montserrat font-black text-white uppercase leading-[0.9] tracking-tighter">
                 CAPACIDAD <br /> 
                 <span className="text-transparent" style={{ WebkitTextStroke: "1px rgba(255,255,255,0.2)" }}>TECNOLÓGICA</span>
             </h2>
@@ -94,17 +94,17 @@ const CapacidadTecnica = () => {
                     <div className="w-12 h-12 border border-white/10 flex items-center justify-center text-7l-gold group-hover:border-7l-gold group-hover:bg-7l-gold group-hover:text-7l-black transition-all duration-500">
                         {equip.icon}
                     </div>
-                    <span className="text-[8px] font-bold font-syncopate text-white/20 tracking-widest uppercase border-b border-white/10 pb-2">
-                        MOD-2024
+                    <span className="text-[9px] font-bold font-montserrat text-white/30 tracking-widest uppercase pb-2">
+                        ST-EQUIP.v25
                     </span>
                 </div>
 
                 <div className="space-y-4">
-                    <p className="text-7l-gold text-[9px] font-bold uppercase tracking-[0.4em] font-syncopate">{equip.cat}</p>
-                    <h4 className="text-2xl font-syne font-extrabold text-white uppercase leading-tight group-hover:text-7l-gold transition-colors">
+                    <p className="text-7l-gold text-[9px] font-bold uppercase tracking-[0.4em] font-montserrat">{equip.cat}</p>
+                    <h4 className="text-2xl font-montserrat font-black text-white uppercase leading-tight group-hover:text-7l-gold transition-colors">
                         {equip.name}
                     </h4>
-                    <p className="text-xs text-white/40 font-montserrat tracking-wide max-w-[200px]">
+                    <p className="text-[13px] text-white/60 font-montserrat font-medium leading-relaxed">
                         {equip.desc}
                     </p>
                 </div>
@@ -112,8 +112,8 @@ const CapacidadTecnica = () => {
 
               {/* Technical Marker */}
               <div className="mt-12 flex items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                <div className="w-2 h-2 rounded-full bg-7l-gold animate-pulse"></div>
-                <span className="text-[9px] font-syncopate text-white font-bold tracking-widest">ACTIVO PROPIO</span>
+                <div className="w-1.5 h-1.5 rounded-full bg-7l-gold"></div>
+                <span className="text-[10px] font-montserrat text-white/80 font-bold tracking-widest uppercase">ACTIVO PROPIO</span>
               </div>
             </motion.div>
           ))}

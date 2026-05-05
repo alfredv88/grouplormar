@@ -1,37 +1,38 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ChevronRight, ArrowRight, ArrowLeft, ShieldCheck } from "lucide-react";
+import { ChevronRight, ArrowRight, ArrowLeft } from "lucide-react";
 import { BROCHURE_DATA } from "@/constants/brochureData";
 
-// Mapping images to brochure categories
 const equipmentImages: Record<string, string> = {
-  "izamiento": "/images/equipment/izamiento_100t_real_daylight.png",
-  "pala-mecanica": "/images/equipment/excavadora_real_daylight.png",
-  "servicios-pozo": "/images/equipment/cabillero_real_daylight.png",
-  "movimiento-tierra": "/images/equipment/motoniveladora_real_daylight.png",
-  "transporte": "/images/equipment/transporte_lowboy_real_daylight.png",
+  "izamiento": "/images/heavy-crane.png",
+  "pala-mecanica": "/images/WhatsApp Image 2026-04-09 at 2.40.14 PM.jpeg",
+  "servicios-pozo": "/images/pulling-unit.png",
+  "movimiento-tierra": "/images/WhatsApp Image 2026-04-09 at 2.40.17 PM (1).jpeg",
+  "transporte": "/images/WhatsApp Image 2026-04-09 at 2.40.18 PM (1).jpeg",
+  "elevadores": "/images/manlift.png",
   "asfalto": "/images/equipment/asphalt_finisher_real_daylight.png",
+  "concreto": "/images/equipment/DJI_0281.JPG",
+  "equipos-menores": "/images/lighting-tower.png",
 };
 
-// We filter categories that have images for the "Highlights" view
-const showcaseCategories = BROCHURE_DATA.machinery.filter(cat => equipmentImages[cat.id]);
+const showcaseCategories = BROCHURE_DATA.machinery;
+const ITEM_HEIGHT = 48;
 
 export default function EquipmentShowcase() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = React.useState(0);
-  const [scrollProgress, setScrollProgress] = React.useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const handleScroll = () => {
     if (scrollRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
       const maxScroll = scrollWidth - clientWidth;
-      const progress = (scrollLeft / maxScroll) * 100;
-      setScrollProgress(progress);
+      setScrollProgress((scrollLeft / (maxScroll || 1)) * 100);
 
-      const cardWidth = 300 + 40; // Smaller card + gap
+      const cardWidth = 360 + 40; // 5% narrower (from 380 to 360) + gap
       const index = Math.round(scrollLeft / cardWidth);
       if (index !== activeIndex && index < showcaseCategories.length) {
         setActiveIndex(index);
@@ -41,159 +42,171 @@ export default function EquipmentShowcase() {
 
   const handleMenuClick = (index: number) => {
     if (scrollRef.current) {
-      const cardWidth = 300 + 40;
-      scrollRef.current.scrollTo({
-        left: index * cardWidth,
-        behavior: "smooth"
-      });
+      const cardWidth = 360 + 40;
+      scrollRef.current.scrollTo({ left: index * cardWidth, behavior: "smooth" });
     }
   };
 
-  const scrollLeft = () => {
+  const scrollBy = (direction: number) => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -340, behavior: "smooth" });
-    }
-  };
-
-  const scrollRight = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 340, behavior: "smooth" });
+      scrollRef.current.scrollBy({ left: direction * 400, behavior: "smooth" });
     }
   };
 
   return (
-    <section className="py-56 bg-transparent relative z-20 overflow-hidden">
-      <div className="w-full max-w-[1800px] mx-auto pl-6 md:pl-12 lg:pl-20 pr-0 grid lg:grid-cols-12 gap-16 lg:gap-24">
+    <section className="py-48 bg-transparent relative z-20 overflow-hidden">
+      <div className="w-full max-w-[1800px] mx-auto px-10 md:px-24 grid lg:grid-cols-12 gap-16">
         
-        {/* Left Side: Navigation & Info */}
-        <div className="lg:col-span-3 flex flex-col justify-between relative z-10 py-6 pr-6 md:pr-12 lg:pr-0">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-2 h-2 bg-7l-gold rounded-full animate-pulse" />
-              <span className="font-syncopate text-[7px] font-bold text-7l-gold tracking-[0.3em] uppercase">
-                Fleet Highlights
-              </span>
-            </div>
-            <h2 className="font-future uppercase text-white mb-6 tracking-tight leading-[0.9]" style={{ fontSize: 'clamp(1.8rem, 4vw, 36px)' }}>
-              INVENTARIO <br /> <span className="text-7l-gold text-[0.8em]">DE ACTIVOS</span>
+        {/* Left Side: Navigation (Elite Standard) */}
+        <div className="lg:col-span-3 flex flex-col relative z-10 pt-4">
+          <div className="mb-16">
+            <h2 className="text-h2 mb-4">
+              MAQUINARIA <br /> <span className="text-7l-gold">Y EQUIPOS</span>
             </h2>
-            <p className="font-montserrat text-[9px] text-white/50 tracking-[0.2em] uppercase mb-10 max-w-[200px] leading-relaxed">
-              Infraestructura operativa propia.
+            <p className="font-montserrat text-[10px] text-white tracking-[0.2em] uppercase leading-relaxed max-w-[200px] font-bold">
+              Infraestructura técnica para ejecución de alto impacto operativo.
             </p>
-            
-            <div className="flex flex-col border-t border-white/20">
-              {showcaseCategories.map((cat, i) => {
-                const isActive = activeIndex === i;
-                return (
-                  <div 
-                    key={cat.id} 
-                    onClick={() => handleMenuClick(i)}
-                    className={`flex items-center justify-between py-4 border-b border-white/10 cursor-pointer transition-all ${isActive ? 'group is-active' : 'group hover:border-white/40'}`}
-                  >
-                    <span className={`font-syncopate text-[8px] font-bold tracking-[0.3em] uppercase transition-colors ${isActive ? 'text-7l-gold' : 'text-white/70 group-hover:text-white'}`}>
-                      {cat.title}
-                    </span>
-                    <ChevronRight size={10} className={`transition-all duration-500 ${isActive ? 'text-7l-gold opacity-100 translate-x-0' : 'text-7l-gold opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0'}`} />
-                  </div>
-                )
-              })}
-            </div>
           </div>
 
-          <div className="mt-16 lg:mt-0">
-            <Link href="/portafolio" className="group relative inline-flex items-center gap-4 px-6 py-3 overflow-hidden border border-white/10 transition-all duration-500 hover:border-7l-gold">
-              <div className="absolute inset-0 bg-7l-gold translate-y-[101%] transition-transform duration-500 ease-out group-hover:translate-y-0" />
-              <span className="relative z-10 font-syncopate text-[7px] font-bold uppercase tracking-[0.4em] text-white group-hover:text-7l-black transition-colors">VER CATÁLOGO</span>
-              <ArrowRight size={10} className="relative z-10 text-7l-gold group-hover:text-7l-black transition-colors" />
+          <div className="flex flex-col relative border-l border-white/5">
+            {/* Precision Indicator */}
+            <motion.div 
+              className="absolute left-[-1px] w-[2px] bg-7l-gold z-10 shadow-[0_0_15px_rgba(242,169,0,0.8)]"
+              animate={{ top: activeIndex * ITEM_HEIGHT, height: ITEM_HEIGHT }}
+              transition={{ type: "spring", stiffness: 300, damping: 35 }}
+            />
+
+            {showcaseCategories.map((cat, i) => {
+              const isActive = activeIndex === i;
+              const isVisible = i >= activeIndex && i < activeIndex + 3;
+              return (
+                <div
+                  key={cat.id}
+                  onClick={() => handleMenuClick(i)}
+                  className="h-[48px] flex items-center justify-between cursor-pointer group pl-6 transition-all"
+                >
+                  <span className={`font-montserrat text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-500 ${isActive ? 'text-7l-gold' : 'text-white group-hover:text-7l-gold'}`}>
+                    {cat.title}
+                  </span>
+                  <ChevronRight size={12} className={`transition-all duration-500 ${isActive ? 'text-7l-gold scale-110 opacity-100' : 'opacity-0'}`} />
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="mt-20">
+            <Link href="/portafolio" className="group flex items-center gap-4">
+              <span className="font-montserrat text-[9px] font-black text-white tracking-[0.3em] uppercase group-hover:text-7l-gold transition-colors duration-500 underline underline-offset-4 decoration-7l-gold">
+                Ver Catálogo
+              </span>
+              <ArrowRight size={12} className="text-7l-gold transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </div>
 
-        {/* Right Side: Asset Cards */}
-        <div className="lg:col-span-9 relative flex flex-col pt-6">
-          <div 
+        {/* Right Side: Cards (Professional Gallery) */}
+        <div className="lg:col-span-9 relative flex flex-col">
+          <div
             ref={scrollRef}
             onScroll={handleScroll}
-            className="flex gap-10 overflow-x-auto snap-x snap-mandatory pb-36 cursor-grab active:cursor-grabbing"
-            style={{ msOverflowStyle: 'none', scrollbarWidth: 'none' }}
+            className="flex gap-10 overflow-x-auto snap-x snap-mandatory pb-24 no-scrollbar"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             <style jsx>{`div::-webkit-scrollbar { display: none; }`}</style>
-            {showcaseCategories.map((cat, i) => (              <div key={cat.id} className="relative flex-none">
-                <div className="relative min-w-[260px] md:min-w-[280px] lg:min-w-[300px] h-[440px] lg:h-[480px] snap-start bg-black/25 backdrop-blur-2xl border border-white/5 hover:border-white/20 transition-all duration-700 overflow-hidden group cinematic-reveal" style={{ animationDelay: `${i * 150}ms` }}>
+            {showcaseCategories.map((cat, i) => (
+              <div key={cat.id} className="relative flex-none snap-start">
+                <div className="w-[360px] h-[560px] bg-[#080808] border border-zinc-900 hover:border-7l-gold/50 transition-all duration-500 flex flex-col group overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.8)] relative">
                   
-                  {/* Equipment Image (Clean & Bright) */}
-                  <div className="h-[40%] w-full relative overflow-hidden bg-zinc-900/10 border-b border-white/10">
-                    <div 
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-[2s] scale-[1.02] group-hover:scale-[1.08] opacity-100" 
-                      style={{ backgroundImage: `url('${equipmentImages[cat.id]}')` }}
+                  {/* Decorative Industrial Wireframe (HUECO) - FINAL FROZEN CONFIG */}
+                  <div 
+                    className="absolute border border-white/20 transition-all duration-500 pointer-events-none z-10"
+                    style={{ 
+                      bottom: '-105px',
+                      right: '-178px',
+                      width: '259px',
+                      height: '259px',
+                      transform: 'rotate(65deg)',
+                    }}
+                  />
+
+                  {/* Decorative Industrial Square (SÓLIDO) - FINAL FROZEN CONFIG */}
+                  <div 
+                    className="absolute transition-transform duration-500 pointer-events-none z-20 bg-7l-gold shadow-[0_0_30px_rgba(242,169,0,0.3)]"
+                    style={{ 
+                      bottom: '36px',
+                      right: '-53px',
+                      width: '100px', // size (400) / 4
+                      height: '100px',
+                      transform: 'rotate(316deg)',
+                    }}
+                  />
+                  
+                  {/* Media Frame - Dominancia Visual */}
+                  <div className="h-[300px] relative overflow-hidden bg-black">
+                    <div
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-[4s] ease-out group-hover:scale-105"
+                      style={{ backgroundImage: equipmentImages[cat.id] ? `url('${equipmentImages[cat.id]}')` : 'none' }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-40" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent" />
                   </div>
 
-                  {/* Information Grid */}
-                  <div className="p-6 flex flex-col h-[60%] justify-between relative">
-                    <div>
-                      <div className="flex items-center justify-between mb-6">
-                        <h3 className="text-sm font-syne font-black text-white tracking-[0.2em] uppercase">
+                    {/* Content Frame - Refinado y Compacto (FORZADO AL FRENTE) */}
+                    <div className="p-8 flex flex-col flex-1 relative z-30">
+                      
+                      {/* Header Group */}
+                      <div className="mb-6 flex flex-col gap-1">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-[7px] font-montserrat text-7l-gold tracking-[0.4em] uppercase font-black">
+                            FICHA TÉCNICA
+                          </span>
+                          <span className="font-mono text-[8px] text-white tracking-tighter uppercase font-bold">
+                            LRM-MOD-{cat.id.substring(0, 3).toUpperCase()}
+                          </span>
+                        </div>
+                        
+                        <h3 className="text-h3 !text-[18px] leading-[1.2] block">
                           {cat.title}
                         </h3>
-                        <div className="flex items-center gap-1.5 px-2 py-0.5 border border-white/20 rounded-sm bg-white/5">
-                          <ShieldCheck size={8} className="text-7l-gold" />
-                          <span className="text-[6px] font-syncopate font-bold text-white/80 uppercase tracking-tight">Verified</span>
-                        </div>
                       </div>
 
-                      <div className="space-y-3">
-                        {cat.items.map((item, idx) => (
-                          <div key={idx} className="flex items-start gap-3 group/item">
-                            <div className="w-1.5 h-[1px] bg-7l-gold mt-2 group-hover/item:w-3 transition-all duration-300" />
-                            <p className="font-montserrat text-[11px] text-white font-medium leading-tight uppercase tracking-widest">
-                              {item}
-                            </p>
-                          </div>
+                      {/* Inventory List - Más aire y legibilidad */}
+                      <div className="space-y-3 flex-1 border-l border-7l-gold/30 pl-6 ml-1 mt-1">
+                        {cat.items.slice(0, 4).map((item, idx) => (
+                          <p key={idx} className="font-montserrat text-[10px] text-white uppercase tracking-[0.1em] leading-tight font-semibold opacity-70 group-hover:opacity-100 transition-opacity">
+                            {item}
+                          </p>
                         ))}
                       </div>
+
+                    {/* Clean Action Footer */}
+                    <div className="pt-6 mt-auto flex items-center justify-end">
+                      <Link href="/portafolio" className="flex items-center gap-4 cursor-pointer group/action">
+                        <span className="font-montserrat text-[9px] font-black text-white uppercase tracking-[0.2em] group-hover/action:text-7l-gold transition-colors">
+                          VER FLOTA COMPLETA
+                        </span>
+                        <div className="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center group-hover/action:border-7l-gold group-hover/action:bg-7l-gold transition-all duration-500">
+                          <ArrowRight size={16} className="text-white group-hover/action:text-black transition-colors" />
+                        </div>
+                      </Link>
                     </div>
 
-                    <div className="pt-4 border-t border-white/10 mt-auto">
-                      <div className="flex items-center justify-between">
-                        <div className="flex flex-col gap-1">
-                          <span className="text-[6px] font-syncopate text-white/60 uppercase tracking-[0.2em]">Asset Unit</span>
-                          <span className="text-[8px] font-syne text-white font-bold uppercase tracking-[0.15em]">{cat.id.replace('-', ' ')}</span>
-                        </div>
-                        <div className="text-[7px] font-syncopate text-white/70 border border-white/10 px-2 py-1 uppercase tracking-wider bg-white/5">
-                          LRM-{cat.id.substring(0, 3).toUpperCase()}
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Progress Bar & Controls */}
-          <div className="absolute bottom-10 left-0 right-10 lg:right-40 flex items-center justify-between">
-            <div className="w-[80%] h-[1px] bg-white/10 relative overflow-hidden">
-               <motion.div 
-                className="absolute left-0 top-0 h-full bg-7l-gold shadow-[0_0_15px_rgba(242,169,0,0.5)]"
+          {/* Controls */}
+          <div className="flex items-center gap-8">
+            <div className="flex-1 h-[2px] bg-zinc-900 relative overflow-hidden">
+              <motion.div 
+                className="absolute left-0 top-0 h-full bg-7l-gold"
                 style={{ width: `${Math.max(10, scrollProgress)}%` }}
-                transition={{ type: "spring", bounce: 0, duration: 0.1 }}
               />
             </div>
-            <div className="flex gap-4">
-              <button 
-                onClick={scrollLeft} 
-                className="w-12 h-12 flex items-center justify-center text-white/40 hover:text-white transition-all border border-white/10 hover:border-white/40 rounded-full group/btn"
-              >
-                <ArrowLeft size={18} className="transition-transform group-hover/btn:-translate-x-1" />
-              </button>
-              <button 
-                onClick={scrollRight} 
-                className="w-12 h-12 flex items-center justify-center text-white/40 hover:text-white transition-all border border-white/10 hover:border-white/40 rounded-full group/btn"
-              >
-                <ArrowRight size={18} className="transition-transform group-hover/btn:translate-x-1" />
-              </button>
+            <div className="flex gap-8">
+              <button onClick={() => scrollBy(-1)} className="text-zinc-600 hover:text-white transition-colors"><ArrowLeft size={20} /></button>
+              <button onClick={() => scrollBy(1)} className="text-zinc-600 hover:text-white transition-colors"><ArrowRight size={20} /></button>
             </div>
           </div>
         </div>

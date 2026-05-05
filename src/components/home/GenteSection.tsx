@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
@@ -39,11 +40,11 @@ export default function GenteSection() {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <span className="font-syncopate text-7l-black/80 text-[10px] font-bold tracking-[0.4em] uppercase">
-              GENTE
+            <span className="font-montserrat text-7l-black/80 text-[10px] font-bold tracking-[0.5em] uppercase">
+              CAPITAL HUMANO
             </span>
-            <h2 className="text-4xl md:text-6xl font-syne font-black text-white leading-tight uppercase tracking-tight">
-              CAPITAL <br /> <span className="text-7l-black/80">HUMANO</span>
+            <h2 className="text-4xl md:text-6xl font-montserrat font-black text-white leading-tight uppercase tracking-tight">
+              TALENTO <br /> <span className="text-7l-black/80">ESTRATÉGICO</span>
             </h2>
           </motion.div>
 
@@ -63,14 +64,15 @@ export default function GenteSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
           >
-            <button className="group flex items-center gap-4 text-white hover:text-7l-black transition-colors">
-              <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-7l-gold group-hover:scale-110 transition-transform shadow-lg">
-                <ArrowRight size={20} />
-              </div>
-              <span className="font-syncopate text-[10px] font-bold tracking-[0.3em] uppercase">
-                DESCUBRE MÁS
+            <Link 
+              href="/gente" 
+              className="inline-flex items-center gap-4 bg-7l-black px-6 py-3 transition-all hover:bg-7l-black/90 group"
+            >
+              <span className="font-montserrat text-[9px] font-bold text-7l-gold tracking-[0.4em] uppercase">
+                Descubre Más
               </span>
-            </button>
+              <ArrowRight size={10} className="text-7l-gold transition-transform group-hover:translate-x-1" />
+            </Link>
           </motion.div>
         </div>
       </div>

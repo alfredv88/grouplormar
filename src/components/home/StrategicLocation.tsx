@@ -39,13 +39,13 @@ export default function StrategicLocation() {
         
         {/* CENTERED HEADER (COMPACTED) */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <span className="font-syncopate text-7l-gold text-[7px] font-bold tracking-[0.5em] uppercase block mb-6">
-            Global Industrial Network
+          <span className="font-montserrat text-7l-gold text-[7px] font-bold tracking-[0.5em] uppercase block mb-6">
+            Red Industrial Global
           </span>
-          <h2 className="text-4xl md:text-5xl font-future text-white uppercase tracking-tighter leading-[0.9]">
+          <h2 className="text-4xl md:text-5xl font-montserrat font-black text-white uppercase tracking-tighter leading-[0.9]">
             PRESENCIA <span className="text-7l-gold">ESTRATÉGICA</span>
           </h2>
-          <div className="w-12 h-[1px] bg-7l-gold mx-auto mt-8 opacity-30" />
+          <div className="w-12 h-[2px] bg-7l-gold mx-auto mt-8" />
         </div>
 
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
@@ -65,18 +65,18 @@ export default function StrategicLocation() {
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
                          <div className="w-1.5 h-1.5 bg-7l-gold rounded-full" />
-                         <span className="font-syncopate text-[8px] text-white/40 tracking-[0.5em] font-bold uppercase transition-colors group-hover:text-7l-gold">
+                         <span className="font-montserrat text-[8px] text-zinc-400 tracking-[0.5em] font-bold uppercase transition-colors group-hover:text-7l-gold">
                             {hub.label}
                          </span>
                       </div>
                       
                       <div className="space-y-1">
-                        <span className="font-future text-lg md:text-xl text-white tracking-[0.2em] group-hover:text-7l-gold transition-colors block leading-tight uppercase">
+                        <span className="font-montserrat font-black text-lg md:text-xl text-white tracking-[0.2em] group-hover:text-7l-gold transition-colors block leading-tight uppercase">
                           {hub.location}
                         </span>
                         <div className="flex items-start gap-3 pt-3">
                            <MapPin size={12} className="text-white/20 mt-1 shrink-0" />
-                           <p className="text-[11px] text-white/40 font-montserrat leading-relaxed max-w-sm">
+                           <p className="text-[11px] text-white font-montserrat leading-relaxed max-w-sm font-medium">
                              {hub.address}
                            </p>
                         </div>
@@ -87,9 +87,9 @@ export default function StrategicLocation() {
               ))}
             </div>
 
-            <div className="mt-8 flex justify-between items-center text-[7px] font-syncopate text-white/10 tracking-[0.5em] uppercase">
-               <span>Anzoátegui Central Logistics Grid</span>
-               <span>100% Asset Ownership</span>
+            <div className="mt-8 flex justify-between items-center text-[7px] font-montserrat text-white/10 tracking-[0.5em] uppercase">
+               <span>Red Logística Central Anzoátegui</span>
+               <span>100% Propiedad de Activos</span>
             </div>
           </div>
 
@@ -109,7 +109,7 @@ export default function StrategicLocation() {
               <div className="absolute top-4 left-4">
                  <div className="flex items-center gap-2.5 bg-black/40 backdrop-blur-md px-2.5 py-1.5 border border-white/10">
                     <div className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
-                    <span className="font-syncopate text-[6px] text-white tracking-[0.2em] uppercase font-bold">Facilities_Live</span>
+                     <span className="font-montserrat text-[6px] text-white tracking-[0.2em] uppercase font-bold">INSTALACIONES_VIVO</span>
                  </div>
               </div>
 
@@ -117,8 +117,8 @@ export default function StrategicLocation() {
             </div>
 
             <div className="space-y-4">
-              <h3 className="font-syne font-black text-xl text-white uppercase tracking-tight">INFRAESTRUCTURA PROPIA</h3>
-              <p className="font-montserrat text-[13px] text-white/50 leading-relaxed max-w-xl font-medium">
+              <h3 className="font-montserrat font-black text-xl text-white uppercase tracking-tight">INFRAESTRUCTURA PROPIA</h3>
+              <p className="font-montserrat text-[13px] text-white leading-relaxed max-w-xl font-medium">
                 Operamos desde activos integrales en el corazón industrial de Anzoátegui. Cada sede está equipada con tecnología de punta y personal certificado, garantizando la continuidad técnica y administrativa de todos nuestros proyectos.
               </p>
             </div>

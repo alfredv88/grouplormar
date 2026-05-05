@@ -74,13 +74,13 @@ export default function Hero() {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ ...transition, delay: 0.2 }}
-              className="w-12 h-[1px] bg-7l-gold/50 origin-left"
+              className="w-12 h-[2px] bg-7l-gold origin-left"
             />
             <motion.span 
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ ...transition, delay: 0.4 }}
-              className="font-syncopate text-white/60 tracking-[0.6em] text-[9px] font-bold uppercase"
+              className="font-montserrat text-white tracking-[0.6em] text-[10px] font-bold uppercase"
             >
               Infraestructura & Excelencia Operativa
             </motion.span>
@@ -88,15 +88,12 @@ export default function Hero() {
 
           {/* Kinetic Title Reveal - Emerging from mask */}
           <div className="relative">
-            <h1 
-              className="font-future leading-[0.82] tracking-tighter uppercase overflow-hidden"
-              style={{ fontSize: 'clamp(2.5rem, 9vw, 92px)' }}
-            >
+            <h1 className="text-h1 overflow-hidden">
               <motion.span 
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
                 transition={{ ...transition, delay: 0.6 }}
-                className="block text-white opacity-95"
+                className="block text-white"
               >
                 SERVICIOS Y
               </motion.span>
@@ -114,15 +111,15 @@ export default function Hero() {
           {/* Elegant Description & Action Sequence */}
           <div className="grid lg:grid-cols-12 gap-10">
             <div className="lg:col-span-8 space-y-12">
-              <motion.p 
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ ...transition, delay: 1.2 }}
-                className="text-base md:text-lg text-white/70 font-montserrat font-light leading-relaxed tracking-wide max-w-2xl border-l-[1px] border-white/10 pl-10"
-              >
-                Ejecución técnica de alto nivel en áreas civiles, mecánica e instrumentación. 
-                Garantizamos <span className="text-white font-medium italic underline decoration-7l-gold/30 underline-offset-8 uppercase tracking-[0.2em] ml-2">autonomía total</span> con flota propia.
-              </motion.p>
+                <motion.p 
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ ...transition, delay: 1.2 }}
+                  className="text-base md:text-lg text-white font-montserrat font-bold leading-relaxed tracking-wide max-w-2xl border-l-[3px] border-7l-gold pl-10"
+                >
+                  Ejecución técnica de alto nivel en áreas de civil, mecánica e instrumentación. 
+                  Garantizamos <span className="text-7l-gold font-black italic underline decoration-7l-gold underline-offset-8 uppercase tracking-[0.2em] ml-2">autonomía total</span> con flota propia.
+                </motion.p>
 
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -132,22 +129,12 @@ export default function Hero() {
               >
                 <Link 
                   href="/servicios" 
-                  className="group relative inline-flex items-center gap-10 px-12 py-6 overflow-hidden bg-7l-gold transition-all duration-500 hover:shadow-[0_0_30px_rgba(242,169,0,0.3)]"
+                  className="inline-flex items-center gap-4 bg-7l-gold px-6 py-3 transition-all hover:bg-7l-gold/90 group"
                 >
-                  {/* Sheen Effect */}
-                  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-[sheen_1.5s_infinite]" />
-                  
-                  <span className="relative z-10 font-syncopate text-[10px] font-black tracking-[0.5em] text-7l-black">
-                    EXPLORAR CAPACIDADES
+                  <span className="font-montserrat text-[9px] font-bold text-7l-black tracking-[0.4em] uppercase">
+                    Explorar Capacidades
                   </span>
-                  
-                  <div className="relative z-10 w-8 h-[1px] bg-7l-black/30 overflow-hidden">
-                    <motion.div 
-                      animate={{ x: [-32, 32] }}
-                      transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-                      className="w-full h-full bg-7l-black"
-                    />
-                  </div>
+                  <ArrowRight size={10} className="text-7l-black transition-transform group-hover:translate-x-1" />
                 </Link>
               </motion.div>
             </div>
@@ -165,12 +152,12 @@ export default function Hero() {
         transition={{ delay: 2.5, duration: 2 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-4 hidden md:flex"
       >
-        <span className="font-syncopate text-[7px] tracking-[0.4em] text-white/30 uppercase mb-2">Descubra</span>
-        <div className="w-[1px] h-16 bg-white/5 overflow-hidden">
+        <span className="font-montserrat text-[8px] tracking-[0.4em] text-white font-bold uppercase mb-2">Descubra</span>
+        <div className="w-[2px] h-16 bg-white/20 overflow-hidden">
           <motion.div 
             animate={{ y: [-64, 64] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            className="w-full h-1/2 bg-gradient-to-b from-transparent via-7l-gold/40 to-transparent"
+            className="w-full h-1/2 bg-7l-gold"
           />
         </div>
       </motion.div>

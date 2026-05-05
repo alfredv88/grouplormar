@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Crosshair } from "lucide-react";
+import { ArrowRight, Crosshair } from "lucide-react";
 
 const projects = [
   {
@@ -12,7 +12,7 @@ const projects = [
     title: "PLANTA PROCESADORA",
     year: "2024",
     image: "/images/hero-excavator.webp",
-    stats: ["99% UPTIME", "ISO 9001", "MONTAJE MECÁNICO"]
+    stats: ["99% DISPONIBILIDAD", "ISO 9001", "MONTAJE MECÁNICO"]
   },
   {
     category: "VÍAS Y ACCESOS",
@@ -39,17 +39,22 @@ export default function ProjectShowcase() {
       <div className="w-full max-w-[1800px] mx-auto px-6 md:px-16 lg:px-32">
         <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
           <div className="max-w-2xl">
-            <span className="flex items-center gap-3 font-syncopate text-7l-gold text-[10px] font-bold tracking-[0.4em] uppercase mb-6">
-              <Crosshair size={14} /> DEPÓSITO DE ACTIVOS // PORTAFOLIO
+            <span className="flex items-center gap-3 font-montserrat text-7l-gold text-[10px] font-bold tracking-[0.4em] uppercase mb-6">
+              <Crosshair size={14} /> HISTORIAL DE EJECUCIÓN // PORTAFOLIO
             </span>
-            <h2 className="text-6xl md:text-8xl font-syne font-black text-white uppercase leading-[0.9] tracking-tighter">
+            <h2 className="text-6xl md:text-8xl font-montserrat font-black text-white uppercase leading-[0.9] tracking-tighter">
               PROYECTOS <br /> 
-              <span className="text-white/20">EJECUTADOS</span>
+              <span className="text-zinc-700">EJECUTADOS</span>
             </h2>
           </div>
-          <Link href="/portafolio" className="group flex items-center gap-6 bg-white/5 hover:bg-7l-gold border border-white/10 hover:border-7l-gold transition-all duration-500 px-10 py-6">
-             <span className="font-syncopate text-[10px] font-bold text-white group-hover:text-black tracking-[0.3em]">REVISAR BITÁCORA</span>
-             <ArrowUpRight className="text-7l-gold group-hover:text-black group-hover:rotate-45 transition-all" size={20} />
+          <Link 
+            href="/portafolio" 
+            className="inline-flex items-center gap-4 bg-7l-gold px-6 py-3 transition-all hover:bg-7l-gold/90 group"
+          >
+            <span className="font-montserrat text-[9px] font-bold text-7l-black tracking-[0.4em] uppercase">
+              Revisar Bitácora
+            </span>
+            <ArrowRight size={10} className="text-7l-black transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
 
@@ -73,30 +78,30 @@ export default function ProjectShowcase() {
                 
                 {/* HUD Elements Overlay */}
                 <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
-                   <div className="flex justify-between items-start opacity-40 group-hover:opacity-100 transition-opacity">
-                      <div className="font-syncopate text-[9px] text-white tracking-[0.2em] space-y-1">
+                    <div className="flex justify-between items-start group-hover:scale-105 transition-transform">
+                      <div className="font-montserrat text-[9px] text-white tracking-[0.2em] space-y-1 font-bold">
                          <p>REF: LRM-{2024 - idx}</p>
                          <p>STAT: COMPLETADO</p>
                       </div>
-                      <span className="text-white font-syncopate text-[9px] border border-white/20 px-2 py-1 uppercase">{project.year}</span>
+                      <span className="text-7l-gold font-montserrat text-[10px] font-black border-2 border-7l-gold px-2 py-1 uppercase">{project.year}</span>
                    </div>
 
                    <div className="space-y-4">
-                      <span className="inline-block bg-7l-gold text-black font-syncopate text-[9px] font-bold px-3 py-1 tracking-[0.2em]">
+                       <span className="inline-block bg-7l-gold text-black font-montserrat text-[9px] font-bold px-3 py-1 tracking-[0.2em]">
                         {project.category}
                       </span>
-                      <h3 className="text-4xl lg:text-5xl font-syne font-black text-white leading-tight uppercase group-hover:text-7l-gold transition-colors">
+                      <h3 className="text-4xl lg:text-5xl font-montserrat font-black text-white leading-tight uppercase group-hover:text-7l-gold transition-colors">
                         {project.title.split(' ')[0]} <br />
-                        <span className="text-white/40 group-hover:text-white transition-colors">{project.title.split(' ').slice(1).join(' ')}</span>
+                        <span className="text-zinc-300 group-hover:text-white transition-colors">{project.title.split(' ').slice(1).join(' ')}</span>
                       </h3>
                       
                       {/* Detailed Stats reveal on hover */}
                       <div className="pt-6 flex flex-wrap gap-2 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                        {project.stats.map((stat, sidx) => (
-                           <span key={sidx} className="text-[8px] font-syncopate text-white/50 border border-white/10 px-2 py-1">
-                              {stat}
-                           </span>
-                        ))}
+                         {project.stats.map((stat, sidx) => (
+                            <span key={sidx} className="text-[9px] font-montserrat text-white border-2 border-white/20 px-2 py-1 font-bold">
+                               {stat}
+                            </span>
+                         ))}
                       </div>
                    </div>
                 </div>

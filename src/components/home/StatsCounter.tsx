@@ -22,12 +22,11 @@ export default function StatsCounter() {
   const stats = [
     { num: 16, prefix: "+", label: "Años de Experiencia" },
     { num: 200, prefix: "+", label: "Proyectos Ejecutados" },
-    { num: 50, prefix: "+", label: "Unidades Especializadas" },
-    { num: 0, prefix: "", label: "Índice LTI (Seguridad)" }
+    { num: 50, prefix: "+", label: "Unidades Especializadas" }
   ];
 
   return (
-    <div className="relative overflow-hidden bg-7l-black">
+    <div className="relative overflow-hidden bg-7l-black" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 90%, 0 100%)' }}>
       {/* Background Video Layer - Static/Parallax Effect */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <video
@@ -43,39 +42,50 @@ export default function StatsCounter() {
         <div className="absolute inset-0 bg-gradient-to-t from-7l-black via-transparent to-7l-black z-10 opacity-70" />
       </div>
 
-      <section className="py-80 relative z-20">
-        <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-24">
+      <section className="py-96 relative z-20">
+        <div className="w-full max-w-[1400px] mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
             {stats.map((stat, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="flex flex-col items-center text-center space-y-4 relative group"
+                transition={{ duration: 1.2, delay: i * 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-col items-center text-center relative group"
               >
-                {/* HUD Decorator */}
-                <div className="absolute -top-6 text-[7px] font-syncopate text-7l-gold/20 tracking-[0.4em] opacity-0 group-hover:opacity-100 transition-opacity">
-                  DATA_VERIFIED_[{i + 1}]
+                {/* Technical Metadata (Engineering Layer) */}
+                <div className="absolute -top-8 left-1/2 -translate-x-1/2 flex items-center gap-4 opacity-30 group-hover:opacity-60 transition-opacity duration-700">
+                  <span className="font-mono text-[8px] tracking-[0.3em] text-white">7L-DATA-0{i+1}</span>
+                  <div className="w-8 h-[1px] bg-7l-gold/40"></div>
                 </div>
 
-                {/* Number Monumental */}
-                <div className="text-7xl md:text-8xl xl:text-9xl font-future text-7l-gold leading-none tracking-tighter drop-shadow-[0_10px_30px_rgba(242,169,0,0.2)]">
-                  <AnimatedNumber value={stat.num} prefix={stat.prefix} />
+                {/* Number Monumental (Video Mask Effect) */}
+                <div className="relative">
+                  <div 
+                    className="text-7xl md:text-8xl xl:text-9xl font-montserrat font-black leading-none tracking-tighter mix-blend-screen bg-clip-text text-transparent bg-cover bg-center"
+                    style={{ 
+                      backgroundImage: 'url("/images/concrete-texture.jpg")', // Fallback texture
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                    }}
+                  >
+                    <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-10 transition-opacity duration-1000 bg-7l-gold"></div>
+                    <AnimatedNumber value={stat.num} prefix={stat.prefix} />
+                  </div>
+                  
+                  {/* Outer Glow (Subtle) */}
+                  <div className="absolute inset-0 blur-2xl bg-7l-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -z-10"></div>
                 </div>
 
-                {/* Minimalist Divider */}
-                <div className="w-10 h-[1.5px] bg-gradient-to-r from-transparent via-7l-gold to-transparent opacity-60"></div>
-
-                {/* Label Clean */}
-                <span className="text-[10px] md:text-[11px] font-syncopate font-bold uppercase tracking-[0.4em] text-white">
-                  {stat.label}
-                </span>
-
-                <div className="pt-2 text-[7px] font-syncopate text-white/20 tracking-widest font-black uppercase">
-                  Audited System
+                {/* Label Refined */}
+                <div className="mt-8 flex flex-col items-center gap-3">
+                  <div className="w-6 h-[1px] bg-7l-gold/50 group-hover:w-12 transition-all duration-700"></div>
+                  <span className="text-[10px] font-montserrat font-black uppercase tracking-[0.5em] text-white/40 group-hover:text-white transition-colors duration-500">
+                    {stat.label}
+                  </span>
                 </div>
+
               </motion.div>
             ))}
           </div>
