@@ -10,10 +10,10 @@ import EquipmentShowcase from "@/components/home/EquipmentShowcase";
 import YardParallax from "@/components/home/YardParallax";
 import StatsCounter from "@/components/home/StatsCounter";
 import ComplianceHSE from "@/components/home/ComplianceHSE";
+import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
 import StrategicLocation from "@/components/home/StrategicLocation";
 import AboutSection from "@/components/home/AboutSection";
 import ProcessSection from "@/components/home/ProcessSection";
-import { FAQ } from "@/components/home/ClosingSections";
 
 export default function Home() {
   return (
@@ -69,6 +69,9 @@ export default function Home() {
       {/* 6. COMPLIANCE & HSE — Estatus Legal y Seguridad */}
       <ComplianceHSE />
 
+      {/* 6.5 TESTIMONIALS — Referencias Comerciales */}
+      <TestimonialsCarousel />
+
       {/* 7. STRATEGIC LOCATION — Presencia Geográfica */}
       <StrategicLocation />
 
@@ -88,11 +91,11 @@ export default function Home() {
           </h2>
 
           <Link href="/contacto" className="group flex items-center gap-8 mt-4 transition-all duration-500">
-            <div className="w-20 h-20 rounded-full border-2 border-7l-gold flex items-center justify-center group-hover:bg-7l-gold transition-all duration-500 shadow-[0_0_30px_rgba(242,169,0,0.2)]">
-              <ArrowUpRight className="text-7l-gold group-hover:text-black transition-colors" size={32} />
+            <div className="w-20 h-20 rounded-none border border-7l-gold/30 flex items-center justify-center group-hover:border-7l-gold group-hover:bg-7l-gold/5 transition-all duration-500">
+              <ArrowUpRight className="text-7l-gold transition-all duration-500 group-hover:rotate-45" size={28} />
             </div>
             <span className="font-montserrat text-[12px] font-black text-white tracking-[0.4em] uppercase group-hover:text-7l-gold transition-colors">
-              INICIAR PROCESO DE LICITACIÓN
+              INICIAR LICITACIÓN
             </span>
           </Link>
         </div>

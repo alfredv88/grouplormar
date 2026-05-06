@@ -48,7 +48,7 @@ export default function Hero() {
               muted
               loop
               playsInline
-              className="w-full h-full object-cover brightness-[0.9] contrast-[1.05]"
+              className="w-full h-full object-cover brightness-100 contrast-110 saturate-130"
             >
               <source src={heroVideos[currentVideo]} type="video/mp4" />
             </video>
@@ -59,12 +59,12 @@ export default function Hero() {
         </AnimatePresence>
         
         {/* Cinematic Gradient Overlays for readability and depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black z-10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/80 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent z-10" />
       </div>
 
       {/* 2. REFINED CONTENT LAYER */}
-      <div className="relative z-20 w-full max-w-[1800px] mx-auto px-10 md:px-24 lg:px-44">
+      <div className="relative z-20 w-full max-w-[1800px] mx-auto px-10 md:px-24 lg:px-44 drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
         
         <div className="max-w-5xl space-y-10 lg:space-y-14">
           
@@ -129,10 +129,10 @@ export default function Hero() {
               >
                 <Link 
                   href="/servicios" 
-                  className="inline-flex items-center gap-4 bg-7l-gold px-6 py-3 transition-all hover:bg-7l-gold/90 group"
+                  className="inline-flex items-center gap-4 bg-7l-gold px-6 py-3 transition-all hover:bg-7l-gold/90 group rounded-none"
                 >
-                  <span className="font-montserrat text-[9px] font-bold text-7l-black tracking-[0.4em] uppercase">
-                    Explorar Capacidades
+                  <span className="font-montserrat text-[9px] font-black text-7l-black tracking-[0.4em] uppercase">
+                    EXPLORAR
                   </span>
                   <ArrowRight size={10} className="text-7l-black transition-transform group-hover:translate-x-1" />
                 </Link>
@@ -165,7 +165,7 @@ export default function Hero() {
 
 
       {/* Atmospheric Bottom Bridge - Extreme smooth transition to Pure Black */}
-      <div className="absolute bottom-0 left-0 w-full h-80 bg-gradient-to-t from-black via-black/60 to-transparent z-20" />
+      <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-black via-black/35 to-transparent z-20" />
 
     </section>
   );

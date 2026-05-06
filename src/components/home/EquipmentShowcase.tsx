@@ -3,7 +3,7 @@
 import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ChevronRight, ArrowRight, ArrowLeft } from "lucide-react";
+import { ChevronRight, ArrowRight, ArrowLeft, ArrowUpRight } from "lucide-react";
 import { BROCHURE_DATA } from "@/constants/brochureData";
 
 const equipmentImages: Record<string, string> = {
@@ -95,11 +95,12 @@ export default function EquipmentShowcase() {
           </div>
 
           <div className="mt-20">
-            <Link href="/portafolio" className="group flex items-center gap-4">
-              <span className="font-montserrat text-[9px] font-black text-white tracking-[0.3em] uppercase group-hover:text-7l-gold transition-colors duration-500 underline underline-offset-4 decoration-7l-gold">
-                Ver Catálogo
-              </span>
-              <ArrowRight size={12} className="text-7l-gold transition-transform group-hover:translate-x-1" />
+            <Link 
+              href="/portafolio" 
+              className="group/btn inline-flex items-center gap-4 text-[10px] font-montserrat font-black tracking-[0.3em] text-white uppercase transition-all"
+            >
+              <span className="group-hover/btn:text-7l-gold transition-colors duration-500">VER CATÁLOGO</span>
+              <div className="w-8 h-[2px] bg-white/20 group-hover/btn:w-12 group-hover/btn:bg-7l-gold transition-all duration-500 ease-out" />
             </Link>
           </div>
         </div>
@@ -182,10 +183,10 @@ export default function EquipmentShowcase() {
                     <div className="pt-6 mt-auto flex items-center justify-end">
                       <Link href="/portafolio" className="flex items-center gap-4 cursor-pointer group/action">
                         <span className="font-montserrat text-[9px] font-black text-white uppercase tracking-[0.2em] group-hover/action:text-7l-gold transition-colors">
-                          VER FLOTA COMPLETA
+                          VER FLOTA
                         </span>
-                        <div className="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center group-hover/action:border-7l-gold group-hover/action:bg-7l-gold transition-all duration-500">
-                          <ArrowRight size={16} className="text-white group-hover/action:text-black transition-colors" />
+                        <div className="w-11 h-11 border border-white/10 flex items-center justify-center group-hover/action:border-7l-gold group-hover/action:bg-7l-gold/5 transition-all duration-500 rounded-none relative overflow-hidden">
+                          <ArrowUpRight size={16} className="text-white group-hover/action:text-7l-gold transition-all duration-500 group-hover/action:rotate-45" />
                         </div>
                       </Link>
                     </div>
@@ -204,9 +205,21 @@ export default function EquipmentShowcase() {
                 style={{ width: `${Math.max(10, scrollProgress)}%` }}
               />
             </div>
-            <div className="flex gap-8">
-              <button onClick={() => scrollBy(-1)} className="text-zinc-600 hover:text-white transition-colors"><ArrowLeft size={20} /></button>
-              <button onClick={() => scrollBy(1)} className="text-zinc-600 hover:text-white transition-colors"><ArrowRight size={20} /></button>
+            <div className="flex gap-3">
+              <button 
+                onClick={() => scrollBy(-1)} 
+                className="w-11 h-11 border border-white/10 text-white/50 hover:border-7l-gold hover:text-7l-gold flex items-center justify-center transition-all duration-300 rounded-none bg-transparent"
+                aria-label="Anterior"
+              >
+                <ArrowLeft size={16} />
+              </button>
+              <button 
+                onClick={() => scrollBy(1)} 
+                className="w-11 h-11 border border-white/10 text-white/50 hover:border-7l-gold hover:text-7l-gold flex items-center justify-center transition-all duration-300 rounded-none bg-transparent"
+                aria-label="Siguiente"
+              >
+                <ArrowRight size={16} />
+              </button>
             </div>
           </div>
         </div>

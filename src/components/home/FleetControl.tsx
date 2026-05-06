@@ -47,7 +47,7 @@ export default function FleetControl() {
               <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-red-600 animate-pulse"></div>
                 <span className="font-montserrat text-[8px] text-white/60 tracking-tighter">
-                  CAM_{mon.id} // SECURE_LINK
+                  CAM_{mon.id} | SECURE_LINK
                 </span>
               </div>
 
@@ -64,14 +64,11 @@ export default function FleetControl() {
                   muted
                   loop
                   playsInline
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 brightness-75 group-hover:brightness-100"
+                  className="w-full h-full object-cover brightness-100 contrast-110 saturate-130 transition-all duration-500 group-hover:scale-105"
                 >
                   <source src={mon.src} type="video/quicktime" />
                   <source src={mon.src.replace(".MOV", ".mp4")} type="video/mp4" />
                 </video>
-
-                {/* Scanline Effect */}
-                <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%]"></div>
               </div>
 
               {/* Label Bottom */}

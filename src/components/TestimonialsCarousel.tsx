@@ -82,20 +82,20 @@ export default function CompactTestimonials() {
                     </div>
                 </div>
 
-                <div className="flex gap-2">
+                <div className="flex gap-3">
                     <button
                         onClick={prev}
-                        className="w-10 h-10 border border-black/10 hover:border-black flex items-center justify-center transition-all bg-white"
+                        className="w-11 h-11 border border-black/10 text-black/60 hover:border-7l-gold hover:text-7l-gold flex items-center justify-center transition-all duration-300 bg-white rounded-none"
                         aria-label="Anterior"
                     >
-                        <ChevronLeft size={18} />
+                        <ChevronLeft size={16} />
                     </button>
                     <button
                         onClick={next}
-                        className="w-10 h-10 border border-black/10 hover:border-black flex items-center justify-center transition-all bg-white"
+                        className="w-11 h-11 border border-black/10 text-black/60 hover:border-7l-gold hover:text-7l-gold flex items-center justify-center transition-all duration-300 bg-white rounded-none"
                         aria-label="Siguiente"
                     >
-                        <ChevronRight size={18} />
+                        <ChevronRight size={16} />
                     </button>
                 </div>
             </div>
@@ -119,7 +119,7 @@ export default function CompactTestimonials() {
                                 </div>
                             </div>
                             <p className="text-sm font-montserrat font-medium leading-relaxed text-black/70 italic">
-                                “{t.text}”
+                                &ldquo;{t.text}&rdquo;
                             </p>
                         </div>
 

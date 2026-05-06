@@ -67,12 +67,12 @@ export default function SustainabilitySection() {
           >
             <Link 
               href="/compromiso" 
-              className="inline-flex items-center gap-4 bg-7l-gold px-6 py-3 transition-all hover:bg-7l-gold/90 group"
+              className="inline-flex items-center gap-4 border border-7l-gold/30 bg-transparent px-6 py-3 transition-all hover:border-7l-gold hover:bg-7l-gold/5 group rounded-none"
             >
-              <span className="font-montserrat text-[9px] font-bold text-7l-black tracking-[0.4em] uppercase">
-                Compromiso 7L
+              <span className="font-montserrat text-[9px] font-black text-white tracking-[0.4em] uppercase group-hover:text-7l-gold transition-colors duration-300">
+                COMPROMISO
               </span>
-              <ArrowRight size={10} className="text-7l-black transition-transform group-hover:translate-x-1" />
+              <ArrowRight size={10} className="text-7l-gold transition-transform group-hover:translate-x-1.5 duration-300" />
             </Link>
           </motion.div>
         </div>

@@ -1,8 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 
 export default function ComplianceHSE() {
@@ -49,7 +48,7 @@ export default function ComplianceHSE() {
                   </div>
                   
                   <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-3 px-5 py-2 rounded-full border border-white/20 group-hover:border-7l-gold transition-all duration-500">
+                    <div className="flex items-center gap-3 px-5 py-2 rounded-none border border-white/20 group-hover:border-7l-gold transition-all duration-500 bg-white/5">
                        <CheckCircle2 size={12} className="text-green-400" />
                        <span className="font-montserrat text-[8px] text-white font-black tracking-widest uppercase">{item.status}</span>
                     </div>
@@ -62,12 +61,12 @@ export default function ComplianceHSE() {
             <div className="pt-8 px-2">
               <Link 
                 href="/transparencia" 
-                className="inline-flex items-center gap-4 bg-7l-gold px-6 py-3 transition-all hover:bg-7l-gold/90 group"
+                className="inline-flex items-center gap-4 border border-7l-gold/30 bg-transparent px-6 py-3 transition-all hover:border-7l-gold hover:bg-7l-gold/5 group rounded-none"
               >
-                <span className="font-montserrat text-[9px] font-bold text-7l-black tracking-[0.4em] uppercase">
-                  Solicitar Dossier Legal
+                <span className="font-montserrat text-[9px] font-black text-white tracking-[0.4em] uppercase group-hover:text-7l-gold transition-colors duration-300">
+                  DOSSIER LEGAL
                 </span>
-                <ArrowRight size={10} className="text-7l-black transition-transform group-hover:translate-x-1" />
+                <ArrowRight size={10} className="text-7l-gold transition-transform group-hover:translate-x-1.5 duration-300" />
               </Link>
             </div>
           </div>

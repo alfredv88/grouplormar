@@ -36,7 +36,7 @@ const HumanCenter = () => {
         {/* Header Corporativo Dark */}
         <div className="mb-24 flex flex-col items-start">
           <span className="block font-montserrat text-7l-gold tracking-[0.5em] text-[9px] font-bold uppercase mb-4">
-            // INFRAESTRUCTURA HUMANA
+            {'//'} INFRAESTRUCTURA HUMANA
           </span>
           <h2 className="text-5xl md:text-7xl font-montserrat font-black uppercase leading-none text-7l-white tracking-tight">
             NUESTRO <span className="text-7l-gold">CAPITAL</span>

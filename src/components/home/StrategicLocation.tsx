@@ -101,7 +101,7 @@ export default function StrategicLocation() {
                 muted 
                 loop 
                 playsInline 
-                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-1000"
+                className="w-full h-full object-cover opacity-100 brightness-100 contrast-110 saturate-130 transition-all duration-1000"
               >
                 <source src="/videos/lormar 5.webm" type="video/webm" />
               </video>
@@ -112,8 +112,6 @@ export default function StrategicLocation() {
                      <span className="font-montserrat text-[6px] text-white tracking-[0.2em] uppercase font-bold">INSTALACIONES_VIVO</span>
                  </div>
               </div>
-
-               <div className="absolute inset-0 border-[15px] border-black/20 pointer-events-none" />
             </div>
 
             <div className="space-y-4">

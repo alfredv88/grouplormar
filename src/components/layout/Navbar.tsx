@@ -23,7 +23,7 @@ export default function Navbar() {
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
-    setIsScrolled(latest > 60);
+    setIsScrolled(latest > 40);
     if (latest > previous && latest > 150) {
       setHidden(true);
     } else {
@@ -33,50 +33,51 @@ export default function Navbar() {
 
   return (
     <>
+      {/* ── TOP BAR (Utility / Institutional - Static, scrolls out of view) ── */}
+      <div className="h-10 w-full flex items-center bg-7l-black relative z-50 border-b border-white/5">
+        <div className="w-full max-w-[1800px] mx-auto px-6 md:px-16 lg:px-32 flex items-center justify-between">
+          {/* Left: ID Corporativo */}
+          <div className="flex items-center gap-6">
+            <span className="font-mono text-[10px] text-white tracking-[0.2em] uppercase hidden sm:block">
+              RIF: J-30657965-6
+            </span>
+          </div>
+
+           {/* Right: Contact Utilities & Social */}
+          <div className="flex items-center gap-8">
+              <div className="flex items-center gap-8">
+                <a href="tel:+584141816152" className="flex items-center gap-2 group transition-colors">
+                  <Phone size={12} className="text-7l-gold" />
+                  <span className="font-mono text-[10px] text-white tracking-wider">+58 414 181 61 52</span>
+                </a>
+                <a href="mailto:negocios@grouplormar.com" className="flex items-center gap-2 group transition-colors">
+                  <Mail size={12} className="text-7l-gold" />
+                  <span className="font-mono text-[10px] text-white tracking-wider uppercase">negocios@grouplormar.com</span>
+                </a>
+              </div>
+            
+            <div className="flex items-center gap-5">
+              {[Linkedin, Instagram, Facebook].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="text-white hover:text-7l-gold transition-colors"
+                >
+                  <Icon size={14} />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── FIXED MAIN NAVBAR (Transitions smoothly from top-10 to top-0 on scroll) ── */}
       <motion.div
         variants={{ visible: { y: 0 }, hidden: { y: "-100%" } }}
         animate={hidden ? "hidden" : "visible"}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed top-0 w-full z-50"
+        className={`fixed left-0 right-0 w-full z-50 transition-all duration-300 ${isScrolled ? "top-0" : "top-10"}`}
       >
-        {/* ── TOP BAR (Utility / Institutional) ── */}
-        <div className="h-10 w-full flex items-center bg-7l-black">
-          <div className="w-full max-w-[1800px] mx-auto px-6 md:px-16 lg:px-32 flex items-center justify-between">
-            {/* Left: ID Corporativo */}
-            <div className="flex items-center gap-6">
-              <span className="font-mono text-[10px] text-white tracking-[0.2em] uppercase hidden sm:block">
-                RIF: J-30657965-6
-              </span>
-            </div>
-
-             {/* Right: Contact Utilities & Social */}
-            <div className="flex items-center gap-8">
-                <span className="font-mono text-[10px] text-7l-gold tracking-wider">RIF: J-30657965-6</span>
-                <div className="flex items-center gap-8">
-                  <a href="tel:+584141816152" className="flex items-center gap-2 group transition-colors">
-                    <Phone size={12} className="text-7l-gold" />
-                    <span className="font-mono text-[10px] text-white tracking-wider">+58 414 181 61 52</span>
-                  </a>
-                  <a href="mailto:negocios@grouplormar.com" className="flex items-center gap-2 group transition-colors">
-                    <Mail size={12} className="text-7l-gold" />
-                    <span className="font-mono text-[10px] text-white tracking-wider uppercase">negocios@grouplormar.com</span>
-                  </a>
-                </div>
-              
-              <div className="flex items-center gap-5">
-                {[Linkedin, Instagram, Facebook].map((Icon, i) => (
-                  <a
-                    key={i}
-                    href="#"
-                    className="text-white hover:text-7l-gold transition-colors"
-                  >
-                    <Icon size={14} />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* ── MAIN NAV ── */}
         <div
@@ -92,7 +93,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center gap-4 group">
               <div className={`relative transition-all duration-500 ${isScrolled ? "w-36 h-9" : "w-48 h-12"}`}>
                 <Image
-                  src={isScrolled ? "/logos/logo lormar sin rif gris.webp" : "/logos/logo lormar blanco.webp"}
+                  src={isScrolled ? "/logos/logo lormar sin rif gris.webp" : "/logos/logo lormar sin rif.webp"}
                   alt="Logo Grupo Lormar Industrial"
                   fill
                   priority
