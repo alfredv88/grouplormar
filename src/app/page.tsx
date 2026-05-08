@@ -14,6 +14,9 @@ import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
 import StrategicLocation from "@/components/home/StrategicLocation";
 import AboutSection from "@/components/home/AboutSection";
 import ProcessSection from "@/components/home/ProcessSection";
+import SustainabilitySection from "@/components/home/SustainabilitySection";
+import GenteSection from "@/components/home/GenteSection";
+import FAQ from "@/components/home/FAQ";
 
 export default function Home() {
   return (
@@ -66,6 +69,15 @@ export default function Home() {
         <StatsCounter />
       </div>
 
+      {/* 9. PROCESS — Metodología */}
+      <ProcessSection />
+
+      {/* 12. GESTIÓN AMBIENTAL & RACDA */}
+      <SustainabilitySection />
+
+      {/* 13. TALENTO ESTRATÉGICO & DIRECTIVO */}
+      <GenteSection />
+
       {/* 6. COMPLIANCE & HSE — Estatus Legal y Seguridad */}
       <ComplianceHSE />
 
@@ -75,18 +87,16 @@ export default function Home() {
       {/* 7. STRATEGIC LOCATION — Presencia Geográfica */}
       <StrategicLocation />
 
-
-
-      {/* 9. PROCESS — Metodología */}
-      <ProcessSection />
+      {/* 14. SOPORTE TÉCNICO & PREGUNTAS FRECUENTES */}
+      <FAQ />
 
       {/* 11. HARD CTA — Cierre Comercial (UTILITY & CLEAN) */}
-      <section className="py-32 bg-[#080808] border-t border-white/10 relative overflow-hidden">
+      <section className="py-20 bg-[#080808] border-t border-white/10 relative overflow-hidden">
         <div className="w-full max-w-[1200px] mx-auto px-6 relative z-10 flex flex-col items-center text-center">
-          <span className="font-montserrat text-7l-gold text-[9px] font-black tracking-[0.5em] uppercase mb-10 block">
+          <span className="font-montserrat text-7l-gold text-[9px] font-black tracking-[0.5em] uppercase mb-6 block">
             Executive Engagement
           </span>
-          <h2 className="text-4xl md:text-5xl font-future text-white uppercase tracking-normal mb-12 max-w-4xl leading-[1.1]">
+          <h2 className="text-4xl md:text-5xl font-future text-white uppercase tracking-normal mb-8 max-w-4xl leading-[1.1]">
             CONSOLIDE SU PRÓXIMO <span className="text-7l-gold">PROYECTO</span>
           </h2>
 

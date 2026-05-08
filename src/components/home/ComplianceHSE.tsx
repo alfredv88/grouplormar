@@ -13,7 +13,7 @@ export default function ComplianceHSE() {
   ];
 
   return (
-    <section className="py-24 bg-[#080808] border-y border-white/5 relative" id="compliance">
+    <section className="py-24 bg-black border-y border-white/5 relative" id="compliance">
       <div className="w-full max-w-[1200px] mx-auto px-6">
         
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
@@ -48,7 +48,7 @@ export default function ComplianceHSE() {
                   </div>
                   
                   <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-3 px-5 py-2 rounded-none border border-white/20 group-hover:border-7l-gold transition-all duration-500 bg-white/5">
+                    <div className="flex items-center gap-3 px-5 py-2 rounded-none border border-white/10 group-hover:border-7l-gold transition-all duration-500 bg-white/[0.02]">
                        <CheckCircle2 size={12} className="text-green-400" />
                        <span className="font-montserrat text-[8px] text-white font-black tracking-widest uppercase">{item.status}</span>
                     </div>
@@ -57,16 +57,16 @@ export default function ComplianceHSE() {
               ))}
             </div>
 
-            {/* CTA TO INTERNAL DOSSIER (RESTORED BOUTIQUE STYLE) */}
+            {/* CTA TO INTERNAL DOSSIER (SOLID GOLD LUXURY STYLE) */}
             <div className="pt-8 px-2">
               <Link 
                 href="/transparencia" 
-                className="inline-flex items-center gap-4 border border-7l-gold/30 bg-transparent px-6 py-3 transition-all hover:border-7l-gold hover:bg-7l-gold/5 group rounded-none"
+                className="inline-flex items-center gap-6 bg-7l-gold px-8 py-4 hover:brightness-105 active:scale-95 transition-all duration-300 group rounded-none"
               >
-                <span className="font-montserrat text-[9px] font-black text-white tracking-[0.4em] uppercase group-hover:text-7l-gold transition-colors duration-300">
+                <span className="font-montserrat text-[10px] font-black text-black tracking-[0.4em] uppercase">
                   DOSSIER LEGAL
                 </span>
-                <ArrowRight size={10} className="text-7l-gold transition-transform group-hover:translate-x-1.5 duration-300" />
+                <ArrowRight size={12} className="text-black transition-transform group-hover:translate-x-1.5 duration-300" />
               </Link>
             </div>
           </div>

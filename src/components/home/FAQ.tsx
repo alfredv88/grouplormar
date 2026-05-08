@@ -4,38 +4,7 @@ import React, { useState } from "react";
 import { Plus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export function CertifiedStrip() {
-  const labels = ["GRÚAS 100T", "LOWBOY 140T", "CATERPILLAR", "MACK", "WELL TESTING", "FLUSH-BY"];
-  return (
-    <section className="relative z-10 py-24 bg-[#080808] border-y border-white/5 overflow-hidden">
-      <div className="absolute inset-0 bg-industrial-grid pointer-events-none" />
-      <div className="w-full max-w-[1800px] mx-auto px-10 md:px-20 lg:px-32 overflow-hidden">
-        <p className="text-[10px] font-montserrat font-bold uppercase tracking-[0.5em] text-center mb-16 text-7l-gold">
-          MAQUINARIA CERTIFICADA & FLOTA PREMIUM
-        </p>
-        <div className="relative flex overflow-hidden">
-          <motion.div 
-            animate={{ x: ["0%", "-50%"] }} 
-            transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
-            className="flex whitespace-nowrap gap-16 items-center px-8"
-          >
-            {[...labels, ...labels, ...labels, ...labels].map((label, i) => (
-              <div
-                key={i}
-                className={`text-3xl md:text-4xl font-montserrat font-black transform hover:scale-110 hover:text-white transition-all cursor-default ${i % 2 === 0 ? "text-white tracking-widest" : "text-zinc-500 tracking-tight"
-                  } ${label === "CATERPILLAR" ? "text-7l-gold" : ""} ${label === "WELL TESTING" ? "text-white" : ""}`}
-              >
-                {label}
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function FAQ() {
+export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqs = [
@@ -46,12 +15,12 @@ export function FAQ() {
   ];
 
   return (
-    <section className="py-32 px-6 bg-[#131313] border-t border-white/5" id="faq">
+    <section className="py-20 px-6 bg-[#0a1111] border-t border-white/5" id="faq">
       <div className="w-full max-w-[1400px] mx-auto grid lg:grid-cols-12 gap-16 lg:gap-24">
         
         {/* LADO IZQUIERDO - BRANDING */}
-        <div className="lg:col-span-5 space-y-10">
-          <div className="space-y-6">
+        <div className="lg:col-span-5 space-y-6">
+          <div className="space-y-4">
             <span className="font-montserrat text-7l-gold text-[8px] font-bold tracking-[0.6em] uppercase block">
               Support Center
             </span>
@@ -72,7 +41,7 @@ export function FAQ() {
               <div 
                 key={i} 
                 onClick={() => setOpenIndex(isOpen ? null : i)}
-                className="py-10 group cursor-pointer transition-all relative overflow-hidden"
+                className="py-7 group cursor-pointer transition-all relative overflow-hidden"
               >
                 <div className="flex justify-between items-center">
                   <h4 className={`text-[12px] font-montserrat uppercase transition-all tracking-[0.2em] font-bold max-w-[85%] ${isOpen ? 'text-7l-gold translate-x-2' : 'text-white'}`}>
