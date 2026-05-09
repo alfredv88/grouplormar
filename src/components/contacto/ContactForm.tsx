@@ -9,7 +9,7 @@ const ContactForm = () => {
             
             <div className="space-y-8">
                 <div className="flex items-center gap-6">
-                    <h3 className="text-3xl font-michroma uppercase text-white leading-none">
+                    <h3 className="text-3xl font-future uppercase text-white leading-none">
                         Solicitud Técnica
                     </h3>
                     <div className="lormar-line flex-1 opacity-30 group-hover:opacity-100 transition-opacity"></div>
@@ -22,7 +22,7 @@ const ContactForm = () => {
             <form className="space-y-10 relative z-10">
                 <div className="grid md:grid-cols-2 gap-10">
                     <div className="space-y-3">
-                        <label className="text-[10px] font-michroma uppercase tracking-[0.2em] text-brand-yellow/60">Nombre y Apellido</label>
+                        <label className="text-[10px] font-montserrat font-black uppercase tracking-[0.2em] text-brand-yellow/60">Nombre y Apellido</label>
                         <input 
                             type="text" 
                             className="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-brand-yellow transition-all font-montserrat text-white text-sm placeholder:text-white/10" 
@@ -30,7 +30,7 @@ const ContactForm = () => {
                         />
                     </div>
                     <div className="space-y-3">
-                        <label className="text-[10px] font-michroma uppercase tracking-[0.2em] text-brand-yellow/60">Correo Corporativo</label>
+                        <label className="text-[10px] font-montserrat font-black uppercase tracking-[0.2em] text-brand-yellow/60">Correo Corporativo</label>
                         <input 
                             type="email" 
                             className="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-brand-yellow transition-all font-montserrat text-white text-sm placeholder:text-white/10" 
@@ -40,7 +40,7 @@ const ContactForm = () => {
                 </div>
 
                 <div className="space-y-3">
-                    <label className="text-[10px] font-michroma uppercase tracking-[0.2em] text-brand-yellow/60">Área de Interés</label>
+                    <label className="text-[10px] font-montserrat font-black uppercase tracking-[0.2em] text-brand-yellow/60">Área de Interés</label>
                     <select className="w-full bg-brand-black border-b border-white/10 py-4 focus:outline-none focus:border-brand-yellow transition-all font-montserrat text-white text-sm uppercase appearance-none cursor-pointer">
                         <option>Montaje Mecánico</option>
                         <option>Obras Civiles</option>
@@ -51,7 +51,7 @@ const ContactForm = () => {
                 </div>
 
                 <div className="space-y-3">
-                    <label className="text-[10px] font-michroma uppercase tracking-[0.2em] text-brand-yellow/60">Descripción del Proyecto</label>
+                    <label className="text-[10px] font-montserrat font-black uppercase tracking-[0.2em] text-brand-yellow/60">Descripción del Proyecto</label>
                     <textarea 
                         rows={4} 
                         className="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-brand-yellow transition-all font-montserrat text-white text-sm placeholder:text-white/10 resize-none" 
@@ -59,7 +59,7 @@ const ContactForm = () => {
                     ></textarea>
                 </div>
 
-                <button className="group/btn relative px-10 py-6 bg-brand-yellow text-brand-black hover:bg-white transition-all duration-500 flex items-center justify-center gap-4 text-[11px] font-michroma uppercase tracking-[0.3em] w-full">
+                <button className="group/btn relative px-10 py-6 bg-brand-yellow text-brand-black hover:bg-white transition-all duration-500 flex items-center justify-center gap-4 text-[11px] font-montserrat font-black uppercase tracking-[0.3em] w-full">
                     <Send size={16} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" /> 
                     Enviar Requerimiento
                 </button>

@@ -43,7 +43,7 @@ export default function TestimonialsCarousel() {
   };
 
   return (
-    <section className="py-24 md:py-32 bg-7l-industrial-light overflow-hidden border-t border-b border-[#E5E7EB] relative">
+    <section className="py-24 md:py-32 bg-7l-industrial-light overflow-hidden border-t border-b border-7l-border-light relative">
       <div className="w-full relative z-20">
 
         {/* Header Corporativo Elegante */}
@@ -54,7 +54,7 @@ export default function TestimonialsCarousel() {
             </span>
           </div>
           <div className="md:col-span-8 lg:col-span-6">
-            <h2 className="text-3xl md:text-4xl font-montserrat font-black !text-[#0d0d0d] uppercase leading-none mb-5 tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-montserrat font-black !text-7l-black uppercase leading-none mb-5 tracking-tight">
               REFERENCIAS COMERCIALES
             </h2>
             <p className="!text-zinc-500 text-[14px] leading-relaxed font-montserrat font-medium max-w-xl">
@@ -69,9 +69,9 @@ export default function TestimonialsCarousel() {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Faded edges with precise light grid matching */}
-          <div className="absolute inset-y-0 left-0 w-24 md:w-56 bg-gradient-to-r from-white via-white/95 to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-24 md:w-56 bg-gradient-to-l from-white via-white/95 to-transparent z-10 pointer-events-none" />
+          {/* Faded edges with precise light grid matching (smooth, non-milky transition) */}
+          <div className="absolute inset-y-0 left-0 w-24 md:w-56 bg-gradient-to-r from-white via-white/70 to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-24 md:w-56 bg-gradient-to-l from-white via-white/70 to-transparent z-10 pointer-events-none" />
 
           <motion.div
             className="flex gap-4 py-4 px-6 md:px-0"
@@ -95,19 +95,14 @@ export default function TestimonialsCarousel() {
 
                 {/* Google-style Review Top Row: Refined Monogram & Metadata */}
                 <div className="flex gap-4 items-center mb-6">
-                  {/* Circular Initial Avatar - High Impact Solid Brand Fills */}
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-[14px] font-montserrat flex-shrink-0 ${
-                    i % 4 === 0 ? 'bg-[#0d0d0d] text-white' :
-                    i % 4 === 1 ? 'bg-7l-gold text-[#0d0d0d]' :
-                    i % 4 === 2 ? 'bg-zinc-700 text-white' :
-                    'bg-zinc-200 text-zinc-900'
-                  }`}>
+                  {/* Circular Initial Avatar - High Impact Solid Black & Gold Luxury Brand Fill */}
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-[14px] font-montserrat flex-shrink-0 bg-7l-black text-7l-gold border border-7l-gold/20 group-hover/card:border-7l-gold transition-colors duration-300">
                     {getInitial(item.name)}
                   </div>
 
                   {/* Author Name, Role */}
                   <div className="flex flex-col min-w-0">
-                    <span className="text-[12px] font-black font-montserrat !text-[#0d0d0d] tracking-wider uppercase truncate">
+                    <span className="text-[12px] font-black font-montserrat !text-7l-black tracking-wider uppercase truncate">
                       {item.name}
                     </span>
                     <span className="text-[10px] !text-zinc-400 font-bold font-montserrat truncate mt-0.5 uppercase tracking-wider">
@@ -120,12 +115,12 @@ export default function TestimonialsCarousel() {
                 <div className="flex justify-between items-center mb-5 border-t border-zinc-100 pt-4">
                   <div className="flex gap-0.5">
                     {[...Array(5)].map((_, starI) => (
-                      <Star key={starI} size={11} fill="#C5A880" className="text-[#C5A880]" />
+                      <Star key={starI} size={11} fill="var(--color-7l-gold)" className="text-7l-gold" />
                     ))}
                   </div>
 
-                  {/* Elegant White & Zinc Company Badge */}
-                  <div className="flex items-center bg-white text-zinc-700 px-3 py-1 rounded-full border border-zinc-200/70">
+                  {/* Elegant White & Zinc Company Badge - Sharp Industrial Cut */}
+                  <div className="flex items-center bg-white text-zinc-700 px-3 py-1 rounded-none border-l-2 border-7l-gold border-r border-y border-7l-border-light shadow-[1px_1px_3px_rgba(0,0,0,0.02)]">
                     <span className="text-[9px] font-montserrat font-bold tracking-[0.12em] uppercase text-zinc-800">{item.company}</span>
                   </div>
                 </div>

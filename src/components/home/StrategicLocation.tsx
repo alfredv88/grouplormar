@@ -42,7 +42,7 @@ export default function StrategicLocation() {
           <span className="font-montserrat text-7l-gold text-[7px] font-bold tracking-[0.5em] uppercase block mb-6">
             Red Industrial Global
           </span>
-          <h2 className="text-4xl md:text-5xl font-montserrat font-black text-white uppercase tracking-tighter leading-[0.9]">
+          <h2 className="text-4xl md:text-5xl font-future text-white uppercase tracking-normal leading-[0.9]">
             PRESENCIA <span className="text-7l-gold">ESTRATÉGICA</span>
           </h2>
           <div className="w-12 h-[2px] bg-7l-gold mx-auto mt-8" />
@@ -115,7 +115,7 @@ export default function StrategicLocation() {
             </div>
 
             <div className="space-y-4">
-              <h3 className="font-montserrat font-black text-xl text-white uppercase tracking-tight">INFRAESTRUCTURA PROPIA</h3>
+              <h3 className="font-future text-xl text-white uppercase tracking-normal">INFRAESTRUCTURA PROPIA</h3>
               <p className="font-montserrat text-[13px] text-white leading-relaxed max-w-xl font-medium">
                 Operamos desde activos integrales en el corazón industrial de Anzoátegui. Cada sede está equipada con tecnología de punta y personal certificado, garantizando la continuidad técnica y administrativa de todos nuestros proyectos.
               </p>

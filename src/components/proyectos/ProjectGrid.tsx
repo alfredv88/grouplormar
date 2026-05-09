@@ -46,40 +46,137 @@ const projectData = [
 
 const machineryData = [
   { 
-    title: "GRÚAS TELESCÓPICAS", 
-    capacity: "15 - 100 TON", 
+    title: "EQUIPOS DE IZAMIENTO", 
+    capacity: "6 - 100 TON", 
     status: "DISPONIBLE", 
-    type: "IZAMIENTO CRÍTICO", 
-    desc: "Flota de grúas certificadas para izajes de alta precisión y montajes estructurales pesados.", 
+    type: "IZAMIENTO", 
+    desc: "Grúas telescópicas, brazos hidráulicos y montacargas de alta capacidad certificados para maniobras de izaje crítico.", 
     image: "/images/hero-night.png",
-    id: "MAC-IZ-302"
+    id: "MAC-IZ-001",
+    items: [
+      "Grúa Telescópica (15, 45, 60, 75 y 100 Ton)",
+      "Brazo Hidráulico (6, 15, 20 y 25 Ton)",
+      "Montacarga (6, 12, 15 y 25 Ton)"
+    ]
   },
   { 
-    title: "EXCAVADORAS HIDRÁULICAS", 
+    title: "EQUIPOS DE PALA MECÁNICA", 
     capacity: "ALTO RENDIMIENTO", 
-    status: "EN OPERACIÓN", 
-    type: "MOVIMIENTO DE TIERRA", 
-    desc: "Equipos de picas mecánicas para excavaciones profundas y preparación de locaciones en terrenos difíciles.", 
+    status: "DISPONIBLE", 
+    type: "EXCAVACIÓN", 
+    desc: "Equipos de pala pesada para excavaciones profundas y preparación de locaciones operativas en yacimiento.", 
     image: "/images/hero-excavator.webp",
-    id: "MAC-MT-504"
+    id: "MAC-PM-002",
+    items: [
+      "Cargador Frontal",
+      "Excavadora Hidráulica",
+      "Retroexcavadora",
+      "Minishower"
+    ]
   },
   { 
-    title: "EQUIPOS FLUSH-BY / CABILLEROS", 
-    capacity: "350 HP", 
-    status: "MANTENIMIENTO", 
+    title: "SERVICIOS A POZO", 
+    capacity: "HASTA 350 HP", 
+    status: "EN OPERACIÓN", 
     type: "SERVICIOS A POZOS", 
-    desc: "Unidades especializadas para intervención rápida en pozos petroleros y reacondicionamiento de sistemas de bombeo.", 
+    desc: "Unidades especializadas en intervención de yacimientos y reacondicionamiento técnico de pozos.", 
     image: "/images/hero-night.png",
-    id: "MAC-SP-101"
+    id: "MAC-SP-003",
+    items: [
+      "Cabillero de 350 HP",
+      "Camión Hot Oil",
+      "Equipos de Well Testing (Pruebas a Pozos)",
+      "Equipo Flush-By"
+    ]
   },
   { 
-    title: "CHUTOS CON LOWBOY", 
+    title: "MOVIMIENTO DE TIERRA", 
+    capacity: "PESADA & VIALIDAD", 
+    status: "DISPONIBLE", 
+    type: "VIALIDAD", 
+    desc: "Flota pesada para conformación, desmonte, nivelación y preparación estructural de suelos en campo.", 
+    image: "/images/hero-excavator.webp",
+    id: "MAC-MT-004",
+    items: [
+      "Tractores de Oruga",
+      "Mototraíllas",
+      "Motoniveladoras",
+      "Vibrocompactadores / Compactador Pata de Cabra"
+    ]
+  },
+  { 
+    title: "TRANSPORTE Y LOGÍSTICA", 
     capacity: "60 - 140 TON", 
     status: "DISPONIBLE", 
-    type: "TRANSPORTE PESADO", 
-    desc: "Plataformas de carga sobredimensionada para movilización nacional de maquinaria y componentes de planta.", 
+    type: "MOVILIZACIÓN", 
+    desc: "Soporte logístico pesado para traslado nacional de maquinaria sobredimensionada, materiales críticos y fluidos.", 
+    image: "/images/hero-night.png",
+    id: "MAC-TR-005",
+    items: [
+      "Chutos con Lowboy (60 a 140 Ton)",
+      "Vacuums de 160 BLS",
+      "Chutos con Batea y Volqueta",
+      "Camiones Supervactor, Volteo y Cisterna",
+      "Camión Cava, Camión 350 y Camioneta Pick Up"
+    ]
+  },
+  { 
+    title: "EQUIPOS ELEVADORES", 
+    capacity: "ACCESO SEGURO", 
+    status: "DISPONIBLE", 
+    type: "ACCESO EN ALTURA", 
+    desc: "Plataformas articuladas para operaciones seguras de montaje electromecánico e instrumentación en altura.", 
     image: "/images/hero-excavator.webp",
-    id: "MAC-TR-808"
+    id: "MAC-EL-006",
+    items: [
+      "Plataformas Manlift",
+      "Camiones Cesta"
+    ]
+  },
+  { 
+    title: "EQUIPOS PARA ASFALTO", 
+    capacity: "PAVIMENTACIÓN VIAL", 
+    status: "DISPONIBLE", 
+    type: "VIALIDAD", 
+    desc: "Flota especializada de pavimentación autopropulsada para escarificación y colocación técnica de asfalto.", 
+    image: "/images/hero-night.png",
+    id: "MAC-AS-007",
+    items: [
+      "Finisher (Terminadora de Asfalto)",
+      "Escarificadora de Asfalto",
+      "Rodillo Liso y Compactador de Neumáticos",
+      "Camión Rosco y Barredora Autopropulsada"
+    ]
+  },
+  { 
+    title: "EQUIPOS PARA CONCRETO", 
+    capacity: "OBRAS CIVILES", 
+    status: "DISPONIBLE", 
+    type: "CONCRETERA", 
+    desc: "Maquinaria mezcladora y trompos para el vaciado continuo de concreto en bases y estructuras civiles.", 
+    image: "/images/hero-excavator.webp",
+    id: "MAC-CO-008",
+    items: [
+      "Camiones Trompo Mezclador de Concreto",
+      "Trompos Mezcladores de Concreto Portátiles"
+    ]
+  },
+  { 
+    title: "EQUIPOS MENORES Y AUXILIARES", 
+    capacity: "100 - 1000 KVA", 
+    status: "DISPONIBLE", 
+    type: "SERVICIOS AUXILIARES", 
+    desc: "Soporte energético, neumático, hidráulico y habitabilidad móvil para operaciones autosuficientes en campo.", 
+    image: "/images/hero-night.png",
+    id: "MAC-ME-009",
+    items: [
+      "Plantas Eléctricas (100 a 1000 KVA)",
+      "Compresores de Aire (180 - 185 CFM)",
+      "Motobomba de 6” x 6” de 80 HP",
+      "Torres de Iluminación y Máquinas de Soldar",
+      "Equipos de Pintura Airless y Sandblasting",
+      "Oficinas, Comedores, Vestidores, Baños y Contenedores"
+    ]
   }
 ];
 
@@ -169,6 +266,17 @@ const ProjectGrid = () => {
                             <p className="text-[13px] text-white/50 font-montserrat leading-relaxed font-light border-l-[1px] border-white/10 pl-6 group-hover:border-7l-gold/50 transition-all">
                                 {p.desc}
                             </p>
+
+                            {activeTab === "maquinaria" && (p as any).items && (
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 pt-6 border-t border-white/5">
+                                    {(p as any).items.map((item: string, idx: number) => (
+                                        <div key={idx} className="flex items-start gap-3">
+                                            <div className="w-1.5 h-1.5 bg-7l-gold/50 mt-1.5 shrink-0 transform rotate-45"></div>
+                                            <span className="text-[11px] font-bold font-montserrat text-white/60 uppercase tracking-wider leading-relaxed">{item}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
 
                             <div className="pt-8 mt-auto flex items-center gap-10 border-t border-white/5">
                                 {activeTab === "proyectos" ? (

@@ -100,7 +100,7 @@ export default function YardParallax() {
             VISIÓN DIRECTA // ACTIVOS
           </span>
           
-          <h2 className="text-5xl md:text-8xl font-montserrat font-black text-white uppercase leading-[0.9] tracking-tighter">
+          <h2 className="text-5xl md:text-8xl font-future text-white uppercase leading-[0.9] tracking-normal">
             CAPACIDAD <br /> <span className="text-7l-gold">INSTALADA</span> REAL
           </h2>
         </motion.div>

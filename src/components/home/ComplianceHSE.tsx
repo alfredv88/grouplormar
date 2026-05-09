@@ -6,50 +6,80 @@ import Link from "next/link";
 
 export default function ComplianceHSE() {
   const complianceHub = [
-    { label: "RIF CORPORATIVO", status: "VERIFICADO", period: "2024-2025" },
-    { label: "RACDA TRANSPORTE", status: "VIGENTE", period: "VÁLIDO HASTA 2025" },
-    { label: "RACDA GENERADOR", status: "VIGENTE", period: "VÁLIDO HASTA 2025" },
-    { label: "RNC HABILITADO", status: "ACTIVO", period: "ACTUALIZADO" },
+    {
+      label: "RIF CORPORATIVO (SENIAT)",
+      status: "ACTIVO",
+      number: "J-30657965-6",
+      period: "VIGENCIA DE LEY",
+    },
+    {
+      label: "RACDA MANEJADOR (TRANSPORTE)",
+      status: "VIGENTE",
+      number: "N° 03-04-TSMDP-2024-11956",
+      period: "MATERIALES PELIGROSOS",
+    },
+    {
+      label: "RACDA GENERADOR (MINEC)",
+      status: "VIGENTE",
+      number: "N° 01-13-02-02-03-2025-635",
+      period: "DESECHOS RECUPERABLES",
+    },
+    {
+      label: "RNC HABILITADO (SNC)",
+      status: "HABILITADO",
+      number: "N° 2025060651014000225",
+      period: "CONTRATACIÓN PÚBLICA",
+    },
   ];
 
   return (
-    <section className="py-24 bg-black border-y border-white/5 relative" id="compliance">
-      <div className="w-full max-w-[1200px] mx-auto px-6">
+    <section className="py-24 md:py-28 bg-[#060606] border-y border-white/5 relative" id="compliance">
+      <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12">
         
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
           
           {/* SECTOR A: HSE STATEMENT */}
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-4">
-              <span className="font-montserrat text-7l-gold text-[7px] font-bold tracking-[0.6em] uppercase block mb-6">
+              <span className="font-montserrat text-7l-gold text-[8px] font-black tracking-[0.5em] uppercase block mb-4">
                 Soberanía Operacional
               </span>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-future text-white uppercase tracking-normal leading-[1.1]">
-                ESTATUS <br /> <span className="text-7l-gold">LEGAL</span>
+                COMPLIANCE <br /> <span className="text-7l-gold">&amp; HSE</span>
               </h2>
-              <p className="font-montserrat text-[14px] text-white leading-relaxed max-w-[350px] font-medium">
-                Pilar de transparencia técnica y administrativa. Documentación auditada y vigente para operaciones críticas de ingeniería.
+              <div className="w-16 h-[2px] bg-7l-gold mt-6 mb-8" />
+              <p className="font-montserrat text-[13px] text-zinc-400 leading-relaxed max-w-sm font-medium">
+                Garantizamos absoluta transparencia técnica y legal. Respaldamos cada licitación corporativa con certificaciones oficiales vigentes.
               </p>
             </div>
           </div>
 
           {/* SECTOR B: COMPLIANCE STATUS (MAX VISIBILITY) */}
-          <div className="lg:col-span-7 space-y-8 relative">
+          <div className="lg:col-span-7 space-y-10 relative">
             <div className="divide-y divide-white/10 border-t border-b border-white/10 relative z-10">
               {complianceHub.map((item, idx) => (
-                <div key={idx} className="py-6 flex items-center justify-between group">
-                  <div className="space-y-1">
-                    <span className="font-montserrat text-[9px] text-white tracking-[0.3em] font-black block group-hover:text-7l-gold transition-colors">
-                      {item.label}
-                    </span>
-                    {/* Minimalist Divider */}
-                    <div className="w-10 h-[1.5px] bg-7l-gold"></div>
-                    <span className="font-montserrat text-[8px] text-7l-gold font-bold tracking-[0.2em]">{item.period}</span>
+                <div key={idx} className="py-6.5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group">
+                  <div className="space-y-2 flex-1 min-w-0">
+                    <div className="flex items-center gap-3">
+                      <span className="w-1.5 h-1.5 bg-7l-gold rounded-full shrink-0 animate-pulse" />
+                      <span className="font-montserrat text-[10px] text-white tracking-[0.3em] font-black uppercase block group-hover:text-7l-gold transition-colors">
+                        {item.label}
+                      </span>
+                    </div>
+                    
+                    <div className="pl-4.5 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                      <span className="font-mono text-[14px] text-7l-gold font-bold tracking-wider block">
+                        {item.number}
+                      </span>
+                      <span className="font-montserrat text-[9px] text-white/40 font-bold tracking-widest block uppercase">
+                        • {item.period}
+                      </span>
+                    </div>
                   </div>
                   
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-3 px-5 py-2 rounded-none border border-white/10 group-hover:border-7l-gold transition-all duration-500 bg-white/[0.02]">
-                       <CheckCircle2 size={12} className="text-green-400" />
+                  <div className="flex items-center sm:justify-end shrink-0 pl-4.5 sm:pl-0">
+                    <div className="flex items-center gap-3 px-4 py-2 rounded-none border border-white/10 group-hover:border-7l-gold/30 transition-all duration-500 bg-white/[0.01]">
+                       <CheckCircle2 size={11} className="text-green-500" />
                        <span className="font-montserrat text-[8px] text-white font-black tracking-widest uppercase">{item.status}</span>
                     </div>
                   </div>
@@ -58,13 +88,13 @@ export default function ComplianceHSE() {
             </div>
 
             {/* CTA TO INTERNAL DOSSIER (SOLID GOLD LUXURY STYLE) */}
-            <div className="pt-8 px-2">
+            <div className="pt-4 px-2">
               <Link 
-                href="/transparencia" 
-                className="inline-flex items-center gap-6 bg-7l-gold px-8 py-4 hover:brightness-105 active:scale-95 transition-all duration-300 group rounded-none"
+                href="/responsabilidad#dossier" 
+                className="inline-flex items-center gap-6 bg-7l-gold px-8 py-4 hover:bg-7l-gold/90 transition-all duration-300 group rounded-none"
               >
                 <span className="font-montserrat text-[10px] font-black text-black tracking-[0.4em] uppercase">
-                  DOSSIER LEGAL
+                  VER SOPORTE VISUAL &amp; CERTIFICADOS
                 </span>
                 <ArrowRight size={12} className="text-black transition-transform group-hover:translate-x-1.5 duration-300" />
               </Link>

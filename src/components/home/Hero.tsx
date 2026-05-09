@@ -48,9 +48,10 @@ export default function Hero() {
               muted
               loop
               playsInline
+              preload="auto"
               className="w-full h-full object-cover brightness-100 contrast-110 saturate-130"
             >
-              <source src={heroVideos[currentVideo]} type="video/mp4" />
+              <source src={heroVideos[currentVideo]} type="video/webm" />
             </video>
             
             {/* Ambient Occlusion Glow - Subtle light focus */}

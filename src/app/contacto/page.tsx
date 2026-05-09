@@ -8,7 +8,7 @@ import ContactMaps from "@/components/contacto/ContactMaps";
 
 export default function ContactoPage() {
     return (
-        <main className="min-h-screen bg-iron-base text-brand-white font-montserrat tracking-tight selection:bg-brand-yellow selection:text-brand-black pt-40 overflow-hidden">
+        <main className="min-h-screen bg-7l-black text-white font-montserrat tracking-tight selection:bg-7l-gold selection:text-7l-black pt-40 overflow-hidden">
             {/* Header / Hero */}
             <ContactHero />
 

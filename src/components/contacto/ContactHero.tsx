@@ -9,13 +9,13 @@ const ContactHero = () => {
 
             <div className="max-w-[1800px] mx-auto space-y-10 relative z-10">
                 <div className="inline-flex items-center gap-6">
-                    <span className="text-brand-yellow text-[10px] font-bold uppercase tracking-[0.4em] font-michroma">
+                    <span className="text-brand-yellow text-[10px] font-black uppercase tracking-[0.4em] font-montserrat">
                         CENTRO DE CONTACTO
                     </span>
                     <div className="lormar-line w-24"></div>
                 </div>
 
-                <h1 className="text-6xl md:text-[110px] font-michroma uppercase leading-[0.85] tracking-tightest text-white">
+                <h1 className="text-6xl md:text-[110px] font-future uppercase leading-[0.85] tracking-normal text-white">
                     ASESORÍA <br />
                     <span className="text-transparent" style={{ WebkitTextStroke: "1.5px #F2A900" }}>DIRECTA</span>
                 </h1>

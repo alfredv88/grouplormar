@@ -93,7 +93,7 @@ const servicesByCategory = [
         items: ["Carga Sobredimensionada", "Taladros y Bombas", "Materiales Críticos"] 
       },
       { 
-        title: "ALQUIER DE MAQUINARIA", 
+        title: "ALQUILER DE MAQUINARIA", 
         icon: <KeyIcon />, 
         desc: "Suministro de grúas, excavadoras, montacargas pesados y tractores para operaciones en campo.", 
         items: ["Grúas 15-100T", "Excavadoras", "Tractores de cadena"] 
@@ -108,7 +108,56 @@ const servicesByCategory = [
   }
 ];
 
+const machineryCatalog = [
+  {
+    cat: "01. EQUIPOS DE IZAMIENTO",
+    capacity: "6 - 100 TON",
+    desc: "Grúas telescópicas (15-100 Ton), Brazos hidráulicos (6-25 Ton) y Montacargas (6-25 Ton)."
+  },
+  {
+    cat: "02. EQUIPOS DE PALA MECÁNICA",
+    capacity: "ALTO RENDIMIENTO",
+    desc: "Cargadores frontales, Excavadoras hidráulicas, Retroexcavadoras y Minishowers de gran volumen."
+  },
+  {
+    cat: "03. EQUIPOS DE SERVICIOS A POZO",
+    capacity: "HASTA 350 HP",
+    desc: "Cabilleros (350 HP), Camión Hot Oil, Equipos de Well Testing y Flush-By para yacimiento."
+  },
+  {
+    cat: "04. EQUIPOS DE MOVIMIENTO DE TIERRA",
+    capacity: "PESADA & VIALIDAD",
+    desc: "Tractores de oruga, Mototraíllas, Motoniveladoras, Vibrocompactadores y Compactador Pata de Cabra."
+  },
+  {
+    cat: "05. EQUIPOS DE TRANSPORTE",
+    capacity: "60 - 140 TON",
+    desc: "Chutos con Lowboy (60-140 Ton), Vacuums de 160 BLS, Volquetas, Supervactor, Cisternas de agua y Volteo."
+  },
+  {
+    cat: "06. ELEVADORES",
+    capacity: "ACCESO SEGURO",
+    desc: "Plataformas Manlift y Camiones Cesta certificados para montaje eléctrico e instrumentación en altura."
+  },
+  {
+    cat: "07. EQUIPOS PARA ASFALTO",
+    capacity: "PAVIMENTACIÓN VIAL",
+    desc: "Finishers, Escarificadoras de asfalto, Rodillos lisos, Compactadores de neumáticos, Camiones Rosco."
+  },
+  {
+    cat: "08. EQUIPOS PARA CONCRETO",
+    capacity: "OBRAS CIVILES",
+    desc: "Camiones Trompo Mezcladores y Trompos Mezcladores portátiles para vaciado continuo de concreto."
+  },
+  {
+    cat: "09. EQUIPOS MENORES",
+    capacity: "100 - 1000 KVA",
+    desc: "Plantas Eléctricas (100-1000 KVA), Compresores (180-185 CFM), Motobombas (80 HP, 6\"x6\"), Torres de Iluminación."
+  }
+];
+
 const ServiciosGrid = () => {
+  const [activeMachineryCat, setActiveMachineryCat] = React.useState<number | null>(null);
   return (
     <section className="py-20 px-10 md:px-20 lg:px-32 relative bg-7l-black">
       <div className="max-w-[1800px] mx-auto space-y-32">
@@ -144,14 +193,52 @@ const ServiciosGrid = () => {
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-4">
-                            {s.items.map((item, idx) => (
-                                <div key={idx} className="flex items-center gap-2">
-                                    <div className="w-1 h-1 bg-7l-gold/30"></div>
-                                    <span className="text-[10px] font-bold font-montserrat text-white/30 uppercase tracking-widest">{item}</span>
+                        {s.title === "ALQUILER DE MAQUINARIA" ? (
+                            <div className="space-y-4 pt-2">
+                                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-7l-gold/80 font-montserrat block mb-4">
+                                    EXPLORAR FLOTA (9 CATEGORÍAS TÉCNICAS):
+                                </span>
+                                <div className="space-y-3 border-l border-white/10 pl-4">
+                                    {machineryCatalog.map((cat, catIdx) => {
+                                        const isExpanded = activeMachineryCat === catIdx;
+                                        return (
+                                            <div key={catIdx} className="space-y-2 border-b border-white/5 pb-2 last:border-0 last:pb-0">
+                                                <button
+                                                    onClick={() => setActiveMachineryCat(isExpanded ? null : catIdx)}
+                                                    className="flex items-center justify-between w-full text-left py-1 hover:text-7l-gold transition-colors group/cat"
+                                                >
+                                                    <span className="text-[11px] font-bold font-montserrat text-white/80 uppercase tracking-wider group-hover/cat:text-7l-gold transition-colors">
+                                                        {cat.cat}
+                                                    </span>
+                                                    <span className="text-[9px] font-bold font-montserrat text-7l-gold/70 px-2.5 py-0.5 bg-7l-gold/10 border border-7l-gold/20 uppercase tracking-widest">
+                                                        {cat.capacity}
+                                                    </span>
+                                                </button>
+                                                {isExpanded && (
+                                                    <motion.p
+                                                        initial={{ opacity: 0, height: 0 }}
+                                                        animate={{ opacity: 1, height: "auto" }}
+                                                        exit={{ opacity: 0, height: 0 }}
+                                                        className="text-[11px] text-white/40 font-montserrat font-normal leading-relaxed pl-1"
+                                                    >
+                                                        {cat.desc}
+                                                    </motion.p>
+                                                )}
+                                            </div>
+                                        );
+                                    })}
                                 </div>
-                            ))}
-                        </div>
+                            </div>
+                        ) : (
+                            <div className="grid grid-cols-2 gap-4">
+                                {s.items.map((item, idx) => (
+                                    <div key={idx} className="flex items-center gap-2">
+                                        <div className="w-1 h-1 bg-7l-gold/30"></div>
+                                        <span className="text-[10px] font-bold font-montserrat text-white/30 uppercase tracking-widest">{item}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
 
                         <div className="pt-6 border-t border-white/5">
                             <Link href="/contacto" className="inline-flex items-center gap-4 text-[9px] font-bold font-montserrat text-7l-gold tracking-[0.3em] group/btn">

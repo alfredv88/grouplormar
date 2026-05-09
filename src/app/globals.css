@@ -51,6 +51,10 @@
 
 /* --- BASE STYLES (Enforcing Hierarchy 7L) --- */
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--color-7l-black);
   @apply font-montserrat antialiased selection:bg-7l-gold selection:text-7l-black;

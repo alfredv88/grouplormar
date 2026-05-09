@@ -44,7 +44,7 @@ export default function SustainabilitySection() {
             <span className="font-montserrat text-white/40 text-[10px] font-bold tracking-[0.5em] uppercase">
               GESTIÓN AMBIENTAL
             </span>
-            <h2 className="text-4xl md:text-6xl font-montserrat font-black text-white leading-tight uppercase tracking-tight">
+            <h2 className="text-4xl md:text-6xl font-future text-white leading-tight uppercase tracking-normal">
               VALOR <br /> <span className="text-7l-gold">SOSTENIBLE</span>
             </h2>
           </motion.div>
@@ -66,7 +66,7 @@ export default function SustainabilitySection() {
             transition={{ delay: 0.4 }}
           >
             <Link 
-              href="/compromiso" 
+              href="/responsabilidad" 
               className="inline-flex items-center gap-4 border border-7l-gold/30 bg-transparent px-6 py-3 transition-all hover:border-7l-gold hover:bg-7l-gold/5 group rounded-none"
             >
               <span className="font-montserrat text-[9px] font-black text-white tracking-[0.4em] uppercase group-hover:text-7l-gold transition-colors duration-300">
