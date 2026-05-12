@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { BROCHURE_DATA } from "@/constants/brochureData";
+import Magnetic from "@/components/ui/Magnetic";
 
 export default function ServicesGrid() {
   const [activeTab, setActiveTab] = useState(BROCHURE_DATA.services[0].category);
@@ -174,13 +175,15 @@ export default function ServicesGrid() {
 
                       {/* Professional Action Footer - Alineación Perfecta */}
                       <div className="pt-4 border-t border-[#0D0D0D]/10 flex items-center justify-between mt-auto">
-                        <Link 
-                          href="/servicios" 
-                          className="group/btn inline-flex items-center gap-4 text-[10px] font-montserrat font-black tracking-[0.3em] text-[#0D0D0D] uppercase transition-all"
-                        >
-                          <span className="group-hover/btn:text-7l-gold transition-colors duration-500">CONSULTAR</span>
-                          <div className="w-8 h-[2px] bg-[#0D0D0D] group-hover/btn:w-12 group-hover/btn:bg-7l-gold transition-all duration-500 ease-out" />
-                        </Link>
+                        <Magnetic range={40} strength={0.3}>
+                          <Link 
+                            href="/servicios" 
+                            className="group/btn inline-flex items-center gap-4 text-[10px] font-montserrat font-black tracking-[0.3em] text-[#0D0D0D] uppercase transition-all"
+                          >
+                            <span className="group-hover/btn:text-7l-gold transition-colors duration-500">CONSULTAR</span>
+                            <div className="w-8 h-[2px] bg-[#0D0D0D] group-hover/btn:w-12 group-hover/btn:bg-7l-gold transition-all duration-500 ease-out" />
+                          </Link>
+                        </Magnetic>
                         
                         <span className="font-montserrat font-black text-[24px] text-7l-gold transition-colors">
                           0{idx + 1}

@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Magnetic from "@/components/ui/Magnetic";
 
 export default function Hero() {
   const [currentVideo, setCurrentVideo] = useState(0);
@@ -128,15 +129,17 @@ export default function Hero() {
                 transition={{ ...transition, delay: 1.4 }}
                 className="pl-10"
               >
-                <Link 
-                  href="/servicios" 
-                  className="inline-flex items-center gap-4 bg-7l-gold px-6 py-3 transition-all hover:bg-7l-gold/90 group rounded-none"
-                >
-                  <span className="font-montserrat text-[9px] font-black text-7l-black tracking-[0.4em] uppercase">
-                    EXPLORAR
-                  </span>
-                  <ArrowRight size={10} className="text-7l-black transition-transform group-hover:translate-x-1" />
-                </Link>
+                <Magnetic range={50} strength={0.25}>
+                  <Link 
+                    href="/servicios" 
+                    className="inline-flex items-center gap-4 bg-7l-gold px-6 py-3 transition-all hover:bg-7l-gold/90 group rounded-none"
+                  >
+                    <span className="font-montserrat text-[9px] font-black text-7l-black tracking-[0.4em] uppercase">
+                      EXPLORAR
+                    </span>
+                    <ArrowRight size={10} className="text-7l-black transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </Magnetic>
               </motion.div>
             </div>
           </div>

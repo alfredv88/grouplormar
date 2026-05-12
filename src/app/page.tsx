@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import Magnetic from "@/components/ui/Magnetic";
 import Hero from "@/components/home/Hero";
 import LogoStrip from "@/components/home/LogoStrip";
 import ServicesGrid from "@/components/home/ServicesGrid";
@@ -100,14 +101,16 @@ export default function Home() {
             CONSOLIDE SU PRÓXIMO <span className="text-7l-gold">PROYECTO</span>
           </h2>
 
-          <Link href="/contacto" className="group flex items-center gap-8 mt-4 transition-all duration-500">
-            <div className="w-20 h-20 rounded-none border border-7l-gold/30 flex items-center justify-center group-hover:border-7l-gold group-hover:bg-7l-gold/5 transition-all duration-500">
-              <ArrowUpRight className="text-7l-gold transition-all duration-500 group-hover:rotate-45" size={28} />
-            </div>
-            <span className="font-montserrat text-[12px] font-black text-white tracking-[0.4em] uppercase group-hover:text-7l-gold transition-colors">
-              INICIAR LICITACIÓN
-            </span>
-          </Link>
+          <Magnetic range={100} strength={0.35}>
+            <Link href="/contacto" className="group flex items-center gap-8 mt-4 transition-all duration-500">
+              <div className="w-20 h-20 rounded-none border border-7l-gold/30 flex items-center justify-center group-hover:border-7l-gold group-hover:bg-7l-gold/5 transition-all duration-500">
+                <ArrowUpRight className="text-7l-gold transition-all duration-500 group-hover:rotate-45" size={28} />
+              </div>
+              <span className="font-montserrat text-[12px] font-black text-white tracking-[0.4em] uppercase group-hover:text-7l-gold transition-colors">
+                INICIAR LICITACIÓN
+              </span>
+            </Link>
+          </Magnetic>
         </div>
       </section>
 
