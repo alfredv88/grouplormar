@@ -19,7 +19,7 @@ export default function AboutSection() {
   // Coordenadas fijas consolidadas para producción de la Sección 3
 
   return (
-    <section id="nosotros" className="py-40 md:py-48 lg:py-56 bg-7l-industrial-light relative overflow-hidden cinematic-reveal">
+    <section id="nosotros" className="py-40 md:py-48 lg:py-56 bg-[#F7F7F7] relative overflow-hidden cinematic-reveal border-b border-[#0D0D0D]/5">
       
 
 

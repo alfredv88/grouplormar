@@ -11,9 +11,9 @@ const ContactMaps = () => {
             <div className="max-w-[1800px] mx-auto space-y-20 relative z-10">
                 <div className="space-y-4">
                     <h2 className="text-6xl md:text-8xl font-black font-orbitron uppercase italic text-white tracking-tightest">
-                        NUESTRAS <br /> <span className="text-transparent stroke-brand-yellow" style={{ WebkitTextStroke: "2px #F2A900" }}>SEDES</span>
+                        NUESTRAS <br /> <span className="text-transparent stroke-7l-gold" style={{ WebkitTextStroke: "2px #F2A900" }}>SEDES</span>
                     </h2>
-                    <div className="h-[2px] w-32 bg-brand-yellow"></div>
+                    <div className="h-[2px] w-32 bg-7l-gold"></div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-16 font-orbitron">
@@ -30,10 +30,10 @@ const ContactMaps = () => {
                         </div>
                         <div className="space-y-4">
                             <div className="flex items-center gap-4 group-hover:translate-x-2 transition-transform">
-                                <MapPin size={28} className="text-brand-yellow" /> 
+                                <MapPin size={28} className="text-7l-gold" /> 
                                 <h4 className="text-3xl font-black uppercase italic leading-none text-white">Oficina Administrativa</h4>
                             </div>
-                            <p className="text-sm font-montserrat font-black uppercase tracking-[0.05em] text-white/40 border-l-2 border-brand-yellow pl-6 max-w-md">
+                            <p className="text-sm font-montserrat font-black uppercase tracking-[0.05em] text-white/40 border-l-2 border-7l-gold pl-6 max-w-md">
                                 AV. JORGE RODRÍGUEZ CC MT, NIVEL PB OF 05 SECTOR LAS GARZAS, LECHERÍA ANZOÁTEGUI. CP 6016
                             </p>
                         </div>
@@ -52,10 +52,10 @@ const ContactMaps = () => {
                         </div>
                         <div className="space-y-4">
                             <div className="flex items-center gap-4 group-hover:translate-x-2 transition-transform">
-                                <Factory size={28} className="text-brand-yellow" /> 
+                                <Factory size={28} className="text-7l-gold" /> 
                                 <h4 className="text-3xl font-black uppercase italic leading-none text-white">Base Operativa</h4>
                             </div>
-                            <p className="text-sm font-montserrat font-black uppercase tracking-[0.05em] text-white/40 border-l-2 border-brand-yellow pl-6 max-w-md">
+                            <p className="text-sm font-montserrat font-black uppercase tracking-[0.05em] text-white/40 border-l-2 border-7l-gold pl-6 max-w-md">
                                 AUTOPISTA RÓMULO BETANCOURT, TERRENO S/N, SECTOR LOS POTOCOS, BARCELONA EDO. ANZOÁTEGUI.
                             </p>
                         </div>

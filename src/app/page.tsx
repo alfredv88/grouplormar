@@ -17,7 +17,6 @@ import AboutSection from "@/components/home/AboutSection";
 import ProcessSection from "@/components/home/ProcessSection";
 import SustainabilitySection from "@/components/home/SustainabilitySection";
 import GenteSection from "@/components/home/GenteSection";
-import FAQ from "@/components/home/FAQ";
 
 export default function Home() {
   return (
@@ -87,9 +86,6 @@ export default function Home() {
 
       {/* 7. STRATEGIC LOCATION — Presencia Geográfica */}
       <StrategicLocation />
-
-      {/* 14. SOPORTE TÉCNICO & PREGUNTAS FRECUENTES */}
-      <FAQ />
 
       {/* 11. HARD CTA — Cierre Comercial (UTILITY & CLEAN) */}
       <section className="py-20 bg-[#080808] border-t border-white/10 relative overflow-hidden">

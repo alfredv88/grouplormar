@@ -49,7 +49,7 @@ const MechanicalPageTransition = ({ children }: { children: React.ReactNode }) =
           initial={{ opacity: 0, scaleX: 0 }}
           exit={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 0.3, delay: 0.5 }}
-          className="fixed top-1/2 left-0 w-full h-[2px] bg-brand-yellow z-[101] shadow-[0_0_15px_#F2A900]"
+          className="fixed top-1/2 left-0 w-full h-[2px] bg-7l-gold z-[101] shadow-[0_0_15px_#F2A900]"
         />
 
         <motion.div

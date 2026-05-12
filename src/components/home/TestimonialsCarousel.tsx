@@ -43,24 +43,21 @@ export default function TestimonialsCarousel() {
   };
 
   return (
-    <section className="py-24 md:py-32 bg-7l-industrial-light overflow-hidden border-t border-b border-7l-border-light relative">
+    <section className="py-24 md:py-32 bg-[#F7F7F7] overflow-hidden border-t border-b border-[#0D0D0D]/5 relative">
       <div className="w-full relative z-20">
 
-        {/* Header Corporativo Elegante */}
-        <div className="px-6 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-12 gap-8 mb-20">
-          <div className="md:col-span-4 lg:col-span-3">
-            <span className="text-[10px] uppercase font-montserrat tracking-[0.4em] text-7l-gold font-bold block pt-2 border-t-2 border-7l-gold w-16">
-              RESPALDO
-            </span>
-          </div>
-          <div className="md:col-span-8 lg:col-span-6">
-            <h2 className="text-3xl md:text-4xl font-montserrat font-black !text-7l-black uppercase leading-none mb-5 tracking-tight">
-              REFERENCIAS COMERCIALES
-            </h2>
-            <p className="!text-zinc-500 text-[14px] leading-relaxed font-montserrat font-medium max-w-xl">
-              No exigimos confianza ciega; la construimos. Las principales operadoras de los sectores estratégicos avalan nuestro músculo técnico y rigurosa disciplina operacional.
-            </p>
-          </div>
+        {/* Header Corporativo Elegante (Estilo Sostenibilidad Unificado - Alineado a la Derecha) */}
+        <div className="px-6 md:px-12 lg:px-20 max-w-4xl mb-20 flex flex-col gap-6 ml-auto items-end text-right">
+          <span className="text-[10px] uppercase font-montserrat tracking-[0.4em] text-zinc-400 font-bold block">
+            RESPALDO
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6.5xl font-future !text-[#0D0D0D] uppercase leading-[0.9] tracking-normal flex flex-col items-end">
+            <span>REFERENCIAS</span>
+            <span className="text-7l-gold -mt-1">COMERCIALES</span>
+          </h2>
+          <p className="!text-zinc-500 text-[14px] md:text-[15px] leading-relaxed font-montserrat font-medium max-w-2xl mt-2 text-right">
+            No exigimos confianza ciega; la construimos. Las principales operadoras de los sectores estratégicos avalan nuestro músculo técnico y rigurosa disciplina operacional.
+          </p>
         </div>
 
         {/* Infinite Ticker Container */}
@@ -70,8 +67,8 @@ export default function TestimonialsCarousel() {
           onMouseLeave={() => setIsPaused(false)}
         >
           {/* Faded edges with precise light grid matching (smooth, non-milky transition) */}
-          <div className="absolute inset-y-0 left-0 w-24 md:w-56 bg-gradient-to-r from-white via-white/70 to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-24 md:w-56 bg-gradient-to-l from-white via-white/70 to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 left-0 w-24 md:w-56 bg-gradient-to-r from-[#F7F7F7] via-[#F7F7F7]/70 to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-24 md:w-56 bg-gradient-to-l from-[#F7F7F7] via-[#F7F7F7]/70 to-transparent z-10 pointer-events-none" />
 
           <motion.div
             className="flex gap-4 py-4 px-6 md:px-0"

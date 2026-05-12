@@ -34,7 +34,7 @@ export default function StrategicLocation() {
   ];
 
   return (
-    <section className="py-24 bg-[#080808] border-b border-white/5 relative overflow-hidden" id="location">
+    <section className="py-24 bg-[#0a1111] border-b border-white/5 relative overflow-hidden" id="location">
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
         
         {/* CENTERED HEADER (COMPACTED) */}

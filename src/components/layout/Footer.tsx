@@ -198,13 +198,13 @@ export default function Footer() {
             <Link href="/contacto" className="hover:text-7l-gold transition-colors">CONTACTO</Link>
           </nav>
           
-          <div className="flex flex-col md:items-end gap-1 text-center md:text-right">
-            <p className="text-[10px] font-black text-black uppercase tracking-[0.3em] font-montserrat">
-              © 2026 <span className="text-7l-gold">GRUPO LORMAR</span> • VENEZUELA
-            </p>
-            <p className="text-[8px] font-black text-black uppercase tracking-[0.5em] font-montserrat">
+          <div className="flex flex-col md:items-end gap-1.5 text-center md:text-right">
+            <span className="block text-[10px] font-black text-zinc-900 uppercase tracking-[0.3em] font-montserrat">
+              © 2026 <span className="text-7l-gold font-black">GRUPO LORMAR</span> • VENEZUELA
+            </span>
+            <span className="block text-[8px] font-bold text-zinc-600 uppercase tracking-[0.5em] font-montserrat">
               PRECISIÓN INDUSTRIAL AL SERVICIO DEL PAÍS
-            </p>
+            </span>
           </div>
         </div>
       </div>

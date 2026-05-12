@@ -9,7 +9,7 @@ const ContactInfo = () => {
             <div className="space-y-14">
                 {/* Phone Section - Executive Directory */}
                 <div className="flex gap-8 items-start group">
-                    <div className="w-14 h-14 border border-brand-yellow/30 text-brand-yellow flex items-center justify-center shrink-0 transition-all duration-500 group-hover:bg-brand-yellow group-hover:text-brand-black">
+                    <div className="w-14 h-14 border border-7l-gold/30 text-7l-gold flex items-center justify-center shrink-0 transition-all duration-500 group-hover:bg-7l-gold group-hover:text-7l-black">
                         <Phone size={24} />
                     </div>
                     <div className="space-y-6 w-full">
@@ -17,16 +17,16 @@ const ContactInfo = () => {
                         
                         <div className="space-y-4 w-full max-w-lg">
                             {/* Napoleón Bellaville */}
-                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 border border-white/5 bg-white/[0.01] hover:border-brand-yellow/30 hover:bg-white/[0.03] transition-all duration-300">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 border border-white/5 bg-white/[0.01] hover:border-7l-gold/30 hover:bg-white/[0.03] transition-all duration-300">
                                 <div className="space-y-1">
-                                    <p className="text-[10px] font-future uppercase tracking-widest text-brand-yellow">Napoleón Bellaville</p>
+                                    <p className="text-[10px] font-future uppercase tracking-widest text-7l-gold">Napoleón Bellaville</p>
                                     <p className="text-[11px] font-montserrat text-zinc-400 font-medium">Director Ejecutivo</p>
                                     <p className="text-sm font-montserrat font-bold text-white tracking-wider mt-1">+58 414 181 61 62</p>
                                 </div>
                                 <div className="flex items-center gap-2 self-start sm:self-center">
                                     <a 
                                         href="tel:+584141816162" 
-                                        className="px-4 py-2 border border-white/10 text-[10px] font-montserrat font-black uppercase tracking-widest text-zinc-300 hover:text-white hover:border-brand-yellow hover:bg-brand-yellow/10 transition-all duration-300 flex items-center gap-2"
+                                        className="px-4 py-2 border border-white/10 text-[10px] font-montserrat font-black uppercase tracking-widest text-zinc-300 hover:text-white hover:border-7l-gold hover:bg-7l-gold/10 transition-all duration-300 flex items-center gap-2"
                                         title="Llamar directo"
                                     >
                                         <Phone size={12} />
@@ -47,16 +47,16 @@ const ContactInfo = () => {
                             </div>
 
                             {/* Brayhan Bellaville */}
-                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 border border-white/5 bg-white/[0.01] hover:border-brand-yellow/30 hover:bg-white/[0.03] transition-all duration-300">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 border border-white/5 bg-white/[0.01] hover:border-7l-gold/30 hover:bg-white/[0.03] transition-all duration-300">
                                 <div className="space-y-1">
-                                    <p className="text-[10px] font-future uppercase tracking-widest text-brand-yellow">Brayhan Bellaville</p>
+                                    <p className="text-[10px] font-future uppercase tracking-widest text-7l-gold">Brayhan Bellaville</p>
                                     <p className="text-[11px] font-montserrat text-zinc-400 font-medium">Director de Operaciones</p>
                                     <p className="text-sm font-montserrat font-bold text-white tracking-wider mt-1">+58 412 944 86 72</p>
                                 </div>
                                 <div className="flex items-center gap-2 self-start sm:self-center">
                                     <a 
                                         href="tel:+584129448672" 
-                                        className="px-4 py-2 border border-white/10 text-[10px] font-montserrat font-black uppercase tracking-widest text-zinc-300 hover:text-white hover:border-brand-yellow hover:bg-brand-yellow/10 transition-all duration-300 flex items-center gap-2"
+                                        className="px-4 py-2 border border-white/10 text-[10px] font-montserrat font-black uppercase tracking-widest text-zinc-300 hover:text-white hover:border-7l-gold hover:bg-7l-gold/10 transition-all duration-300 flex items-center gap-2"
                                         title="Llamar directo"
                                     >
                                         <Phone size={12} />
@@ -81,12 +81,12 @@ const ContactInfo = () => {
 
                 {/* Mail Section */}
                 <div className="flex gap-8 items-start group">
-                    <div className="w-14 h-14 bg-white/[0.03] text-brand-yellow flex items-center justify-center border border-white/10 shrink-0 transition-all duration-500 group-hover:border-brand-yellow/50">
+                    <div className="w-14 h-14 bg-white/[0.03] text-7l-gold flex items-center justify-center border border-white/10 shrink-0 transition-all duration-500 group-hover:border-7l-gold/50">
                         <Mail size={24} />
                     </div>
                     <div>
                         <h4 className="text-xl font-future uppercase leading-none mb-4 text-white tracking-widest">Canal de Negocios</h4>
-                        <a href="mailto:negocios@grouplormar.com" className="text-lg font-montserrat font-light text-brand-yellow hover:text-white transition-colors border-b border-brand-yellow/30 pb-1">
+                        <a href="mailto:negocios@grouplormar.com" className="text-lg font-montserrat font-light text-7l-gold hover:text-white transition-colors border-b border-7l-gold/30 pb-1">
                             negocios@grouplormar.com
                         </a>
                     </div>
@@ -94,20 +94,20 @@ const ContactInfo = () => {
 
                 {/* Hours Section */}
                 <div className="flex gap-8 items-start group">
-                    <div className="w-14 h-14 bg-white/[0.03] text-brand-yellow flex items-center justify-center border border-white/10 shrink-0 transition-all duration-500 group-hover:border-brand-yellow/50">
+                    <div className="w-14 h-14 bg-white/[0.03] text-7l-gold flex items-center justify-center border border-white/10 shrink-0 transition-all duration-500 group-hover:border-7l-gold/50">
                         <Clock size={24} />
                     </div>
                     <div className="space-y-2">
                         <h4 className="text-xl font-future uppercase leading-none mb-2 text-white tracking-widest">Horario Operativo</h4>
                         <p className="text-sm font-montserrat font-light text-white/80">Lunes — Viernes: 08:00 AM - 05:00 PM</p>
-                        <p className="text-[10px] font-montserrat font-medium text-brand-yellow uppercase tracking-widest">Soporte 24/7 para emergencias críticas.</p>
+                        <p className="text-[10px] font-montserrat font-medium text-7l-gold uppercase tracking-widest">Soporte 24/7 para emergencias críticas.</p>
                     </div>
                 </div>
             </div>
 
             <div className="pt-10 border-t border-white/5">
                 <div className="p-8 border border-white/10 bg-white/[0.02] text-center space-y-4">
-                    <h5 className="font-future text-[11px] uppercase tracking-[0.3em] text-brand-yellow">¿Eres Proveedor?</h5>
+                    <h5 className="font-future text-[11px] uppercase tracking-[0.3em] text-7l-gold">¿Eres Proveedor?</h5>
                     <p className="text-[10px] font-montserrat text-white/40 uppercase tracking-[0.2em]">
                         ENVÍANOS TU BROCHURE A: <span className="text-white/80">PROCURA@GROUPLORMAR.COM</span>
                     </p>

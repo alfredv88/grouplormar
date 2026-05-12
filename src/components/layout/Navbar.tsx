@@ -110,14 +110,14 @@ export default function Navbar() {
                   href={link.href}
                   className={`relative group/link pb-1 font-montserrat text-[13px] font-bold uppercase tracking-[0.3em] transition-colors duration-300 ${
                     pathname === link.href
-                      ? "text-[#F2A900]"
+                      ? "text-7l-gold"
                       : isScrolled ? "text-[#1A1A1A] hover:text-[#080808]" : "text-white hover:text-7l-gold"
                   }`}
                 >
                   {link.label}
                   {/* Active underline gold */}
                   <span
-                    className={`absolute -bottom-1 left-0 h-[2px] bg-[#F2A900] transition-all duration-400 ${
+                    className={`absolute -bottom-1 left-0 h-[2px] bg-7l-gold transition-all duration-400 ${
                       pathname === link.href ? "w-full" : "w-0 group-hover/link:w-full"
                     }`}
                   />
@@ -127,7 +127,7 @@ export default function Navbar() {
               {/* CTA COTIZAR */}
               <Link
                 href="/contacto"
-                className="group relative px-6 py-3 bg-[#F2A900] text-[#080808] font-montserrat font-black tracking-[0.3em] text-[10px] overflow-hidden transition-all duration-300 hover:shadow-[0_4px_20px_rgba(242,169,0,0.35)] hover:scale-105"
+                className="group relative px-6 py-3 bg-7l-gold text-7l-black font-montserrat font-black tracking-[0.3em] text-[10px] overflow-hidden transition-all duration-300 hover:shadow-[0_4px_20px_rgba(242,169,0,0.35)] hover:scale-105"
               >
                 COTIZAR
               </Link>
@@ -165,13 +165,13 @@ export default function Navbar() {
                   <span
                     className={
                       pathname === link.href
-                        ? "text-[#F2A900]"
-                        : "text-[#1A1A1A] group-hover:text-[#F2A900] transition-colors"
+                        ? "text-7l-gold"
+                        : "text-[#1A1A1A] group-hover:text-7l-gold transition-colors"
                     }
                   >
                     {link.label}
                   </span>
-                  <span className="text-[#E8E8E8] group-hover:text-[#F2A900] transition-colors text-xl">→</span>
+                  <span className="text-[#E8E8E8] group-hover:text-7l-gold transition-colors text-xl">→</span>
                 </Link>
               ))}
             </div>
@@ -179,18 +179,18 @@ export default function Navbar() {
             <Link
               href="/contacto"
               onClick={() => setIsOpen(false)}
-              className="mt-8 py-5 bg-[#F2A900] text-[#080808] font-montserrat font-black tracking-[0.4em] text-sm uppercase text-center"
+              className="mt-8 py-5 bg-7l-gold text-7l-black font-montserrat font-black tracking-[0.4em] text-sm uppercase text-center"
             >
               SOLICITAR COTIZACIÓN
             </Link>
 
             <div className="mt-auto pb-10 flex flex-col gap-3 border-t border-[#E8E8E8] pt-8">
               <a href="tel:+584141816162" className="flex items-center gap-3 text-[#6B7280]">
-                <Phone size={14} className="text-[#F2A900]" />
+                <Phone size={14} className="text-7l-gold" />
                 <span className="font-montserrat text-[10px] tracking-wider">+58 414 181 61 62</span>
               </a>
               <a href="mailto:negocios@grouplormar.com" className="flex items-center gap-3 text-[#6B7280]">
-                <Mail size={14} className="text-[#F2A900]" />
+                <Mail size={14} className="text-7l-gold" />
                 <span className="font-montserrat text-[10px] tracking-wider">NEGOCIOS@GROUPLORMAR.COM</span>
               </a>
             </div>

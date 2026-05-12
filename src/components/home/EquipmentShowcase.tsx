@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ChevronRight, ArrowRight, ArrowLeft, ArrowUpRight } from "lucide-react";
 import { BROCHURE_DATA } from "@/constants/brochureData";
+import Magnetic from "@/components/ui/Magnetic";
 
 const equipmentImages: Record<string, string> = {
   "izamiento": "/images/heavy-crane.png",
@@ -20,42 +21,78 @@ const equipmentImages: Record<string, string> = {
 
 const showcaseCategories = BROCHURE_DATA.machinery;
 const ITEM_HEIGHT = 48;
+const CARD_WIDTH = 400; // 360px de tarjeta + 40px (gap-10)
 
 export default function EquipmentShowcase() {
-  const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [autoplay, setAutoplay] = useState(true);
 
-  const handleScroll = () => {
-    if (scrollRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-      const maxScroll = scrollWidth - clientWidth;
-      setScrollProgress((scrollLeft / (maxScroll || 1)) * 100);
+  // Autoplay Inteligente: Avanza cada 5 segundos si está activo y no se hace hover
+  useEffect(() => {
+    if (!autoplay || isHovered) return;
 
-      const cardWidth = 360 + 40; // 5% narrower (from 380 to 360) + gap
-      const index = Math.round(scrollLeft / cardWidth);
-      if (index !== activeIndex && index < showcaseCategories.length) {
-        setActiveIndex(index);
-      }
-    }
-  };
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % showcaseCategories.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [autoplay, isHovered]);
 
   const handleMenuClick = (index: number) => {
-    if (scrollRef.current) {
-      const cardWidth = 360 + 40;
-      scrollRef.current.scrollTo({ left: index * cardWidth, behavior: "smooth" });
-    }
+    setAutoplay(false);
+    setActiveIndex(index);
   };
 
-  const scrollBy = (direction: number) => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: direction * 400, behavior: "smooth" });
-    }
+  const handleNext = () => {
+    setAutoplay(false);
+    setActiveIndex((prev) => (prev + 1) % showcaseCategories.length);
   };
+
+  const handlePrev = () => {
+    setAutoplay(false);
+    setActiveIndex((prev) => (prev - 1 + showcaseCategories.length) % showcaseCategories.length);
+  };
+
+  const progress = ((activeIndex + 1) / showcaseCategories.length) * 100;
 
   return (
-    <section className="py-48 bg-transparent relative z-20 overflow-hidden">
-      <div className="w-full max-w-[1800px] mx-auto px-10 md:px-24 grid lg:grid-cols-12 gap-16">
+    <section 
+      className="py-48 bg-transparent relative z-20 overflow-hidden"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Background Blueprint Monumental y Sutil */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 flex items-center justify-center">
+        {/* Rombo Exterior Gigante */}
+        <motion.div 
+          className="absolute border border-white/[0.015] rounded-none"
+          style={{
+            width: "950px",
+            height: "950px",
+            top: "5%",
+            right: "-8%",
+          }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 210, repeat: Infinity, ease: "linear" }}
+        />
+        {/* Rombo Interior Dorado Concéntrico */}
+        <motion.div 
+          className="absolute border border-7l-gold/[0.012] rounded-none"
+          style={{
+            width: "1150px",
+            height: "1150px",
+            top: "-5%",
+            right: "-12%",
+          }}
+          animate={{ rotate: -360 }}
+          transition={{ duration: 280, repeat: Infinity, ease: "linear" }}
+        />
+        {/* Retícula de Ingeniería - Línea técnica horizontal muy tenue */}
+        <div className="absolute left-0 right-0 h-[1px] bg-white/[0.015] top-[50%]" />
+      </div>
+
+      <div className="w-full max-w-[1800px] mx-auto px-10 md:px-24 grid lg:grid-cols-12 gap-16 relative z-10">
         
         {/* Left Side: Navigation (Elite Standard) */}
         <div className="lg:col-span-3 flex flex-col relative z-10 pt-4">
@@ -78,17 +115,16 @@ export default function EquipmentShowcase() {
 
             {showcaseCategories.map((cat, i) => {
               const isActive = activeIndex === i;
-              const isVisible = i >= activeIndex && i < activeIndex + 3;
               return (
                 <div
                   key={cat.id}
                   onClick={() => handleMenuClick(i)}
                   className="h-[48px] flex items-center justify-between cursor-pointer group pl-6 transition-all"
                 >
-                  <span className={`font-montserrat text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-500 ${isActive ? 'text-7l-gold' : 'text-white group-hover:text-7l-gold'}`}>
+                  <span className={`font-montserrat text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 transform group-hover:translate-x-2 ${isActive ? 'text-7l-gold shadow-[0_0_10px_rgba(242,169,0,0.2)]' : 'text-white group-hover:text-7l-gold'}`}>
                     {cat.title}
                   </span>
-                  <ChevronRight size={12} className={`transition-all duration-500 ${isActive ? 'text-7l-gold scale-110 opacity-100' : 'opacity-0'}`} />
+                  <ChevronRight size={12} className={`transition-all duration-300 ${isActive ? 'text-7l-gold scale-110 opacity-100' : 'opacity-0 group-hover:opacity-50 group-hover:translate-x-1'}`} />
                 </div>
               );
             })}
@@ -105,53 +141,45 @@ export default function EquipmentShowcase() {
           </div>
         </div>
 
-        {/* Right Side: Cards (Professional Gallery) */}
-        <div className="lg:col-span-9 relative flex flex-col">
-          <div
-            ref={scrollRef}
-            onScroll={handleScroll}
-            className="flex gap-10 overflow-x-auto snap-x snap-mandatory pb-24 no-scrollbar"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
-            <style jsx>{`div::-webkit-scrollbar { display: none; }`}</style>
-            {showcaseCategories.map((cat, i) => (
-              <div key={cat.id} className="relative flex-none snap-start">
-                <div className="w-[360px] h-[560px] bg-[#080808] border border-zinc-900 hover:border-7l-gold/50 transition-all duration-500 flex flex-col group overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.8)] relative">
-                  
-                  {/* Decorative Industrial Wireframe (HUECO) - FINAL FROZEN CONFIG */}
-                  <div 
-                    className="absolute border border-white/20 transition-all duration-500 pointer-events-none z-10"
-                    style={{ 
-                      bottom: '-105px',
-                      right: '-178px',
-                      width: '259px',
-                      height: '259px',
-                      transform: 'rotate(65deg)',
-                    }}
-                  />
+        {/* Right Side: Cards (Framer Motion Kinetic Carousel) */}
+        <div className="lg:col-span-9 relative flex flex-col overflow-hidden">
+          
+          {/* Slider Container / Mask */}
+          <div className="w-full overflow-hidden pb-24">
+            <motion.div
+              className="flex gap-10 cursor-grab active:cursor-grabbing"
+              animate={{ x: -activeIndex * CARD_WIDTH }}
+              transition={{ type: "spring", stiffness: 150, damping: 22 }}
+              drag="x"
+              dragConstraints={{
+                left: -(showcaseCategories.length - 1) * CARD_WIDTH,
+                right: 0,
+              }}
+              onDragStart={() => setAutoplay(false)}
+              onDragEnd={(event, info) => {
+                setAutoplay(false);
+                const threshold = 80; // Umbral de arrastre para saltar tarjeta
+                if (info.offset.x < -threshold && activeIndex < showcaseCategories.length - 1) {
+                  setActiveIndex((prev) => prev + 1);
+                } else if (info.offset.x > threshold && activeIndex > 0) {
+                  setActiveIndex((prev) => prev - 1);
+                }
+              }}
+            >
+              {showcaseCategories.map((cat) => (
+                <div key={cat.id} className="relative flex-none select-none" onClick={() => setAutoplay(false)}>
+                  <div className="w-[360px] h-[560px] bg-[#080808] border border-zinc-900 hover:border-7l-gold/50 transition-all duration-500 flex flex-col group overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.8)] relative">
+                    
+                    {/* Media Frame - Dominancia Visual */}
+                    <div className="h-[300px] relative overflow-hidden bg-black pointer-events-none">
+                      <div
+                        className="absolute inset-0 bg-cover bg-center transition-all duration-[3s] ease-out filter brightness-[0.8] contrast-[0.95] group-hover:scale-105 group-hover:brightness-[1.05] group-hover:contrast-[1.05]"
+                        style={{ backgroundImage: equipmentImages[cat.id] ? `url('${equipmentImages[cat.id]}')` : 'none' }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent opacity-90 group-hover:opacity-75 transition-opacity duration-1000" />
+                    </div>
 
-                  {/* Decorative Industrial Square (SÓLIDO) - FINAL FROZEN CONFIG */}
-                  <div 
-                    className="absolute transition-transform duration-500 pointer-events-none z-20 bg-7l-gold shadow-[0_0_30px_rgba(242,169,0,0.3)]"
-                    style={{ 
-                      bottom: '36px',
-                      right: '-53px',
-                      width: '100px', // size (400) / 4
-                      height: '100px',
-                      transform: 'rotate(316deg)',
-                    }}
-                  />
-                  
-                  {/* Media Frame - Dominancia Visual */}
-                  <div className="h-[300px] relative overflow-hidden bg-black">
-                    <div
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-[4s] ease-out group-hover:scale-105"
-                      style={{ backgroundImage: equipmentImages[cat.id] ? `url('${equipmentImages[cat.id]}')` : 'none' }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent" />
-                  </div>
-
-                    {/* Content Frame - Refinado y Compacto (FORZADO AL FRENTE) */}
+                    {/* Content Frame */}
                     <div className="p-8 flex flex-col flex-1 relative z-30">
                       
                       {/* Header Group */}
@@ -170,7 +198,7 @@ export default function EquipmentShowcase() {
                         </h3>
                       </div>
 
-                      {/* Inventory List - Más aire y legibilidad */}
+                      {/* Inventory List */}
                       <div className="space-y-3 flex-1 border-l border-7l-gold/30 pl-6 ml-1 mt-1">
                         {cat.items.slice(0, 4).map((item, idx) => (
                           <p key={idx} className="font-montserrat text-[10px] text-white uppercase tracking-[0.1em] leading-tight font-semibold opacity-70 group-hover:opacity-100 transition-opacity">
@@ -179,22 +207,25 @@ export default function EquipmentShowcase() {
                         ))}
                       </div>
 
-                    {/* Clean Action Footer */}
-                    <div className="pt-6 mt-auto flex items-center justify-end">
-                      <Link href="/portafolio" className="flex items-center gap-4 cursor-pointer group/action">
-                        <span className="font-montserrat text-[9px] font-black text-white uppercase tracking-[0.2em] group-hover/action:text-7l-gold transition-colors">
-                          VER FLOTA
-                        </span>
-                        <div className="w-11 h-11 border border-white/10 flex items-center justify-center group-hover/action:border-7l-gold group-hover/action:bg-7l-gold/5 transition-all duration-500 rounded-none relative overflow-hidden">
-                          <ArrowUpRight size={16} className="text-white group-hover/action:text-7l-gold transition-all duration-500 group-hover/action:rotate-45" />
-                        </div>
-                      </Link>
-                    </div>
+                      {/* Clean Action Footer */}
+                      <div className="pt-6 mt-auto flex items-center justify-end">
+                        <Link href="/portafolio" className="flex items-center gap-4 cursor-pointer group/action">
+                          <span className="font-montserrat text-[9px] font-black text-white uppercase tracking-[0.2em] group-hover/action:text-7l-gold transition-colors">
+                            VER FLOTA
+                          </span>
+                          <Magnetic range={40} strength={0.25}>
+                            <div className="w-11 h-11 border border-white/10 flex items-center justify-center group-hover/action:border-7l-gold group-hover/action:bg-7l-gold/5 transition-all duration-500 rounded-none relative overflow-hidden">
+                              <ArrowUpRight size={16} className="text-white group-hover/action:text-7l-gold transition-all duration-500 group-hover/action:rotate-45" />
+                            </div>
+                          </Magnetic>
+                        </Link>
+                      </div>
 
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </motion.div>
           </div>
 
           {/* Controls */}
@@ -202,19 +233,19 @@ export default function EquipmentShowcase() {
             <div className="flex-1 h-[2px] bg-zinc-900 relative overflow-hidden">
               <motion.div 
                 className="absolute left-0 top-0 h-full bg-7l-gold"
-                style={{ width: `${Math.max(10, scrollProgress)}%` }}
+                style={{ width: `${Math.max(5, progress)}%` }}
               />
             </div>
             <div className="flex gap-3">
               <button 
-                onClick={() => scrollBy(-1)} 
+                onClick={handlePrev} 
                 className="w-11 h-11 border border-white/10 text-white/50 hover:border-7l-gold hover:text-7l-gold flex items-center justify-center transition-all duration-300 rounded-none bg-transparent"
                 aria-label="Anterior"
               >
                 <ArrowLeft size={16} />
               </button>
               <button 
-                onClick={() => scrollBy(1)} 
+                onClick={handleNext} 
                 className="w-11 h-11 border border-white/10 text-white/50 hover:border-7l-gold hover:text-7l-gold flex items-center justify-center transition-all duration-300 rounded-none bg-transparent"
                 aria-label="Siguiente"
               >

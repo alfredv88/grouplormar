@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${montserrat.variable} ${futureEarth.variable}`} suppressHydrationWarning>
-      <body className="antialiased font-montserrat selection:bg-[#F2A900] selection:text-[#0F0F0F] bg-white text-black">
+      <body className="antialiased">
         <SmoothScrollProvider>
           <Navbar />
           <MechanicalPageTransition>

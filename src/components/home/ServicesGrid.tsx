@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,8 +8,59 @@ import { ArrowRight } from "lucide-react";
 import { BROCHURE_DATA } from "@/constants/brochureData";
 import Magnetic from "@/components/ui/Magnetic";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      staggerChildren: 0.05,
+      staggerDirection: -1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+  exit: { 
+    opacity: 0, 
+    y: -10,
+    transition: {
+      duration: 0.3,
+      ease: "easeIn",
+    },
+  },
+};
+
 export default function ServicesGrid() {
   const [activeTab, setActiveTab] = useState(BROCHURE_DATA.services[0].category);
+  const [autoplay, setAutoplay] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    if (!autoplay || isHovered) return;
+
+    const interval = setInterval(() => {
+      const currentIndex = BROCHURE_DATA.services.findIndex(s => s.category === activeTab);
+      const nextIndex = (currentIndex + 1) % BROCHURE_DATA.services.length;
+      setActiveTab(BROCHURE_DATA.services[nextIndex].category);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [autoplay, isHovered, activeTab]);
 
   // Las coordenadas exactas seleccionadas por el usuario se han fijado de forma fija para producción. No se requiere estado dinámico.
 
@@ -49,19 +100,21 @@ export default function ServicesGrid() {
   }) || [];
 
   const handlePrevTab = () => {
+    setAutoplay(false);
     const currentIndex = BROCHURE_DATA.services.findIndex(s => s.category === activeTab);
     const prevIndex = (currentIndex - 1 + BROCHURE_DATA.services.length) % BROCHURE_DATA.services.length;
     setActiveTab(BROCHURE_DATA.services[prevIndex].category);
   };
 
   const handleNextTab = () => {
+    setAutoplay(false);
     const currentIndex = BROCHURE_DATA.services.findIndex(s => s.category === activeTab);
     const nextIndex = (currentIndex + 1) % BROCHURE_DATA.services.length;
     setActiveTab(BROCHURE_DATA.services[nextIndex].category);
   };
 
   return (
-    <section className="py-16 bg-white relative border-b border-[#0D0D0D] overflow-hidden" id="servicios">
+    <section className="py-16 bg-[#F7F7F7] relative border-b border-[#0D0D0D] overflow-hidden" id="servicios">
       {/* Background Vertical Branding (Margin Layer) */}
       {/* Watermark removed to avoid gray tones */}
 
@@ -92,7 +145,10 @@ export default function ServicesGrid() {
               return (
                 <button
                   key={service.category}
-                  onClick={() => setActiveTab(service.category)}
+                  onClick={() => {
+                    setActiveTab(service.category);
+                    setAutoplay(false);
+                  }}
                   className={`relative py-5 text-[11px] font-montserrat font-bold uppercase tracking-[0.15em] transition-all whitespace-nowrap outline-none ${
                     isActive ? "text-[#0D0D0D]" : "text-[#0D0D0D]/50 hover:text-7l-gold"
                   }`}
@@ -113,14 +169,18 @@ export default function ServicesGrid() {
         </div>
 
         {/* Services Grid with Animation */}
-        <div className="min-h-[450px]">
+        <div 
+          className="min-h-[450px]"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
             >
                 {displayItems.map((item, idx) => {
@@ -129,13 +189,13 @@ export default function ServicesGrid() {
                   const currentPosition = objectPositions[idx % objectPositions.length];
 
                   return (
-                  <div key={item.id} className="group bg-white border border-[#0D0D0D]/5 hover:border-7l-gold/30 transition-all duration-700 flex flex-col relative overflow-hidden cursor-pointer h-full min-h-[460px] w-full shadow-[0_4px_15px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1">
+                  <motion.div 
+                    key={item.id} 
+                    variants={itemVariants}
+                    onClick={() => setAutoplay(false)}
+                    className="group bg-white border border-[#0D0D0D]/5 hover:border-7l-gold/30 transition-all duration-700 flex flex-col relative overflow-hidden cursor-pointer h-full min-h-[460px] w-full shadow-[0_4px_15px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1"
+                  >
                     
-                    {/* Technical ID (Contraste Sólido) */}
-                    <span className="absolute top-4 right-4 font-mono text-[9px] text-[#0D0D0D] font-bold tracking-[0.2em] z-40 bg-white/80 px-2 py-1 rounded">
-                      REF-0{idx + 1}
-                    </span>
-
                     {/* Media Frame (Protagonismo Recuperado) */}
                     <div className="relative h-[190px] shrink-0 w-full overflow-hidden transition-all duration-700">
                       <Image
@@ -174,23 +234,19 @@ export default function ServicesGrid() {
                       </div>
 
                       {/* Professional Action Footer - Alineación Perfecta */}
-                      <div className="pt-4 border-t border-[#0D0D0D]/10 flex items-center justify-between mt-auto">
+                      <div className="pt-4 border-t border-[#0D0D0D]/10 flex items-center mt-auto">
                         <Magnetic range={40} strength={0.3}>
                           <Link 
                             href="/servicios" 
                             className="group/btn inline-flex items-center gap-4 text-[10px] font-montserrat font-black tracking-[0.3em] text-[#0D0D0D] uppercase transition-all"
                           >
-                            <span className="group-hover/btn:text-7l-gold transition-colors duration-500">CONSULTAR</span>
-                            <div className="w-8 h-[2px] bg-[#0D0D0D] group-hover/btn:w-12 group-hover/btn:bg-7l-gold transition-all duration-500 ease-out" />
+                            <span className="group-hover:text-7l-gold transition-colors duration-500">CONSULTAR</span>
+                            <div className="w-8 h-[2px] bg-[#0D0D0D] group-hover:w-12 group-hover:bg-7l-gold transition-all duration-500 ease-out" />
                           </Link>
                         </Magnetic>
-                        
-                        <span className="font-montserrat font-black text-[24px] text-7l-gold transition-colors">
-                          0{idx + 1}
-                        </span>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 )})}
             </motion.div>
           </AnimatePresence>
