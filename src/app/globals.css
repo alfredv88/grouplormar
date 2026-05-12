@@ -49,10 +49,29 @@
   }
 }
 
-/* --- BASE STYLES (Enforcing Hierarchy 7L) --- */
-
+/* --- BASE STYLES & LENIS INTEGRATION --- */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: initial;
+}
+
+html.lenis, html.lenis-scrolling {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  scroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
 body {

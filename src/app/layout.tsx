@@ -6,6 +6,7 @@ import ChatContactWidget from "@/components/layout/ChatContactWidget";
 import MechanicalPageTransition from "@/components/layout/MechanicalPageTransition";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 
 const montserrat = Montserrat({ 
   subsets: ["latin"], 
@@ -31,12 +32,14 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${montserrat.variable} ${futureEarth.variable}`} suppressHydrationWarning>
       <body className="antialiased font-montserrat selection:bg-[#F2A900] selection:text-[#0F0F0F] bg-white text-black">
-        <Navbar />
-        <MechanicalPageTransition>
-          {children}
-        </MechanicalPageTransition>
-        <Footer />
-        <ChatContactWidget />
+        <SmoothScrollProvider>
+          <Navbar />
+          <MechanicalPageTransition>
+            {children}
+          </MechanicalPageTransition>
+          <Footer />
+          <ChatContactWidget />
+        </SmoothScrollProvider>
       </body>
     </html>
   );
