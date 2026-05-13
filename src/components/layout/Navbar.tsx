@@ -39,7 +39,7 @@ export default function Navbar() {
           {/* Left: ID Corporativo */}
           <div className="flex items-center gap-6">
             <span className="font-mono text-[10px] text-white tracking-[0.2em] uppercase hidden sm:block">
-              RIF: J-30657965-6
+              J-30657965-6
             </span>
           </div>
 
