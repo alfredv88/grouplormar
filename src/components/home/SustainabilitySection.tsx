@@ -11,16 +11,22 @@ export default function SustainabilitySection() {
     <section className="relative w-full overflow-hidden flex flex-col md:flex-row min-h-[600px]">
       
       {/* Left Side: Impact Image */}
-      <div className="relative w-full md:w-1/2 h-[400px] md:h-auto overflow-hidden">
+      <motion.div 
+        initial={{ scale: 1.15, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+        className="relative w-full md:w-1/2 h-[400px] md:h-auto overflow-hidden"
+      >
         <Image
-          src="/images/sostenibilidad_lormar_compromiso.png" // Placeholder - Ensure tool or user provides this
+          src="/images/sostenibilidad_lormar_compromiso.png"
           alt="Compromiso Ambiental Lormar"
           fill
           className="object-cover"
         />
         {/* Subtle overlay to blend if needed */}
         <div className="absolute inset-0 bg-7l-black/10"></div>
-      </div>
+      </motion.div>
 
       {/* Right Side: Content with Pattern */}
       <div className="relative w-full md:w-1/2 flex items-center justify-center bg-[#0a1111] p-12 md:p-24 overflow-hidden">

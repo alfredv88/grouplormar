@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { BROCHURE_DATA } from "@/constants/brochureData";
 import { HardHat, Truck, ShieldCheck, Zap, Lightbulb, Sliders, Copy, Check } from "lucide-react";
 
@@ -16,34 +16,29 @@ const VALUE_ICONS = [
 ];
 
 export default function AboutSection() {
-  const [opacity, setOpacity] = React.useState(1);
-  const [xOffset, setXOffset] = React.useState(2);
-  const [yOffset, setYOffset] = React.useState(2);
-  const [size, setSize] = React.useState(580);
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [copied, setCopied] = React.useState(false);
-  const [isDev, setIsDev] = React.useState(false);
+  const containerRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
 
-  React.useEffect(() => {
-    if (typeof window !== "undefined") {
-      const host = window.location.hostname;
-      if (host === "localhost" || host === "127.0.0.1" || process.env.NODE_ENV === "development") {
-        setIsDev(true);
-      }
-    }
-  }, []);
+  // Parallax transform for the large background logo watermark
+  const logoY = useTransform(scrollYProgress, [0, 1], [-100, 100]);
+
+  // Parallax transform for the 120T crane (glides upward and scales up as you scroll)
+  const craneY = useTransform(scrollYProgress, [0, 1], [150, -50]);
+  const craneScale = useTransform(scrollYProgress, [0, 1], [0.95, 1.08]);
 
   return (
-    <section id="nosotros" className="py-40 md:py-48 lg:py-56 bg-[#F7F7F7] relative overflow-hidden cinematic-reveal border-b border-[#0D0D0D]/5">
+    <section ref={containerRef} id="nosotros" className="py-40 md:py-48 lg:py-56 bg-[#F7F7F7] relative overflow-hidden cinematic-reveal border-b border-[#0D0D0D]/5">
       
 
-
       {/* Vertical Branding Column (Logo Oficial - Posición Fija y Consolidada de Producción) */}
-      <div 
+      <motion.div 
         className="absolute top-1/2 flex items-center justify-center select-none hidden lg:flex pointer-events-none z-0"
         style={{ 
           left: "-200px",
-          transform: "translateY(calc(-50% + 0px))",
+          y: logoY,
         }}
       >
         <div 
@@ -62,16 +57,16 @@ export default function AboutSection() {
             className="object-contain"
           />
         </div>
-      </div>
+      </motion.div>
 
       {/* Background Crane Element (Grua 120t - Derecha) */}
-      <div 
-        className="absolute right-0 bottom-0 pointer-events-none select-none z-0 transition-all duration-100"
+      <motion.div 
+        className="absolute right-0 bottom-0 pointer-events-none select-none z-0 origin-bottom-right"
         style={{
-          width: `${size}px`,
-          height: `${size}px`,
-          opacity: opacity,
-          transform: `translate(${xOffset}%, ${yOffset}%)`,
+          width: "580px",
+          height: "580px",
+          y: craneY,
+          scale: craneScale,
         }}
       >
         <Image
@@ -81,7 +76,7 @@ export default function AboutSection() {
           className="object-contain"
           style={{ objectPosition: "bottom right" }}
         />
-      </div>
+      </motion.div>
 
       <div className="w-full max-w-[1600px] mx-auto px-6 md:px-24 lg:px-32 lg:pl-48 relative z-10">
         

@@ -95,24 +95,30 @@ export default function StrategicLocation() {
 
           {/* RIGHT COLUMN: VIDEO & DESCRIPTION */}
           <div className="lg:col-span-7 space-y-10">
-            <div className="relative aspect-video bg-[#111] overflow-hidden border border-white/10 group shadow-2xl">
+            <motion.div 
+              initial={{ scale: 0.95, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+              className="relative aspect-video bg-[#111] overflow-hidden border border-white/10 group shadow-2xl"
+            >
               <video 
                 autoPlay 
                 muted 
                 loop 
                 playsInline 
-                className="w-full h-full object-cover opacity-100 brightness-100 contrast-110 saturate-130 transition-all duration-1000"
+                className="w-full h-full object-cover opacity-100 brightness-100 contrast-110 saturate-130 transition-transform duration-1000 group-hover:scale-105"
               >
                 <source src="/videos/DJI_0230.webm" type="video/webm" />
               </video>
               
-              <div className="absolute top-4 left-4">
+              <div className="absolute top-4 left-4 z-10">
                  <div className="flex items-center gap-2.5 bg-black/40 backdrop-blur-md px-2.5 py-1.5 border border-white/10">
                     <div className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
                      <span className="font-montserrat text-[6px] text-white tracking-[0.2em] uppercase font-bold">INSTALACIONES_VIVO</span>
                  </div>
               </div>
-            </div>
+            </motion.div>
 
             <div className="mt-8 space-y-4">
               <h3 className="font-future text-xl text-white uppercase tracking-normal">INFRAESTRUCTURA PROPIA</h3>

@@ -11,7 +11,13 @@ export default function GenteSection() {
     <section className="relative w-full overflow-hidden flex flex-col md:flex-row-reverse min-h-[600px]">
       
       {/* Right Side: Impact Image (Now on the right) */}
-      <div className="relative w-full md:w-1/2 h-[400px] md:h-auto overflow-hidden">
+      <motion.div 
+        initial={{ scale: 1.15, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+        className="relative w-full md:w-1/2 h-[400px] md:h-auto overflow-hidden"
+      >
         <Image
           src="/images/equipo_lormar_accion_industrial.png"
           alt="Capital Humano Lormar"
@@ -19,7 +25,7 @@ export default function GenteSection() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-7l-black/5"></div>
-      </div>
+      </motion.div>
 
       {/* Left Side: Content with Pattern (Gold Background) */}
       <div className="relative w-full md:w-1/2 flex items-center justify-center bg-7l-gold p-12 md:p-24 overflow-hidden">
