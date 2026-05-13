@@ -7,7 +7,7 @@ Equilibrio perfecto entre la autoridad del Dark Mode y la claridad técnica. No 
 
 ### 🎨 Paleta de Poder
 - **Fondo Base:** `#0d0d0d` (Negro Carbón Industrial).
-- **Acento Maestro:** `#F2A900` (Oro Lormar).
+- **Acento Maestro:** `#F9B331` (Oro Lormar).
 - **Iluminación:** Resplandores Blancos/Cristalinos y halos dorados sutiles para profundidad.
 - **Contraste:** Textos en blanco puro o gris de alta visibilidad (mínimo 60% opacidad).
 

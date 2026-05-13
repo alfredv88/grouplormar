@@ -5,7 +5,20 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, MapPin, Calendar, Layers, PenTool as Tool, Truck, Anchor } from "lucide-react";
 
-const projectData = [
+interface CardItem {
+  title: string;
+  type: string;
+  desc: string;
+  image: string;
+  id: string;
+  items?: string[];
+  client?: string;
+  year?: string;
+  capacity?: string;
+  status?: string;
+}
+
+const projectData: CardItem[] = [
   { 
     title: "PLANTA DE TRITURACIÓN — BOLÍVAR", 
     client: "CORPOELEC / SECTOR MINERO", 
@@ -44,7 +57,7 @@ const projectData = [
   }
 ];
 
-const machineryData = [
+const machineryData: CardItem[] = [
   { 
     title: "EQUIPOS DE IZAMIENTO", 
     capacity: "6 - 100 TON", 
@@ -267,9 +280,9 @@ const ProjectGrid = () => {
                                 {p.desc}
                             </p>
 
-                            {activeTab === "maquinaria" && (p as any).items && (
+                            {activeTab === "maquinaria" && p.items && (
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 pt-6 border-t border-white/5">
-                                    {(p as any).items.map((item: string, idx: number) => (
+                                    {p.items.map((item: string, idx: number) => (
                                         <div key={idx} className="flex items-start gap-3">
                                             <div className="w-1.5 h-1.5 bg-7l-gold/50 mt-1.5 shrink-0 transform rotate-45"></div>
                                             <span className="text-[11px] font-bold font-montserrat text-white/60 uppercase tracking-wider leading-relaxed">{item}</span>
@@ -283,22 +296,22 @@ const ProjectGrid = () => {
                                     <>
                                         <div className="flex items-center gap-3">
                                             <MapPin size={12} className="text-white/20" />
-                                            <span className="text-[10px] font-montserrat uppercase text-white/40 tracking-widest">{(p as any).client}</span>
+                                            <span className="text-[10px] font-montserrat uppercase text-white/40 tracking-widest">{p.client}</span>
                                         </div>
                                         <div className="flex items-center gap-3">
                                             <Calendar size={12} className="text-white/20" />
-                                            <span className="text-[10px] font-montserrat uppercase text-white/40 tracking-widest">{(p as any).year}</span>
+                                            <span className="text-[10px] font-montserrat uppercase text-white/40 tracking-widest">{p.year}</span>
                                         </div>
                                     </>
                                 ) : (
                                     <>
                                         <div className="flex items-center gap-3">
                                             <Anchor size={12} className="text-white/20" />
-                                            <span className="text-[10px] font-montserrat uppercase text-white/40 tracking-widest">{(p as any).capacity}</span>
+                                            <span className="text-[10px] font-montserrat uppercase text-white/40 tracking-widest">{p.capacity}</span>
                                         </div>
                                         <div className="flex items-center gap-3">
                                             <div className="w-1.5 h-1.5 rounded-full bg-7l-gold animate-pulse"></div>
-                                            <span className="text-[10px] font-montserrat uppercase text-7l-gold tracking-widest">{(p as any).status}</span>
+                                            <span className="text-[10px] font-montserrat uppercase text-7l-gold tracking-widest">{p.status}</span>
                                         </div>
                                     </>
                                 )}

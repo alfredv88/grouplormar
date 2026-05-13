@@ -19,7 +19,7 @@ export default function ProcessSection() {
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-10 mb-20">
           <h2 className="text-3xl md:text-5xl font-future !text-[#0D0D0D] uppercase leading-none tracking-normal flex gap-3">
-            NUESTRO <span className="text-7l-gold">PROCESO</span>
+            NUESTRO <span className="!text-7l-gold-text">PROCESO</span>
           </h2>
           <div className="h-[2px] flex-1 bg-[#0D0D0D]/5 relative overflow-hidden">
             <motion.div
@@ -36,10 +36,10 @@ export default function ProcessSection() {
           {steps.map((step, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.6 }}
+              initial={{ opacity: 0, y: 40, scale: 0.97 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: idx * 0.12, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="group relative py-12 px-9 border-b md:border-b-0 md:border-r last:border-b-0 last:border-r-0 border-[#0D0D0D]/5 hover:bg-white hover:shadow-[0_20px_50px_rgba(13,13,13,0.05)] hover:-translate-y-1 transition-all duration-500 cursor-pointer"
             >
               {/* Hover gold side bar animation overlapping the existing left border exactly */}
@@ -56,7 +56,7 @@ export default function ProcessSection() {
               </h4>
               
               {/* High Contrast Description text */}
-              <p className="text-[13px] font-montserrat leading-relaxed border-l-2 border-[#0D0D0D]/10 pl-5 group-hover:border-7l-gold transition-colors font-medium !text-zinc-600 group-hover:!text-zinc-800">
+              <p className="text-[13px] font-montserrat leading-relaxed border-l-2 border-[#0D0D0D]/10 pl-5 group-hover:border-7l-gold transition-colors font-medium !text-[#0D0D0D]/70 group-hover:!text-[#0D0D0D]">
                 {step.desc}
               </p>
             </motion.div>

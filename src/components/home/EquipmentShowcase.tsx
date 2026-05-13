@@ -9,7 +9,7 @@ import Magnetic from "@/components/ui/Magnetic";
 
 const equipmentImages: Record<string, string> = {
   "izamiento": "/images/heavy-crane.png",
-  "pala-mecanica": "/images/WhatsApp Image 2026-04-09 at 2.40.14 PM.jpeg",
+  "pala-mecanica": "/images/equipment/pala_mecanica.png",
   "servicios-pozo": "/images/pulling-unit.png",
   "movimiento-tierra": "/images/WhatsApp Image 2026-04-09 at 2.40.17 PM (1).jpeg",
   "transporte": "/images/WhatsApp Image 2026-04-09 at 2.40.18 PM (1).jpeg",
@@ -66,7 +66,7 @@ export default function EquipmentShowcase() {
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 flex items-center justify-center">
         {/* Rombo Exterior Gigante */}
         <motion.div 
-          className="absolute border border-white/[0.015] rounded-none"
+          className="absolute border border-white/[0.06] rounded-none"
           style={{
             width: "950px",
             height: "950px",
@@ -78,7 +78,7 @@ export default function EquipmentShowcase() {
         />
         {/* Rombo Interior Dorado Concéntrico */}
         <motion.div 
-          className="absolute border border-7l-gold/[0.012] rounded-none"
+          className="absolute border border-7l-gold/[0.05] rounded-none"
           style={{
             width: "1150px",
             height: "1150px",
@@ -89,10 +89,16 @@ export default function EquipmentShowcase() {
           transition={{ duration: 280, repeat: Infinity, ease: "linear" }}
         />
         {/* Retícula de Ingeniería - Línea técnica horizontal muy tenue */}
-        <div className="absolute left-0 right-0 h-[1px] bg-white/[0.015] top-[50%]" />
+        <div className="absolute left-0 right-0 h-[1px] bg-white/[0.05] top-[50%]" />
       </div>
 
-      <div className="w-full max-w-[1800px] mx-auto px-10 md:px-24 grid lg:grid-cols-12 gap-16 relative z-10">
+      <motion.div 
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
+        className="w-full max-w-[1800px] mx-auto px-10 md:px-24 grid lg:grid-cols-12 gap-16 relative z-10"
+      >
         
         {/* Left Side: Navigation (Elite Standard) */}
         <div className="lg:col-span-3 flex flex-col relative z-10 pt-4">
@@ -170,13 +176,13 @@ export default function EquipmentShowcase() {
                 <div key={cat.id} className="relative flex-none select-none" onClick={() => setAutoplay(false)}>
                   <div className="w-[360px] h-[560px] bg-[#080808] border border-zinc-900 hover:border-7l-gold/50 transition-all duration-500 flex flex-col group overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.8)] relative">
                     
-                    {/* Media Frame - Dominancia Visual */}
-                    <div className="h-[300px] relative overflow-hidden bg-black pointer-events-none">
+                    {/* Media Frame - Dominancia Visual (100% Nítido y Brillante) */}
+                    <div className="h-[250px] shrink-0 relative overflow-hidden bg-[#080808] pointer-events-none">
                       <div
-                        className="absolute inset-0 bg-cover bg-center transition-all duration-[3s] ease-out filter brightness-[0.8] contrast-[0.95] group-hover:scale-105 group-hover:brightness-[1.05] group-hover:contrast-[1.05]"
+                        className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-105"
                         style={{ backgroundImage: equipmentImages[cat.id] ? `url('${equipmentImages[cat.id]}')` : 'none' }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent opacity-90 group-hover:opacity-75 transition-opacity duration-1000" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity duration-700" />
                     </div>
 
                     {/* Content Frame */}
@@ -193,7 +199,7 @@ export default function EquipmentShowcase() {
                           </span>
                         </div>
                         
-                        <h3 className="text-h3 !text-[18px] leading-[1.2] block">
+                        <h3 className="text-h3 !text-[18px] leading-[1.2] block min-h-[44px]">
                           {cat.title}
                         </h3>
                       </div>
@@ -254,7 +260,7 @@ export default function EquipmentShowcase() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

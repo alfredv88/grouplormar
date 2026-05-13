@@ -179,7 +179,7 @@ const ServiciosGrid = () => {
                 >
                     {/* Visual Segment */}
                     <div className="w-16 h-16 md:w-24 md:h-full bg-white/5 flex items-center justify-center text-white/20 group-hover:bg-7l-gold group-hover:text-7l-black transition-all duration-700">
-                        {React.cloneElement(s.icon as React.ReactElement<any>, { size: 32 })}
+                        {React.cloneElement(s.icon as React.ReactElement<{ size?: number }>, { size: 32 })}
                     </div>
 
                     {/* Content Segment */}

@@ -4,19 +4,34 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { BROCHURE_DATA } from "@/constants/brochureData";
-import { HardHat, Truck, ShieldCheck, Zap, Lightbulb } from "lucide-react";
+import { HardHat, Truck, ShieldCheck, Zap, Lightbulb, Sliders, Copy, Check } from "lucide-react";
 
 // Mapeo de iconos para los valores basado en la estética del brochure
 const VALUE_ICONS = [
-  <ShieldCheck key="1" size={16} />, // Responsabilidad
-  <HardHat key="2" size={16} />,      // Integridad
-  <Zap key="3" size={16} />,          // Calidad
-  <Truck key="4" size={16} />,        // Eficiencia
-  <Lightbulb key="5" size={16} />,    // Innovación
+  <ShieldCheck key="1" size={20} />, // Responsabilidad
+  <HardHat key="2" size={20} />,      // Integridad
+  <Zap key="3" size={20} />,          // Calidad
+  <Truck key="4" size={20} />,        // Eficiencia
+  <Lightbulb key="5" size={20} />,    // Innovación
 ];
 
 export default function AboutSection() {
-  // Coordenadas fijas consolidadas para producción de la Sección 3
+  const [opacity, setOpacity] = React.useState(1);
+  const [xOffset, setXOffset] = React.useState(2);
+  const [yOffset, setYOffset] = React.useState(2);
+  const [size, setSize] = React.useState(580);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [copied, setCopied] = React.useState(false);
+  const [isDev, setIsDev] = React.useState(false);
+
+  React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      const host = window.location.hostname;
+      if (host === "localhost" || host === "127.0.0.1" || process.env.NODE_ENV === "development") {
+        setIsDev(true);
+      }
+    }
+  }, []);
 
   return (
     <section id="nosotros" className="py-40 md:py-48 lg:py-56 bg-[#F7F7F7] relative overflow-hidden cinematic-reveal border-b border-[#0D0D0D]/5">
@@ -37,7 +52,7 @@ export default function AboutSection() {
             width: "799px",
             height: "315px",
             transform: "rotate(-90deg)",
-            opacity: 0.35,
+            opacity: 0.15,
           }}
         >
           <Image
@@ -49,6 +64,25 @@ export default function AboutSection() {
         </div>
       </div>
 
+      {/* Background Crane Element (Grua 120t - Derecha) */}
+      <div 
+        className="absolute right-0 bottom-0 pointer-events-none select-none z-0 transition-all duration-100"
+        style={{
+          width: `${size}px`,
+          height: `${size}px`,
+          opacity: opacity,
+          transform: `translate(${xOffset}%, ${yOffset}%)`,
+        }}
+      >
+        <Image
+          src="/images/equipment/grua 120t.png"
+          alt="Grúa 120T Lormar"
+          fill
+          className="object-contain"
+          style={{ objectPosition: "bottom right" }}
+        />
+      </div>
+
       <div className="w-full max-w-[1600px] mx-auto px-6 md:px-24 lg:px-32 lg:pl-48 relative z-10">
         
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
@@ -57,7 +91,7 @@ export default function AboutSection() {
           <div className="lg:col-span-5 space-y-12">
             <div className="space-y-4">
               <h2 className="text-h2 flex flex-col !text-[#0d0d0d]">
-                <span className="text-7l-gold drop-shadow-sm">ADN</span>
+                <span className="text-7l-gold-text drop-shadow-sm">ADN</span>
                 <span className="-mt-2">NUESTRO</span>
               </h2>
               <div className="w-32 h-[6px] bg-7l-gold"></div>
@@ -65,7 +99,7 @@ export default function AboutSection() {
 
             <div className="space-y-8">
                <h3 className="font-montserrat font-black leading-none uppercase tracking-[0.1em]" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 24px)', color: '#0d0d0d' }}>
-                 SOLIDEZ <span className="text-7l-gold">SIN FRONTERAS.</span>
+                 SOLIDEZ <span className="text-7l-gold-text">SIN FRONTERAS.</span>
                </h3>
                
                <p className="font-montserrat text-lg leading-relaxed font-bold italic border-l-4 border-7l-gold pl-6" style={{ color: '#0d0d0d' }}>
@@ -97,7 +131,7 @@ export default function AboutSection() {
                   >
                     <div className="relative z-20 flex flex-col gap-5">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-none bg-7l-gold flex items-center justify-center text-black shadow-md shadow-7l-gold/10 group-hover:scale-105 transition-transform duration-500">
+                        <div className="w-12 h-12 shrink-0 rounded-none bg-7l-gold flex items-center justify-center text-black shadow-md shadow-7l-gold/10 group-hover:scale-105 transition-transform duration-500">
                           {VALUE_ICONS[idx]}
                         </div>
                         <h4 className="text-h4 !text-[#0D0D0D] !text-[14px] group-hover:text-7l-gold transition-colors duration-500">
@@ -115,6 +149,12 @@ export default function AboutSection() {
         </div>
 
       </div>
+
+      {/* Elegant Architectural Separator Line */}
+      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-7l-gold/40 to-transparent flex items-center justify-center">
+        <div className="w-2 h-2 rotate-45 bg-7l-gold shadow-[0_0_8px_rgba(242,169,0,0.8)]" />
+      </div>
+
     </section>
   );
 }

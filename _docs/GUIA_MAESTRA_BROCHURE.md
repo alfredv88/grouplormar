@@ -181,7 +181,7 @@ Esta sección define cómo se interpreta visualmente el brochure físico en la p
 
 **1. PALETA DE COLORES (SISTEMA 7L)**
 *   **Negro Industrial (Base):** `#080808` - Usado para fondos principales y texturas de fibra de carbono.
-*   **Amarillo Oro (Seguridad):** `#F2A900` - Usado para acentos, llamados a la acción (CTA) y líneas de flujo.
+*   **Amarillo Oro (Seguridad):** `#F9B331` - Usado para acentos, llamados a la acción (CTA) y líneas de flujo.
 *   **Gris Corporativo (Neutral):** `#373737` - Tomado del logo "MAR". Usado para jerarquía secundaria y textos HUD.
 *   **Blanco Puro (Claridad):** `#FFFFFF` - Usado para secciones de alto contraste, fondos de lectura técnica y textos destacados.
 

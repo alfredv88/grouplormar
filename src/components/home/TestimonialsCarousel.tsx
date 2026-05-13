@@ -51,7 +51,7 @@ export default function TestimonialsCarousel() {
           <span className="text-[10px] uppercase font-montserrat tracking-[0.4em] text-zinc-400 font-bold block">
             RESPALDO
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6.5xl font-future !text-[#0D0D0D] uppercase leading-[0.9] tracking-normal flex flex-col items-end">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-future !text-[#0D0D0D] uppercase leading-[0.9] tracking-normal flex flex-col items-end">
             <span>REFERENCIAS</span>
             <span className="text-7l-gold -mt-1">COMERCIALES</span>
           </h2>
@@ -135,6 +135,12 @@ export default function TestimonialsCarousel() {
         </div>
 
       </div>
+
+      {/* Elegant Architectural Separator Line */}
+      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-7l-gold/40 to-transparent flex items-center justify-center">
+        <div className="w-2 h-2 rotate-45 bg-7l-gold shadow-[0_0_8px_rgba(242,169,0,0.8)]" />
+      </div>
+
     </section>
   );
 }

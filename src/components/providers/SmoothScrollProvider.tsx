@@ -13,13 +13,13 @@ export default function SmoothScrollProvider({ children }: SmoothScrollProviderP
   useEffect(() => {
     // Inicializar Lenis con configuración premium
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.8,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Curva de easing premium (out-expo) para fluidez cinemática
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
-      wheelMultiplier: 1.0,
-      touchMultiplier: 2.0,
+      wheelMultiplier: 0.85,
+      touchMultiplier: 1.5,
     });
 
     lenisRef.current = lenis;

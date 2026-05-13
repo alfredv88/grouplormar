@@ -59,23 +59,23 @@ export default function ChatContactWidget() {
     return (
         <>
             {/* GHOST MINIMALIST TRIGGER */}
-            <div className="fixed bottom-10 right-10 z-[60]">
+            <div className="fixed bottom-8 right-8 z-[60]">
                 <button
                     onClick={() => setIsOpen(true)}
-                    className={`group relative w-16 h-16 flex items-center justify-center transition-all duration-700 ${isOpen ? 'scale-0 rotate-90' : 'scale-100 rotate-0'}`}
+                    className={`group relative w-12 h-12 flex items-center justify-center transition-all duration-700 ${isOpen ? 'scale-0 rotate-90' : 'scale-100 rotate-0'}`}
                 >
-                    {/* Rotating Frames */}
-                    <div className="absolute inset-0 border border-white/5 group-hover:border-7l-gold/30 transition-all duration-700" />
-                    <div className="absolute inset-0 border border-white/5 rotate-45 group-hover:rotate-90 group-hover:border-7l-gold/30 transition-all duration-1000" />
+                    {/* Solid Luxury Backdrop Container to guarantee contrast over white/light backgrounds */}
+                    <div className="absolute inset-0 bg-7l-black/95 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.5)] border border-7l-gold/30 group-hover:border-7l-gold transition-all duration-700" />
+                    <div className="absolute inset-0 bg-7l-black/95 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.5)] border border-7l-gold/30 rotate-45 group-hover:rotate-90 group-hover:border-7l-gold transition-all duration-1000" />
                     
                     {/* Content */}
-                    <div className="relative z-10 flex flex-col items-center gap-1">
-                        <div className="w-1 h-1 bg-7l-gold rounded-full" />
-                        <span className="font-montserrat text-[7px] text-white/40 uppercase tracking-[0.3em] group-hover:text-white transition-colors">CONNECT</span>
+                    <div className="relative z-10 flex flex-col items-center gap-0.5">
+                        <div className="w-1 h-1 bg-7l-gold rounded-full shadow-[0_0_8px_rgba(242,169,0,0.8)]" />
+                        <span className="font-montserrat text-[6px] font-black text-white uppercase tracking-[0.25em] group-hover:text-7l-gold transition-colors">CONNECT</span>
                     </div>
 
                     {/* Hover Glow */}
-                    <div className="absolute inset-0 bg-7l-gold/0 group-hover:bg-7l-gold/5 blur-xl transition-all duration-700" />
+                    <div className="absolute inset-0 bg-7l-gold/0 group-hover:bg-7l-gold/10 blur-xl transition-all duration-700 pointer-events-none" />
                 </button>
             </div>
 
@@ -98,36 +98,36 @@ export default function ChatContactWidget() {
                             animate={{ y: 0, opacity: 1, scale: 1 }}
                             exit={{ y: 20, opacity: 0, scale: 0.95 }}
                             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-                            className="relative w-full max-w-[500px] bg-7l-black/40 border border-white/5 backdrop-blur-2xl shadow-[0_0_100px_rgba(0,0,0,0.5)] overflow-hidden"
+                            className="relative w-full max-w-[550px] bg-7l-black/95 border border-7l-gold/30 backdrop-blur-2xl shadow-[0_0_100px_rgba(0,0,0,0.9)] overflow-hidden"
                         >
                             {/* Decorative Lines */}
-                            <div className="absolute top-0 left-0 w-20 h-px bg-gradient-to-r from-7l-gold/50 to-transparent" />
-                            <div className="absolute top-0 left-0 w-px h-20 bg-gradient-to-b from-7l-gold/50 to-transparent" />
-                            <div className="absolute bottom-0 right-0 w-20 h-px bg-gradient-to-l from-white/10 to-transparent" />
-                            <div className="absolute bottom-0 right-0 w-px h-20 bg-gradient-to-t from-white/10 to-transparent" />
+                            <div className="absolute top-0 left-0 w-20 h-px bg-gradient-to-r from-7l-gold to-transparent" />
+                            <div className="absolute top-0 left-0 w-px h-20 bg-gradient-to-b from-7l-gold to-transparent" />
+                            <div className="absolute bottom-0 right-0 w-20 h-px bg-gradient-to-l from-7l-gold to-transparent" />
+                            <div className="absolute bottom-0 right-0 w-px h-20 bg-gradient-to-t from-7l-gold to-transparent" />
 
                             {/* Header */}
-                            <div className="p-12 pb-6 flex items-start justify-between">
-                                <div className="space-y-4">
+                            <div className="p-8 md:p-12 pb-6 flex items-start justify-between border-b border-white/10 bg-white/[0.02]">
+                                <div className="space-y-3">
                                     <div className="flex items-center gap-3">
-                                        <div className="w-8 h-[1px] bg-7l-gold" />
-                                        <span className="font-montserrat text-[9px] font-bold text-7l-gold uppercase tracking-[0.5em]">ENLACE OPERATIVO</span>
+                                        <div className="w-8 h-[2px] bg-7l-gold" />
+                                        <span className="font-montserrat text-[9px] font-black text-7l-gold uppercase tracking-[0.5em]">ENLACE OPERATIVO</span>
                                     </div>
                                     <h3 className="font-montserrat font-black text-3xl text-white uppercase tracking-tighter leading-none">
                                         CONTACTO <br />
-                                        <span className="text-white/20">DIRECTO</span>
+                                        <span className="text-7l-gold">DIRECTO</span>
                                     </h3>
                                 </div>
                                 <button 
                                     onClick={() => setIsOpen(false)}
-                                    className="p-4 bg-white/5 hover:bg-white/10 transition-colors text-white/40 hover:text-white"
+                                    className="p-3 bg-white/10 hover:bg-7l-gold transition-colors text-white hover:text-7l-black"
                                 >
-                                    <X size={18} />
+                                    <X size={20} />
                                 </button>
                             </div>
 
                             {/* Main Body */}
-                            <div className="p-12 pt-6 space-y-10">
+                            <div className="p-8 md:p-12 pt-8 space-y-8">
                                 {isSuccess ? (
                                     <motion.div 
                                         initial={{ opacity: 0, y: 10 }}
@@ -144,65 +144,66 @@ export default function ChatContactWidget() {
                                         </div>
                                     </motion.div>
                                 ) : (
-                                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
-                                        <div className="space-y-8">
-                                            <div className="grid grid-cols-2 gap-8">
-                                                <div className="space-y-3">
-                                                    <label className="block font-montserrat text-[8px] font-bold text-white/20 uppercase tracking-[0.3em]">Nombre</label>
+                                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+                                        <div className="space-y-6">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                <div className="space-y-2">
+                                                    <label className="block font-montserrat text-[10px] font-bold text-zinc-300 uppercase tracking-[0.2em]">Nombre</label>
                                                     <input 
                                                         {...register('name')}
-                                                        className="w-full bg-transparent border-b border-white/5 py-2 text-white font-montserrat text-sm focus:outline-none focus:border-7l-gold/50 transition-colors placeholder:text-white/5"
+                                                        className="w-full bg-white/5 border border-white/15 px-4 py-3 text-white font-montserrat text-sm focus:outline-none focus:border-7l-gold focus:bg-white/10 transition-all placeholder:text-zinc-500"
                                                         placeholder="S. APELLIDO"
                                                     />
+                                                    {errors.name && <span className="font-montserrat text-[10px] text-red-400 mt-1 block">{errors.name.message}</span>}
                                                 </div>
-                                                <div className="space-y-3">
-                                                    <label className="block font-montserrat text-[8px] font-bold text-white/20 uppercase tracking-[0.3em]">Email</label>
+                                                <div className="space-y-2">
+                                                    <label className="block font-montserrat text-[10px] font-bold text-zinc-300 uppercase tracking-[0.2em]">Email</label>
                                                     <input 
                                                         {...register('email')}
                                                         type="email"
-                                                        className="w-full bg-transparent border-b border-white/5 py-2 text-white font-montserrat text-sm focus:outline-none focus:border-7l-gold/50 transition-colors placeholder:text-white/5"
+                                                        className="w-full bg-white/5 border border-white/15 px-4 py-3 text-white font-montserrat text-sm focus:outline-none focus:border-7l-gold focus:bg-white/10 transition-all placeholder:text-zinc-500"
                                                         placeholder="CORP@MAIL.COM"
                                                     />
+                                                    {errors.email && <span className="font-montserrat text-[10px] text-red-400 mt-1 block">{errors.email.message}</span>}
                                                 </div>
                                             </div>
 
-                                            <div className="space-y-3">
-                                                <label className="block font-montserrat text-[8px] font-bold text-white/20 uppercase tracking-[0.3em]">Departamento</label>
+                                            <div className="space-y-2">
+                                                <label className="block font-montserrat text-[10px] font-bold text-zinc-300 uppercase tracking-[0.2em]">Departamento</label>
                                                 <select 
                                                     {...register('subject')}
-                                                    className="w-full bg-transparent border-b border-white/5 py-2 text-white font-montserrat text-sm focus:outline-none focus:border-7l-gold/50 transition-colors appearance-none"
+                                                    className="w-full bg-7l-black border border-white/15 px-4 py-3 text-white font-montserrat text-sm focus:outline-none focus:border-7l-gold transition-all"
                                                 >
-                                                    <option value="Consulta General" className="bg-7l-black">CONSULTA GENERAL</option>
-                                                    <option value="Operaciones" className="bg-7l-black">OPERACIONES</option>
-                                                    <option value="Ingeniería" className="bg-7l-black">INGENIERÍA</option>
+                                                    <option value="Consulta General">CONSULTA GENERAL</option>
+                                                    <option value="Operaciones">OPERACIONES</option>
+                                                    <option value="Ingeniería">INGENIERÍA</option>
                                                 </select>
+                                                {errors.subject && <span className="font-montserrat text-[10px] text-red-400 mt-1 block">{errors.subject.message}</span>}
                                             </div>
 
-                                            <div className="space-y-3">
-                                                <label className="block font-montserrat text-[8px] font-bold text-white/20 uppercase tracking-[0.3em]">Mensaje</label>
+                                            <div className="space-y-2">
+                                                <label className="block font-montserrat text-[10px] font-bold text-zinc-300 uppercase tracking-[0.2em]">Mensaje</label>
                                                 <textarea 
                                                     {...register('message')}
-                                                    rows={3}
-                                                    className="w-full bg-transparent border-b border-white/5 py-2 text-white font-montserrat text-sm focus:outline-none focus:border-7l-gold/50 transition-colors placeholder:text-white/5 resize-none"
+                                                    rows={4}
+                                                    className="w-full bg-white/5 border border-white/15 px-4 py-3 text-white font-montserrat text-sm focus:outline-none focus:border-7l-gold focus:bg-white/10 transition-all placeholder:text-zinc-500 resize-none"
                                                     placeholder="REQUERIMIENTO TÉCNICO..."
                                                 />
+                                                {errors.message && <span className="font-montserrat text-[10px] text-red-400 mt-1 block">{errors.message.message}</span>}
                                             </div>
                                         </div>
 
                                         <button
                                             type="submit"
                                             disabled={isSubmitting}
-                                            className="group w-full py-6 border border-white/5 hover:border-7l-gold/50 transition-all duration-700 flex items-center justify-center gap-6 overflow-hidden relative"
+                                            className="w-full py-5 bg-7l-gold hover:bg-7l-gold/90 text-7l-black font-montserrat font-black text-[12px] tracking-[0.4em] uppercase flex items-center justify-center gap-4 transition-all duration-300 shadow-[0_4px_20px_rgba(242,169,0,0.4)] hover:scale-[1.01] active:scale-[0.99]"
                                         >
-                                            <div className="absolute inset-0 bg-7l-gold/5 translate-y-full group-hover:translate-y-0 transition-transform duration-700" />
                                             {isSubmitting ? (
-                                                <Loader2 className="animate-spin text-7l-gold" size={16} />
+                                                <Loader2 className="animate-spin text-7l-black" size={18} />
                                             ) : (
                                                 <>
-                                                    <span className="relative z-10 font-montserrat text-[9px] font-black uppercase tracking-[0.5em] text-white/40 group-hover:text-7l-gold transition-colors">
-                                                        ENVIAR REQUERIMIENTO
-                                                    </span>
-                                                    <ArrowRight size={14} className="relative z-10 text-white/20 group-hover:text-7l-gold group-hover:translate-x-2 transition-all" />
+                                                    <span>ENVIAR REQUERIMIENTO</span>
+                                                    <ArrowRight size={16} className="text-7l-black" />
                                                 </>
                                             )}
                                         </button>

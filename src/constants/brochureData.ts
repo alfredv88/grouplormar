@@ -50,7 +50,6 @@ export const BROCHURE_DATA = {
             category: "Servicio Logístico",
             items: [
                 "Transporte Terrestre Especializado: Movilización de equipos sobredimensionados y tuberías.",
-                "Alquiler de Maquinaria Pesada: Flota propia garantizada.",
                 "Izamiento y Posicionamiento de Cargas: Maniobras críticas de montaje y desmontaje.",
                 "Gestión de Flota: Mantenimiento preventivo y correctivo dedicado.",
             ],

@@ -26,21 +26,23 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 15 },
+  hidden: { opacity: 0, y: 30, scale: 0.96 },
   visible: { 
     opacity: 1, 
     y: 0,
+    scale: 1,
     transition: {
-      duration: 0.5,
-      ease: "easeOut",
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1] as const, // Ultra-suave Out-Expo
     },
   },
   exit: { 
     opacity: 0, 
-    y: -10,
+    y: 15,
+    scale: 0.98,
     transition: {
-      duration: 0.3,
-      ease: "easeIn",
+      duration: 0.4,
+      ease: [0.22, 1, 0.36, 1] as const,
     },
   },
 };
@@ -73,7 +75,23 @@ export default function ServicesGrid() {
     const title = parts.length > 1 ? parts[0] : item;
     const desc = parts.length > 1 ? parts[1] : "Servicios especializados con los más altos estándares de calidad y seguridad industrial.";
     
-    // Mapeo de imágenes realistas por categoría
+    // Mapeo de imágenes específicas por servicio individual
+    const itemImageMap: Record<string, string> = {
+      "Desarrollo Integral": "/images/services/construccion_desarrollo.png",
+      "Facilidades de Producción y Superficie": "/images/services/construccion_facilidades.png",
+      "Infraestructura Civil y Soporte": "/images/services/construccion_infraestructura.jpg",
+      "Instalaciones Eléctricas e Instrumentación": "/images/services/construccion_electricas.png",
+      "Correctivo y Reparación": "/images/services/mantenimiento_correctivo.jpg",
+      "Integridad de Tuberías y Equipos": "/images/services/mantenimiento_integridad.jpg",
+      "Autonomía de Flota": "/images/services/mantenimiento_flota.jpg",
+      "Manejo Integral de Residuos": "/images/services/ambiental_gestion.jpeg",
+      "Saneamiento y Remediación": "/images/services/ambiental_remediacion.png",
+      "Transporte Terrestre Especializado": "/images/services/logistica_transporte.jpg",
+      "Izamiento y Posicionamiento de Cargas": "/images/services/logistica_izamiento.jpg",
+      "Gestión de Flota": "/images/services/logistica_flota.png",
+    };
+
+    // Mapeo de imágenes realistas por categoría (como respaldo)
     const categoryImageMap: Record<string, string> = {
       "Construcción": "/images/services/construccion_real.png",
       "Mantenimiento": "/images/services/mantenimiento_real.png",
@@ -94,7 +112,7 @@ export default function ServicesGrid() {
       id: idx,
       title: title.toUpperCase(),
       desc: desc,
-      img: categoryImageMap[activeTab] || "/images/hero-excavator.webp",
+      img: itemImageMap[title] || categoryImageMap[activeTab] || "/images/hero-excavator.webp",
       tag: technicalTags[activeTab] || "Certificado"
     };
   }) || [];

@@ -45,7 +45,7 @@ export default function SustainabilitySection() {
               GESTIÓN AMBIENTAL
             </span>
             <h2 className="text-4xl md:text-6xl font-future text-white leading-tight uppercase tracking-normal">
-              VALOR <br /> <span className="text-7l-gold">SOSTENIBLE</span>
+              VALOR <br /> <span className="text-7l-gold-text">SOSTENIBLE</span>
             </h2>
           </motion.div>
 

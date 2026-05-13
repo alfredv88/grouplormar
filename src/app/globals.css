@@ -7,7 +7,8 @@
 
   /* Brand Palette (SISTEMA 7L - Official Brochure) */
   --color-7l-black: #0d0d0d;      /* Negro Carbón: Base más clara */
-  --color-7l-gold: #F2A900;       /* Amarillo Oro: Seguridad y Acento */
+  --color-7l-gold: #F9B331;       /* Amarillo Oro: Seguridad y Acento (Sincronizado con el Logo) */
+  --color-7l-gold-text: #F9B331;  /* Amarillo Oro Sincronizado para Textos */
   --color-7l-gray: #D1D5DB;       /* Gris Corporativo: Ajustado para legibilidad (Gris Claro) */
   --color-7l-white: #FFFFFF;      /* Blanco Puro: Claridad */
   
@@ -169,9 +170,9 @@ p {
 .mesh-gradient {
   background-color: #0d0d0d;
   background-image: 
-    radial-gradient(at 0% 0%, hsla(42,100%,47%,0.15) 0, transparent 50%), 
+    radial-gradient(at 0% 0%, hsla(39,95%,58%,0.15) 0, transparent 50%), 
     radial-gradient(at 50% 0%, hsla(0,0%,100%,0.05) 0, transparent 50%), 
-    radial-gradient(at 100% 0%, hsla(42,100%,47%,0.1) 0, transparent 50%);
+    radial-gradient(at 100% 0%, hsla(39,95%,58%,0.1) 0, transparent 50%);
 }
 
 .cinematic-reveal {

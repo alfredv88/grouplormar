@@ -15,7 +15,7 @@ Se prohíbe el uso de fuentes "gamer" o decorativas genéricas. La identidad Lor
 *   **Syne (Regular/Medium):** Exclusiva para **Cuerpo de texto**, etiquetas (labels), micro-copy y botones.
 
 ### B. Paleta de Colores Corporativa
-*   **Gold 7L (`#F2A900`):** Color de precisión. Usado en iconos, acentos activos y estados de hover técnico.
+*   **Gold 7L (`#F9B331`):** Color de precisión. Usado en iconos, acentos activos y estados de hover técnico.
 *   **Carbon Deep (`#050505` / `#0a0a0a`):** Fondo de autoridad. Proporciona el contraste necesario para la elegancia industrial.
 *   **White Surgical (`#ffffff`):** Claridad técnica. Usado para lectura densa y fondos de tarjetas premium.
 

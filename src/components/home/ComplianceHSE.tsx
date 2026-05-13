@@ -58,7 +58,7 @@ export default function ComplianceHSE() {
           <div className="lg:col-span-7 space-y-10 relative">
             <div className="divide-y divide-white/10 border-t border-b border-white/10 relative z-10">
               {complianceHub.map((item, idx) => (
-                <div key={idx} className="py-6.5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group">
+                <div key={idx} className="py-[26px] flex flex-col sm:flex-row sm:items-center justify-between gap-4 group">
                   <div className="space-y-2 flex-1 min-w-0">
                     <div className="flex items-center gap-3">
                       <span className="w-1.5 h-1.5 bg-7l-gold rounded-full shrink-0 animate-pulse" />
@@ -67,8 +67,8 @@ export default function ComplianceHSE() {
                       </span>
                     </div>
                     
-                    <div className="pl-4.5 flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                      <span className="font-mono text-[14px] text-7l-gold font-bold tracking-wider block">
+                    <div className="pl-[18px] flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                      <span className="font-mono text-[14px] text-7l-gold font-black tracking-wider block">
                         {item.number}
                       </span>
                       <span className="font-montserrat text-[9px] text-white/40 font-bold tracking-widest block uppercase">
@@ -77,8 +77,8 @@ export default function ComplianceHSE() {
                     </div>
                   </div>
                   
-                  <div className="flex items-center sm:justify-end shrink-0 pl-4.5 sm:pl-0">
-                    <div className="flex items-center gap-3 px-4 py-2 rounded-none border border-white/10 group-hover:border-7l-gold/30 transition-all duration-500 bg-white/[0.01]">
+                  <div className="flex items-center sm:justify-end shrink-0 pl-[18px] sm:pl-0">
+                    <div className="flex items-center gap-3 px-4 py-2 rounded-none border border-white/10 group-hover:border-7l-gold transition-all duration-500 bg-white/[0.01]">
                        <CheckCircle2 size={11} className="text-green-500" />
                        <span className="font-montserrat text-[8px] text-white font-black tracking-widest uppercase">{item.status}</span>
                     </div>

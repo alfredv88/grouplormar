@@ -37,15 +37,15 @@ export default function StrategicLocation() {
     <section className="py-24 bg-[#0a1111] border-b border-white/5 relative overflow-hidden" id="location">
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
         
-        {/* CENTERED HEADER (COMPACTED) */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
+        {/* HEADER (LEFT ALIGNED) */}
+        <div className="text-left mb-16 max-w-3xl">
           <span className="font-montserrat text-7l-gold text-[7px] font-bold tracking-[0.5em] uppercase block mb-6">
             Red Industrial Global
           </span>
           <h2 className="text-4xl md:text-5xl font-future text-white uppercase tracking-normal leading-[0.9]">
-            PRESENCIA <span className="text-7l-gold">ESTRATÉGICA</span>
+            PRESENCIA <span className="text-7l-gold-text">ESTRATÉGICA</span>
           </h2>
-          <div className="w-12 h-[2px] bg-7l-gold mx-auto mt-8" />
+          <div className="w-12 h-[2px] bg-7l-gold mt-8" />
         </div>
 
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
@@ -75,7 +75,7 @@ export default function StrategicLocation() {
                           {hub.location}
                         </span>
                         <div className="flex items-start gap-3 pt-3">
-                           <MapPin size={12} className="text-white/20 mt-1 shrink-0" />
+                           <MapPin size={12} className="text-7l-gold mt-[2px] shrink-0" />
                            <p className="text-[11px] text-white font-montserrat leading-relaxed max-w-sm font-medium">
                              {hub.address}
                            </p>
@@ -87,7 +87,7 @@ export default function StrategicLocation() {
               ))}
             </div>
 
-            <div className="mt-8 flex justify-between items-center text-[7px] font-montserrat text-white/10 tracking-[0.5em] uppercase">
+            <div className="mt-8 flex justify-between items-center text-[7px] font-montserrat text-7l-gold tracking-[0.5em] uppercase">
                <span>Red Logística Central Anzoátegui</span>
                <span>100% Propiedad de Activos</span>
             </div>
@@ -103,7 +103,7 @@ export default function StrategicLocation() {
                 playsInline 
                 className="w-full h-full object-cover opacity-100 brightness-100 contrast-110 saturate-130 transition-all duration-1000"
               >
-                <source src="/videos/lormar 5.webm" type="video/webm" />
+                <source src="/videos/DJI_0230.webm" type="video/webm" />
               </video>
               
               <div className="absolute top-4 left-4">
@@ -114,7 +114,7 @@ export default function StrategicLocation() {
               </div>
             </div>
 
-            <div className="space-y-4">
+            <div className="mt-8 space-y-4">
               <h3 className="font-future text-xl text-white uppercase tracking-normal">INFRAESTRUCTURA PROPIA</h3>
               <p className="font-montserrat text-[13px] text-white leading-relaxed max-w-xl font-medium">
                 Operamos desde activos integrales en el corazón industrial de Anzoátegui. Cada sede está equipada con tecnología de punta y personal certificado, garantizando la continuidad técnica y administrativa de todos nuestros proyectos.

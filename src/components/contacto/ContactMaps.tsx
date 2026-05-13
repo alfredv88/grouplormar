@@ -11,7 +11,7 @@ const ContactMaps = () => {
             <div className="max-w-[1800px] mx-auto space-y-20 relative z-10">
                 <div className="space-y-4">
                     <h2 className="text-6xl md:text-8xl font-black font-orbitron uppercase italic text-white tracking-tightest">
-                        NUESTRAS <br /> <span className="text-transparent stroke-7l-gold" style={{ WebkitTextStroke: "2px #F2A900" }}>SEDES</span>
+                        NUESTRAS <br /> <span className="text-transparent stroke-7l-gold" style={{ WebkitTextStroke: "2px #F9B331" }}>SEDES</span>
                     </h2>
                     <div className="h-[2px] w-32 bg-7l-gold"></div>
                 </div>

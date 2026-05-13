@@ -37,7 +37,7 @@ export default function StatsCounter() {
             playsInline
             className="w-full h-full object-cover opacity-100 brightness-100 contrast-110 saturate-130"
           >
-            <source src="/videos/lormar 2.webm" type="video/webm" />
+            <source src="/videos/lormar 3.webm" type="video/webm" />
           </video>
         </div>
       </div>

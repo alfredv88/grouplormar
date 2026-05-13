@@ -17,7 +17,7 @@ const ContactHero = () => {
 
                 <h1 className="text-6xl md:text-[110px] font-future uppercase leading-[0.85] tracking-normal text-white">
                     ASESORÍA <br />
-                    <span className="text-transparent" style={{ WebkitTextStroke: "1.5px #F2A900" }}>DIRECTA</span>
+                    <span className="text-transparent" style={{ WebkitTextStroke: "1.5px #F9B331" }}>DIRECTA</span>
                 </h1>
 
                 <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-montserrat font-light border-l-2 border-7l-gold pl-10 max-w-5xl">

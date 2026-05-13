@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Leaf, Users, Award, ShieldCheck, Globe, CheckCircle2, ExternalLink, FileText, Download } from "lucide-react";

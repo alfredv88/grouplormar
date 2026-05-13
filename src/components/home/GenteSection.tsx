@@ -13,7 +13,7 @@ export default function GenteSection() {
       {/* Right Side: Impact Image (Now on the right) */}
       <div className="relative w-full md:w-1/2 h-[400px] md:h-auto overflow-hidden">
         <Image
-          src="/images/gente_lormar_diversidad.png"
+          src="/images/equipo_lormar_accion_industrial.png"
           alt="Capital Humano Lormar"
           fill
           className="object-cover"
@@ -40,11 +40,11 @@ export default function GenteSection() {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <span className="font-montserrat text-7l-black/80 text-[10px] font-bold tracking-[0.5em] uppercase">
+            <span className="font-montserrat text-7l-black text-[10px] font-bold tracking-[0.5em] uppercase">
               CAPITAL HUMANO
             </span>
             <h2 className="text-4xl md:text-6xl font-montserrat font-black text-white leading-tight uppercase tracking-tight">
-              TALENTO <br /> <span className="text-7l-black/80">ESTRATÉGICO</span>
+              TALENTO <br /> <span className="text-7l-black">ESTRATÉGICO</span>
             </h2>
           </motion.div>
 
@@ -53,7 +53,7 @@ export default function GenteSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl font-montserrat text-white leading-relaxed font-medium"
+            className="text-lg md:text-xl font-montserrat !text-white leading-relaxed font-medium"
           >
             En Grupo Lormar creemos en el valor de las personas. Nuestro equipo de profesionales cuenta con una visión internacional y una formación técnica de élite, siendo el motor fundamental de nuestra solidez y crecimiento continuo.
           </motion.p>

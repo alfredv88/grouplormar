@@ -34,7 +34,7 @@ Solo se permiten dos familias tipográficas. Cualquier otra fuente (Future, Sync
 
 ## 3. Paleta de Colores
 - **Fondo Primario**: `#050505` (Negro Profundo / Industrial).
-- **Acento (Estatus)**: `#F2A900` (7L Gold).
+- **Acento (Estatus)**: `#F9B331` (7L Gold).
 - **Texto Primario**: `#FFFFFF` (Blanco Puro, 90% opacidad).
 - **Texto Técnico**: `#9CA3AF` (Gris frío / Slate) para metadatos y descripciones.
 
@@ -51,7 +51,7 @@ Solo se permiten dos familias tipográficas. Cualquier otra fuente (Future, Sync
 
 Para proyectar una imagen quirúrgica y ejecutiva, todos los botones principales de la página principal deben seguir la arquitectura **Compact Gold**:
 
-- **Fondo**: `var(--color-7l-gold)` (#F2A900).
+- **Fondo**: `var(--color-7l-gold)` (#F9B331).
 - **Texto**: `var(--color-7l-black)` (#0D0D0D), tipografía `Syne`, tamaño `9px`, tracking `0.4em`, `uppercase`.
 - **Dimensiones**: `px-6 py-3`. (Efecto compacto/pequeño).
 - **Iconografía**: `ArrowRight` (10px) con desplazamiento sutil en hover.
