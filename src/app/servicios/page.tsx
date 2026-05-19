@@ -251,18 +251,17 @@ export default function ServiciosPage() {
 
             {/* Pausa 2: Después de las siguientes 2 secciones (03 Pozos y 04 Ambiental) */}
             {index === 4 && (
-              <section className="py-32 bg-[#080d0d] relative overflow-hidden border-y border-white/5">
-                <div className="absolute inset-0 z-0 opacity-10 bg-industrial-grid" />
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 via-transparent to-emerald-500/5 pointer-events-none" />
+              <section className="py-32 bg-7l-gold relative overflow-hidden border-y border-black/10" style={{ backgroundImage: "radial-gradient(rgba(0,0,0,0.12) 1px, transparent 0)", backgroundSize: "24px 24px" }}>
+
                 
                 <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 text-center relative z-10">
-                  <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.6em] uppercase mb-4 block">
+                  <span className="font-montserrat text-black text-[10px] font-black tracking-[0.6em] uppercase mb-4 block">
                     COMPROMISO Y CONFORMIDAD
                   </span>
-                  <h2 className="text-4xl md:text-6xl font-future text-white uppercase tracking-normal max-w-4xl mx-auto leading-tight mb-6">
-                    HSE Y CUMPLIMIENTO <span className="text-7l-gold">RACDA OFICIAL</span>
+                  <h2 className="text-4xl md:text-6xl font-future text-black uppercase tracking-normal max-w-4xl mx-auto leading-tight mb-6">
+                    HSE Y CUMPLIMIENTO <span className="text-white">RACDA OFICIAL</span>
                   </h2>
-                  <p className="text-zinc-400 font-montserrat font-medium text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+                  <p className="text-white font-montserrat font-semibold text-sm md:text-base max-w-2xl mx-auto leading-relaxed opacity-90">
                     Operamos bajo estrictos estándares internacionales de higiene, seguridad y ambiente, garantizados por nuestras certificaciones vigentes del MINEC.
                   </p>
                 </div>
