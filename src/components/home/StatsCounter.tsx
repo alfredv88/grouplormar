@@ -27,9 +27,9 @@ export default function StatsCounter() {
 
   return (
     <div className="relative overflow-hidden bg-black flex items-center justify-center min-h-[60vh] md:min-h-[70vh]">
-      {/* Background Video Layer - FIXED DE FONDO PURO (CSS Cinema Masking) */}
-      <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden [clip-path:inset(0px)]">
-        <div className="fixed inset-0 w-full h-full">
+      {/* Background Video Layer - Absolute (Fix iOS Safari: fixed+clip-path incompatible) */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
+        <div className="absolute inset-0 w-full h-full">
           <video
             autoPlay
             muted

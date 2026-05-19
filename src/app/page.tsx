@@ -65,7 +65,7 @@ export default function Home() {
       <ServicesGrid />
 
       {/* 7. AUTHORITY — Números Duros de Capacidad */}
-      <div className="relative overflow-hidden [clip-path:inset(0_0_0_0)]">
+      <div className="relative overflow-hidden">
         <StatsCounter />
       </div>
 

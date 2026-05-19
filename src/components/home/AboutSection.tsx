@@ -30,7 +30,7 @@ export default function AboutSection() {
   const craneScale = useTransform(scrollYProgress, [0, 1], [0.95, 1.08]);
 
   return (
-    <section ref={containerRef} id="nosotros" className="py-40 md:py-48 lg:py-56 bg-[#F7F7F7] relative overflow-hidden cinematic-reveal border-b border-[#0D0D0D]/5">
+    <section ref={containerRef} id="nosotros" className="py-20 md:py-40 lg:py-56 bg-[#F7F7F7] relative overflow-hidden cinematic-reveal border-b border-[#0D0D0D]/5">
       
 
       {/* Vertical Branding Column (Logo Oficial - Posición Fija y Consolidada de Producción) */}
@@ -59,12 +59,12 @@ export default function AboutSection() {
         </div>
       </motion.div>
 
-      {/* Background Crane Element (Grua 120t - Derecha) */}
+      {/* Background Crane Element (Grua 120t - Derecha) — Oculto en mobile para evitar scroll horizontal */}
       <motion.div 
-        className="absolute right-0 bottom-0 pointer-events-none select-none z-0 origin-bottom-right"
+        className="absolute right-0 bottom-0 pointer-events-none select-none z-0 origin-bottom-right hidden lg:block"
         style={{
-          width: "580px",
-          height: "580px",
+          width: "clamp(320px, 32vw, 580px)",
+          height: "clamp(320px, 32vw, 580px)",
           y: craneY,
           scale: craneScale,
         }}
@@ -78,9 +78,9 @@ export default function AboutSection() {
         />
       </motion.div>
 
-      <div className="w-full max-w-[1600px] mx-auto px-6 md:px-24 lg:px-32 lg:pl-48 relative z-10">
+      <div className="w-full max-w-[1600px] mx-auto px-5 md:px-16 lg:px-32 lg:pl-48 relative z-10">
         
-        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24 items-start">
           
           {/* IZQUIERDA: EL ALMA DE LORMAR (ESTILO S4 REFORZADO) */}
           <div className="lg:col-span-5 space-y-12">
@@ -108,7 +108,7 @@ export default function AboutSection() {
           </div>
 
           {/* DERECHA: LOS VALORES (ESTILO EXECUTIVE S4) */}
-          <div className="lg:col-span-7 border-l border-gray-100 lg:pl-16 pt-2">
+          <div className="lg:col-span-7 border-t border-gray-200 pt-8 lg:border-t-0 lg:border-l lg:border-gray-100 lg:pl-16 lg:pt-2">
                    <div className="flex items-center gap-3 mb-4">
                      <div className="w-10 h-[1px] bg-7l-gold"></div>
                       <span className="font-montserrat text-[10px] font-black tracking-[0.3em] uppercase" style={{ color: '#0d0d0d' }}>PRINCIPIOS FUNDAMENTALES</span>

@@ -21,12 +21,25 @@ const equipmentImages: Record<string, string> = {
 
 const showcaseCategories = BROCHURE_DATA.machinery;
 const ITEM_HEIGHT = 48;
-const CARD_WIDTH = 400; // 360px de tarjeta + 40px (gap-10)
 
 export default function EquipmentShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [autoplay, setAutoplay] = useState(true);
+  const [cardWidth, setCardWidth] = useState(360);
+
+  // Calcular ancho de tarjeta según viewport — Mobile adaptativo
+  useEffect(() => {
+    const update = () => {
+      const vw = window.innerWidth;
+      if (vw < 480) setCardWidth(vw - 48);
+      else if (vw < 768) setCardWidth(vw - 64);
+      else setCardWidth(360);
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
 
   // Autoplay Inteligente: Avanza cada 5 segundos si está activo y no se hace hover
   useEffect(() => {
@@ -97,7 +110,7 @@ export default function EquipmentShowcase() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
-        className="w-full max-w-[1800px] mx-auto px-10 md:px-24 grid lg:grid-cols-12 gap-16 relative z-10"
+        className="w-full max-w-[1800px] mx-auto px-5 md:px-12 lg:px-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 relative z-10"
       >
         
         {/* Left Side: Navigation (Elite Standard) */}
@@ -154,11 +167,11 @@ export default function EquipmentShowcase() {
           <div className="w-full overflow-hidden pb-24">
             <motion.div
               className="flex gap-10 cursor-grab active:cursor-grabbing"
-              animate={{ x: -activeIndex * CARD_WIDTH }}
+              animate={{ x: -activeIndex * (cardWidth + 40) }}
               transition={{ type: "spring", stiffness: 150, damping: 22 }}
               drag="x"
               dragConstraints={{
-                left: -(showcaseCategories.length - 1) * CARD_WIDTH,
+                left: -(showcaseCategories.length - 1) * (cardWidth + 40),
                 right: 0,
               }}
               onDragStart={() => setAutoplay(false)}
@@ -174,7 +187,10 @@ export default function EquipmentShowcase() {
             >
               {showcaseCategories.map((cat) => (
                 <div key={cat.id} className="relative flex-none select-none" onClick={() => setAutoplay(false)}>
-                  <div className="w-[360px] h-[560px] bg-[#080808] border border-zinc-900 hover:border-7l-gold/50 transition-all duration-500 flex flex-col group overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.8)] relative">
+                  <div 
+                    className="bg-[#080808] border border-zinc-900 hover:border-7l-gold/50 transition-all duration-500 flex flex-col group overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.8)] relative"
+                    style={{ width: `${cardWidth}px`, height: '560px' }}
+                  >
                     
                     {/* Media Frame - Dominancia Visual (100% Nítido y Brillante) */}
                     <div className="h-[250px] shrink-0 relative overflow-hidden bg-[#080808] pointer-events-none">

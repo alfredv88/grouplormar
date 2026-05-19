@@ -34,7 +34,7 @@ export default function Navbar() {
   return (
     <>
       {/* ── TOP BAR (Utility / Institutional - Static, scrolls out of view) ── */}
-      <div className="h-10 w-full flex items-center bg-7l-black relative z-50 border-b border-white/5">
+      <div className="h-10 w-full hidden md:flex items-center bg-7l-black relative z-50 border-b border-white/5">
         <div className="w-full max-w-[1800px] mx-auto px-6 md:px-16 lg:px-32 flex items-center justify-between">
           {/* Left: ID Corporativo */}
           <div className="flex items-center gap-6">
@@ -76,7 +76,7 @@ export default function Navbar() {
         variants={{ visible: { y: 0 }, hidden: { y: "-100%" } }}
         animate={hidden ? "hidden" : "visible"}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed left-0 right-0 w-full z-50 transition-all duration-300 ${isScrolled ? "top-0" : "top-10"}`}
+        className={`fixed left-0 right-0 w-full z-50 transition-all duration-300 ${isScrolled ? "top-0" : "md:top-10 top-0"}`}
       >
 
         {/* ── MAIN NAV ── */}

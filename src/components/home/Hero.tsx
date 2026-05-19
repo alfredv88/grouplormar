@@ -63,9 +63,9 @@ export default function Hero() {
       </div>
 
       {/* 2. REFINED CONTENT LAYER */}
-      <div className="relative z-20 w-full max-w-[1800px] mx-auto px-10 md:px-24 lg:px-44 drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
+      <div className="relative z-20 w-full max-w-[1800px] mx-auto px-6 md:px-16 lg:px-44 drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
         
-        <div className="max-w-5xl space-y-10 lg:space-y-14">
+        <div className="max-w-5xl space-y-6 md:space-y-10 lg:space-y-14">
           
           {/* Overline with Precision Mark */}
           <div className="flex items-center gap-5 overflow-hidden">
@@ -124,7 +124,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ ...transition, delay: 1.4 }}
-                className="pl-10"
+                className="pl-0 md:pl-10"
               >
                 <Magnetic range={50} strength={0.25}>
                   <Link 
@@ -151,7 +151,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.5, duration: 2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-4 hidden md:flex"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 hidden md:flex flex-col items-center gap-4"
       >
         <span className="font-montserrat text-[8px] tracking-[0.4em] text-white font-bold uppercase mb-2">Descubra</span>
         <div className="w-[2px] h-16 bg-white/20 overflow-hidden">

@@ -7,15 +7,15 @@ import { Facebook, Instagram, Linkedin, Phone, Mail, MapPin, ArrowRight } from "
 
 export default function Footer() {
   return (
-    <footer className="bg-7l-black pt-40 pb-0 border-t border-white/5 relative overflow-hidden" id="contacto">
+    <footer className="bg-7l-black pt-20 md:pt-40 pb-0 border-t border-white/5 relative overflow-hidden" id="contacto">
 
       <div className="w-full max-w-[1800px] mx-auto relative z-10 px-10 md:px-20 lg:px-32">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 lg:gap-20 mb-16 md:mb-24 lg:mb-32">
           
           {/* Columna de Marca */}
           <div className="lg:col-span-12 xl:col-span-4 space-y-12">
             <Link href="/" className="block">
-              <div className="relative w-80 h-16">
+              <div className="relative w-56 md:w-80 h-12 md:h-16">
                 <Image 
                     src="/logos/logo lormar blanco.webp" 
                     alt="Logo Grupo Lormar Industrial" 
@@ -163,7 +163,7 @@ export default function Footer() {
       </div>
 
       {/* FINAL SEAL BAR: HIGH CONTRAST WHITE */}
-      <div className="mt-20 bg-white py-12 px-10 md:px-20 lg:px-32">
+      <div className="mt-10 md:mt-20 bg-white py-8 md:py-12 px-6 md:px-20 lg:px-32">
         <div className="w-full max-w-[1800px] mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
           <nav className="flex flex-wrap justify-center gap-x-12 gap-y-4 text-[10px] font-black font-montserrat uppercase tracking-[0.4em] text-black">
             <Link href="/servicios" className="hover:text-7l-gold transition-colors">SERVICIOS</Link>
