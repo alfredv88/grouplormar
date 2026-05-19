@@ -54,14 +54,14 @@ export default function TimelineSection() {
         
         {/* Header */}
         <div className="text-center max-w-xl mx-auto mb-16 md:mb-24">
-          <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.5em] uppercase mb-3 block" style={{ color: '#F9B331' }}>
+          <span className="font-montserrat text-zinc-500 text-[10px] font-black tracking-[0.5em] uppercase mb-3 block">
             TRAYECTORIA
           </span>
           <h2 className="text-3xl md:text-4xl font-future leading-none uppercase" style={{ color: '#09090b' }}>
             EVOLUCIÓN <br />
-            <span className="text-7l-gold" style={{ color: '#F9B331' }}>CONSTANTE</span>
+            <span className="text-black font-black">CONSTANTE</span>
           </h2>
-          <div className="w-10 h-[1px] bg-7l-gold mx-auto mt-4" style={{ backgroundColor: '#F9B331' }} />
+          <div className="w-10 h-[1px] bg-zinc-300 mx-auto mt-4" />
         </div>
 
         {/* ================= DESKTOP VIEW (Serpentine Path) ================= */}
@@ -160,7 +160,7 @@ export default function TimelineSection() {
                 {/* Year Badge */}
                 <motion.span 
                   className="font-montserrat text-4xl font-black block mb-1 transition-colors duration-300"
-                  animate={{ color: isActive ? '#F9B331' : '#09090b' }}
+                  animate={{ color: isActive ? '#000000' : '#a1a1aa' }}
                 >
                   {item.year}
                 </motion.span>
@@ -168,7 +168,7 @@ export default function TimelineSection() {
                 {/* Milestone Title */}
                 <div 
                   className="font-montserrat text-sm font-black uppercase tracking-wider mb-1 transition-colors duration-300" 
-                  style={{ color: isActive ? '#F9B331' : '#09090b' }}
+                  style={{ color: isActive ? '#000000' : '#52525b' }}
                 >
                   {item.title}
                 </div>
@@ -177,7 +177,7 @@ export default function TimelineSection() {
                 <motion.span 
                   className="font-montserrat text-[10px] font-black tracking-[0.2em] uppercase block mb-2 transition-transform duration-300"
                   animate={{ scale: isActive ? 1.02 : 1 }}
-                  style={{ color: '#F9B331' }}
+                  style={{ color: '#71717a' }}
                 >
                   {item.subtitle}
                 </motion.span>
@@ -185,7 +185,7 @@ export default function TimelineSection() {
                 {/* Description */}
                 <div 
                   className="font-montserrat text-xs md:text-sm font-medium leading-relaxed transition-colors duration-300" 
-                  style={{ color: isActive ? '#18181b' : '#3f3f46' }}
+                  style={{ color: isActive ? '#18181b' : '#71717a' }}
                 >
                   {item.description}
                 </div>
@@ -223,7 +223,7 @@ export default function TimelineSection() {
                   >
                     <span 
                       className="font-montserrat text-2xl font-black block mb-1 transition-colors duration-300"
-                      style={{ color: isActive ? '#F9B331' : '#09090b' }}
+                      style={{ color: isActive ? '#000000' : '#a1a1aa' }}
                     >
                       {item.year}
                     </span>
@@ -233,10 +233,10 @@ export default function TimelineSection() {
                     >
                       {item.title}
                     </div>
-                    <span className="font-montserrat text-[10px] font-black tracking-[0.2em] uppercase block mb-2" style={{ color: '#F9B331' }}>
+                    <span className="font-montserrat text-[10px] font-black tracking-[0.2em] uppercase block mb-2 text-zinc-500">
                       {item.subtitle}
                     </span>
-                    <div className="font-montserrat text-xs font-medium leading-relaxed" style={{ color: '#3f3f46' }}>
+                    <div className="font-montserrat text-xs font-medium leading-relaxed" style={{ color: '#71717a' }}>
                       {item.description}
                     </div>
                   </motion.div>
