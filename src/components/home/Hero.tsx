@@ -11,8 +11,8 @@ export default function Hero() {
   const containerRef = useRef(null);
   
   const heroVideos = [
-    "/videos/lormar 4.webm",
-    "/videos/lormar 5.webm"
+    "/videos/lormar_4.webm",
+    "/videos/lormar_5.webm"
   ];
 
   useEffect(() => {
