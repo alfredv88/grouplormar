@@ -43,14 +43,14 @@ export default function TimelineSection() {
         
         {/* Header */}
         <div className="text-center max-w-xl mx-auto mb-16 md:mb-24">
-          <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.5em] uppercase mb-3 block">
+          <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.5em] uppercase mb-3 block" style={{ color: '#F9B331' }}>
             TRAYECTORIA
           </span>
-          <h2 className="text-3xl md:text-4xl font-future text-zinc-950 leading-none uppercase">
+          <h2 className="text-3xl md:text-4xl font-future leading-none uppercase" style={{ color: '#09090b' }}>
             EVOLUCIÓN <br />
-            <span className="text-7l-gold">CONSTANTE</span>
+            <span className="text-7l-gold" style={{ color: '#F9B331' }}>CONSTANTE</span>
           </h2>
-          <div className="w-10 h-[1px] bg-7l-gold mx-auto mt-4" />
+          <div className="w-10 h-[1px] bg-7l-gold mx-auto mt-4" style={{ backgroundColor: '#F9B331' }} />
         </div>
 
         {/* ================= DESKTOP VIEW (Serpentine Path) ================= */}
@@ -82,7 +82,7 @@ export default function TimelineSection() {
               transition={{ delay: 0.1, type: 'spring', stiffness: 200 }}
               className="absolute left-[16px] top-[20px] -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-7l-gold/15 flex items-center justify-center z-10 shadow-sm hover:scale-110 hover:bg-7l-gold/25 transition-all duration-300"
             >
-              <div className="w-4 h-4 rounded-full bg-7l-gold flex items-center justify-center">
+              <div className="w-4 h-4 rounded-full bg-7l-gold flex items-center justify-center" style={{ backgroundColor: '#F9B331' }}>
                 <div className="w-1.5 h-1.5 rounded-full bg-white" />
               </div>
             </motion.div>
@@ -95,7 +95,7 @@ export default function TimelineSection() {
               transition={{ delay: 0.6, type: 'spring', stiffness: 200 }}
               className="absolute left-[144px] top-[200px] -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-7l-gold/15 flex items-center justify-center z-10 shadow-sm hover:scale-110 hover:bg-7l-gold/25 transition-all duration-300"
             >
-              <div className="w-4 h-4 rounded-full bg-7l-gold flex items-center justify-center">
+              <div className="w-4 h-4 rounded-full bg-7l-gold flex items-center justify-center" style={{ backgroundColor: '#F9B331' }}>
                 <div className="w-1.5 h-1.5 rounded-full bg-white" />
               </div>
             </motion.div>
@@ -108,7 +108,7 @@ export default function TimelineSection() {
               transition={{ delay: 1.1, type: 'spring', stiffness: 200 }}
               className="absolute left-[16px] top-[380px] -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-7l-gold/15 flex items-center justify-center z-10 shadow-sm hover:scale-110 hover:bg-7l-gold/25 transition-all duration-300"
             >
-              <div className="w-4 h-4 rounded-full bg-7l-gold flex items-center justify-center">
+              <div className="w-4 h-4 rounded-full bg-7l-gold flex items-center justify-center" style={{ backgroundColor: '#F9B331' }}>
                 <div className="w-1.5 h-1.5 rounded-full bg-white" />
               </div>
             </motion.div>
@@ -121,7 +121,7 @@ export default function TimelineSection() {
               transition={{ delay: 1.6, type: 'spring', stiffness: 200 }}
               className="absolute left-[144px] top-[560px] -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-7l-gold/15 flex items-center justify-center z-10 shadow-sm hover:scale-110 hover:bg-7l-gold/25 transition-all duration-300"
             >
-              <div className="w-4 h-4 rounded-full bg-7l-gold flex items-center justify-center">
+              <div className="w-4 h-4 rounded-full bg-7l-gold flex items-center justify-center" style={{ backgroundColor: '#F9B331' }}>
                 <div className="w-1.5 h-1.5 rounded-full bg-white" />
               </div>
             </motion.div>
@@ -133,15 +133,15 @@ export default function TimelineSection() {
             <span className="font-future text-4xl text-zinc-950 group-hover:text-7l-gold transition-colors duration-300 font-black block mb-1">
               2010
             </span>
-            <h3 className="font-future text-sm text-zinc-950 font-bold uppercase tracking-wide mb-1">
+            <div className="font-future text-sm font-bold uppercase tracking-wide mb-1" style={{ color: '#09090b' }}>
               {milestones[0].title}
-            </h3>
-            <span className="font-montserrat text-[10px] font-black text-7l-gold tracking-[0.2em] uppercase block mb-2">
+            </div>
+            <span className="font-montserrat text-[10px] font-black text-7l-gold tracking-[0.2em] uppercase block mb-2" style={{ color: '#F9B331' }}>
               {milestones[0].subtitle}
             </span>
-            <p className="font-montserrat text-xs md:text-sm text-zinc-700 font-medium leading-relaxed">
+            <div className="font-montserrat text-xs md:text-sm font-medium leading-relaxed" style={{ color: '#3f3f46' }}>
               {milestones[0].description}
-            </p>
+            </div>
           </div>
 
           {/* Row 1 (2015): Right */}
@@ -149,15 +149,15 @@ export default function TimelineSection() {
             <span className="font-future text-4xl text-zinc-950 group-hover:text-7l-gold transition-colors duration-300 font-black block mb-1">
               2015
             </span>
-            <h3 className="font-future text-sm text-zinc-950 font-bold uppercase tracking-wide mb-1">
+            <div className="font-future text-sm font-bold uppercase tracking-wide mb-1" style={{ color: '#09090b' }}>
               {milestones[1].title}
-            </h3>
-            <span className="font-montserrat text-[10px] font-black text-7l-gold tracking-[0.2em] uppercase block mb-2">
+            </div>
+            <span className="font-montserrat text-[10px] font-black text-7l-gold tracking-[0.2em] uppercase block mb-2" style={{ color: '#F9B331' }}>
               {milestones[1].subtitle}
             </span>
-            <p className="font-montserrat text-xs md:text-sm text-zinc-700 font-medium leading-relaxed">
+            <div className="font-montserrat text-xs md:text-sm font-medium leading-relaxed" style={{ color: '#3f3f46' }}>
               {milestones[1].description}
-            </p>
+            </div>
           </div>
 
           {/* Row 2 (2020): Left */}
@@ -165,15 +165,15 @@ export default function TimelineSection() {
             <span className="font-future text-4xl text-zinc-950 group-hover:text-7l-gold transition-colors duration-300 font-black block mb-1">
               2020
             </span>
-            <h3 className="font-future text-sm text-zinc-950 font-bold uppercase tracking-wide mb-1">
+            <div className="font-future text-sm font-bold uppercase tracking-wide mb-1" style={{ color: '#09090b' }}>
               {milestones[2].title}
-            </h3>
-            <span className="font-montserrat text-[10px] font-black text-7l-gold tracking-[0.2em] uppercase block mb-2">
+            </div>
+            <span className="font-montserrat text-[10px] font-black text-7l-gold tracking-[0.2em] uppercase block mb-2" style={{ color: '#F9B331' }}>
               {milestones[2].subtitle}
             </span>
-            <p className="font-montserrat text-xs md:text-sm text-zinc-700 font-medium leading-relaxed">
+            <div className="font-montserrat text-xs md:text-sm font-medium leading-relaxed" style={{ color: '#3f3f46' }}>
               {milestones[2].description}
-            </p>
+            </div>
           </div>
 
           {/* Row 3 (2024): Right */}
@@ -181,15 +181,15 @@ export default function TimelineSection() {
             <span className="font-future text-4xl text-zinc-950 group-hover:text-7l-gold transition-colors duration-300 font-black block mb-1">
               2024
             </span>
-            <h3 className="font-future text-sm text-zinc-950 font-bold uppercase tracking-wide mb-1">
+            <div className="font-future text-sm font-bold uppercase tracking-wide mb-1" style={{ color: '#09090b' }}>
               {milestones[3].title}
-            </h3>
-            <span className="font-montserrat text-[10px] font-black text-7l-gold tracking-[0.2em] uppercase block mb-2">
+            </div>
+            <span className="font-montserrat text-[10px] font-black text-7l-gold tracking-[0.2em] uppercase block mb-2" style={{ color: '#F9B331' }}>
               {milestones[3].subtitle}
             </span>
-            <p className="font-montserrat text-xs md:text-sm text-zinc-700 font-medium leading-relaxed">
+            <div className="font-montserrat text-xs md:text-sm font-medium leading-relaxed" style={{ color: '#3f3f46' }}>
               {milestones[3].description}
-            </p>
+            </div>
           </div>
         </div>
 
@@ -204,7 +204,7 @@ export default function TimelineSection() {
                 <div key={idx} className="relative flex gap-6 pl-10 group">
                   {/* Concentric node dot on line for mobile */}
                   <div className="absolute left-[8px] top-1.5 w-[18px] h-[18px] rounded-full bg-7l-gold/15 flex items-center justify-center z-10">
-                    <div className="w-[10px] h-[10px] rounded-full bg-7l-gold flex items-center justify-center">
+                    <div className="w-[10px] h-[10px] rounded-full bg-7l-gold flex items-center justify-center" style={{ backgroundColor: '#F9B331' }}>
                       <div className="w-1 h-1 rounded-full bg-white" />
                     </div>
                   </div>
@@ -213,15 +213,15 @@ export default function TimelineSection() {
                     <span className="font-future text-2xl text-zinc-950 group-hover:text-7l-gold transition-colors duration-300 font-black block mb-1">
                       {item.year}
                     </span>
-                    <h3 className="font-future text-sm text-zinc-950 font-bold uppercase mb-1">
+                    <div className="font-future text-sm font-bold uppercase mb-1" style={{ color: '#09090b' }}>
                       {item.title}
-                    </h3>
-                    <span className="font-montserrat text-[10px] font-black text-7l-gold tracking-[0.2em] uppercase block mb-2">
+                    </div>
+                    <span className="font-montserrat text-[10px] font-black text-7l-gold tracking-[0.2em] uppercase block mb-2" style={{ color: '#F9B331' }}>
                       {item.subtitle}
                     </span>
-                    <p className="font-montserrat text-xs text-zinc-700 font-medium leading-relaxed">
+                    <div className="font-montserrat text-xs font-medium leading-relaxed" style={{ color: '#3f3f46' }}>
                       {item.description}
-                    </p>
+                    </div>
                   </div>
                 </div>
               );
