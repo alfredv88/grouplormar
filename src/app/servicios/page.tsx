@@ -5,90 +5,130 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ChevronRight } from 'lucide-react';
 
-// Imágenes para los carruseles (combinación de específicas e industriales de Lormar)
+// Imágenes de la galería de Lormar (extraídas de public/images y public/images/services)
 const serviceImages = {
-  izamiento: [
-    '/images/heavy-crane.png',
-    '/images/services/logistica_izamiento.jpg',
-    '/images/manlift.png',
-  ],
-  infraestructura: [
+  construccion: [
     '/images/services/construccion_real.png',
     '/images/services/construccion_desarrollo.png',
-    '/images/asphalt-finisher.png',
+    '/images/services/construccion_electricas.png',
+    '/images/services/construccion_facilidades.png',
+  ],
+  mantenimiento: [
+    '/images/services/mantenimiento_real.png',
+    '/images/services/mantenimiento_integridad.jpg',
+    '/images/services/mantenimiento_correctivo.jpg',
+    '/images/services/mantenimiento_flota.jpg',
   ],
   pozos: [
     '/images/services/pozos_real.png',
     '/images/pulling-unit.png',
     '/images/lighting-tower.png',
   ],
-  mantenimiento: [
-    '/images/services/mantenimiento_real.png',
-    '/images/services/mantenimiento_correctivo.jpg',
-    '/images/services/mantenimiento_flota.jpg',
+  ambiental: [
+    '/images/services/ambiental_real.png',
+    '/images/services/ambiental_remediacion.png',
+    '/images/services/ambiental_gestion.jpeg',
+  ],
+  logistica: [
+    '/images/services/logistica_real.png',
+    '/images/services/logistica_transporte.jpg',
+    '/images/services/logistica_flota.png',
+    '/images/heavy-crane.png',
+    '/images/manlift.png',
   ],
 };
 
 const services = [
   {
     id: '01',
-    category: 'Izamiento',
-    title: 'IZAMIENTO DE <span class="text-7l-gold">CARGAS</span>',
-    subtitle: 'Rigor técnico y seguridad en operaciones críticas.',
-    description: 'Equipos de alta capacidad y personal certificado para maniobras de izamiento complejas en entornos industriales y petroleros de alta exigencia.',
+    category: 'CONSTRUCCIÓN',
+    title: 'INGENIERÍA Y <span class="text-7l-gold">CONSTRUCCIÓN</span>',
+    subtitle: 'Diseño, desarrollo y montaje de obras electromecánicas y civiles.',
+    description: 'Ejecutamos obras complejas desde cero: tendido de tuberías (oleoductos/gasoductos), montaje de subestaciones, facilidades de producción en superficie e infraestructura civil crítica con control de calidad absoluto y estricta adherencia a plazos.',
     bg: 'dark',
-    images: serviceImages.izamiento,
+    images: serviceImages.construccion,
+    ctaText: 'Ficha Técnica de Obras',
   },
   {
     id: '02',
-    category: 'Vialidad',
-    title: 'INFRAESTRUCTURA <span class="text-black">VIAL</span>',
-    subtitle: 'Construcción y mantenimiento de vías.',
-    description: 'Desarrollo de infraestructura vial, pavimentación y movimiento de suelos con maquinaria de última generación bajo estrictos controles de calidad.',
+    category: 'MANTENIMIENTO',
+    title: 'INTEGRIDAD Y <span class="text-black">MANTENIMIENTO</span>',
+    subtitle: 'Continuidad operativa y preservación de activos industriales.',
+    description: 'Programas integrales de mantenimiento preventivo y correctivo para equipos mecánicos rotatorios y estáticos, pruebas no destructivas (NDT), y paradas de planta planificadas bajo altos estándares internacionales para evitar pérdidas de producción.',
     bg: 'gold',
-    images: serviceImages.infraestructura,
+    images: serviceImages.mantenimiento,
+    ctaText: 'Ficha Técnica de Integridad',
   },
   {
     id: '03',
-    category: 'Energía',
-    title: 'INGENIERÍA DE <span class="text-7l-gold">POZOS</span>',
-    subtitle: 'Servicios especializados para la industria energética.',
-    description: 'Operaciones de pulling, workover y completación de pozos con altos estándares de eficiencia y seguridad operativa en yacimientos.',
-    bg: 'dark',
+    category: 'SOLUCIONES A POZOS',
+    title: 'OPERACIONES EN <span class="text-7l-gold">POZOS (WORKOVER)</span>',
+    subtitle: 'Reactivación y optimización de pozos energéticos.',
+    description: 'Operaciones especializadas con equipos propios de pulling (cabillero de 350HP), Flush-By, Well Testing y Hot Oil para maximizar la productividad y restablecer pozos inactivos con seguridad total en sitio.',
+    bg: 'white',
     images: serviceImages.pozos,
+    ctaText: 'Ficha de Equipos de Pozo',
   },
   {
     id: '04',
-    category: 'Mantenimiento',
-    title: 'GESTIÓN DE <span class="text-7l-gold">ACTIVOS</span>',
-    subtitle: 'Mantenimiento industrial y paradas de planta.',
-    description: 'Programas de mantenimiento preventivo y correctivo para asegurar la continuidad operativa de instalaciones mecánicas, eléctricas e instrumentación.',
-    bg: 'white',
-    images: serviceImages.mantenimiento,
+    category: 'GESTIÓN AMBIENTAL',
+    title: 'SANEAMIENTO Y <span class="text-7l-gold">RACDA</span>',
+    subtitle: 'Gestión ecológica integral de desechos peligrosos.',
+    description: 'Servicio habilitado de transporte y disposición final de desechos peligrosos y no peligrosos, respaldado por certificación RACDA del MINEC. Limpieza técnica de derrames e implementación de procesos de biorremediación autorizados.',
+    bg: 'tinted',
+    images: serviceImages.ambiental,
+    ctaText: 'Ver Constancia RACDA',
+  },
+  {
+    id: '05',
+    category: 'LOGÍSTICA Y TRANSPORTE',
+    title: 'IZAMIENTO Y <span class="text-7l-gold">LOGÍSTICA</span>',
+    subtitle: 'Músculo operativo pesado de alcance nacional.',
+    description: 'Maniobras críticas de izamiento con grúas telescópicas certificadas (de 15 a 100 Ton), montacargas de alta capacidad, y movilización terrestre especializada de cargas sobredimensionadas con chutos, bateas y lowboys propios de 60 a 140 toneladas.',
+    bg: 'black',
+    images: serviceImages.logistica,
+    ctaText: 'Capacidad de Flota',
   },
 ];
 
-// Componente de Carrusel con el mismo estilo de imagen (brightness-75 contrast-110)
+// Helper para asignar las clases de fondo según el tipo definido en la alternancia
+const getBgClasses = (bg: string) => {
+  switch (bg) {
+    case 'gold':
+      return 'bg-7l-gold text-black';
+    case 'white':
+      return 'bg-[#F7F7F7] text-zinc-900';
+    case 'tinted':
+      return 'bg-[#0a1111] text-white';
+    case 'black':
+      return 'bg-black text-white';
+    case 'dark':
+    default:
+      return 'bg-[#0d0d0d] text-white';
+  }
+};
+
+// Componente de Carrusel con el efecto de deslizamiento (slide) suave y continuo
 const ServiceCarousel = ({ images }: { images: string[] }) => {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
-    }, 4500);
+    }, 5500);
     return () => clearInterval(timer);
   }, [images.length]);
 
   return (
-    <div className="relative w-full h-full min-h-[350px] lg:min-h-full overflow-hidden">
-      <AnimatePresence mode="wait">
+    <div className="relative w-full h-full min-h-[380px] lg:min-h-full overflow-hidden group">
+      <AnimatePresence initial={false}>
         <motion.div
           key={current}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
-          className="absolute inset-0"
+          initial={{ x: '100%' }}
+          animate={{ x: 0 }}
+          exit={{ x: '-100%' }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="absolute inset-0 w-full h-full"
         >
           <Image
             src={images[current]}
@@ -101,15 +141,16 @@ const ServiceCarousel = ({ images }: { images: string[] }) => {
         </motion.div>
       </AnimatePresence>
       
-      {/* Indicadores flotantes de carrusel */}
-      <div className="absolute bottom-6 left-6 flex space-x-2 z-10">
+      {/* Indicadores de carrusel rediseñados y modernos */}
+      <div className="absolute bottom-6 left-6 flex space-x-2.5 z-10">
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrent(index)}
-            className={`h-1 transition-all duration-300 ${
-              index === current ? 'w-8 bg-7l-gold' : 'w-2 bg-white/50 hover:bg-white'
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              index === current ? 'w-8 bg-7l-gold' : 'w-2 bg-white/40 hover:bg-white/80'
             }`}
+            aria-label={`Ir a imagen ${index + 1}`}
           />
         ))}
       </div>
@@ -120,8 +161,9 @@ const ServiceCarousel = ({ images }: { images: string[] }) => {
 export default function ServiciosPage() {
   return (
     <main className="bg-black text-white min-h-screen">
-      {/* HERO DE ENTRADA (Mismo fondo y degradados que Nosotros) */}
-      <section className="h-[60vh] flex flex-col justify-center relative bg-black border-b border-white/5">
+      {/* HERO DE ENTRADA */}
+      <section className="h-[60vh] flex flex-col justify-center relative bg-black border-b border-white/5 overflow-hidden">
+        {/* Textura industrial de fondo */}
         <div className="absolute inset-0 z-0 opacity-40">
           <div 
             className="w-full h-full"
@@ -135,79 +177,127 @@ export default function ServiciosPage() {
           />
         </div>
         
+        {/* Overlay degradado ambiental */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-black via-transparent to-7l-gold/5 pointer-events-none" />
+
         <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
-          <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.5em] uppercase mb-4 block">
-            SERVICIOS INDUSTRIALES
-          </span>
-          <h1 className="text-5xl md:text-7xl font-future text-white uppercase tracking-normal mb-4 leading-none">
-            <span className="text-7l-gold">INGENIERÍA</span> <br />Y EJECUCIÓN
-          </h1>
-          <p className="text-zinc-400 text-sm md:text-base font-montserrat font-medium max-w-2xl leading-relaxed">
-            Soluciones de alta complejidad operativa ejecutadas con equipamiento propio y bajo los estándares de seguridad y calidad más exigentes.
-          </p>
+          <motion.span 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' as const }}
+            className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.5em] uppercase mb-4 block"
+          >
+            SERVICIOS E INGENIERÍA
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' as const }}
+            className="text-5xl md:text-7xl font-future text-white uppercase tracking-normal mb-6 leading-none"
+          >
+            <span className="text-7l-gold">DIVISIONES</span> <br />OPERATIVAS
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' as const }}
+            className="text-zinc-400 text-sm md:text-base font-montserrat font-medium max-w-2xl leading-relaxed"
+          >
+            Capacidad de respuesta inmediata y rigor de ingeniería aplicado en 5 áreas clave de la industria, soportadas íntegramente por activos y flota de maquinaria propia.
+          </motion.p>
         </div>
       </section>
 
-      {/* SECCIONES DE SERVICIOS */}
+      {/* LISTADO DE DIVISIONES CON ALTERNANCIA INMERSIVA */}
       {services.map((service, index) => {
         const isGold = service.bg === 'gold';
         const isWhite = service.bg === 'white';
+        const isTinted = service.bg === 'tinted';
         const isEven = index % 2 === 0;
+
+        // Borde inferior adecuado al color de fondo para mantener limpios los cortes
+        const getBorderClass = (bg: string) => {
+          if (bg === 'gold') return 'border-b border-black/5';
+          if (bg === 'white') return 'border-b border-zinc-200';
+          return 'border-b border-white/5';
+        };
 
         return (
           <React.Fragment key={service.id}>
-            {/* Descanso Visual después de la Sección 02 */}
-            {index === 2 && (
-              <section className="py-28 bg-black border-y border-white/5 relative overflow-hidden">
-                <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 text-center">
-                  <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.5em] uppercase mb-4 block">
+            {/* Banner intermedio de impacto para romper monotonía */}
+            {index === 3 && (
+              <section className="py-32 bg-black relative overflow-hidden border-y border-white/5">
+                {/* Retícula técnica de fondo del sistema */}
+                <div className="absolute inset-0 z-0 opacity-10 bg-industrial-grid" />
+                <div className="absolute inset-0 bg-gradient-to-r from-7l-gold/10 via-transparent to-7l-gold/10 pointer-events-none" />
+                
+                <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 text-center relative z-10">
+                  <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.6em] uppercase mb-4 block">
                     POTENCIA OPERATIVA
                   </span>
-                  <h2 className="text-4xl md:text-6xl font-future text-white uppercase tracking-normal max-w-4xl mx-auto leading-none mb-6">
+                  <h2 className="text-4xl md:text-6xl font-future text-white uppercase tracking-normal max-w-4xl mx-auto leading-tight mb-6">
                     INGENIERÍA QUE TRANSFORMA VISIONES EN <span className="text-7l-gold">INFRAESTRUCTURA REAL</span>
                   </h2>
                   <p className="text-zinc-400 font-montserrat font-medium text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-                    Nuestra flota propia de grúas, maquinaria vial y equipos de pulling nos permite mantener el control total del cronograma y la calidad final del proyecto.
+                    Nuestra flota propia de grúas, maquinaria vial y equipos de pulling nos permite mantener el control total del cronograma y asegurar la calidad final de cada proyecto sin depender de terceros.
                   </p>
                 </div>
               </section>
             )}
 
-            <section className={`relative w-full overflow-hidden flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} min-h-[600px]`}>
-              {/* Contenido */}
+            <motion.section 
+              initial={{ opacity: 0, y: 35 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className={`relative w-full overflow-hidden flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} min-h-[620px] ${getBorderClass(service.bg)}`}
+            >
+              {/* Contenido Técnico */}
               <div
-                className={`relative w-full lg:w-1/2 flex flex-col justify-center p-12 md:p-20 lg:p-24 space-y-6 ${
-                  isGold ? 'bg-7l-gold text-black' :
-                  isWhite ? 'bg-white text-zinc-900' :
-                  'bg-black text-white'
-                }`}
+                className={`relative w-full lg:w-1/2 flex flex-col justify-center p-12 md:p-20 lg:p-24 space-y-6 group/content ${getBgClasses(service.bg)}`}
                 style={isGold ? { 
-                  backgroundImage: "radial-gradient(rgba(0,0,0,0.15) 1px, transparent 0)", 
+                  backgroundImage: "radial-gradient(rgba(0,0,0,0.12) 1px, transparent 0)", 
                   backgroundSize: "24px 24px" 
+                } : isTinted ? {
+                  backgroundImage: "radial-gradient(rgba(249,179,49,0.04) 1px, transparent 0)", 
+                  backgroundSize: "24px 24px"
                 } : undefined}
               >
-                <span
-                  className={`font-montserrat text-[10px] font-black tracking-[0.5em] uppercase ${
-                    isGold ? 'text-black/60' :
-                    isWhite ? 'text-zinc-500' :
-                    'text-zinc-500'
-                  }`}
-                >
-                  {service.category}
-                </span>
+                {/* Identificador & Categoría */}
+                <div className="flex items-center space-x-3">
+                  <span className={`font-future text-xs ${
+                    isGold ? 'text-black/40' : 'text-7l-gold/60'
+                  }`}>
+                    {service.id}
+                  </span>
+                  <span className={`h-px w-6 ${
+                    isGold ? 'bg-black/20' : 'bg-7l-gold/30'
+                  }`} />
+                  <span
+                    className={`font-montserrat text-[10px] font-black tracking-[0.4em] uppercase ${
+                      isGold ? 'text-black/60' :
+                      isWhite ? 'text-zinc-500' :
+                      'text-zinc-400'
+                    }`}
+                  >
+                    {service.category}
+                  </span>
+                </div>
 
+                {/* Título Principal */}
                 <h2
-                  className={`text-5xl md:text-6xl font-future leading-none uppercase ${
+                  className={`text-4xl md:text-5xl lg:text-6xl font-future leading-none uppercase transition-transform duration-500 ease-out group-hover/content:translate-x-1 ${
                     isGold ? '!text-black' :
-                    isWhite ? '!text-black' :
+                    isWhite ? '!text-zinc-950' :
                     'text-white'
                   }`}
                   dangerouslySetInnerHTML={{ __html: service.title }}
                 />
 
+                {/* Subtítulo / Propósito */}
                 <p
-                  className={`text-lg font-montserrat leading-relaxed font-bold ${
-                    isGold ? '!text-white' :
+                  className={`text-base md:text-lg font-montserrat leading-relaxed font-bold ${
+                    isGold ? 'text-zinc-800' :
                     isWhite ? 'text-zinc-700' :
                     'text-7l-gold'
                   }`}
@@ -215,9 +305,10 @@ export default function ServiciosPage() {
                   {service.subtitle}
                 </p>
 
+                {/* Descripción Detallada */}
                 <p
                   className={`text-sm md:text-base font-montserrat leading-relaxed ${
-                    isGold ? '!text-black/80 font-medium' :
+                    isGold ? 'text-black/85 font-medium' :
                     isWhite ? 'text-zinc-600 font-medium' :
                     'text-zinc-400 font-medium'
                   } max-w-lg`}
@@ -225,84 +316,61 @@ export default function ServiciosPage() {
                   {service.description}
                 </p>
 
+                {/* Botón Técnico Inteligente */}
                 <div className="pt-4">
-                  <button
-                    className={`flex items-center space-x-2 font-montserrat font-bold text-xs tracking-widest uppercase transition-all duration-300 border-b pb-1 ${
-                      isGold ? 'border-black text-black hover:border-white hover:text-white' :
-                      isWhite ? 'border-zinc-900 text-zinc-900 hover:border-7l-gold hover:text-7l-gold' :
-                      'border-7l-gold text-7l-gold hover:border-white hover:text-white'
+                  <a
+                    href={`/contacto?servicio=${encodeURIComponent(service.category.toLowerCase())}`}
+                    className={`inline-flex items-center space-x-3 font-montserrat font-bold text-xs tracking-widest uppercase transition-all duration-300 border-b pb-1.5 group/btn ${
+                      isGold ? 'border-black text-black hover:text-white hover:border-white' :
+                      isWhite ? 'border-zinc-900 text-zinc-900 hover:text-7l-gold hover:border-7l-gold' :
+                      'border-7l-gold text-7l-gold hover:text-white hover:border-white'
                     }`}
                   >
-                    <span>Ficha Técnica</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
+                    <span className="transition-transform duration-300 group-hover/btn:translate-x-0.5">
+                      {service.ctaText}
+                    </span>
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1.5" />
+                  </a>
                 </div>
               </div>
 
-              {/* Visual (Carrusel) */}
-              <div className="relative w-full lg:w-1/2 h-[350px] lg:h-auto overflow-hidden">
+              {/* Visualización (Carrusel Dinámico) */}
+              <div className="relative w-full lg:w-1/2 h-[380px] lg:h-auto overflow-hidden">
                 <ServiceCarousel images={service.images} />
               </div>
-            </section>
+            </motion.section>
           </React.Fragment>
         );
       })}
 
-      {/* SECCIÓN FINAL FIJA (Logística y Transporte) */}
-      <section className="relative w-full overflow-hidden flex flex-col lg:flex-row-reverse min-h-[600px]">
-        <div className="relative w-full lg:w-1/2 h-[350px] lg:h-auto overflow-hidden">
-          <Image
-            src="/images/services/logistica_real.png"
-            alt="Flota Lormar"
-            fill
-            className="object-cover brightness-75 contrast-110"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
-        </div>
-        <div className="relative w-full lg:w-1/2 bg-black flex flex-col justify-center p-12 md:p-20 lg:p-24 space-y-6">
-          <span className="font-montserrat text-zinc-500 text-[10px] font-black tracking-[0.5em] uppercase">
-            Logística
-          </span>
-          
-          <h2 className="text-5xl md:text-6xl font-future text-white leading-none uppercase">
-            LOGÍSTICA Y <br />
-            <span className="text-7l-gold">TRANSPORTE</span>
-          </h2>
-          
-          <p className="text-lg font-montserrat text-7l-gold leading-relaxed font-bold">
-            Movilizando el futuro de la industria.
-          </p>
-          
-          <p className="text-zinc-400 text-sm md:text-base font-montserrat font-medium max-w-lg leading-relaxed">
-            Contamos con una flota robusta y propia de camiones pesados y equipos especiales aptos para el transporte seguro de cargas sobredimensionadas, insumos críticos y materiales especiales a lo largo del territorio nacional.
-          </p>
-
-          <div className="pt-4">
-            <button className="flex items-center space-x-2 font-montserrat font-bold text-xs tracking-widest uppercase transition-all duration-300 border-b border-7l-gold text-7l-gold hover:border-white hover:text-white pb-1">
-              <span>Capacidad de Flota</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        </div>
-      </section>
-
       {/* CTA DE CIERRE */}
-      <section className="bg-7l-gold py-24 text-center relative overflow-hidden"
-               style={{ 
-                 backgroundImage: "radial-gradient(rgba(0,0,0,0.15) 1px, transparent 0)", 
-                 backgroundSize: "24px 24px" 
-               }}>
+      <section 
+        className="bg-7l-gold py-28 text-center relative overflow-hidden"
+        style={{ 
+          backgroundImage: "radial-gradient(rgba(0,0,0,0.15) 1px, transparent 0)", 
+          backgroundSize: "24px 24px" 
+        }}
+      >
+        {/* Sutil sombra interna inferior */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10" />
+        
         <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+          <span className="font-montserrat text-black/60 text-[10px] font-black tracking-[0.5em] uppercase mb-4 block">
+            ALIANZA ESTRATÉGICA
+          </span>
           <h2 className="text-4xl md:text-6xl font-future !text-black leading-none uppercase max-w-4xl mx-auto mb-6">
             ¿LISTO PARA INICIAR <br className="md:hidden" /> SU PROYECTO?
           </h2>
           <p className="font-montserrat !text-black/80 font-bold text-sm md:text-base max-w-xl mx-auto mb-8 leading-relaxed">
-            Póngase en contacto con nuestra división de ingeniería para evaluar y presupuestar su obra con el máximo nivel de rigor técnico.
+            Póngase en contacto con nuestra división de ingeniería para evaluar y presupuestar su obra con el máximo nivel de rigor técnico y profesionalismo.
           </p>
-          <button className="bg-black text-white hover:bg-black/90 px-8 py-4 font-montserrat font-black text-xs tracking-[0.2em] uppercase transition-all duration-300 flex items-center space-x-2 mx-auto">
+          <a 
+            href="/contacto"
+            className="inline-flex items-center space-x-3 bg-black text-white hover:bg-zinc-900 px-9 py-4.5 font-montserrat font-black text-xs tracking-[0.2em] uppercase transition-all duration-300 group hover:shadow-2xl hover:shadow-black/30"
+          >
             <span>Contactar División Técnica</span>
-            <ChevronRight className="w-4 h-4" />
-          </button>
+            <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
         </div>
       </section>
     </main>
