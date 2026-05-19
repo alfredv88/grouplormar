@@ -5,91 +5,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { ArrowRight, ChevronRight } from 'lucide-react';
 
-// Imágenes de la galería de Lormar (extraídas de public/images y public/images/services)
-const serviceImages = {
-  construccion: [
-    '/images/services/construccion_real.png',
-    '/images/services/construccion_desarrollo.png',
-    '/images/services/construccion_electricas.png',
-    '/images/services/construccion_facilidades.png',
-  ],
-  mantenimiento: [
-    '/images/services/mantenimiento_real.png',
-    '/images/services/mantenimiento_integridad.jpg',
-    '/images/services/mantenimiento_correctivo.jpg',
-    '/images/services/mantenimiento_flota.jpg',
-  ],
-  pozos: [
-    '/images/services/pozos_real.png',
-    '/images/pulling-unit.png',
-    '/images/lighting-tower.png',
-  ],
-  ambiental: [
-    '/images/services/ambiental_real.png',
-    '/images/services/ambiental_remediacion.png',
-    '/images/services/ambiental_gestion.jpeg',
-  ],
-  logistica: [
-    '/images/services/logistica_real.png',
-    '/images/services/logistica_transporte.jpg',
-    '/images/services/logistica_flota.png',
-    '/images/heavy-crane.png',
-    '/images/manlift.png',
-  ],
-};
-
-const services = [
-  {
-    id: '01',
-    category: 'CONSTRUCCIÓN',
-    title: 'INGENIERÍA Y <span class="text-7l-gold">CONSTRUCCIÓN</span>',
-    subtitle: 'Diseño, desarrollo y montaje de obras electromecánicas y civiles.',
-    description: 'Ejecutamos obras complejas desde cero: tendido de tuberías (oleoductos/gasoductos), montaje de subestaciones, facilidades de producción en superficie e infraestructura civil crítica con control de calidad absoluto y estricta adherencia a plazos.',
-    bg: 'dark',
-    images: serviceImages.construccion,
-    ctaText: 'Ficha Técnica de Obras',
-  },
-  {
-    id: '02',
-    category: 'MANTENIMIENTO',
-    title: 'INTEGRIDAD Y <span class="text-white">MANTENIMIENTO</span>',
-    subtitle: 'Continuidad operativa y preservación de activos industriales.',
-    description: 'Programas integrales de mantenimiento preventivo y correctivo para equipos mecánicos rotatorios y estáticos, pruebas no destructivas (NDT), y paradas de planta planificadas bajo altos estándares internacionales para evitar pérdidas de producción.',
-    bg: 'gold',
-    images: serviceImages.mantenimiento,
-    ctaText: 'Ficha Técnica de Integridad',
-  },
-  {
-    id: '03',
-    category: 'SOLUCIONES A POZOS',
-    title: 'OPERACIONES EN <span class="text-7l-gold">POZOS (WORKOVER)</span>',
-    subtitle: 'Reactivación y optimización de pozos energéticos.',
-    description: 'Operaciones especializadas con equipos propios de pulling (cabillero de 350HP), Flush-By, Well Testing y Hot Oil para maximizar la productividad y restablecer pozos inactivos con seguridad total en sitio.',
-    bg: 'white',
-    images: serviceImages.pozos,
-    ctaText: 'Ficha de Equipos de Pozo',
-  },
-  {
-    id: '04',
-    category: 'GESTIÓN AMBIENTAL',
-    title: 'SANEAMIENTO Y <span class="text-7l-gold">RACDA</span>',
-    subtitle: 'Gestión ecológica integral de desechos peligrosos.',
-    description: 'Servicio habilitado de transporte y disposición final de desechos peligrosos y no peligrosos, respaldado por certificación RACDA del MINEC. Limpieza técnica de derrames e implementación de procesos de biorremediación autorizados.',
-    bg: 'tinted',
-    images: serviceImages.ambiental,
-    ctaText: 'Ver Constancia RACDA',
-  },
-  {
-    id: '05',
-    category: 'LOGÍSTICA Y TRANSPORTE',
-    title: 'IZAMIENTO Y <span class="text-7l-gold">LOGÍSTICA</span>',
-    subtitle: 'Músculo operativo pesado de alcance nacional.',
-    description: 'Maniobras críticas de izamiento con grúas telescópicas certificadas (de 15 a 100 Ton), montacargas de alta capacidad, y movilización terrestre especializada de cargas sobredimensionadas con chutos, bateas y lowboys propios de 60 a 140 toneladas.',
-    bg: 'black',
-    images: serviceImages.logistica,
-    ctaText: 'Capacidad de Flota',
-  },
-];
+import { services } from '@/data/servicesData';
 
 // Helper para asignar las clases de fondo según el tipo definido en la alternancia
 const getBgClasses = (bg: string) => {
@@ -220,18 +136,16 @@ export default function ServiciosPage() {
         const isTinted = service.bg === 'tinted';
         const isEven = index % 2 === 0;
 
-        // Borde inferior adecuado al color de fondo para mantener limpios los cortes
-        const getBorderClass = (bg: string) => {
-          if (bg === 'gold') return 'border-b border-black/5';
-          if (bg === 'white') return 'border-b border-zinc-200';
-          return 'border-b border-white/5';
-        };
+
 
         return (
           <React.Fragment key={service.id}>
             {/* Pausa 1: Después de las primeras 2 secciones (01 Construcción y 02 Mantenimiento) */}
             {index === 2 && (
-              <section className="py-32 bg-black relative overflow-hidden border-y border-white/5">
+              <section className="py-32 bg-black relative overflow-hidden">
+                {/* Bordes Industriales Superior e Inferior */}
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent z-20" />
+                <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent z-20" />
                 <div className="absolute inset-0 z-0 opacity-10 bg-industrial-grid" />
                 <div className="absolute inset-0 bg-gradient-to-r from-7l-gold/10 via-transparent to-7l-gold/10 pointer-events-none" />
                 
@@ -251,8 +165,10 @@ export default function ServiciosPage() {
 
             {/* Pausa 2: Después de las siguientes 2 secciones (03 Pozos y 04 Ambiental) */}
             {index === 4 && (
-              <section className="py-32 bg-7l-gold relative overflow-hidden border-y border-black/10" style={{ backgroundImage: "radial-gradient(rgba(0,0,0,0.12) 1px, transparent 0)", backgroundSize: "24px 24px" }}>
-
+              <section className="py-32 bg-7l-gold relative overflow-hidden" style={{ backgroundImage: "radial-gradient(rgba(0,0,0,0.12) 1px, transparent 0)", backgroundSize: "24px 24px" }}>
+                {/* Bordes Industriales Superior e Inferior */}
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-black/20 to-transparent z-20" />
+                <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-black/20 to-transparent z-20" />
                 
                 <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 text-center relative z-10">
                   <span className="font-montserrat !text-black/60 text-[10px] font-black tracking-[0.6em] uppercase mb-4 block">
@@ -273,8 +189,15 @@ export default function ServiciosPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className={`relative w-full overflow-hidden flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} min-h-[620px] ${getBorderClass(service.bg)}`}
+              className={`relative w-full overflow-hidden flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} min-h-[620px]`}
             >
+              {/* Borde Industrial Inferior Dinámico */}
+              <div className={`absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r z-20 ${
+                isGold ? 'from-transparent via-black/20 to-transparent' :
+                isWhite ? 'from-transparent via-zinc-300 to-transparent' :
+                'from-transparent via-white/15 to-transparent'
+              }`} />
+
               {/* Contenido Técnico */}
               <div
                 className={`relative w-full lg:w-1/2 flex flex-col justify-center p-12 md:p-20 lg:p-24 space-y-6 group/content ${getBgClasses(service.bg)}`}

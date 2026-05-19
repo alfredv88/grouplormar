@@ -1,5 +1,7 @@
+import React from 'react';
 import Image from 'next/image';
-import { Wrench, Shield, Pickaxe, Truck, Zap, Hammer } from 'lucide-react';
+import { Shield } from 'lucide-react';
+import { machineryCategories } from '@/data/machineryData';
 
 export const metadata = {
   title: 'Maquinarias | Grupo Lormar',
@@ -24,6 +26,10 @@ export default function MaquinariasPage() {
             }}
           />
         </div>
+        
+        {/* Overlay degradado ambiental */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-black via-transparent to-7l-gold/5 pointer-events-none" />
+
         <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
           <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.5em] uppercase mb-4 block">
             LORMAR CORPORATION
@@ -37,191 +43,98 @@ export default function MaquinariasPage() {
         </div>
       </section>
 
-      {/* 2. IZAMIENTO Y ELEVACIÓN (ORO) */}
-      <section className="relative w-full overflow-hidden flex flex-col lg:flex-row-reverse min-h-[600px]">
-        <div className="relative w-full lg:w-1/2 h-[350px] lg:h-auto overflow-hidden">
-          <Image
-            src="/images/equipment/izamiento_100t_real_daylight.png"
-            alt="Equipos de Izamiento"
-            fill
-            className="object-cover brightness-90 contrast-110"
-          />
-        </div>
-        <div className="relative w-full lg:w-1/2 bg-7l-gold flex flex-col justify-center p-12 md:p-20 lg:p-24 space-y-6"
-             style={{ backgroundImage: "radial-gradient(rgba(0,0,0,0.15) 1px, transparent 0)", backgroundSize: "24px 24px" }}>
-          <span className="font-montserrat text-black/60 text-[10px] font-black tracking-[0.5em] uppercase">
-            Categoría 01 & 06
-          </span>
-          <h2 className="text-4xl md:text-5xl font-future text-black leading-none uppercase">
-            IZAMIENTO Y <br />
-            <span className="text-white">ELEVACIÓN</span>
-          </h2>
-          <div className="space-y-4">
-            <ul className="list-none space-y-3 font-montserrat text-black font-medium text-sm md:text-base">
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-black rounded-full" /> Grúas Telescópicas (15, 45, 60, 75 y 100 Ton)</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-black rounded-full" /> Brazos Hidráulicos (6, 15, 20 y 25 Ton)</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-black rounded-full" /> Montacargas pesados (6 a 25 Ton)</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-black rounded-full" /> Manlift y Camión Cesta</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+      {/* LISTADO DE MAQUINARIA CON ALTERNANCIA INMERSIVA */}
+      {machineryCategories.map((cat, index) => {
+        const isGold = cat.bg === 'gold';
+        const isDark = cat.bg === 'dark';
+        const isEven = index % 2 === 0;
 
-      {/* 3. MOVIMIENTO DE TIERRA (DARK) */}
-      <section className="relative w-full overflow-hidden flex flex-col lg:flex-row min-h-[600px]">
-        <div className="relative w-full lg:w-1/2 h-[350px] lg:h-auto overflow-hidden">
-          <Image
-            src="/images/equipment/excavadora_real_daylight.png"
-            alt="Movimiento de Tierra"
-            fill
-            className="object-cover brightness-75 contrast-110"
-          />
-        </div>
-        <div className="relative w-full lg:w-1/2 bg-black flex flex-col justify-center p-12 md:p-20 lg:p-24 space-y-6">
-          <span className="font-montserrat text-zinc-500 text-[10px] font-black tracking-[0.5em] uppercase">
-            Categoría 02 & 04
-          </span>
-          <h2 className="text-4xl md:text-5xl font-future text-white leading-none uppercase">
-            MOVIMIENTO <br />
-            <span className="text-7l-gold">DE TIERRA</span>
-          </h2>
-          <div className="space-y-4">
-            <ul className="list-none space-y-3 font-montserrat text-zinc-300 font-medium text-sm md:text-base">
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-7l-gold rounded-full" /> Tractores y Mototraíllas</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-7l-gold rounded-full" /> Motoniveladoras</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-7l-gold rounded-full" /> Excavadoras y Retroexcavadoras</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-7l-gold rounded-full" /> Cargadores Frontales y Minishowers</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-7l-gold rounded-full" /> Compactadores (Pata de Cabra y Vibrocompactador)</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+        return (
+          <React.Fragment key={cat.id}>
+            {/* Transición Industrial Opcional entre secciones, al igual que en Servicios */}
+            {index === 3 && (
+              <section className="py-32 bg-black relative overflow-hidden">
+                {/* Bordes Industriales Superior e Inferior */}
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent z-20" />
+                <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent z-20" />
+                <div className="absolute inset-0 z-0 opacity-10 bg-industrial-grid" />
+                <div className="absolute inset-0 bg-gradient-to-r from-7l-gold/10 via-transparent to-7l-gold/10 pointer-events-none" />
+                
+                <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 text-center relative z-10">
+                  <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.6em] uppercase mb-4 block">
+                    SOPORTE CRÍTICO
+                  </span>
+                  <h2 className="text-4xl md:text-6xl font-future text-white uppercase tracking-normal max-w-4xl mx-auto leading-tight mb-6">
+                    AUTONOMÍA TOTAL EN LA EJECUCIÓN DE <span className="text-7l-gold">CADA PROYECTO</span>
+                  </h2>
+                  <p className="text-zinc-400 font-montserrat font-medium text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+                    Al operar con equipos 100% propios, eliminamos dependencias de terceros, mitigamos riesgos de suministro y aseguramos la continuidad operativa en todo momento.
+                  </p>
+                </div>
+              </section>
+            )}
 
-      {/* 4. TRANSPORTE ESPECIALIZADO (ORO) */}
-      <section className="relative w-full overflow-hidden flex flex-col lg:flex-row-reverse min-h-[600px]">
-        <div className="relative w-full lg:w-1/2 h-[350px] lg:h-auto overflow-hidden">
-          <Image
-            src="/images/equipment/transporte_lowboy_real_daylight.png"
-            alt="Transporte Pesado"
-            fill
-            className="object-cover brightness-90 contrast-110"
-          />
-        </div>
-        <div className="relative w-full lg:w-1/2 bg-7l-gold flex flex-col justify-center p-12 md:p-20 lg:p-24 space-y-6"
-             style={{ backgroundImage: "radial-gradient(rgba(0,0,0,0.15) 1px, transparent 0)", backgroundSize: "24px 24px" }}>
-          <span className="font-montserrat text-black/60 text-[10px] font-black tracking-[0.5em] uppercase">
-            Categoría 05
-          </span>
-          <h2 className="text-4xl md:text-5xl font-future text-black leading-none uppercase">
-            TRANSPORTE Y <br />
-            <span className="text-white">LOGÍSTICA</span>
-          </h2>
-          <div className="space-y-4">
-            <ul className="list-none space-y-3 font-montserrat text-black font-medium text-sm md:text-base">
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-black rounded-full" /> Chutos con Lowboy (60 a 140 Ton)</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-black rounded-full" /> Chutos con Batea y Volqueta</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-black rounded-full" /> Vacuum de 160 BLS y Supervactor</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-black rounded-full" /> Camiones Volteo, Cisterna, Cava, 350</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-black rounded-full" /> Camionetas Pick Up (Flota Liviana)</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+            <section className={`relative w-full overflow-hidden flex flex-col ${isEven ? 'lg:flex-row-reverse' : 'lg:flex-row'} min-h-[600px] group`}>
+              {/* Contenedor de Imagen */}
+              <div className="relative w-full lg:w-1/2 h-[350px] lg:h-auto overflow-hidden">
+                <Image
+                  src={cat.image}
+                  alt={`Equipos de ${cat.title.replace(/<[^>]+>/g, '')}`}
+                  fill
+                  className={`object-cover transition-transform duration-1000 group-hover:scale-105 ${isGold ? 'brightness-90 contrast-110' : 'brightness-75 contrast-110'}`}
+                />
+                {/* Overlay sutil al pasar el mouse */}
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              </div>
+              
+              {/* Contenedor de Contenido */}
+              <div 
+                className={`relative w-full lg:w-1/2 flex flex-col justify-center p-12 md:p-20 lg:p-24 space-y-6 ${
+                  isGold ? 'bg-7l-gold' : 'bg-black'
+                }`}
+                style={isGold ? { backgroundImage: "radial-gradient(rgba(0,0,0,0.15) 1px, transparent 0)", backgroundSize: "24px 24px" } : {}}
+              >
+                {/* Bordes Industriales Verticales entre Imagen y Texto */}
+                <div className={`absolute top-0 bottom-0 w-[1px] hidden lg:block ${isEven ? 'left-0' : 'right-0'} ${
+                  isGold ? 'bg-gradient-to-b from-transparent via-black/20 to-transparent' : 'bg-gradient-to-b from-transparent via-7l-gold/30 to-transparent'
+                }`} />
 
-      {/* 5. SERVICIOS A POZOS (DARK) */}
-      <section className="relative w-full overflow-hidden flex flex-col lg:flex-row min-h-[600px]">
-        <div className="relative w-full lg:w-1/2 h-[350px] lg:h-auto overflow-hidden">
-          <Image
-            src="/images/equipment/cabillero_real_daylight.png"
-            alt="Servicios a Pozos"
-            fill
-            className="object-cover brightness-75 contrast-110"
-          />
-        </div>
-        <div className="relative w-full lg:w-1/2 bg-black flex flex-col justify-center p-12 md:p-20 lg:p-24 space-y-6">
-          <span className="font-montserrat text-zinc-500 text-[10px] font-black tracking-[0.5em] uppercase">
-            Categoría 03
-          </span>
-          <h2 className="text-4xl md:text-5xl font-future text-white leading-none uppercase">
-            SERVICIOS <br />
-            <span className="text-7l-gold">A POZOS</span>
-          </h2>
-          <div className="space-y-4">
-            <ul className="list-none space-y-3 font-montserrat text-zinc-300 font-medium text-sm md:text-base">
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-7l-gold rounded-full" /> Cabillero de 350HP</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-7l-gold rounded-full" /> Camión Hot Oil</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-7l-gold rounded-full" /> Equipos Flush-By</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-7l-gold rounded-full" /> Equipos de Pruebas a Pozos (Well Testing)</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. ASFALTO Y CONCRETO (ORO) */}
-      <section className="relative w-full overflow-hidden flex flex-col lg:flex-row-reverse min-h-[600px]">
-        <div className="relative w-full lg:w-1/2 h-[350px] lg:h-auto overflow-hidden">
-          <Image
-            src="/images/equipment/asphalt_finisher_real_daylight.png"
-            alt="Equipos de Asfalto"
-            fill
-            className="object-cover brightness-90 contrast-110"
-          />
-        </div>
-        <div className="relative w-full lg:w-1/2 bg-7l-gold flex flex-col justify-center p-12 md:p-20 lg:p-24 space-y-6"
-             style={{ backgroundImage: "radial-gradient(rgba(0,0,0,0.15) 1px, transparent 0)", backgroundSize: "24px 24px" }}>
-          <span className="font-montserrat text-black/60 text-[10px] font-black tracking-[0.5em] uppercase">
-            Categoría 07 & 08
-          </span>
-          <h2 className="text-4xl md:text-5xl font-future text-black leading-none uppercase">
-            OBRAS CIVILES Y <br />
-            <span className="text-white">ASFALTO</span>
-          </h2>
-          <div className="space-y-4">
-            <ul className="list-none space-y-3 font-montserrat text-black font-medium text-sm md:text-base">
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-black rounded-full" /> Finisher y Escarificadoras de Asfalto</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-black rounded-full" /> Rodillos Lisos y Compactadores de Neumáticos</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-black rounded-full" /> Camión Rosco y Barredoras Autopropulsadas</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-black rounded-full" /> Trompos y Camiones Trompo Mezcladores de Concreto</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. EQUIPOS MENORES (DARK) */}
-      <section className="relative w-full overflow-hidden flex flex-col lg:flex-row min-h-[600px]">
-        <div className="relative w-full lg:w-1/2 h-[350px] lg:h-auto overflow-hidden">
-          <Image
-            src="/images/lighting-tower.png"
-            alt="Equipos Menores"
-            fill
-            className="object-cover brightness-75 contrast-110"
-          />
-        </div>
-        <div className="relative w-full lg:w-1/2 bg-black flex flex-col justify-center p-12 md:p-20 lg:p-24 space-y-6">
-          <span className="font-montserrat text-zinc-500 text-[10px] font-black tracking-[0.5em] uppercase">
-            Categoría 09
-          </span>
-          <h2 className="text-4xl md:text-5xl font-future text-white leading-none uppercase">
-            EQUIPOS <br />
-            <span className="text-7l-gold">MENORES Y SOPORTE</span>
-          </h2>
-          <div className="space-y-4">
-            <ul className="list-none space-y-3 font-montserrat text-zinc-300 font-medium text-sm md:text-base grid grid-cols-1 sm:grid-cols-2 gap-x-4">
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-7l-gold rounded-full" /> Plantas Eléctricas (100 - 1000 KVA)</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-7l-gold rounded-full" /> Compresores de Aire (185 CFM)</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-7l-gold rounded-full" /> Torres de Iluminación</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-7l-gold rounded-full" /> Máquinas de Soldar</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-7l-gold rounded-full" /> Motobombas (6” x 6” de 80HP)</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-7l-gold rounded-full" /> Equipos Sandblasting / Airless</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-7l-gold rounded-full" /> Martillos Neumáticos</li>
-              <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-7l-gold rounded-full" /> Tráilers, Oficinas y Comedores</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+                <span className={`font-montserrat text-[10px] font-black tracking-[0.5em] uppercase ${
+                  isGold ? 'text-black/60' : 'text-zinc-500'
+                }`}>
+                  {cat.category}
+                </span>
+                
+                <h2 
+                  className={`text-4xl md:text-5xl font-future leading-none uppercase ${
+                    isGold ? 'text-black' : 'text-white'
+                  }`}
+                  dangerouslySetInnerHTML={{ __html: cat.title }}
+                />
+                
+                <div className="space-y-4">
+                  <ul className={`list-none space-y-3 font-montserrat font-medium text-sm md:text-base ${
+                    cat.columns === 2 ? 'grid grid-cols-1 sm:grid-cols-2 gap-x-4 space-y-0 gap-y-3' : ''
+                  } ${isGold ? 'text-black' : 'text-zinc-300'}`}>
+                    {cat.items.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <div className={`w-1.5 h-1.5 rounded-full mt-2 shrink-0 ${isGold ? 'bg-black' : 'bg-7l-gold'}`} /> 
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </section>
+          </React.Fragment>
+        );
+      })}
 
       {/* CTA FINAL */}
       <section className="py-32 bg-[#080808] border-t border-white/5 relative overflow-hidden">
+        {/* Borde Industrial CTA */}
+        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-7l-gold/30 to-transparent z-20" />
+        
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <Shield size={48} className="text-7l-gold mx-auto mb-8" />
           <h2 className="text-4xl md:text-5xl font-future text-white uppercase mb-6 leading-tight">
@@ -244,3 +157,4 @@ export default function MaquinariasPage() {
     </main>
   );
 }
+
