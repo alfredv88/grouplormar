@@ -3,15 +3,9 @@
 import Image from 'next/image';
 import { Target, Eye } from 'lucide-react';
 import ComplianceHSE from '@/components/nosotros/ComplianceHSE';
+import TimelineSection from '@/components/nosotros/TimelineSection';
 
 export default function NosotrosPage() {
-  const milestones = [
-    { year: "2010", event: "Fundación estratégica. Inicio de operaciones en transporte de carga crítica y logística pesada." },
-    { year: "2015", event: "Expansión técnica. Integración de servicios de montaje mecánico y soporte a la industria petrolera." },
-    { year: "2020", event: "Consolidación de flota. Adquisición masiva de maquinaria pesada propia y grúas telescópicas." },
-    { year: "2024", event: "Liderazgo Nacional. Posicionamiento como aliado estratégico en infraestructura y servicios de ingeniería a gran escala." }
-  ];
-
   const values = [
     { name: "SEGURIDAD (HSE)", desc: "Priorizamos la integridad de nuestro personal y el cuidado del medio ambiente en cada operación." },
     { name: "CALIDAD", desc: "Cumplimos con las normativas y estándares más exigentes a nivel nacional e internacional." },
@@ -131,37 +125,8 @@ export default function NosotrosPage() {
         </div>
       </section>
 
-      {/* SECCIÓN 04: TIMELINE (Video Izquierda | Texto Derecha - Oro) */}
-      <section className="relative w-full overflow-hidden flex flex-col lg:flex-row min-h-[600px]">
-        <div className="relative w-full lg:w-1/2 h-[350px] lg:h-auto overflow-hidden">
-          <video
-            src="/videos/DJI_0230.webm"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="object-cover w-full h-full brightness-75 contrast-110"
-          />
-        </div>
-        <div className="relative w-full lg:w-1/2 bg-white flex flex-col justify-center p-12 md:p-20 lg:p-24 space-y-6">
-          <span className="font-montserrat text-black/40 text-[10px] font-black tracking-[0.5em] uppercase">
-            Trayectoria
-          </span>
-          <h2 className="text-5xl md:text-6xl font-future !text-black leading-none uppercase">
-            EVOLUCIÓN <br />
-            <span className="text-7l-gold">CONSTANTE</span>
-          </h2>
-          
-          <div className="space-y-4 max-w-lg">
-            {milestones.map((m, i) => (
-              <div key={i} className="flex gap-4 items-baseline">
-                <span className="font-future text-2xl text-7l-gold">{m.year}</span>
-                <p className="text-base font-montserrat !text-zinc-900 leading-relaxed font-medium">{m.event}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* SECCIÓN 04: TIMELINE INTERACTIVO */}
+      <TimelineSection />
 
       {/* SECCIÓN 05: COMPLIANCE & HSE */}
       <ComplianceHSE />
