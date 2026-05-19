@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { ArrowRight, ChevronRight } from 'lucide-react';
 
 // Imágenes de la galería de Lormar (extraídas de public/images y public/images/services)
@@ -108,19 +108,24 @@ const getBgClasses = (bg: string) => {
   }
 };
 
-// Componente de Carrusel con el efecto de deslizamiento (slide) suave y continuo
+// Componente de Carrusel con el efecto de deslizamiento (slide) suave y continuo (solo cuando está centrado)
 const ServiceCarousel = ({ images }: { images: string[] }) => {
   const [current, setCurrent] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  // Detecta cuando al menos el 30% del carrusel está visible en la pantalla
+  const isInView = useInView(containerRef, { once: false, amount: 0.3 });
 
   useEffect(() => {
+    if (!isInView) return;
+
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
     }, 5500);
     return () => clearInterval(timer);
-  }, [images.length]);
+  }, [isInView, images.length]);
 
   return (
-    <div className="relative w-full h-full min-h-[380px] lg:min-h-full overflow-hidden group">
+    <div ref={containerRef} className="relative w-full h-full min-h-[380px] lg:min-h-full overflow-hidden group">
       <AnimatePresence initial={false}>
         <motion.div
           key={current}
