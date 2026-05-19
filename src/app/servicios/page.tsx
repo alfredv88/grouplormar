@@ -255,13 +255,13 @@ export default function ServiciosPage() {
 
                 
                 <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 text-center relative z-10">
-                  <span className="font-montserrat text-black text-[10px] font-black tracking-[0.6em] uppercase mb-4 block">
+                  <span className="font-montserrat text-black/60 text-[10px] font-black tracking-[0.6em] uppercase mb-4 block">
                     COMPROMISO Y CONFORMIDAD
                   </span>
                   <h2 className="text-4xl md:text-6xl font-future text-black uppercase tracking-normal max-w-4xl mx-auto leading-tight mb-6">
                     HSE Y CUMPLIMIENTO <span className="text-white">RACDA OFICIAL</span>
                   </h2>
-                  <p className="text-white font-montserrat font-semibold text-sm md:text-base max-w-2xl mx-auto leading-relaxed opacity-90">
+                  <p className="text-white font-montserrat font-semibold text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
                     Operamos bajo estrictos estándares internacionales de higiene, seguridad y ambiente, garantizados por nuestras certificaciones vigentes del MINEC.
                   </p>
                 </div>
@@ -289,12 +289,16 @@ export default function ServiciosPage() {
                 {/* Identificador & Categoría */}
                 <div className="flex items-center space-x-3">
                   <span className={`font-future text-xs ${
-                    isGold ? 'text-black/40' : 'text-7l-gold/60'
+                    isGold ? 'text-black/40' :
+                    isWhite ? 'text-zinc-400' :
+                    'text-7l-gold/60'
                   }`}>
                     {service.id}
                   </span>
                   <span className={`h-px w-6 ${
-                    isGold ? 'bg-black/20' : 'bg-7l-gold/30'
+                    isGold ? 'bg-black/20' :
+                    isWhite ? 'bg-zinc-300' :
+                    'bg-7l-gold/30'
                   }`} />
                   <span
                     className={`font-montserrat text-[10px] font-black tracking-[0.4em] uppercase ${
@@ -314,7 +318,11 @@ export default function ServiciosPage() {
                     isWhite ? '!text-zinc-950' :
                     'text-white'
                   }`}
-                  dangerouslySetInnerHTML={{ __html: service.title }}
+                  dangerouslySetInnerHTML={{ 
+                    __html: isWhite 
+                      ? service.title.replace(/text-7l-gold/g, 'text-black') 
+                      : service.title 
+                  }}
                 />
 
                 {/* Subtítulo / Propósito */}
