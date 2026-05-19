@@ -321,8 +321,8 @@ export default function ServiciosPage() {
                 {/* Subtítulo / Propósito */}
                 <p
                   className={`text-base md:text-lg font-montserrat leading-relaxed font-bold ${
-                    isGold ? 'text-zinc-800' :
-                    isWhite ? 'text-zinc-700' :
+                    isGold ? '!text-black' :
+                    isWhite ? '!text-zinc-900 font-extrabold' :
                     'text-7l-gold'
                   }`}
                 >
@@ -332,8 +332,8 @@ export default function ServiciosPage() {
                 {/* Descripción Detallada */}
                 <p
                   className={`text-sm md:text-base font-montserrat leading-relaxed ${
-                    isGold ? 'text-black/85 font-medium' :
-                    isWhite ? 'text-zinc-600 font-medium' :
+                    isGold ? '!text-zinc-900 font-semibold' :
+                    isWhite ? '!text-zinc-700 font-medium' :
                     'text-zinc-400 font-medium'
                   } max-w-lg`}
                 >
