@@ -14,129 +14,111 @@ interface Milestone {
 const milestones: Milestone[] = [
   {
     year: '2010',
-    title: 'Fundación Estratégica',
-    subtitle: 'LOGÍSTICA CRÍTICA PESADA',
-    description: 'Establecimiento regional enfocado en resolver desafíos complejos de transporte industrial y movilización de cargas de gran escala.',
+    title: 'Fundación',
+    subtitle: 'LOGÍSTICA CRÍTICA',
+    description: 'Inicio de operaciones de transporte pesado y movilización de cargas sobredimensionadas.',
     icon: Truck,
   },
   {
     year: '2015',
-    title: 'Expansión Técnica',
-    subtitle: 'MONTAJE E INGENIERÍA INDUSTRIAL',
-    description: 'Integración del área de servicios mecánicos y soporte técnico de élite a las operaciones de la industria petrolera nacional.',
+    title: 'Expansión',
+    subtitle: 'MONTAJE E INGENIERÍA',
+    description: 'Integración de servicios de montaje mecánico e ingeniería para el sector petrolero.',
     icon: Settings,
   },
   {
     year: '2020',
-    title: 'Consolidación de Flota',
-    subtitle: 'MÚSCULO OPERATIVO PROPIO',
-    description: 'Adquisición de grúas telescópicas de hasta 100 toneladas y maquinaria pesada, asegurando el control absoluto del mantenimiento.',
+    title: 'Consolidación',
+    subtitle: 'MÚSCULO OPERATIVO',
+    description: 'Adquisición de grúas telescópicas y flota de maquinaria pesada propia de última gama.',
     icon: Shield,
   },
   {
     year: '2024',
-    title: 'Liderazgo Nacional',
-    subtitle: 'PROYECTOS MULTIDISCIPLINARIOS',
-    description: 'Posicionamiento definitivo como el principal aliado estratégico para megaproyectos de obras civiles, mecánicas e infraestructura.',
+    title: 'Liderazgo',
+    subtitle: 'PROYECTOS INTEGRALES',
+    description: 'Consolidación nacional como el principal aliado estratégico para megaproyectos industriales.',
     icon: Award,
   },
 ];
 
 export default function TimelineSection() {
   return (
-    <section className="relative w-full bg-white py-24 md:py-32 overflow-hidden border-t border-b border-zinc-100">
-      {/* Soft Glow Effect (Champagne/Gold lighting) */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-7l-gold/[0.04] rounded-full blur-[140px] pointer-events-none z-0" />
-
+    <section className="relative w-full bg-white py-16 md:py-20 overflow-hidden border-t border-b border-zinc-100">
       <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
         
         {/* Header */}
-        <div className="text-center max-w-xl mx-auto mb-20 md:mb-28">
-          <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.5em] uppercase mb-4 block">
-            NUESTRA HISTORIA
+        <div className="mb-12 md:mb-16">
+          <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.5em] uppercase mb-2 block">
+            TRAYECTORIA
           </span>
-          <h2 className="text-4xl md:text-6xl font-future text-zinc-950 leading-none uppercase">
-            EVOLUCIÓN <br />
-            <span className="text-7l-gold">CONSTANTE</span>
+          <h2 className="text-3xl md:text-4xl font-future text-zinc-950 uppercase tracking-tight">
+            NUESTRA <span className="text-7l-gold">EVOLUCIÓN</span>
           </h2>
-          <div className="w-16 h-[2px] bg-7l-gold mx-auto mt-6" />
         </div>
 
         {/* Timeline Container */}
         <div className="relative w-full">
-          {/* Central Vertical Line (Desktop only) */}
-          <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-7l-gold via-zinc-200 to-zinc-300 z-0 hidden md:block" />
+          {/* Central Horizontal Line (Desktop only) */}
+          <div className="absolute top-[20px] left-6 right-6 h-[1px] bg-zinc-200 z-0 hidden md:block" />
           
           {/* Mobile Vertical Line */}
-          <div className="absolute left-6 top-0 bottom-0 w-[2px] bg-gradient-to-b from-7l-gold to-zinc-300 z-0 md:hidden" />
+          <div className="absolute left-6 top-4 bottom-4 w-[1px] bg-zinc-200 z-0 md:hidden" />
 
-          {/* Timeline Items */}
-          <div className="space-y-16 md:space-y-24">
+          {/* Timeline Items Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6">
             {milestones.map((item, idx) => {
               const Icon = item.icon;
-              const isEven = idx % 2 === 0;
 
               return (
-                <div 
-                  key={idx} 
-                  className={`flex flex-col md:flex-row relative w-full items-start md:items-center ${
-                    isEven ? 'md:flex-row-reverse' : ''
-                  }`}
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: idx * 0.12 }}
+                  className="relative flex flex-col md:block group"
                 >
-                  {/* Outer Spacing Element (Desktop Only) */}
-                  <div className="w-full md:w-1/2 hidden md:block" />
+                  {/* Desktop Node Connectors & Dots */}
+                  <div className="relative w-full h-[40px] hidden md:flex items-center justify-start mb-6">
+                    {/* Node Dot */}
+                    <div className="w-10 h-10 rounded-none bg-white border border-zinc-200 flex items-center justify-center z-10 shadow-sm group-hover:border-7l-gold transition-all duration-300">
+                      <Icon className="w-4 h-4 text-zinc-400 group-hover:text-7l-gold transition-colors duration-300" />
+                    </div>
+                  </div>
 
-                  {/* Node Dot */}
-                  <motion.div 
-                    initial={{ scale: 0.5, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true, margin: '-100px' }}
-                    transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-                    className="absolute left-6 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-none bg-white border border-zinc-200 flex items-center justify-center z-10 shadow-md group hover:border-7l-gold hover:shadow-lg hover:shadow-7l-gold/10 transition-all duration-300"
-                  >
-                    <Icon className="w-5 h-5 text-7l-gold transition-transform duration-300 group-hover:scale-110" />
-                  </motion.div>
+                  {/* Mobile Layout (Flex row for dot + text) */}
+                  <div className="flex gap-6 md:block">
+                    {/* Mobile Node Dot */}
+                    <div className="flex-shrink-0 w-8 h-8 rounded-none bg-white border border-zinc-200 flex items-center justify-center z-10 md:hidden">
+                      <Icon className="w-3.5 h-3.5 text-7l-gold" />
+                    </div>
 
-                  {/* Card Content */}
-                  <motion.div 
-                    initial={{ opacity: 0, x: isEven ? 50 : -50, y: 15 }}
-                    whileInView={{ opacity: 1, x: 0, y: 0 }}
-                    viewport={{ once: true, margin: '-100px' }}
-                    transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
-                    className="w-full md:w-1/2 pl-16 md:pl-0 md:px-12 relative z-10"
-                  >
-                    {/* Light Premium Glass Card */}
-                    <div className="bg-zinc-50/50 backdrop-blur-md border border-zinc-100 p-6 md:p-8 hover:border-7l-gold/40 hover:bg-white hover:shadow-xl hover:shadow-zinc-200/50 transition-all duration-500 group relative overflow-hidden">
-                      {/* Top Line Hover Accent */}
+                    {/* Card Content */}
+                    <div className="flex-1 bg-zinc-50/40 border border-zinc-100 hover:border-7l-gold/20 hover:bg-white hover:shadow-xl hover:shadow-zinc-200/30 p-6 transition-all duration-500 relative">
+                      {/* Hover Top Gold Bar */}
                       <div className="absolute top-0 left-0 w-0 h-[2px] bg-7l-gold group-hover:w-full transition-all duration-500" />
                       
-                      {/* Accent Pattern */}
-                      <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-                        <span className="font-future text-7xl font-bold select-none text-zinc-300 leading-none">
-                          {item.year.substring(2)}
-                        </span>
-                      </div>
-
-                      {/* Year Indicator */}
-                      <span className="font-future text-4xl md:text-5xl text-7l-gold tracking-tight font-black block mb-4">
+                      {/* Year */}
+                      <span className="font-future text-3xl text-zinc-900 group-hover:text-7l-gold transition-colors duration-300 font-black block mb-2 leading-none">
                         {item.year}
                       </span>
 
                       {/* Title Header */}
-                      <h3 className="font-future text-lg md:text-xl text-zinc-900 uppercase mb-1">
+                      <h3 className="font-future text-sm text-zinc-950 uppercase mb-1">
                         {item.title}
                       </h3>
                       
-                      <span className="font-montserrat text-[10px] font-black text-7l-gold tracking-widest uppercase block mb-4">
+                      <span className="font-montserrat text-[9px] font-black text-7l-gold tracking-widest uppercase block mb-3">
                         {item.subtitle}
                       </span>
 
-                      <p className="font-montserrat text-sm md:text-base text-zinc-600 font-medium leading-relaxed">
+                      <p className="font-montserrat text-xs text-zinc-500 font-medium leading-relaxed">
                         {item.description}
                       </p>
                     </div>
-                  </motion.div>
-                </div>
+                  </div>
+                </motion.div>
               );
             })}
           </div>
