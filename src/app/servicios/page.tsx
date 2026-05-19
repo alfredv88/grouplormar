@@ -229,10 +229,9 @@ export default function ServiciosPage() {
 
         return (
           <React.Fragment key={service.id}>
-            {/* Banner intermedio de impacto para romper monotonía */}
-            {index === 3 && (
+            {/* Pausa 1: Después de las primeras 2 secciones (01 Construcción y 02 Mantenimiento) */}
+            {index === 2 && (
               <section className="py-32 bg-black relative overflow-hidden border-y border-white/5">
-                {/* Retícula técnica de fondo del sistema */}
                 <div className="absolute inset-0 z-0 opacity-10 bg-industrial-grid" />
                 <div className="absolute inset-0 bg-gradient-to-r from-7l-gold/10 via-transparent to-7l-gold/10 pointer-events-none" />
                 
@@ -244,7 +243,27 @@ export default function ServiciosPage() {
                     INGENIERÍA QUE TRANSFORMA VISIONES EN <span className="text-7l-gold">INFRAESTRUCTURA REAL</span>
                   </h2>
                   <p className="text-zinc-400 font-montserrat font-medium text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-                    Nuestra flota propia de grúas, maquinaria vial y equipos de pulling nos permite mantener el control total del cronograma y asegurar la calidad final de cada proyecto sin depender de terceros.
+                    Nuestra flota propia de maquinaria vial y soporte pesado garantiza un control total sobre los plazos y la calidad en cada obra electromecánica y civil.
+                  </p>
+                </div>
+              </section>
+            )}
+
+            {/* Pausa 2: Después de las siguientes 2 secciones (03 Pozos y 04 Ambiental) */}
+            {index === 4 && (
+              <section className="py-32 bg-[#080d0d] relative overflow-hidden border-y border-white/5">
+                <div className="absolute inset-0 z-0 opacity-10 bg-industrial-grid" />
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 via-transparent to-emerald-500/5 pointer-events-none" />
+                
+                <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 text-center relative z-10">
+                  <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.6em] uppercase mb-4 block">
+                    COMPROMISO Y CONFORMIDAD
+                  </span>
+                  <h2 className="text-4xl md:text-6xl font-future text-white uppercase tracking-normal max-w-4xl mx-auto leading-tight mb-6">
+                    HSE Y CUMPLIMIENTO <span className="text-7l-gold">RACDA OFICIAL</span>
+                  </h2>
+                  <p className="text-zinc-400 font-montserrat font-medium text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+                    Operamos bajo estrictos estándares internacionales de higiene, seguridad y ambiente, garantizados por nuestras certificaciones vigentes del MINEC.
                   </p>
                 </div>
               </section>
