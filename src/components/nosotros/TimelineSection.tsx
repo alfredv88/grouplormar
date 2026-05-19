@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface Milestone {
   year: string;
@@ -37,6 +38,16 @@ const milestones: Milestone[] = [
 ];
 
 export default function TimelineSection() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  // Position settings matching precise coordinates
+  const positions = [
+    { left: '16px', top: '20px', side: 'left' },
+    { left: '144px', top: '200px', side: 'right' },
+    { left: '16px', top: '380px', side: 'left' },
+    { left: '144px', top: '560px', side: 'right' },
+  ];
+
   return (
     <section className="relative w-full bg-white py-16 md:py-24 overflow-hidden border-t border-zinc-100">
       <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
@@ -74,155 +85,161 @@ export default function TimelineSection() {
             </svg>
 
             {/* Alternating Multi-Layer Nodes centered precisely on coordinates */}
-            {/* Hito 0 (2010): Left (x=16, y=20) */}
-            <motion.div 
-              initial={{ scale: 0, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1, type: 'spring', stiffness: 200 }}
-              className="absolute left-[16px] top-[20px] -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-7l-gold/15 flex items-center justify-center z-10 shadow-sm hover:scale-110 hover:bg-7l-gold/25 transition-all duration-300"
-            >
-              <div className="w-4 h-4 rounded-full bg-7l-gold flex items-center justify-center" style={{ backgroundColor: '#F9B331' }}>
-                <div className="w-1.5 h-1.5 rounded-full bg-white" />
-              </div>
-            </motion.div>
+            {positions.map((pos, idx) => {
+              const isActive = hoveredIndex === idx;
+              return (
+                <div 
+                  key={idx}
+                  className="absolute -translate-x-1/2 -translate-y-1/2 z-10 cursor-pointer"
+                  style={{ left: pos.left, top: pos.top }}
+                  onMouseEnter={() => setHoveredIndex(idx)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  <motion.div 
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.5, type: 'spring', stiffness: 200 }}
+                    animate={{ scale: isActive ? 1.35 : 1 }}
+                    className="relative w-8 h-8 rounded-full bg-7l-gold/15 flex items-center justify-center shadow-sm transition-colors duration-300"
+                    style={{ backgroundColor: isActive ? 'rgba(249, 179, 49, 0.25)' : 'rgba(249, 179, 49, 0.15)' }}
+                  >
+                    {/* Sonar Radar Pulse on Active Node */}
+                    {isActive && (
+                      <motion.div
+                        className="absolute inset-0 rounded-full border border-7l-gold/40"
+                        initial={{ scale: 1, opacity: 0.8 }}
+                        animate={{ scale: [1, 2.2, 1], opacity: [0.8, 0, 0.8] }}
+                        transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
+                        style={{ borderColor: 'rgba(249, 179, 49, 0.5)' }}
+                      />
+                    )}
 
-            {/* Hito 1 (2015): Right (x=144, y=200) */}
-            <motion.div 
-              initial={{ scale: 0, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6, type: 'spring', stiffness: 200 }}
-              className="absolute left-[144px] top-[200px] -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-7l-gold/15 flex items-center justify-center z-10 shadow-sm hover:scale-110 hover:bg-7l-gold/25 transition-all duration-300"
-            >
-              <div className="w-4 h-4 rounded-full bg-7l-gold flex items-center justify-center" style={{ backgroundColor: '#F9B331' }}>
-                <div className="w-1.5 h-1.5 rounded-full bg-white" />
-              </div>
-            </motion.div>
-
-            {/* Hito 2 (2020): Left (x=16, y=380) */}
-            <motion.div 
-              initial={{ scale: 0, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 1.1, type: 'spring', stiffness: 200 }}
-              className="absolute left-[16px] top-[380px] -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-7l-gold/15 flex items-center justify-center z-10 shadow-sm hover:scale-110 hover:bg-7l-gold/25 transition-all duration-300"
-            >
-              <div className="w-4 h-4 rounded-full bg-7l-gold flex items-center justify-center" style={{ backgroundColor: '#F9B331' }}>
-                <div className="w-1.5 h-1.5 rounded-full bg-white" />
-              </div>
-            </motion.div>
-
-            {/* Hito 3 (2024): Right (x=144, y=560) */}
-            <motion.div 
-              initial={{ scale: 0, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 1.6, type: 'spring', stiffness: 200 }}
-              className="absolute left-[144px] top-[560px] -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-7l-gold/15 flex items-center justify-center z-10 shadow-sm hover:scale-110 hover:bg-7l-gold/25 transition-all duration-300"
-            >
-              <div className="w-4 h-4 rounded-full bg-7l-gold flex items-center justify-center" style={{ backgroundColor: '#F9B331' }}>
-                <div className="w-1.5 h-1.5 rounded-full bg-white" />
-              </div>
-            </motion.div>
+                    {/* Central Gold Circle */}
+                    <div 
+                      className="w-4 h-4 rounded-full bg-7l-gold flex items-center justify-center transition-transform duration-300"
+                      style={{ 
+                        backgroundColor: '#F9B331',
+                        transform: isActive ? 'scale(1.15)' : 'scale(1)'
+                      }}
+                    >
+                      {/* Central White Target Dot */}
+                      <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                    </div>
+                  </motion.div>
+                </div>
+              );
+            })}
           </div>
 
-          {/* Content columns aligned precisely with their respective node coordinates */}
-          {/* Row 0 (2010): Left */}
-          <div className="absolute right-[calc(50%+100px)] top-[20px] -translate-y-1/2 w-[380px] text-right group">
-            <span className="font-montserrat text-4xl text-zinc-950 group-hover:text-7l-gold transition-colors duration-300 font-black block mb-1">
-              2010
-            </span>
-            <div className="font-montserrat text-sm font-black uppercase tracking-wider mb-1" style={{ color: '#09090b' }}>
-              {milestones[0].title}
-            </div>
-            <span className="font-montserrat text-[10px] font-black text-7l-gold tracking-[0.2em] uppercase block mb-2" style={{ color: '#F9B331' }}>
-              {milestones[0].subtitle}
-            </span>
-            <div className="font-montserrat text-xs md:text-sm font-medium leading-relaxed" style={{ color: '#3f3f46' }}>
-              {milestones[0].description}
-            </div>
-          </div>
+          {/* Interactive Content columns aligned precisely with their respective node coordinates */}
+          {milestones.map((item, idx) => {
+            const pos = positions[idx];
+            const isLeft = pos.side === 'left';
+            const isActive = hoveredIndex === idx;
+            const isAnyActive = hoveredIndex !== null;
+            const isMuted = isAnyActive && !isActive;
 
-          {/* Row 1 (2015): Right */}
-          <div className="absolute left-[calc(50%+100px)] top-[200px] -translate-y-1/2 w-[380px] text-left group">
-            <span className="font-montserrat text-4xl text-zinc-950 group-hover:text-7l-gold transition-colors duration-300 font-black block mb-1">
-              2015
-            </span>
-            <div className="font-montserrat text-sm font-black uppercase tracking-wider mb-1" style={{ color: '#09090b' }}>
-              {milestones[1].title}
-            </div>
-            <span className="font-montserrat text-[10px] font-black text-7l-gold tracking-[0.2em] uppercase block mb-2" style={{ color: '#F9B331' }}>
-              {milestones[1].subtitle}
-            </span>
-            <div className="font-montserrat text-xs md:text-sm font-medium leading-relaxed" style={{ color: '#3f3f46' }}>
-              {milestones[1].description}
-            </div>
-          </div>
+            return (
+              <motion.div
+                key={idx}
+                onMouseEnter={() => setHoveredIndex(idx)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                className="absolute -translate-y-1/2 w-[380px] cursor-pointer group z-20"
+                style={{ 
+                  left: isLeft ? undefined : 'calc(50% + 100px)',
+                  right: isLeft ? 'calc(50% + 100px)' : undefined,
+                  top: pos.top
+                }}
+                animate={{ 
+                  x: isActive ? (isLeft ? 12 : -12) : 0,
+                  opacity: isMuted ? 0.35 : 1
+                }}
+                transition={{ type: 'spring', stiffness: 220, damping: 22 }}
+              >
+                {/* Year Badge */}
+                <motion.span 
+                  className="font-montserrat text-4xl font-black block mb-1 transition-colors duration-300"
+                  animate={{ color: isActive ? '#F9B331' : '#09090b' }}
+                >
+                  {item.year}
+                </motion.span>
 
-          {/* Row 2 (2020): Left */}
-          <div className="absolute right-[calc(50%+100px)] top-[380px] -translate-y-1/2 w-[380px] text-right group">
-            <span className="font-montserrat text-4xl text-zinc-950 group-hover:text-7l-gold transition-colors duration-300 font-black block mb-1">
-              2020
-            </span>
-            <div className="font-montserrat text-sm font-black uppercase tracking-wider mb-1" style={{ color: '#09090b' }}>
-              {milestones[2].title}
-            </div>
-            <span className="font-montserrat text-[10px] font-black text-7l-gold tracking-[0.2em] uppercase block mb-2" style={{ color: '#F9B331' }}>
-              {milestones[2].subtitle}
-            </span>
-            <div className="font-montserrat text-xs md:text-sm font-medium leading-relaxed" style={{ color: '#3f3f46' }}>
-              {milestones[2].description}
-            </div>
-          </div>
+                {/* Milestone Title */}
+                <div 
+                  className="font-montserrat text-sm font-black uppercase tracking-wider mb-1 transition-colors duration-300" 
+                  style={{ color: isActive ? '#F9B331' : '#09090b' }}
+                >
+                  {item.title}
+                </div>
 
-          {/* Row 3 (2024): Right */}
-          <div className="absolute left-[calc(50%+100px)] top-[560px] -translate-y-1/2 w-[380px] text-left group">
-            <span className="font-montserrat text-4xl text-zinc-950 group-hover:text-7l-gold transition-colors duration-300 font-black block mb-1">
-              2024
-            </span>
-            <div className="font-montserrat text-sm font-black uppercase tracking-wider mb-1" style={{ color: '#09090b' }}>
-              {milestones[3].title}
-            </div>
-            <span className="font-montserrat text-[10px] font-black text-7l-gold tracking-[0.2em] uppercase block mb-2" style={{ color: '#F9B331' }}>
-              {milestones[3].subtitle}
-            </span>
-            <div className="font-montserrat text-xs md:text-sm font-medium leading-relaxed" style={{ color: '#3f3f46' }}>
-              {milestones[3].description}
-            </div>
-          </div>
+                {/* Subtitle */}
+                <motion.span 
+                  className="font-montserrat text-[10px] font-black tracking-[0.2em] uppercase block mb-2 transition-transform duration-300"
+                  animate={{ scale: isActive ? 1.02 : 1 }}
+                  style={{ color: '#F9B331' }}
+                >
+                  {item.subtitle}
+                </motion.span>
+
+                {/* Description */}
+                <div 
+                  className="font-montserrat text-xs md:text-sm font-medium leading-relaxed transition-colors duration-300" 
+                  style={{ color: isActive ? '#18181b' : '#3f3f46' }}
+                >
+                  {item.description}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
-        {/* ================= MOBILE VIEW (Compact list with guide) ================= */}
+        {/* ================= MOBILE VIEW (Compact list with interactive guide) ================= */}
         <div className="relative w-full md:hidden">
           {/* Vertical guide line */}
           <div className="absolute left-4 top-2 bottom-2 w-[2px] bg-zinc-200" />
           
           <div className="space-y-12">
             {milestones.map((item, idx) => {
+              const isActive = hoveredIndex === idx;
               return (
-                <div key={idx} className="relative flex gap-6 pl-10 group">
+                <div 
+                  key={idx} 
+                  className="relative flex gap-6 pl-10 group cursor-pointer"
+                  onTouchStart={() => setHoveredIndex(idx)}
+                  onMouseEnter={() => setHoveredIndex(idx)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
                   {/* Concentric node dot on line for mobile */}
                   <div className="absolute left-[8px] top-1.5 w-[18px] h-[18px] rounded-full bg-7l-gold/15 flex items-center justify-center z-10">
-                    <div className="w-[10px] h-[10px] rounded-full bg-7l-gold flex items-center justify-center" style={{ backgroundColor: '#F9B331' }}>
+                    <div className="w-[10px] h-[10px] rounded-full bg-7l-gold flex items-center justify-center animate-pulse" style={{ backgroundColor: '#F9B331' }}>
                       <div className="w-1 h-1 rounded-full bg-white" />
                     </div>
                   </div>
 
-                  <div className="flex-1">
-                    <span className="font-montserrat text-2xl text-zinc-950 group-hover:text-7l-gold transition-colors duration-300 font-black block mb-1">
+                  <motion.div 
+                    className="flex-1"
+                    animate={{ x: isActive ? 5 : 0 }}
+                  >
+                    <span 
+                      className="font-montserrat text-2xl font-black block mb-1 transition-colors duration-300"
+                      style={{ color: isActive ? '#F9B331' : '#09090b' }}
+                    >
                       {item.year}
                     </span>
-                    <div className="font-montserrat text-sm font-black uppercase mb-1" style={{ color: '#09090b' }}>
+                    <div 
+                      className="font-montserrat text-sm font-black uppercase mb-1" 
+                      style={{ color: '#09090b' }}
+                    >
                       {item.title}
                     </div>
-                    <span className="font-montserrat text-[10px] font-black text-7l-gold tracking-[0.2em] uppercase block mb-2" style={{ color: '#F9B331' }}>
+                    <span className="font-montserrat text-[10px] font-black tracking-[0.2em] uppercase block mb-2" style={{ color: '#F9B331' }}>
                       {item.subtitle}
                     </span>
                     <div className="font-montserrat text-xs font-medium leading-relaxed" style={{ color: '#3f3f46' }}>
                       {item.description}
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               );
             })}
