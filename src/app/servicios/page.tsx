@@ -290,14 +290,12 @@ export default function ServiciosPage() {
                 <div className="flex items-center space-x-3">
                   <span className={`font-future text-xs ${
                     isGold ? 'text-black/40' :
-                    isWhite ? 'text-zinc-400' :
                     'text-7l-gold/60'
                   }`}>
                     {service.id}
                   </span>
                   <span className={`h-px w-6 ${
                     isGold ? 'bg-black/20' :
-                    isWhite ? 'bg-zinc-300' :
                     'bg-7l-gold/30'
                   }`} />
                   <span
@@ -318,11 +316,7 @@ export default function ServiciosPage() {
                     isWhite ? '!text-zinc-950' :
                     'text-white'
                   }`}
-                  dangerouslySetInnerHTML={{ 
-                    __html: isWhite 
-                      ? service.title.replace(/text-7l-gold/g, 'text-black') 
-                      : service.title 
-                  }}
+                  dangerouslySetInnerHTML={{ __html: service.title }}
                 />
 
                 {/* Subtítulo / Propósito */}
