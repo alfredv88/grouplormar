@@ -52,7 +52,7 @@ const services = [
   {
     id: '02',
     category: 'MANTENIMIENTO',
-    title: 'INTEGRIDAD Y <span class="text-black">MANTENIMIENTO</span>',
+    title: 'INTEGRIDAD Y <span class="text-white">MANTENIMIENTO</span>',
     subtitle: 'Continuidad operativa y preservación de activos industriales.',
     description: 'Programas integrales de mantenimiento preventivo y correctivo para equipos mecánicos rotatorios y estáticos, pruebas no destructivas (NDT), y paradas de planta planificadas bajo altos estándares internacionales para evitar pérdidas de producción.',
     bg: 'gold',
@@ -321,7 +321,7 @@ export default function ServiciosPage() {
                 {/* Subtítulo / Propósito */}
                 <p
                   className={`text-base md:text-lg font-montserrat leading-relaxed font-bold ${
-                    isGold ? '!text-black' :
+                    isGold ? 'text-black' :
                     isWhite ? '!text-zinc-900 font-extrabold' :
                     'text-7l-gold'
                   }`}
@@ -332,7 +332,7 @@ export default function ServiciosPage() {
                 {/* Descripción Detallada */}
                 <p
                   className={`text-sm md:text-base font-montserrat leading-relaxed ${
-                    isGold ? '!text-zinc-900 font-semibold' :
+                    isGold ? 'text-white font-medium' :
                     isWhite ? '!text-zinc-700 font-medium' :
                     'text-zinc-400 font-medium'
                   } max-w-lg`}
@@ -344,10 +344,10 @@ export default function ServiciosPage() {
                 <div className="pt-4">
                   <a
                     href={`/contacto?servicio=${encodeURIComponent(service.category.toLowerCase())}`}
-                    className={`inline-flex items-center space-x-3 font-montserrat font-bold text-xs tracking-widest uppercase transition-all duration-300 border-b pb-1.5 group/btn ${
-                      isGold ? 'border-black text-black hover:text-white hover:border-white' :
-                      isWhite ? 'border-zinc-900 text-zinc-900 hover:text-7l-gold hover:border-7l-gold' :
-                      'border-7l-gold text-7l-gold hover:text-white hover:border-white'
+                    className={`inline-flex items-center space-x-3 font-montserrat font-bold text-xs tracking-widest uppercase transition-all duration-300 group/btn ${
+                      isGold ? 'bg-black text-7l-gold hover:text-white px-8 py-3.5 hover:bg-zinc-950 shadow-md hover:shadow-black/10' :
+                      isWhite ? 'bg-black text-white hover:bg-zinc-900 px-8 py-3.5 shadow-md hover:shadow-black/10' :
+                      'bg-7l-gold text-black hover:bg-white px-8 py-3.5 shadow-md hover:shadow-black/10'
                     }`}
                   >
                     <span className="transition-transform duration-300 group-hover/btn:translate-x-0.5">
