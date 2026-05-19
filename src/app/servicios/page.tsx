@@ -142,21 +142,38 @@ export default function ServiciosPage() {
           <React.Fragment key={service.id}>
             {/* Pausa 1: Después de las primeras 2 secciones (01 Construcción y 02 Mantenimiento) */}
             {index === 2 && (
-              <section className="py-32 bg-black relative overflow-hidden">
+              <section className="py-48 md:py-64 lg:py-72 bg-black relative overflow-hidden min-h-[60vh] flex items-center justify-center">
+                {/* Video de Fondo Cinematográfico */}
+                <div className="absolute inset-0 z-0 overflow-hidden">
+                  <video 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    className="w-full h-full object-cover opacity-60 brightness-75 scale-105"
+                  >
+                    <source src="/videos/DJI_0323.webm" type="video/webm" />
+                    {/* Fallback en caso de que DJI_0323.webm falle */}
+                    <source src="/videos/lormar_3.webm" type="video/webm" />
+                  </video>
+                  {/* Degradados de fundido con secciones adyacentes y oscurecimiento para legibilidad */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-black via-black/45 to-black z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50 z-10" />
+                </div>
+
                 {/* Bordes Industriales Superior e Inferior */}
                 <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent z-20" />
                 <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent z-20" />
-                <div className="absolute inset-0 z-0 opacity-10 bg-industrial-grid" />
-                <div className="absolute inset-0 bg-gradient-to-r from-7l-gold/10 via-transparent to-7l-gold/10 pointer-events-none" />
+                <div className="absolute inset-0 z-10 opacity-5 bg-industrial-grid pointer-events-none" />
                 
-                <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 text-center relative z-10">
+                <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 text-center relative z-20">
                   <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.6em] uppercase mb-4 block">
                     POTENCIA OPERATIVA
                   </span>
                   <h2 className="text-4xl md:text-6xl font-future text-white uppercase tracking-normal max-w-4xl mx-auto leading-tight mb-6">
                     INGENIERÍA QUE TRANSFORMA VISIONES EN <span className="text-7l-gold">INFRAESTRUCTURA REAL</span>
                   </h2>
-                  <p className="text-zinc-400 font-montserrat font-medium text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+                  <p className="text-zinc-300 font-montserrat font-semibold text-sm md:text-base max-w-2xl mx-auto leading-relaxed drop-shadow-md">
                     Nuestra flota propia de maquinaria vial y soporte pesado garantiza un control total sobre los plazos y la calidad en cada obra electromecánica y civil.
                   </p>
                 </div>
