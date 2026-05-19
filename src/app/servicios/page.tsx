@@ -255,13 +255,13 @@ export default function ServiciosPage() {
 
                 
                 <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 text-center relative z-10">
-                  <span className="font-montserrat text-black/60 text-[10px] font-black tracking-[0.6em] uppercase mb-4 block">
+                  <span className="font-montserrat !text-black/60 text-[10px] font-black tracking-[0.6em] uppercase mb-4 block">
                     COMPROMISO Y CONFORMIDAD
                   </span>
-                  <h2 className="text-4xl md:text-6xl font-future text-black uppercase tracking-normal max-w-4xl mx-auto leading-tight mb-6">
+                  <h2 className="text-4xl md:text-6xl font-future !text-black uppercase tracking-normal max-w-4xl mx-auto leading-tight mb-6">
                     HSE Y CUMPLIMIENTO <span className="text-white">RACDA OFICIAL</span>
                   </h2>
-                  <p className="text-white font-montserrat font-semibold text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+                  <p className="!text-white font-montserrat font-semibold text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
                     Operamos bajo estrictos estándares internacionales de higiene, seguridad y ambiente, garantizados por nuestras certificaciones vigentes del MINEC.
                   </p>
                 </div>
@@ -370,28 +370,28 @@ export default function ServiciosPage() {
 
       {/* CTA DE CIERRE */}
       <section 
-        className="bg-7l-gold py-28 text-center relative overflow-hidden"
+        className="bg-[#F7F7F7] py-28 text-center relative overflow-hidden border-t border-zinc-200"
         style={{ 
-          backgroundImage: "radial-gradient(rgba(0,0,0,0.15) 1px, transparent 0)", 
+          backgroundImage: "radial-gradient(rgba(0,0,0,0.06) 1px, transparent 0)", 
           backgroundSize: "24px 24px" 
         }}
       >
         {/* Sutil sombra interna inferior */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/5" />
         
         <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-          <span className="font-montserrat text-black/60 text-[10px] font-black tracking-[0.5em] uppercase mb-4 block">
+          <span className="font-montserrat !text-7l-gold text-[10px] font-black tracking-[0.5em] uppercase mb-4 block">
             ALIANZA ESTRATÉGICA
           </span>
           <h2 className="text-4xl md:text-6xl font-future !text-black leading-none uppercase max-w-4xl mx-auto mb-6">
-            ¿LISTO PARA INICIAR <br className="md:hidden" /> SU PROYECTO?
+            ¿LISTO PARA INICIAR <br className="md:hidden" /> SU <span className="text-7l-gold">PROYECTO?</span>
           </h2>
-          <p className="font-montserrat !text-black/80 font-bold text-sm md:text-base max-w-xl mx-auto mb-8 leading-relaxed">
+          <p className="font-montserrat !text-zinc-700 font-bold text-sm md:text-base max-w-xl mx-auto mb-8 leading-relaxed">
             Póngase en contacto con nuestra división de ingeniería para evaluar y presupuestar su obra con el máximo nivel de rigor técnico y profesionalismo.
           </p>
           <a 
             href="/contacto"
-            className="inline-flex items-center space-x-3 bg-black text-white hover:bg-zinc-900 px-9 py-4.5 font-montserrat font-black text-xs tracking-[0.2em] uppercase transition-all duration-300 group hover:shadow-2xl hover:shadow-black/30"
+            className="inline-flex items-center space-x-3 bg-black text-7l-gold hover:text-white px-9 py-4.5 font-montserrat font-black text-xs tracking-[0.2em] uppercase transition-all duration-300 group hover:shadow-2xl hover:shadow-black/30"
           >
             <span>Contactar División Técnica</span>
             <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
