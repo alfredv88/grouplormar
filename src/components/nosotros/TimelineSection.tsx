@@ -1,124 +1,114 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Shield, Truck, Settings, Award } from 'lucide-react';
 
 interface Milestone {
   year: string;
   title: string;
   subtitle: string;
   description: string;
-  icon: any;
 }
 
 const milestones: Milestone[] = [
   {
     year: '2010',
-    title: 'Fundación',
-    subtitle: 'LOGÍSTICA CRÍTICA',
-    description: 'Inicio de operaciones de transporte pesado y movilización de cargas sobredimensionadas.',
-    icon: Truck,
+    title: 'Fundación Estratégica',
+    subtitle: 'LOGÍSTICA CRÍTICA PESADA',
+    description: 'Inicio de operaciones enfocado en transporte pesado y movilización de cargas de gran escala.',
   },
   {
     year: '2015',
-    title: 'Expansión',
-    subtitle: 'MONTAJE E INGENIERÍA',
-    description: 'Integración de servicios de montaje mecánico e ingeniería para el sector petrolero.',
-    icon: Settings,
+    title: 'Expansión Técnica',
+    subtitle: 'MONTAJE E INGENIERÍA INDUSTRIAL',
+    description: 'Integración del área de servicios mecánicos y soporte de ingeniería para el sector de hidrocarburos.',
   },
   {
     year: '2020',
-    title: 'Consolidación',
-    subtitle: 'MÚSCULO OPERATIVO',
-    description: 'Adquisición de grúas telescópicas y flota de maquinaria pesada propia de última gama.',
-    icon: Shield,
+    title: 'Consolidación de Flota',
+    subtitle: 'MÚSCULO OPERATIVO PROPIO',
+    description: 'Adquisición estratégica de grúas telescópicas y maquinaria pesada propia de última gama.',
   },
   {
     year: '2024',
-    title: 'Liderazgo',
-    subtitle: 'PROYECTOS INTEGRALES',
-    description: 'Consolidación nacional como el principal aliado estratégico para megaproyectos industriales.',
-    icon: Award,
+    title: 'Liderazgo Nacional',
+    subtitle: 'PROYECTOS MULTIDISCIPLINARIOS',
+    description: 'Consolidación en el país como el principal aliado para obras civiles e infraestructura industrial.',
   },
 ];
 
 export default function TimelineSection() {
   return (
-    <section className="relative w-full bg-white py-16 md:py-20 overflow-hidden border-t border-b border-zinc-100">
-      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
+    <section className="relative w-full bg-white py-16 md:py-20 overflow-hidden border-t border-zinc-100">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-12">
         
         {/* Header */}
-        <div className="mb-12 md:mb-16">
-          <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.5em] uppercase mb-2 block">
+        <div className="text-center max-w-xl mx-auto mb-16 md:mb-20">
+          <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.5em] uppercase mb-3 block">
             TRAYECTORIA
           </span>
-          <h2 className="text-3xl md:text-4xl font-future text-zinc-950 uppercase tracking-tight">
-            NUESTRA <span className="text-7l-gold">EVOLUCIÓN</span>
+          <h2 className="text-3xl md:text-4xl font-future text-zinc-950 leading-none uppercase">
+            EVOLUCIÓN <br />
+            <span className="text-7l-gold">CONSTANTE</span>
           </h2>
+          <div className="w-10 h-[1px] bg-7l-gold mx-auto mt-4" />
         </div>
 
         {/* Timeline Container */}
         <div className="relative w-full">
-          {/* Central Horizontal Line (Desktop only) */}
-          <div className="absolute top-[20px] left-6 right-6 h-[1px] bg-zinc-200 z-0 hidden md:block" />
-          
-          {/* Mobile Vertical Line */}
-          <div className="absolute left-6 top-4 bottom-4 w-[1px] bg-zinc-200 z-0 md:hidden" />
+          {/* Central Vertical Guide (Desktop/Mobile) */}
+          <div className="absolute left-6 md:left-1/2 -translate-x-1/2 top-4 bottom-4 w-[1px] bg-zinc-200 z-0" />
 
-          {/* Timeline Items Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6">
+          {/* Timeline Items */}
+          <div className="space-y-12 md:space-y-16">
             {milestones.map((item, idx) => {
-              const Icon = item.icon;
+              const isEven = idx % 2 === 0;
 
               return (
-                <motion.div 
-                  key={idx}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: idx * 0.12 }}
-                  className="relative flex flex-col md:block group"
+                <div 
+                  key={idx} 
+                  className={`flex flex-col md:flex-row relative w-full items-start md:items-center ${
+                    isEven ? 'md:flex-row-reverse' : ''
+                  } group`}
                 >
-                  {/* Desktop Node Connectors & Dots */}
-                  <div className="relative w-full h-[40px] hidden md:flex items-center justify-start mb-6">
-                    {/* Node Dot */}
-                    <div className="w-10 h-10 rounded-none bg-white border border-zinc-200 flex items-center justify-center z-10 shadow-sm group-hover:border-7l-gold transition-all duration-300">
-                      <Icon className="w-4 h-4 text-zinc-400 group-hover:text-7l-gold transition-colors duration-300" />
-                    </div>
+                  {/* Spacing alignment for layout */}
+                  <div className="w-full md:w-1/2 hidden md:block" />
+
+                  {/* Micro Node Center */}
+                  <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-6 h-6 bg-white border border-zinc-200 flex items-center justify-center z-10 group-hover:border-7l-gold transition-colors duration-300">
+                    <div className="w-1.5 h-1.5 bg-zinc-300 group-hover:bg-7l-gold transition-colors duration-300" />
                   </div>
 
-                  {/* Mobile Layout (Flex row for dot + text) */}
-                  <div className="flex gap-6 md:block">
-                    {/* Mobile Node Dot */}
-                    <div className="flex-shrink-0 w-8 h-8 rounded-none bg-white border border-zinc-200 flex items-center justify-center z-10 md:hidden">
-                      <Icon className="w-3.5 h-3.5 text-7l-gold" />
-                    </div>
+                  {/* Content (No boxes, pure editorial layout) */}
+                  <motion.div 
+                    initial={{ opacity: 0, x: isEven ? 30 : -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: '-60px' }}
+                    transition={{ duration: 0.5, ease: 'easeOut' }}
+                    className={`w-full md:w-1/2 pl-12 md:pl-0 ${
+                      isEven ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'
+                    }`}
+                  >
+                    {/* Year */}
+                    <span className="font-future text-3xl md:text-4xl text-zinc-950 group-hover:text-7l-gold transition-colors duration-300 font-black block mb-2 leading-none">
+                      {item.year}
+                    </span>
 
-                    {/* Card Content */}
-                    <div className="flex-1 bg-zinc-50/40 border border-zinc-100 hover:border-7l-gold/20 hover:bg-white hover:shadow-xl hover:shadow-zinc-200/30 p-6 transition-all duration-500 relative">
-                      {/* Hover Top Gold Bar */}
-                      <div className="absolute top-0 left-0 w-0 h-[2px] bg-7l-gold group-hover:w-full transition-all duration-500" />
-                      
-                      {/* Year */}
-                      <span className="font-future text-3xl text-zinc-900 group-hover:text-7l-gold transition-colors duration-300 font-black block mb-2 leading-none">
-                        {item.year}
-                      </span>
+                    {/* Title */}
+                    <h3 className="font-future text-sm text-zinc-900 uppercase tracking-wide mb-1">
+                      {item.title}
+                    </h3>
+                    
+                    {/* Subtitle */}
+                    <span className="font-montserrat text-[9px] font-black text-zinc-400 tracking-wider uppercase block mb-3">
+                      {item.subtitle}
+                    </span>
 
-                      {/* Title Header */}
-                      <h3 className="font-future text-sm text-zinc-950 uppercase mb-1">
-                        {item.title}
-                      </h3>
-                      
-                      <span className="font-montserrat text-[9px] font-black text-7l-gold tracking-widest uppercase block mb-3">
-                        {item.subtitle}
-                      </span>
-
-                      <p className="font-montserrat text-xs text-zinc-500 font-medium leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
+                    {/* Description */}
+                    <p className="font-montserrat text-xs md:text-sm text-zinc-500 font-medium leading-relaxed max-w-md md:inline-block">
+                      {item.description}
+                    </p>
+                  </motion.div>
+                </div>
               );
             })}
           </div>
