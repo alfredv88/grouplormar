@@ -148,9 +148,9 @@ export default function Footer() {
                   </a>
 
                   <div className="pt-1">
-                    <Link href="/portafolio" className="group flex items-center gap-4 text-gray-300 hover:text-7l-gold transition-all">
+                    <Link href="/servicios" className="group flex items-center gap-4 text-gray-300 hover:text-7l-gold transition-all">
                        <div className="w-8 h-[1px] bg-7l-gold group-hover:w-12 transition-all"></div>
-                       <span className="text-[9px] font-black uppercase tracking-[0.5em] font-montserrat">Explorar Portafolio de Obras</span>
+                       <span className="text-[9px] font-black uppercase tracking-[0.5em] font-montserrat">Explorar Capacidades de Ingeniería</span>
                        <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                     </Link>
                   </div>
@@ -166,9 +166,9 @@ export default function Footer() {
       <div className="mt-20 bg-white py-12 px-10 md:px-20 lg:px-32">
         <div className="w-full max-w-[1800px] mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
           <nav className="flex flex-wrap justify-center gap-x-12 gap-y-4 text-[10px] font-black font-montserrat uppercase tracking-[0.4em] text-black">
-            <Link href="/servicios" className="hover:text-7l-gold transition-colors">CAPACIDADES</Link>
-            <Link href="/portafolio" className="hover:text-7l-gold transition-colors">PORTAFOLIO</Link>
-            <Link href="/nosotros" className="hover:text-7l-gold transition-colors">CORPORATIVO</Link>
+            <Link href="/servicios" className="hover:text-7l-gold transition-colors">SERVICIOS</Link>
+            <Link href="/maquinaria" className="hover:text-7l-gold transition-colors">MAQUINARIA</Link>
+            <Link href="/nosotros" className="hover:text-7l-gold transition-colors">NOSOTROS</Link>
             <Link href="/contacto" className="hover:text-7l-gold transition-colors">CONTACTO</Link>
           </nav>
           

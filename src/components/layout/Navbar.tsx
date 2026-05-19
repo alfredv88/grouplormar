@@ -16,9 +16,9 @@ export default function Navbar() {
 
   const links = [
     { href: "/", label: "INICIO" },
+    { href: "/nosotros", label: "NOSOTROS" },
     { href: "/servicios", label: "SERVICIOS" },
-    { href: "/portafolio", label: "PORTAFOLIO" },
-    { href: "/nosotros", label: "EMPRESA" },
+    { href: "/maquinaria", label: "MAQUINARIA" },
   ];
 
   useMotionValueEvent(scrollY, "change", (latest) => {
