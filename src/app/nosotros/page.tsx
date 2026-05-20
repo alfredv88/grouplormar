@@ -79,7 +79,7 @@ export default function NosotrosPage() {
       <section className="relative w-full overflow-hidden flex flex-col lg:flex-row min-h-[600px] group border-b border-white/5">
         <div className="relative w-full lg:w-1/2 h-[350px] lg:h-auto overflow-hidden">
           <Image
-            src="/images/equipo_lormar_accion_industrial.png"
+            src="/images/about/equipo_lormar.png"
             alt="Equipo Lormar"
             fill
             className="object-cover brightness-75 contrast-110 transition-transform duration-[1200ms] ease-out group-hover:scale-105"
@@ -106,7 +106,7 @@ export default function NosotrosPage() {
       <section className="relative w-full overflow-hidden flex flex-col lg:flex-row-reverse min-h-[600px] group">
         <div className="relative w-full lg:w-1/2 h-[350px] lg:h-auto overflow-hidden">
           <Image
-            src="/images/operador_lormar_precision_maestria.png"
+            src="/images/about/operador_lormar.png"
             alt="Misión y Visión"
             fill
             className="object-cover brightness-75 contrast-110 transition-transform duration-[1200ms] ease-out group-hover:scale-105"

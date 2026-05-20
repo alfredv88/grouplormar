@@ -13,8 +13,8 @@ export const serviceImages = {
   ],
   pozos: [
     '/images/services/pozos_real.png',
-    '/images/pulling-unit.png',
-    '/images/lighting-tower.png',
+    '/images/equipment/pulling_unit.png',
+    '/images/equipment/planta_electrica.png',
   ],
   ambiental: [
     '/images/services/ambiental_real.png',
@@ -25,8 +25,8 @@ export const serviceImages = {
     '/images/services/logistica_real.png',
     '/images/services/logistica_transporte.jpg',
     '/images/services/logistica_flota.png',
-    '/images/heavy-crane.png',
-    '/images/manlift.png',
+    '/images/equipment/grua-120t.webp',
+    '/images/equipment/manlift.png',
   ],
 };
 

@@ -25,7 +25,7 @@ const projectData: CardItem[] = [
     year: "2024", 
     type: "MONTAJE INDUSTRIAL", 
     desc: "Ingeniería de detalle, montaje mecánico completo y automatización de procesos para planta de procesamiento de agregados.", 
-    image: "/images/hero-excavator.webp",
+    image: "/images/equipment/hero_excavator.webp",
     id: "PRJ-24-001"
   },
   { 
@@ -34,7 +34,7 @@ const projectData: CardItem[] = [
     year: "2023", 
     type: "VIALIDAD & DRENAJES", 
     desc: "Movimiento de tierra crítico, canalización de drenajes industriales y estabilización de suelos para infraestructura vial pesada.", 
-    image: "/images/hero-excavator.webp",
+    image: "/images/equipment/hero_excavator.webp",
     id: "PRJ-23-012"
   },
   { 
@@ -43,7 +43,7 @@ const projectData: CardItem[] = [
     year: "2024", 
     type: "SERVICIOS A POZOS", 
     desc: "Mantenimiento integral de equipos rotativos, paradas de planta programadas y certificación de sistemas de seguridad en yacimiento.", 
-    image: "/images/hero-excavator.webp",
+    image: "/images/equipment/hero_excavator.webp",
     id: "PRJ-24-005"
   },
   { 
@@ -52,7 +52,7 @@ const projectData: CardItem[] = [
     year: "2023", 
     type: "ELECTROMECÁNICA", 
     desc: "Instalación de tableros de alta tensión, sistemas de control SCADA y cableado de potencia para expansión de línea de ensamblaje.", 
-    image: "/images/hero-excavator.webp",
+    image: "/images/equipment/hero_excavator.webp",
     id: "PRJ-23-009"
   }
 ];
@@ -64,7 +64,7 @@ const machineryData: CardItem[] = [
     status: "DISPONIBLE", 
     type: "IZAMIENTO", 
     desc: "Grúas telescópicas, brazos hidráulicos y montacargas de alta capacidad certificados para maniobras de izaje crítico.", 
-    image: "/images/hero-night.png",
+    image: "/images/services/construccion_real.png",
     id: "MAC-IZ-001",
     items: [
       "Grúa Telescópica (15, 45, 60, 75 y 100 Ton)",
@@ -78,7 +78,7 @@ const machineryData: CardItem[] = [
     status: "DISPONIBLE", 
     type: "EXCAVACIÓN", 
     desc: "Equipos de pala pesada para excavaciones profundas y preparación de locaciones operativas en yacimiento.", 
-    image: "/images/hero-excavator.webp",
+    image: "/images/equipment/hero_excavator.webp",
     id: "MAC-PM-002",
     items: [
       "Cargador Frontal",
@@ -93,7 +93,7 @@ const machineryData: CardItem[] = [
     status: "EN OPERACIÓN", 
     type: "SERVICIOS A POZOS", 
     desc: "Unidades especializadas en intervención de yacimientos y reacondicionamiento técnico de pozos.", 
-    image: "/images/hero-night.png",
+    image: "/images/services/construccion_real.png",
     id: "MAC-SP-003",
     items: [
       "Cabillero de 350 HP",
@@ -108,7 +108,7 @@ const machineryData: CardItem[] = [
     status: "DISPONIBLE", 
     type: "VIALIDAD", 
     desc: "Flota pesada para conformación, desmonte, nivelación y preparación estructural de suelos en campo.", 
-    image: "/images/hero-excavator.webp",
+    image: "/images/equipment/hero_excavator.webp",
     id: "MAC-MT-004",
     items: [
       "Tractores de Oruga",
@@ -123,7 +123,7 @@ const machineryData: CardItem[] = [
     status: "DISPONIBLE", 
     type: "MOVILIZACIÓN", 
     desc: "Soporte logístico pesado para traslado nacional de maquinaria sobredimensionada, materiales críticos y fluidos.", 
-    image: "/images/hero-night.png",
+    image: "/images/services/construccion_real.png",
     id: "MAC-TR-005",
     items: [
       "Chutos con Lowboy (60 a 140 Ton)",
@@ -139,7 +139,7 @@ const machineryData: CardItem[] = [
     status: "DISPONIBLE", 
     type: "ACCESO EN ALTURA", 
     desc: "Plataformas articuladas para operaciones seguras de montaje electromecánico e instrumentación en altura.", 
-    image: "/images/hero-excavator.webp",
+    image: "/images/equipment/hero_excavator.webp",
     id: "MAC-EL-006",
     items: [
       "Plataformas Manlift",
@@ -152,7 +152,7 @@ const machineryData: CardItem[] = [
     status: "DISPONIBLE", 
     type: "VIALIDAD", 
     desc: "Flota especializada de pavimentación autopropulsada para escarificación y colocación técnica de asfalto.", 
-    image: "/images/hero-night.png",
+    image: "/images/services/construccion_real.png",
     id: "MAC-AS-007",
     items: [
       "Finisher (Terminadora de Asfalto)",
@@ -167,7 +167,7 @@ const machineryData: CardItem[] = [
     status: "DISPONIBLE", 
     type: "CONCRETERA", 
     desc: "Maquinaria mezcladora y trompos para el vaciado continuo de concreto en bases y estructuras civiles.", 
-    image: "/images/hero-excavator.webp",
+    image: "/images/equipment/hero_excavator.webp",
     id: "MAC-CO-008",
     items: [
       "Camiones Trompo Mezclador de Concreto",
@@ -180,7 +180,7 @@ const machineryData: CardItem[] = [
     status: "DISPONIBLE", 
     type: "SERVICIOS AUXILIARES", 
     desc: "Soporte energético, neumático, hidráulico y habitabilidad móvil para operaciones autosuficientes en campo.", 
-    image: "/images/hero-night.png",
+    image: "/images/services/construccion_real.png",
     id: "MAC-ME-009",
     items: [
       "Plantas Eléctricas (100 a 1000 KVA)",

@@ -112,7 +112,7 @@ export default function ServicesGrid() {
       id: idx,
       title: title.toUpperCase(),
       desc: desc,
-      img: itemImageMap[title] || categoryImageMap[activeTab] || "/images/hero-excavator.webp",
+      img: itemImageMap[title] || categoryImageMap[activeTab] || "/images/equipment/hero_excavator.webp",
       tag: technicalTags[activeTab] || "Certificado"
     };
   }) || [];
@@ -324,7 +324,7 @@ export default function ServicesGrid() {
            className="relative"
         >
           <Image
-            src="/images/MOTONIVELADORE.png"
+            src="/images/equipment/motoniveladora.png"
             alt="Motoniveladora Lormar"
             width={1000}
             height={800}

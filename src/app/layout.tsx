@@ -1,4 +1,4 @@
-import { Montserrat, Syne } from "next/font/google";
+
 import localFont from "next/font/local";
 import "./globals.css";
 import type { Metadata } from "next";
@@ -8,10 +8,11 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 
-const montserrat = Montserrat({ 
-  subsets: ["latin"], 
-  variable: "--font-montserrat", 
-  weight: ["400", "500", "600", "700", "800", "900"] 
+const montserrat = localFont({
+  src: "../../public/fonts/montserrat-variable.woff2",
+  variable: "--font-montserrat",
+  weight: "400 900",
+  style: "normal",
 });
 
 const futureEarth = localFont({

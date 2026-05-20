@@ -8,15 +8,15 @@ import { BROCHURE_DATA } from "@/constants/brochureData";
 import Magnetic from "@/components/ui/Magnetic";
 
 const equipmentImages: Record<string, string> = {
-  "izamiento": "/images/heavy-crane.png",
+  "izamiento": "/images/equipment/grua-120t.webp",
   "pala-mecanica": "/images/equipment/pala_mecanica.png",
-  "servicios-pozo": "/images/pulling-unit.png",
-  "movimiento-tierra": "/images/WhatsApp Image 2026-04-09 at 2.40.17 PM (1).jpeg",
-  "transporte": "/images/WhatsApp Image 2026-04-09 at 2.40.18 PM (1).jpeg",
-  "elevadores": "/images/manlift.png",
+  "servicios-pozo": "/images/equipment/pulling_unit.png",
+  "movimiento-tierra": "/images/equipment/movimiento_tierra.jpeg",
+  "transporte": "/images/equipment/chuto_batea.png",
+  "elevadores": "/images/equipment/manlift.png",
   "asfalto": "/images/equipment/asphalt_finisher_real_daylight.png",
   "concreto": "/images/equipment/DJI_0281.JPG",
-  "equipos-menores": "/images/lighting-tower.png",
+  "equipos-menores": "/images/equipment/planta_electrica.png",
 };
 
 const showcaseCategories = BROCHURE_DATA.machinery;

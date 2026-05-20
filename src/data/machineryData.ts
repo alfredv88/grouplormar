@@ -4,7 +4,7 @@ export const machineryImages = {
   transporte: '/images/services/logistica_transporte.jpg',
   pozos: '/images/equipment/cabillero_real_daylight.png',
   asfalto: '/images/equipment/asphalt_finisher_real_daylight.png',
-  menores: '/images/lighting-tower.png',
+  menores: '/images/equipment/planta_electrica.png',
 };
 
 export interface MachineryItem {

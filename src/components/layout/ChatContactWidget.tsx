@@ -62,7 +62,7 @@ export default function ChatContactWidget() {
             <div className="fixed bottom-8 right-8 z-[60]">
                 <button
                     onClick={() => setIsOpen(true)}
-                    className={`group relative w-12 h-12 flex items-center justify-center transition-all duration-700 ${isOpen ? 'scale-0 rotate-90' : 'scale-100 rotate-0'}`}
+                    className={`group relative w-12 h-12 flex items-center justify-center transition-all duration-700 ${isOpen ? 'scale-0 rotate-90' : 'scale-100 rotate-0'} bg-7l-black/95 backdrop-blur-md border border-7l-gold/30`}
                 >
                     {/* Solid Luxury Backdrop Container to guarantee contrast over white/light backgrounds */}
                     <div className="absolute inset-0 bg-7l-black/95 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.5)] border border-7l-gold/30 group-hover:border-7l-gold transition-all duration-700" />
@@ -89,7 +89,7 @@ export default function ChatContactWidget() {
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             onClick={() => setIsOpen(false)}
-                            className="absolute inset-0 bg-black/80 backdrop-blur-xl"
+                            className="absolute inset-0 bg-7l-black/95 backdrop-blur-xl"
                         />
 
                         {/* Floating Ghost Card */}

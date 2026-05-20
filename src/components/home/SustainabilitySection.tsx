@@ -19,7 +19,7 @@ export default function SustainabilitySection() {
         className="relative w-full md:w-1/2 h-[400px] md:h-auto overflow-hidden"
       >
         <Image
-          src="/images/sostenibilidad_lormar_compromiso.png"
+          src="/images/about/sostenibilidad.png"
           alt="Compromiso Ambiental Lormar"
           fill
           className="object-cover brightness-75 contrast-110"

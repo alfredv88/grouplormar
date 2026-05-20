@@ -11,7 +11,7 @@ const ContactMaps = () => {
             <div className="max-w-[1800px] mx-auto space-y-20 relative z-10">
                 <div className="space-y-4">
                     <h2 className="text-6xl md:text-[80px] font-future uppercase text-white leading-none">
-                        NUESTRAS <br /> <span className="text-transparent" style={{ WebkitTextStroke: "1px #F9B331" }}>SEDES</span>
+                        NUESTRAS <br /> <span className="text-7l-gold">SEDES</span>
                     </h2>
                     <div className="h-[2px] w-32 bg-7l-gold"></div>
                 </div>
@@ -19,7 +19,7 @@ const ContactMaps = () => {
                 <div className="grid md:grid-cols-2 gap-16">
                     {/* Sede Lechería */}
                     <div className="space-y-8 group">
-                        <div className="aspect-video grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-700 bg-white/5 border border-white/10 overflow-hidden relative scanline-hud">
+                        <div className="aspect-video transition-all duration-700 bg-white/5 border border-white/10 overflow-hidden relative scanline-hud">
                             <iframe
                                 src="https://www.google.com/maps/d/u/0/embed?mid=17fVcJp0SYgXWSl1eCIFFLvQIRKkw5Ak&ehbc=2E312F"
                                 className="absolute top-[-52px] left-0 w-full h-[calc(100%+52px)] border-0"
@@ -41,7 +41,7 @@ const ContactMaps = () => {
 
                     {/* Base Los Potocos */}
                     <div className="space-y-8 group">
-                        <div className="aspect-video grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-700 bg-white/5 border border-white/10 overflow-hidden relative scanline-hud">
+                        <div className="aspect-video transition-all duration-700 bg-white/5 border border-white/10 overflow-hidden relative scanline-hud">
                             <iframe
                                 src="https://www.google.com/maps/d/u/0/embed?mid=17fVcJp0SYgXWSl1eCIFFLvQIRKkw5Ak&ehbc=2E312F"
                                 className="absolute top-[-52px] left-0 w-full h-[calc(100%+52px)] border-0"
