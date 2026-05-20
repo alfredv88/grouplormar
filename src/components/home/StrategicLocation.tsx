@@ -48,7 +48,7 @@ export default function StrategicLocation() {
           <div className="w-12 h-[2px] bg-7l-gold mt-8" />
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
           
           {/* LEFT COLUMN: HUB LIST (REFINED STYLE) */}
           <div className="lg:col-span-5">

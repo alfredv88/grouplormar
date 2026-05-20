@@ -34,30 +34,33 @@ export default function AboutSection() {
       
 
       {/* Vertical Branding Column (Logo Oficial - Posición Fija y Consolidada de Producción) */}
-      <motion.div 
-        className="absolute top-1/2 flex items-center justify-center select-none hidden lg:flex pointer-events-none z-0"
-        style={{ 
-          left: "-200px",
-          y: logoY,
-        }}
-      >
-        <div 
-          className="relative"
-          style={{
-            width: "799px",
-            height: "315px",
-            transform: "rotate(-90deg)",
-            opacity: 0.15,
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 hidden lg:block">
+        <motion.div 
+          className="absolute top-1/2 flex items-center justify-center select-none"
+          style={{ 
+            left: "-180px",
+            y: logoY,
           }}
         >
-          <Image
-            src="/logos/logo lormar sin rif gris.webp"
-            alt="Logo Lormar"
-            fill
-            className="object-contain"
-          />
-        </div>
-      </motion.div>
+          <div 
+            className="relative"
+            style={{
+              width: "799px",
+              height: "315px",
+              transform: "rotate(-90deg)",
+              opacity: 0.12,
+            }}
+          >
+            <Image
+              src="/logos/logo lormar sin rif gris.webp"
+              alt=""
+              fill
+              className="object-contain"
+              aria-hidden="true"
+            />
+          </div>
+        </motion.div>
+      </div>
 
       {/* Background Crane Element (Grua 120t - Derecha) — Oculto en mobile para evitar scroll horizontal */}
       <motion.div 

@@ -71,7 +71,7 @@ export default function EquipmentShowcase() {
 
   return (
     <section 
-      className="py-48 bg-transparent relative z-20 overflow-hidden"
+      className="py-16 md:py-32 lg:py-48 bg-transparent relative z-20 overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -110,12 +110,12 @@ export default function EquipmentShowcase() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
-        className="w-full max-w-[1800px] mx-auto px-5 md:px-12 lg:px-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 relative z-10"
+        className="w-full max-w-[1800px] mx-auto px-5 md:px-12 lg:px-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 relative z-10"
       >
         
         {/* Left Side: Navigation (Elite Standard) */}
-        <div className="lg:col-span-3 flex flex-col relative z-10 pt-4">
-          <div className="mb-16">
+        <div className="lg:col-span-3 flex flex-col relative z-10 pt-0 lg:pt-4">
+          <div className="mb-8 lg:mb-16">
             <h2 className="text-h2 mb-4">
               MAQUINARIA <br /> <span className="text-7l-gold">Y EQUIPOS</span>
             </h2>
@@ -124,7 +124,7 @@ export default function EquipmentShowcase() {
             </p>
           </div>
 
-          <div className="flex flex-col relative border-l border-white/5">
+          <div className="flex flex-row flex-wrap lg:flex-col relative lg:border-l border-white/5 gap-2 lg:gap-0">
             {/* Precision Indicator */}
             <motion.div 
               className="absolute left-[-1px] w-[2px] bg-7l-gold z-10 shadow-[0_0_15px_rgba(242,169,0,0.8)]"
@@ -138,18 +138,18 @@ export default function EquipmentShowcase() {
                 <div
                   key={cat.id}
                   onClick={() => handleMenuClick(i)}
-                  className="h-[48px] flex items-center justify-between cursor-pointer group pl-6 transition-all"
+                  className="h-[48px] lg:h-[48px] flex items-center justify-between cursor-pointer group lg:pl-6 px-3 lg:px-0 transition-all border lg:border-0 border-white/10 rounded-none lg:rounded-none"
                 >
-                  <span className={`font-montserrat text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 transform group-hover:translate-x-2 ${isActive ? 'text-7l-gold shadow-[0_0_10px_rgba(242,169,0,0.2)]' : 'text-white group-hover:text-7l-gold'}`}>
+                  <span className={`font-montserrat text-[9px] lg:text-[10px] font-bold tracking-[0.15em] lg:tracking-[0.2em] uppercase transition-all duration-300 lg:transform lg:group-hover:translate-x-2 ${isActive ? 'text-7l-gold' : 'text-white/60 group-hover:text-7l-gold'}`}>
                     {cat.title}
                   </span>
-                  <ChevronRight size={12} className={`transition-all duration-300 ${isActive ? 'text-7l-gold scale-110 opacity-100' : 'opacity-0 group-hover:opacity-50 group-hover:translate-x-1'}`} />
+                  <ChevronRight size={12} className={`hidden lg:block transition-all duration-300 ${isActive ? 'text-7l-gold scale-110 opacity-100' : 'opacity-0 group-hover:opacity-50 group-hover:translate-x-1'}`} />
                 </div>
               );
             })}
           </div>
 
-          <div className="mt-20">
+          <div className="mt-8 lg:mt-20">
             <Link 
               href="/portafolio" 
               className="group/btn inline-flex items-center gap-4 text-[10px] font-montserrat font-black tracking-[0.3em] text-white uppercase transition-all"

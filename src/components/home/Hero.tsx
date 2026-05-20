@@ -114,7 +114,7 @@ export default function Hero() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ ...transition, delay: 1.2 }}
-                  className="text-base md:text-lg text-white font-montserrat font-bold leading-relaxed tracking-wide max-w-2xl border-l-[3px] border-7l-gold pl-10"
+                  className="text-base md:text-lg text-white font-montserrat font-bold leading-relaxed tracking-wide max-w-2xl border-l-[3px] border-7l-gold pl-4 md:pl-10"
                 >
                   Ejecución técnica de alto nivel en áreas de civil, mecánica e instrumentación. 
                   Garantizamos <span className="text-7l-gold font-black italic underline decoration-7l-gold underline-offset-8 uppercase tracking-[0.2em] ml-2">autonomía total</span> con flota propia.

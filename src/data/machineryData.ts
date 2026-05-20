@@ -1,94 +1,116 @@
 export const machineryImages = {
   izamiento: '/images/equipment/izamiento_100t_real_daylight.png',
   movimiento: '/images/equipment/excavadora_real_daylight.png',
-  transporte: '/images/equipment/transporte_lowboy_real_daylight.png',
+  transporte: '/images/services/logistica_transporte.jpg',
   pozos: '/images/equipment/cabillero_real_daylight.png',
   asfalto: '/images/equipment/asphalt_finisher_real_daylight.png',
   menores: '/images/lighting-tower.png',
 };
 
-export const machineryCategories = [
+export interface MachineryItem {
+  name: string;
+  image: string;
+}
+
+export interface MachineryCategory {
+  id: string;
+  category: string;
+  title: string;
+  description: string;
+  image: string;
+  bg: string;
+  items: MachineryItem[];
+  columns?: number;
+}
+
+export const machineryCategories: MachineryCategory[] = [
   {
     id: '01',
-    category: 'Categoría 01 & 06',
+    category: 'DIVISIÓN DE IZAMIENTO',
     title: 'IZAMIENTO Y <span class="text-white">ELEVACIÓN</span>',
+    description: 'Flota especializada para maniobras de izaje crítico, montaje de estructuras pesadas y posicionamiento en altura con equipos certificados y operadores de alta precisión.',
     items: [
-      'Grúas Telescópicas (15, 45, 60, 75 y 100 Ton)',
-      'Brazos Hidráulicos (6, 15, 20 y 25 Ton)',
-      'Montacargas pesados (6 a 25 Ton)',
-      'Manlift y Camión Cesta',
+      { name: 'Grúas Telescópicas (15, 45, 60, 75 y 100 Ton)', image: '/maquinaria/grua-120t.webp' },
+      { name: 'Brazos Hidráulicos (6, 15, 20 y 25 Ton)', image: '/maquinaria/brazo-hidraulico.png' },
+      { name: 'Montacargas pesados (6 a 25 Ton)', image: '/maquinaria/montacargas-v1.webp' },
+      { name: 'Manlift y Camión Cesta', image: '/maquinaria/manlift.png' },
     ],
     bg: 'gold',
     image: machineryImages.izamiento,
   },
   {
     id: '02',
-    category: 'Categoría 02 & 04',
+    category: 'DIVISIÓN DE MOVIMIENTO',
     title: 'MOVIMIENTO <br /><span class="text-7l-gold">DE TIERRA</span>',
+    description: 'Equipos pesados para remoción a gran escala, acondicionamiento de terrenos, nivelación topográfica y compactación de fundaciones para locaciones petroleras y civiles.',
     items: [
-      'Tractores y Mototraíllas',
-      'Motoniveladoras',
-      'Excavadoras y Retroexcavadoras',
-      'Cargadores Frontales y Minishowers',
-      'Compactadores (Pata de Cabra y Vibrocompactador)',
+      { name: 'Tractores y Mototraíllas', image: '/maquinaria/tractor-mototrailla.jpeg' },
+      { name: 'Motoniveladoras', image: '/images/equipment/motoniveladora_real_daylight.png' },
+      { name: 'Excavadoras y Retroexcavadoras', image: '/images/equipment/excavadora_real_daylight.png' },
+      { name: 'Excavadoras con Martillo', image: '/maquinaria/excavadora_martillo.png' },
+      { name: 'Cargadores Frontales y Minishowers', image: '/images/equipment/pala_mecanica.png' },
+      { name: 'Compactadores', image: '/maquinaria/compactador.webp' },
     ],
     bg: 'dark',
     image: machineryImages.movimiento,
   },
   {
     id: '03',
-    category: 'Categoría 05',
+    category: 'DIVISIÓN LOGÍSTICA',
     title: 'TRANSPORTE Y <br /><span class="text-white">LOGÍSTICA</span>',
+    description: 'Músculo logístico pesado diseñado para la movilización segura de cargas sobredimensionadas, fluidos industriales y apoyo transversal en proyectos a nivel nacional.',
     items: [
-      'Chutos con Lowboy (60 a 140 Ton)',
-      'Chutos con Batea y Volqueta',
-      'Vacuum de 160 BLS y Supervactor',
-      'Camiones Volteo, Cisterna, Cava, 350',
-      'Camionetas Pick Up (Flota Liviana)',
+      { name: 'Chutos con Lowboy (60 a 140 Ton)', image: '/images/equipment/transporte_lowboy_real_daylight.png' },
+      { name: 'Chutos con Batea y Volqueta', image: '/maquinaria/chuto_batea.png' },
+      { name: 'Vacuum de 160 BLS y Supervactor', image: '/images/services/ambiental_gestion.jpeg' },
+      { name: 'Camiones Volteo, Cisterna, Cava, 350', image: '/maquinaria/camion-cisterna.webp' },
+      { name: 'Camionetas Pick Up (Flota Liviana)', image: '/images/equipment/pickup_truck_sobrio.png' },
     ],
     bg: 'gold',
     image: machineryImages.transporte,
   },
   {
     id: '04',
-    category: 'Categoría 03',
+    category: 'DIVISIÓN DE POZOS',
     title: 'SERVICIOS <br /><span class="text-7l-gold">A POZOS</span>',
+    description: 'Unidades móviles especializadas para reacondicionamiento (workover), estimulación de producción y mantenimiento de pozos directamente en campo.',
     items: [
-      'Cabillero de 350HP',
-      'Camión Hot Oil',
-      'Equipos Flush-By',
-      'Equipos de Pruebas a Pozos (Well Testing)',
+      { name: 'Cabillero de 350HP', image: machineryImages.pozos },
+      { name: 'Camión Hot Oil', image: '/maquinaria/camion_hidrojet.png' },
+      { name: 'Equipos Flush-By', image: '/images/services/ambiental_gestion.jpeg' },
+      { name: 'Camión Hidrojet Industrial', image: '/maquinaria/camion_hidrojet.png' },
     ],
     bg: 'dark',
     image: machineryImages.pozos,
   },
   {
     id: '05',
-    category: 'Categoría 07 & 08',
+    category: 'DIVISIÓN CIVIL',
     title: 'OBRAS CIVILES Y <br /><span class="text-white">ASFALTO</span>',
+    description: 'Maquinaria autopropulsada para pavimentación, mezclado, colocación y compactación de concreto y asfalto en obras viales e infraestructuras de gran envergadura.',
     items: [
-      'Finisher y Escarificadoras de Asfalto',
-      'Rodillos Lisos y Compactadores de Neumáticos',
-      'Camión Rosco y Barredoras Autopropulsadas',
-      'Trompos y Camiones Trompo Mezcladores de Concreto',
+      { name: 'Finisher y Escarificadoras de Asfalto', image: '/maquinaria/pavimentadora.webp' },
+      { name: 'Rodillos Lisos y Compactadores de Neumáticos', image: '/maquinaria/compactador.webp' },
+      { name: 'Camión Rosco y Barredoras Autopropulsadas', image: '/maquinaria/camion-cisterna.webp' },
+      { name: 'Trompos y Camiones Trompo Mezcladores de Concreto', image: '/maquinaria/volqueta.webp' },
     ],
     bg: 'gold',
     image: machineryImages.asfalto,
   },
   {
     id: '06',
-    category: 'Categoría 09',
+    category: 'SOPORTE Y CAMPAMENTO',
     title: 'EQUIPOS <br /><span class="text-7l-gold">MENORES Y SOPORTE</span>',
+    description: 'Infraestructura móvil y generación de energía continua para garantizar la autonomía operativa total de nuestros campamentos en zonas aisladas.',
     columns: 2,
     items: [
-      'Plantas Eléctricas (100 - 1000 KVA)',
-      'Compresores de Aire (185 CFM)',
-      'Torres de Iluminación',
-      'Máquinas de Soldar',
-      'Motobombas (6” x 6” de 80HP)',
-      'Equipos Sandblasting / Airless',
-      'Martillos Neumáticos',
-      'Tráilers, Oficinas y Comedores',
+      { name: 'Plantas Eléctricas', image: '/maquinaria/planta_electrica.png' },
+      { name: 'Compresores de Aire', image: '/maquinaria/planta_electrica.png' },
+      { name: 'Torres de Iluminación', image: machineryImages.menores },
+      { name: 'Máquinas de Soldar', image: machineryImages.menores },
+      { name: 'Motobombas (6" x 6" de 80HP)', image: machineryImages.menores },
+      { name: 'Tráilers y Oficinas Móviles', image: '/images/equipment/DJI_0281.JPG' },
+      { name: 'Baños Portátiles y Lavamanos', image: machineryImages.menores },
     ],
     bg: 'dark',
     image: machineryImages.menores,

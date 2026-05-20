@@ -91,9 +91,9 @@ export default function Navbar() {
 
             {/* LOGO */}
             <Link href="/" className="flex items-center gap-4 group">
-              <div className={`relative transition-all duration-500 ${isScrolled ? "w-36 h-9" : "w-48 h-12"}`}>
+              <div className={`relative transition-all duration-500 ${(isScrolled || isOpen) ? "w-36 h-9" : "w-48 h-12"}`}>
                 <Image
-                  src={isScrolled ? "/logos/logo lormar sin rif gris.webp" : "/logos/logo lormar sin rif.webp"}
+                  src={(isScrolled || isOpen) ? "/logos/logo lormar sin rif gris.webp" : "/logos/logo lormar sin rif.webp"}
                   alt="Logo Grupo Lormar Industrial"
                   fill
                   priority
@@ -136,7 +136,7 @@ export default function Navbar() {
             {/* MOBILE TOGGLE */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`md:hidden p-2 transition-colors ${isScrolled ? 'text-[#1A1A1A]' : 'text-white'}`}
+              className={`md:hidden p-2 transition-colors rounded-sm ${isScrolled ? 'text-[#1A1A1A]' : 'text-white bg-black/20 backdrop-blur-sm drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]'}`}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -184,7 +184,7 @@ export default function Navbar() {
               SOLICITAR COTIZACIÓN
             </Link>
 
-            <div className="mt-auto pb-10 flex flex-col gap-3 border-t border-[#E8E8E8] pt-8">
+            <div className="mt-auto pb-10 flex flex-col gap-4 border-t border-[#E8E8E8] pt-8">
               <a href="tel:+584141816162" className="flex items-center gap-3 text-[#6B7280]">
                 <Phone size={14} className="text-7l-gold" />
                 <span className="font-montserrat text-[10px] tracking-wider">+58 414 181 61 62</span>
@@ -193,6 +193,18 @@ export default function Navbar() {
                 <Mail size={14} className="text-7l-gold" />
                 <span className="font-montserrat text-[10px] tracking-wider">NEGOCIOS@GROUPLORMAR.COM</span>
               </a>
+              {/* Social Icons */}
+              <div className="flex items-center gap-5 pt-2">
+                {[Linkedin, Instagram, Facebook].map((Icon, i) => (
+                  <a
+                    key={i}
+                    href="#"
+                    className="text-[#9CA3AF] hover:text-7l-gold transition-colors duration-300"
+                  >
+                    <Icon size={18} />
+                  </a>
+                ))}
+              </div>
             </div>
           </motion.div>
         )}

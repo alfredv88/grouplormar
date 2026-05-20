@@ -17,7 +17,8 @@ const ContactInfo = () => {
                         
                         <div className="space-y-4 w-full max-w-lg">
                             {/* Napoleón Bellaville */}
-                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 border border-white/5 bg-white/[0.01] hover:border-7l-gold/30 hover:bg-white/[0.03] transition-all duration-300">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 border border-white/5 bg-7l-black/40 hover:border-7l-gold/40 hover:bg-7l-black/80 transition-all duration-300 relative group/card">
+                                <div className="absolute left-0 top-0 bottom-0 w-1 bg-7l-gold scale-y-0 group-hover/card:scale-y-100 transition-transform origin-top"></div>
                                 <div className="space-y-1">
                                     <p className="text-[10px] font-future uppercase tracking-widest text-7l-gold">Napoleón Bellaville</p>
                                     <p className="text-[11px] font-montserrat text-zinc-400 font-medium">Director Ejecutivo</p>
@@ -47,7 +48,8 @@ const ContactInfo = () => {
                             </div>
 
                             {/* Brayhan Bellaville */}
-                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 border border-white/5 bg-white/[0.01] hover:border-7l-gold/30 hover:bg-white/[0.03] transition-all duration-300">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 border border-white/5 bg-7l-black/40 hover:border-7l-gold/40 hover:bg-7l-black/80 transition-all duration-300 relative group/card">
+                                <div className="absolute left-0 top-0 bottom-0 w-1 bg-7l-gold scale-y-0 group-hover/card:scale-y-100 transition-transform origin-top"></div>
                                 <div className="space-y-1">
                                     <p className="text-[10px] font-future uppercase tracking-widest text-7l-gold">Brayhan Bellaville</p>
                                     <p className="text-[11px] font-montserrat text-zinc-400 font-medium">Director de Operaciones</p>
@@ -81,7 +83,7 @@ const ContactInfo = () => {
 
                 {/* Mail Section */}
                 <div className="flex gap-8 items-start group">
-                    <div className="w-14 h-14 bg-white/[0.03] text-7l-gold flex items-center justify-center border border-white/10 shrink-0 transition-all duration-500 group-hover:border-7l-gold/50">
+                    <div className="w-14 h-14 bg-7l-black text-7l-gold flex items-center justify-center border border-white/5 shrink-0 transition-all duration-500 group-hover:border-7l-gold/50">
                         <Mail size={24} />
                     </div>
                     <div>
@@ -94,7 +96,7 @@ const ContactInfo = () => {
 
                 {/* Hours Section */}
                 <div className="flex gap-8 items-start group">
-                    <div className="w-14 h-14 bg-white/[0.03] text-7l-gold flex items-center justify-center border border-white/10 shrink-0 transition-all duration-500 group-hover:border-7l-gold/50">
+                    <div className="w-14 h-14 bg-7l-black text-7l-gold flex items-center justify-center border border-white/5 shrink-0 transition-all duration-500 group-hover:border-7l-gold/50">
                         <Clock size={24} />
                     </div>
                     <div className="space-y-2">
@@ -106,7 +108,10 @@ const ContactInfo = () => {
             </div>
 
             <div className="pt-10 border-t border-white/5">
-                <div className="p-8 border border-white/10 bg-white/[0.02] text-center space-y-4">
+                <div className="p-8 border border-white/5 bg-7l-black/40 text-center space-y-4 relative group hover:border-white/20 transition-all duration-500">
+                    <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-7l-gold opacity-0 group-hover:opacity-100 transition-all"></div>
+                    <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-7l-gold opacity-0 group-hover:opacity-100 transition-all"></div>
+                    
                     <h5 className="font-future text-[11px] uppercase tracking-[0.3em] text-7l-gold">¿Eres Proveedor?</h5>
                     <p className="text-[10px] font-montserrat text-white/40 uppercase tracking-[0.2em]">
                         ENVÍANOS TU BROCHURE A: <span className="text-white/80">PROCURA@GROUPLORMAR.COM</span>

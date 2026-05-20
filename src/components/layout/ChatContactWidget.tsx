@@ -71,7 +71,7 @@ export default function ChatContactWidget() {
                     {/* Content */}
                     <div className="relative z-10 flex flex-col items-center gap-0.5">
                         <div className="w-1 h-1 bg-7l-gold rounded-full shadow-[0_0_8px_rgba(242,169,0,0.8)]" />
-                        <span className="font-montserrat text-[6px] font-black text-white uppercase tracking-[0.25em] group-hover:text-7l-gold transition-colors">CONNECT</span>
+                        <span className="font-montserrat text-[6px] font-black text-white uppercase tracking-[0.25em] group-hover:text-7l-gold transition-colors">CONTACTO</span>
                     </div>
 
                     {/* Hover Glow */}
@@ -157,7 +157,7 @@ export default function ChatContactWidget() {
                                                     {errors.name && <span className="font-montserrat text-[10px] text-red-400 mt-1 block">{errors.name.message}</span>}
                                                 </div>
                                                 <div className="space-y-2">
-                                                    <label className="block font-montserrat text-[10px] font-bold text-zinc-300 uppercase tracking-[0.2em]">Email</label>
+                                                    <label className="block font-montserrat text-[10px] font-bold text-zinc-300 uppercase tracking-[0.2em]">Correo</label>
                                                     <input 
                                                         {...register('email')}
                                                         type="email"

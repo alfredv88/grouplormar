@@ -10,10 +10,10 @@ export default function Footer() {
     <footer className="bg-7l-black pt-20 md:pt-40 pb-0 border-t border-white/5 relative overflow-hidden" id="contacto">
 
       <div className="w-full max-w-[1800px] mx-auto relative z-10 px-10 md:px-20 lg:px-32">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 lg:gap-20 mb-16 md:mb-24 lg:mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 md:gap-16 lg:gap-20 mb-16 md:mb-24 lg:mb-32">
           
           {/* Columna de Marca */}
-          <div className="lg:col-span-12 xl:col-span-4 space-y-12">
+          <div className="md:col-span-2 lg:col-span-12 xl:col-span-4 space-y-12">
             <Link href="/" className="block">
               <div className="relative w-56 md:w-80 h-12 md:h-16">
                 <Image 
@@ -52,19 +52,12 @@ export default function Footer() {
                <h4 className="text-4xl font-montserrat font-black text-white uppercase tracking-tighter">ESTADO <br/> ANZOÁTEGUI</h4>
              </div>
              
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 pt-4">
+             <div className="grid grid-cols-1 gap-10 pt-4">
                   <div className="space-y-3">
                     <p className="text-[10px] font-black text-7l-gold tracking-widest font-montserrat uppercase">DOMICILIO FISCAL</p>
                     <p className="text-white font-montserrat text-[13px] leading-relaxed">
                       Av. Jorge Rodríguez CC MT Nivel PB Local 05. <br/>
                       Sector Las Garzas, Lechería.
-                    </p>
-                  </div>
-                  <div className="space-y-3">
-                    <p className="text-[10px] font-black text-7l-gold tracking-widest font-montserrat uppercase">DOMICILIO RACDA</p>
-                    <p className="text-white font-montserrat text-[13px] leading-relaxed">
-                      Sector Palotal Calle Ricaurte, al lado Cir. Militar. <br/>
-                      Barcelona, Estado Anzoátegui.
                     </p>
                   </div>
              </div>
@@ -83,7 +76,7 @@ export default function Footer() {
                      <div className="flex items-center justify-between gap-4 py-3 border-b border-white/[0.06] hover:border-7l-gold/30 transition-all duration-300 group">
                         <div className="space-y-0.5">
                            <p className="text-[11px] font-black tracking-widest text-white uppercase font-montserrat transition-colors group-hover:text-7l-gold">NAPOLEÓN BELLAVILLE</p>
-                           <p className="text-[9px] font-bold text-zinc-500 tracking-wider uppercase font-montserrat">Director Ejecutivo</p>
+                           <p className="text-[9px] font-bold text-zinc-500 tracking-wider uppercase font-montserrat">Presidente Ejecutivo</p>
                         </div>
                         <div className="flex items-center gap-2">
                            <a 
@@ -112,7 +105,7 @@ export default function Footer() {
                      <div className="flex items-center justify-between gap-4 py-3 border-b border-white/[0.06] hover:border-7l-gold/30 transition-all duration-300 group">
                         <div className="space-y-0.5">
                            <p className="text-[11px] font-black tracking-widest text-white uppercase font-montserrat transition-colors group-hover:text-7l-gold">BRAYHAN BELLAVILLE</p>
-                           <p className="text-[9px] font-bold text-zinc-500 tracking-wider uppercase font-montserrat">Director de Operaciones</p>
+                           <p className="text-[9px] font-bold text-zinc-500 tracking-wider uppercase font-montserrat">Vicepresidente Ejecutivo</p>
                         </div>
                         <div className="flex items-center gap-2">
                            <a 

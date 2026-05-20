@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronRight, ChevronDown, CheckCircle2 } from 'lucide-react';
 
 import { services } from '@/data/servicesData';
 
@@ -75,6 +75,50 @@ const ServiceCarousel = ({ images }: { images: string[] }) => {
           />
         ))}
       </div>
+    </div>
+  );
+};
+
+const ServiceAccordion = ({ specifications, isGold, isWhite }: { specifications: {label: string, detail: string}[], isGold: boolean, isWhite: boolean }) => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  return (
+    <div className={`mt-6 space-y-0 border-t ${isGold ? 'border-black/10' : isWhite ? 'border-zinc-200' : 'border-white/10'} pt-4`}>
+      {specifications.map((spec, idx) => (
+        <div key={idx} className={`border-b ${isGold ? 'border-black/10' : isWhite ? 'border-zinc-200' : 'border-white/5'}`}>
+          <button 
+            onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+            className={`w-full flex items-center justify-between text-left py-3.5 font-montserrat text-[11px] font-bold uppercase tracking-wider transition-colors ${
+              isGold ? 'text-black hover:text-white' : 
+              isWhite ? 'text-zinc-900 hover:text-7l-gold' : 
+              'text-zinc-300 hover:text-7l-gold'
+            }`}
+          >
+            <span className="flex items-center gap-3">
+              <span className={`w-1.5 h-1.5 rounded-none ${isGold ? 'bg-black' : 'bg-7l-gold'}`} />
+              {spec.label}
+            </span>
+            <ChevronDown size={14} className={`transform transition-transform duration-300 ${openIndex === idx ? 'rotate-180' : ''}`} />
+          </button>
+          <AnimatePresence>
+            {openIndex === idx && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                className="overflow-hidden"
+              >
+                <p className={`pt-1 pb-5 text-xs font-montserrat font-medium leading-relaxed ${
+                  isGold ? 'text-white' : isWhite ? 'text-zinc-600' : 'text-zinc-400'
+                }`}>
+                  {spec.detail}
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      ))}
     </div>
   );
 };
@@ -270,16 +314,43 @@ export default function ServiciosPage() {
                   {service.subtitle}
                 </p>
 
-                {/* Descripción Detallada */}
-                <p
-                  className={`text-sm md:text-base font-montserrat leading-relaxed ${
-                    isGold ? '!text-white font-medium' :
-                    isWhite ? '!text-zinc-700 font-medium' :
-                    'text-zinc-400 font-medium'
-                  } max-w-lg`}
-                >
-                  {service.description}
-                </p>
+                {/* Descripción Detallada e Info Técnica */}
+                <div className="max-w-xl">
+                  <p
+                    className={`text-sm md:text-base font-montserrat leading-relaxed ${
+                      isGold ? '!text-white font-medium' :
+                      isWhite ? '!text-zinc-700 font-medium' :
+                      'text-zinc-400 font-medium'
+                    }`}
+                  >
+                    {service.description}
+                  </p>
+                  
+                  {/* Acordeón de Especificaciones Técnicas */}
+                  {service.specifications && (
+                    <ServiceAccordion 
+                      specifications={service.specifications} 
+                      isGold={isGold} 
+                      isWhite={isWhite} 
+                    />
+                  )}
+
+                  {/* Badges HUD Oficiales */}
+                  {service.badges && service.badges.length > 0 && (
+                    <div className="flex flex-wrap gap-3 mt-6">
+                      {service.badges.map((badge, idx) => (
+                        <div key={idx} className={`flex items-center gap-2 px-3 py-1.5 border text-[9px] font-black uppercase tracking-widest ${
+                          isTinted || service.bg === 'dark' || service.bg === 'black' ? 'border-7l-gold/30 text-white bg-7l-gold/5' : 
+                          isGold ? 'border-black/20 text-black bg-black/5' :
+                          'border-black/10 text-zinc-800'
+                        }`}>
+                          <CheckCircle2 size={11} className={isGold ? "text-black" : "text-7l-gold"} />
+                          {badge}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
 
                 {/* Botón Técnico Inteligente */}
                 <div className="pt-4">

@@ -136,7 +136,7 @@ export default function ServicesGrid() {
       {/* Background Vertical Branding (Margin Layer) */}
       {/* Watermark removed to avoid gray tones */}
 
-      <div className="w-full max-w-[1600px] ml-8 px-6 md:px-12 lg:px-24 relative z-20">
+      <div className="w-full max-w-[1600px] ml-0 md:ml-8 px-6 md:px-12 lg:px-24 relative z-20">
         
         {/* Título de Alto Impacto (Estilo Sección 4 - Balanceado) */}
         <div className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-12">
@@ -188,7 +188,7 @@ export default function ServicesGrid() {
 
         {/* Services Grid with Animation */}
         <div 
-          className="min-h-[450px]"
+          className="min-h-[320px] md:min-h-[450px]"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -211,7 +211,7 @@ export default function ServicesGrid() {
                     key={item.id} 
                     variants={itemVariants}
                     onClick={() => setAutoplay(false)}
-                    className="group bg-white border border-[#0D0D0D]/5 hover:border-7l-gold/30 transition-all duration-700 flex flex-col relative overflow-hidden cursor-pointer h-full min-h-[460px] w-full shadow-[0_4px_15px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1"
+                    className="group bg-white border border-[#0D0D0D]/5 hover:border-7l-gold/30 transition-all duration-700 flex flex-col relative overflow-hidden cursor-pointer h-full min-h-[320px] md:min-h-[460px] w-full shadow-[0_4px_15px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1"
                   >
                     
                     {/* Media Frame (Protagonismo Recuperado) */}
@@ -302,7 +302,7 @@ export default function ServicesGrid() {
             width: "497px",
             height: "374px",
             transform: "rotate(-90deg)",
-            opacity: 1,
+            opacity: 0.12,
           }}
         >
           <Image
