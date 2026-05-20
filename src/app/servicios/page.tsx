@@ -194,15 +194,15 @@ export default function ServiciosPage() {
                     loop 
                     muted 
                     playsInline 
-                    className="w-full h-full object-cover opacity-60 brightness-75 scale-105"
+                    className="w-full h-full object-cover opacity-95 brightness-100 contrast-110 saturate-130 scale-105"
                   >
                     <source src="/videos/DJI_0323.webm" type="video/webm" />
                     {/* Fallback en caso de que DJI_0323.webm falle */}
                     <source src="/videos/lormar_3.webm" type="video/webm" />
                   </video>
-                  {/* Degradados de fundido con secciones adyacentes y oscurecimiento para legibilidad */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-black via-black/45 to-black z-10" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50 z-10" />
+                  {/* Degradados de fundido suaves con secciones adyacentes al estilo YardParallax */}
+                  <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-black to-transparent z-10" />
+                  <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black to-transparent z-10" />
                 </div>
 
                 {/* Bordes Industriales Superior e Inferior */}

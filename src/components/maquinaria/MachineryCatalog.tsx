@@ -49,11 +49,13 @@ function MachineryCategoryPanel({ cat, index }: { cat: MachineryCategory; index:
               loop 
               muted 
               playsInline
-              className="object-cover w-full h-full opacity-40 scale-105 mix-blend-luminosity"
+              className="object-cover w-full h-full opacity-95 brightness-100 contrast-110 saturate-130 scale-105"
             >
               <source src="/videos/DJI_0323.webm" type="video/webm" />
             </video>
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black z-10" />
+            {/* Degradados de fundido suaves con secciones adyacentes al estilo YardParallax */}
+            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black to-transparent z-10" />
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black to-transparent z-10" />
           </div>
 
           <div className="relative z-20 w-full max-w-6xl mx-auto px-6 text-center">
@@ -163,7 +165,7 @@ function MachineryCategoryPanel({ cat, index }: { cat: MachineryCategory; index:
                 return (
                   <li 
                     key={i} 
-                    onMouseEnter={() => setActiveIndex(i)}
+                    onClick={() => setActiveIndex(i)}
                     className={`flex items-center gap-3 py-4 border-b cursor-pointer transition-all duration-300 group/item ${
                       style.isGold ? 'border-black/10' : 
                       style.bg === 'bg-[#F7F7F7]' ? 'border-zinc-200' : 

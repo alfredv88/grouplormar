@@ -27,22 +27,7 @@ export default function StatsCounter() {
 
   return (
     <div className="relative overflow-hidden bg-black flex items-center justify-center min-h-[60vh] md:min-h-[70vh]">
-      {/* Background Video Layer - Absolute (Fix iOS Safari: fixed+clip-path incompatible) */}
-      <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
-        <div className="absolute inset-0 w-full h-full">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover opacity-100 brightness-100 contrast-110 saturate-130"
-          >
-            <source src="/videos/lormar_3.webm" type="video/webm" />
-          </video>
-        </div>
-      </div>
-
-      {/* Content Layer - Monumental Numbers Over Background Video */}
+      {/* Content Layer - Monumental Numbers Over Background */}
       <section className="py-32 md:py-48 relative z-20 w-full drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
         <div className="w-full max-w-[1500px] mx-auto px-6 md:px-12 lg:px-20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 lg:gap-20">

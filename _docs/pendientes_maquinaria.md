@@ -21,15 +21,17 @@ Estos 4 ítems tienen una foto asignada que **no corresponde** con el equipo des
 
 ---
 
-## 🟡 Ítems con Placeholder Aceptable (Baja Prioridad)
+## 🟡 Ítems con Placeholder Aceptable (Baja Prioridad) - ¡TODOS RESUELTOS POR IA!
 
-Estos equipos tienen una imagen que **no es exacta** pero no genera confusión crítica para el cliente:
+Estos equipos tenían una imagen que **no era exacta**. Se han generado y asignado imágenes específicas para todos ellos:
 
-| Equipo | Imagen Actual | Nota |
-|--------|---------------|------|
-| **Equipos Flush-By** | `ambiental_gestion.jpeg` | Gestión de fluidos, visualmente genérico |
-| **Baños Portátiles y Lavamanos** | `lighting-tower.png` | Equipo de soporte, baja visibilidad en catálogo |
-| **Camiones Volteo, Cisterna, Cava, 350** | `camion-cisterna.webp` (solo cisterna) | Cubre parcialmente la descripción |
+- [x] **Vacuum de 160 BLS y Supervactor** -> `vacuum_truck_ia.png`
+- [x] **Equipos Flush-By** -> `flush_by_ia.png`
+- [x] **Camión Rosco y Barredoras Autopropulsadas** -> `camion_rosco_ia.png`
+- [x] **Trompos y Camiones Trompo Mezcladores de Concreto** -> `camion_mezclador_ia.png`
+- [x] **Baños Portátiles y Lavamanos** -> `banos_portatiles_ia.png`
+
+*(Solo queda "Camiones Volteo, Cisterna, Cava, 350" usando el camión cisterna, que es correcto y representativo).*
 
 ---
 
@@ -67,10 +69,10 @@ Estos equipos tienen una imagen que **no es exacta** pero no genera confusión c
 
 Para dar la página de maquinaria al **100%** se deben cumplir:
 
-- [ ] Foto real o IA de **Camión Hot Oil**
-- [ ] Foto real o IA de **Compresores de Aire**
-- [ ] Foto real o IA de **Máquinas de Soldar**
-- [ ] Foto real o IA de **Motobombas**
+- [x] Foto real o IA de **Camión Hot Oil**
+- [x] Foto real o IA de **Compresores de Aire**
+- [x] Foto real o IA de **Máquinas de Soldar**
+- [x] Foto real o IA de **Motobombas**
 
 > [!TIP]
 > Si el cliente aprueba el sitio sin estos 4 ítems corregidos, se puede desplegar a producción ahora mismo y actualizar las imágenes en un **hotfix** posterior cuando se recupere la cuota IA el 27/05.

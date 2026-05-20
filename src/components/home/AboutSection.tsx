@@ -30,15 +30,16 @@ export default function AboutSection() {
   const craneScale = useTransform(scrollYProgress, [0, 1], [0.95, 1.08]);
 
   return (
-    <section ref={containerRef} id="nosotros" className="py-20 md:py-40 lg:py-56 bg-[#F7F7F7] relative overflow-hidden cinematic-reveal border-b border-[#0D0D0D]/5">
+    <section ref={containerRef} id="nosotros" className="py-24 lg:py-40 flex items-center min-h-[80vh] bg-[#F7F7F7] relative overflow-hidden cinematic-reveal border-b border-[#0D0D0D]/5">
       
 
-      {/* Vertical Branding Column (Logo Oficial - Posición Fija y Consolidada de Producción) */}
+      {/* Vertical Branding Column — Fixed correctly in the left margin */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 hidden lg:block">
         <motion.div 
-          className="absolute top-1/2 flex items-center justify-center select-none"
+          className="absolute flex items-center justify-center select-none"
           style={{ 
-            left: "-180px",
+            top: "35%",
+            left: "-291px",
             y: logoY,
           }}
         >
@@ -48,7 +49,7 @@ export default function AboutSection() {
               width: "799px",
               height: "315px",
               transform: "rotate(-90deg)",
-              opacity: 0.12,
+              opacity: 0.15,
             }}
           >
             <Image
@@ -64,8 +65,10 @@ export default function AboutSection() {
 
       {/* Background Crane Element (Grua 120t - Derecha) — Oculto en mobile para evitar scroll horizontal */}
       <motion.div 
-        className="absolute right-0 bottom-0 pointer-events-none select-none z-0 origin-bottom-right hidden lg:block"
+        className="absolute pointer-events-none select-none z-0 origin-bottom-right hidden lg:block"
         style={{
+          right: "-28px",
+          bottom: "56px",
           width: "clamp(320px, 32vw, 580px)",
           height: "clamp(320px, 32vw, 580px)",
           y: craneY,
@@ -83,7 +86,7 @@ export default function AboutSection() {
 
       <div className="w-full max-w-[1600px] mx-auto px-5 md:px-16 lg:px-32 lg:pl-48 relative z-10">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24 items-center">
           
           {/* IZQUIERDA: EL ALMA DE LORMAR (ESTILO S4 REFORZADO) */}
           <div className="lg:col-span-5 space-y-12">
