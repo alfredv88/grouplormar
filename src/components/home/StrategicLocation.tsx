@@ -16,14 +16,6 @@ export default function StrategicLocation() {
       coords: "10.1878° N, 64.6917° W"
     },
     {
-       id: "OPS",
-       label: "CENTRO DE OPERACIONES",
-       location: "Barcelona, Anzoátegui",
-       address: "SECTOR PALOTAL CALLE RICAURTE (ÁREA RACDA)",
-       type: "CONTROL AMBIENTAL Y RESIDUOS",
-       coords: "10.1347° N, 64.7122° W"
-    },
-    {
       id: "BASE",
       label: "PATIO CENTRAL Y TALLERES",
       location: "Barcelona, Anzoátegui",

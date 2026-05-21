@@ -64,7 +64,7 @@ const machineryData: CardItem[] = [
     status: "DISPONIBLE", 
     type: "IZAMIENTO", 
     desc: "Grúas telescópicas, brazos hidráulicos y montacargas de alta capacidad certificados para maniobras de izaje crítico.", 
-    image: "/images/services/construccion_real.png",
+    image: "/images/services/construccion_real.webp",
     id: "MAC-IZ-001",
     items: [
       "Grúa Telescópica (15, 45, 60, 75 y 100 Ton)",
@@ -93,7 +93,7 @@ const machineryData: CardItem[] = [
     status: "EN OPERACIÓN", 
     type: "SERVICIOS A POZOS", 
     desc: "Unidades especializadas en intervención de yacimientos y reacondicionamiento técnico de pozos.", 
-    image: "/images/services/construccion_real.png",
+    image: "/images/services/construccion_real.webp",
     id: "MAC-SP-003",
     items: [
       "Cabillero de 350 HP",
@@ -123,7 +123,7 @@ const machineryData: CardItem[] = [
     status: "DISPONIBLE", 
     type: "MOVILIZACIÓN", 
     desc: "Soporte logístico pesado para traslado nacional de maquinaria sobredimensionada, materiales críticos y fluidos.", 
-    image: "/images/services/construccion_real.png",
+    image: "/images/services/construccion_real.webp",
     id: "MAC-TR-005",
     items: [
       "Chutos con Lowboy (60 a 140 Ton)",
@@ -152,7 +152,7 @@ const machineryData: CardItem[] = [
     status: "DISPONIBLE", 
     type: "VIALIDAD", 
     desc: "Flota especializada de pavimentación autopropulsada para escarificación y colocación técnica de asfalto.", 
-    image: "/images/services/construccion_real.png",
+    image: "/images/services/construccion_real.webp",
     id: "MAC-AS-007",
     items: [
       "Finisher (Terminadora de Asfalto)",
@@ -180,7 +180,7 @@ const machineryData: CardItem[] = [
     status: "DISPONIBLE", 
     type: "SERVICIOS AUXILIARES", 
     desc: "Soporte energético, neumático, hidráulico y habitabilidad móvil para operaciones autosuficientes en campo.", 
-    image: "/images/services/construccion_real.png",
+    image: "/images/services/construccion_real.webp",
     id: "MAC-ME-009",
     items: [
       "Plantas Eléctricas (100 a 1000 KVA)",

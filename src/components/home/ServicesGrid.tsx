@@ -77,27 +77,27 @@ export default function ServicesGrid() {
     
     // Mapeo de imágenes específicas por servicio individual
     const itemImageMap: Record<string, string> = {
-      "Desarrollo Integral": "/images/services/construccion_desarrollo.png",
-      "Facilidades de Producción y Superficie": "/images/services/construccion_facilidades.png",
-      "Infraestructura Civil y Soporte": "/images/services/construccion_infraestructura.jpg",
-      "Instalaciones Eléctricas e Instrumentación": "/images/services/construccion_electricas.png",
-      "Correctivo y Reparación": "/images/services/mantenimiento_correctivo.jpg",
-      "Integridad de Tuberías y Equipos": "/images/services/mantenimiento_integridad.jpg",
-      "Autonomía de Flota": "/images/services/mantenimiento_flota.jpg",
-      "Manejo Integral de Residuos": "/images/services/ambiental_gestion.jpeg",
-      "Saneamiento y Remediación": "/images/services/ambiental_remediacion.png",
-      "Transporte Terrestre Especializado": "/images/services/logistica_transporte.jpg",
-      "Izamiento y Posicionamiento de Cargas": "/images/services/logistica_izamiento.jpg",
-      "Gestión de Flota": "/images/services/logistica_flota.png",
+      "Desarrollo Integral": "/images/services/construccion_desarrollo.webp",
+      "Facilidades de Producción y Superficie": "/images/services/construccion_facilidades.webp",
+      "Infraestructura Civil y Soporte": "/images/services/construccion_infraestructura.webp",
+      "Instalaciones Eléctricas e Instrumentación": "/images/services/construccion_electricas.webp",
+      "Correctivo y Reparación": "/images/services/mantenimiento_correctivo.webp",
+      "Integridad de Tuberías y Equipos": "/images/services/mantenimiento_integridad.webp",
+      "Autonomía de Flota": "/images/services/mantenimiento_flota.webp",
+      "Manejo Integral de Residuos": "/images/services/ambiental_gestion.webp",
+      "Saneamiento y Remediación": "/images/services/ambiental_remediacion.webp",
+      "Transporte Terrestre Especializado": "/images/services/logistica_transporte.webp",
+      "Izamiento y Posicionamiento de Cargas": "/images/services/logistica_izamiento.webp",
+      "Gestión de Flota": "/images/services/logistica_flota.webp",
     };
 
     // Mapeo de imágenes realistas por categoría (como respaldo)
     const categoryImageMap: Record<string, string> = {
-      "Construcción": "/images/services/construccion_real.png",
-      "Mantenimiento": "/images/services/mantenimiento_real.png",
-      "Servicios a Pozos": "/images/services/pozos_real.png",
-      "Gestión Ambiental": "/images/services/ambiental_real.png",
-      "Servicio Logístico": "/images/services/logistica_real.png",
+      "Construcción": "/images/services/construccion_real.webp",
+      "Mantenimiento": "/images/services/mantenimiento_real.webp",
+      "Servicios a Pozos": "/images/services/pozos_real.webp",
+      "Gestión Ambiental": "/images/services/ambiental_real.webp",
+      "Servicio Logístico": "/images/services/logistica_real.webp",
     };
 
     const technicalTags: Record<string, string> = {

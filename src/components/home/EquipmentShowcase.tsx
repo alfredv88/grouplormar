@@ -9,14 +9,14 @@ import Magnetic from "@/components/ui/Magnetic";
 
 const equipmentImages: Record<string, string> = {
   "izamiento": "/images/equipment/grua-120t.webp",
-  "pala-mecanica": "/images/equipment/pala_mecanica.png",
-  "servicios-pozo": "/images/equipment/pulling_unit.png",
-  "movimiento-tierra": "/images/equipment/movimiento_tierra.jpeg",
-  "transporte": "/images/equipment/chuto_batea.png",
-  "elevadores": "/images/equipment/manlift.png",
-  "asfalto": "/images/equipment/asphalt_finisher_real_daylight.png",
-  "concreto": "/images/equipment/DJI_0281.JPG",
-  "equipos-menores": "/images/equipment/planta_electrica.png",
+  "pala-mecanica": "/images/equipment/pala_mecanica.webp",
+  "servicios-pozo": "/images/equipment/pulling_unit.webp",
+  "movimiento-tierra": "/images/equipment/movimiento_tierra.webp",
+  "transporte": "/images/equipment/chuto_batea.webp",
+  "elevadores": "/images/equipment/manlift.webp",
+  "asfalto": "/images/equipment/asphalt_finisher_real_daylight.webp",
+  "concreto": "/images/equipment/DJI_0281.webp",
+  "equipos-menores": "/images/equipment/planta_electrica.webp",
 };
 
 const showcaseCategories = BROCHURE_DATA.machinery;

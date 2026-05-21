@@ -76,7 +76,7 @@ export default function AboutSection() {
         }}
       >
         <Image
-          src="/images/equipment/grua 120t.png"
+          src="/images/equipment/grua-120t.webp"
           alt="Grúa 120T Lormar"
           fill
           className="object-contain"

@@ -19,7 +19,7 @@ export default function GenteSection() {
         className="relative w-full md:w-1/2 h-[400px] md:h-auto overflow-hidden"
       >
         <Image
-          src="/images/about/equipo_lormar.png"
+          src="/images/about/equipo_lormar.webp"
           alt="Capital Humano Lormar"
           fill
           className="object-cover brightness-75 contrast-110"
