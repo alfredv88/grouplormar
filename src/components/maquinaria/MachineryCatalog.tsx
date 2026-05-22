@@ -88,16 +88,16 @@ function MachineryCategoryPanel({ cat, index }: { cat: MachineryCategory; index:
       )}
 
       {/* BLOQUE INMERSIVO DE CATÁLOGO */}
-      <section ref={containerRef} className={`relative w-full flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} min-h-[60vh] md:min-h-[700px] overflow-hidden group`}>
+      <section ref={containerRef} className={`relative w-full flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} min-h-[50vh] md:min-h-[600px] overflow-hidden group`}>
         
         {/* Contenedor Fotográfico Interactivo */}
-        <div className="relative w-full lg:w-1/2 h-[400px] lg:h-auto overflow-hidden bg-zinc-950/50">
-          <div className="absolute inset-0 transition-opacity duration-700 flex items-center justify-center p-8 md:p-16">
+        <div className="relative w-full lg:w-1/2 h-[350px] lg:h-auto overflow-hidden bg-zinc-950/50">
+          <div className="absolute inset-0 transition-opacity duration-700 flex items-center justify-center p-4 md:p-8">
             <Image
               src={currentImage}
               alt={cat.items[activeIndex]?.name || cat.category}
               fill
-              className="object-contain p-12 lg:p-24 drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-transform duration-[2000ms] ease-out group-hover:scale-105"
+              className="object-contain p-4 lg:p-8 drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-transform duration-[2000ms] ease-out group-hover:scale-105"
             />
           </div>
           <div className="absolute inset-0 bg-black/10 mix-blend-multiply group-hover:bg-black/0 transition-colors duration-700 pointer-events-none" />
@@ -112,7 +112,7 @@ function MachineryCategoryPanel({ cat, index }: { cat: MachineryCategory; index:
         
         {/* Contenedor Ficha Técnica */}
         <div 
-          className={`relative w-full lg:w-1/2 flex flex-col justify-center p-12 md:p-20 lg:p-24 space-y-6 group/content transition-colors duration-500 ${style.bg}`}
+          className={`relative w-full lg:w-1/2 flex flex-col justify-center p-10 md:p-16 lg:p-20 space-y-4 group/content transition-colors duration-500 ${style.bg}`}
           style={style.isGold ? { 
             backgroundImage: "radial-gradient(rgba(0,0,0,0.12) 1px, transparent 0)", 
             backgroundSize: "24px 24px" 
