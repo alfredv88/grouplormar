@@ -45,7 +45,7 @@ export const machineryCategories: MachineryCategory[] = [
     description: 'Equipos pesados para remoción a gran escala, acondicionamiento de terrenos, nivelación topográfica y compactación de fundaciones para locaciones petroleras y civiles.',
     items: [
       { name: 'Tractores y Mototraíllas', image: '/images/equipment/tractor-mototrailla.webp' },
-      { name: 'Motoniveladoras', image: '/images/equipment/motoniveladora.webp' },
+      { name: 'Motoniveladoras', image: '/images/equipment/motoniveladora1.webp' },
       { name: 'Excavadoras y Retroexcavadoras', image: '/images/equipment/excavadora_real_daylight.webp' },
       { name: 'Excavadoras con Martillo', image: '/images/equipment/excavadora_martillo.webp' },
       { name: 'Cargadores Frontales y Minishowers', image: '/images/equipment/minicarga-frontal.webp' },
