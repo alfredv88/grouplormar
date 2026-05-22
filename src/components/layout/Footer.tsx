@@ -29,19 +29,6 @@ export default function Footer() {
               <p className="text-white text-[15px] font-montserrat leading-relaxed font-medium border-l-2 border-7l-gold pl-8">
                 Liderazgo industrial con <span className="text-7l-gold font-black tracking-widest uppercase">activos propios</span>. Ejecución técnica de alto nivel para los sectores estratégicos de Venezuela desde 2010.
               </p>
-              
-              <div className="flex gap-8 pt-4">
-                 {[Linkedin, Instagram, Facebook].map((Icon, i) => (
-                   <Link 
-                     key={i} 
-                     href="#" 
-                     className="relative text-white hover:text-7l-gold group transition-all duration-300 pb-2"
-                   >
-                     <Icon size={20} className="transition-transform duration-500 group-hover:-translate-y-1" />
-                     <span className="absolute bottom-0 left-0 w-full h-[1px] bg-7l-gold opacity-0 group-hover:opacity-100 transition-all"></span>
-                   </Link>
-                 ))}
-              </div>
             </div>
           </div>
 

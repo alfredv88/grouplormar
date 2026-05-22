@@ -55,18 +55,6 @@ export default function Navbar() {
                   <span className="font-mono text-[10px] text-white tracking-wider uppercase">negocios@grouplormar.com</span>
                 </a>
               </div>
-            
-            <div className="flex items-center gap-5">
-              {[Linkedin, Instagram, Facebook].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="text-white hover:text-7l-gold transition-colors"
-                >
-                  <Icon size={14} />
-                </a>
-              ))}
-            </div>
           </div>
         </div>
       </div>
@@ -193,18 +181,6 @@ export default function Navbar() {
                 <Mail size={14} className="text-7l-gold" />
                 <span className="font-montserrat text-[10px] tracking-wider">NEGOCIOS@GROUPLORMAR.COM</span>
               </a>
-              {/* Social Icons */}
-              <div className="flex items-center gap-5 pt-2">
-                {[Linkedin, Instagram, Facebook].map((Icon, i) => (
-                  <a
-                    key={i}
-                    href="#"
-                    className="text-[#9CA3AF] hover:text-7l-gold transition-colors duration-300"
-                  >
-                    <Icon size={18} />
-                  </a>
-                ))}
-              </div>
             </div>
           </motion.div>
         )}
