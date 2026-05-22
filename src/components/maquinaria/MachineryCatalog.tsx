@@ -8,19 +8,20 @@ import { machineryCategories, MachineryCategory } from '@/data/machineryData';
 
 function MachineryCategoryPanel({ cat, index }: { cat: MachineryCategory; index: number }) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [autoPlay, setAutoPlay] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: false, amount: 0.3 });
   const isEven = index % 2 === 0;
 
   useEffect(() => {
-    if (!isInView || !cat.items || cat.items.length <= 1) return;
+    if (!isInView || !autoPlay || !cat.items || cat.items.length <= 1) return;
 
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % cat.items.length);
     }, 3000);
 
     return () => clearInterval(timer);
-  }, [isInView, cat.items?.length]);
+  }, [isInView, autoPlay, cat.items?.length]);
 
   // Lógica de Contraste B2B Inmersivo
   const getBgStyle = (idx: number) => {
@@ -165,7 +166,10 @@ function MachineryCategoryPanel({ cat, index }: { cat: MachineryCategory; index:
                 return (
                   <li 
                     key={i} 
-                    onClick={() => setActiveIndex(i)}
+                    onClick={() => {
+                      setActiveIndex(i);
+                      setAutoPlay(false);
+                    }}
                     className={`flex items-center gap-3 py-4 border-b cursor-pointer transition-all duration-300 group/item ${
                       style.isGold ? 'border-black/10' : 
                       style.bg === 'bg-[#F7F7F7]' ? 'border-zinc-200' : 

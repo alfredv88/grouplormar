@@ -27,8 +27,8 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30, scale: 0.96 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     scale: 1,
     transition: {
@@ -36,8 +36,8 @@ const itemVariants = {
       ease: [0.22, 1, 0.36, 1] as const, // Ultra-suave Out-Expo
     },
   },
-  exit: { 
-    opacity: 0, 
+  exit: {
+    opacity: 0,
     y: 15,
     scale: 0.98,
     transition: {
@@ -68,13 +68,13 @@ export default function ServicesGrid() {
 
   // Obtener los datos de la categoría activa
   const currentCategoryData = BROCHURE_DATA.services.find(s => s.category === activeTab);
-  
+
   // Procesar los items para extraer título y descripción (Lógica Original)
   const displayItems = currentCategoryData?.items.map((item, idx) => {
     const parts = item.split(": ");
     const title = parts.length > 1 ? parts[0] : item;
     const desc = parts.length > 1 ? parts[1] : "Servicios especializados con los más altos estándares de calidad y seguridad industrial.";
-    
+
     // Mapeo de imágenes específicas por servicio individual
     const itemImageMap: Record<string, string> = {
       "Desarrollo Integral": "/images/services/construccion_desarrollo.webp",
@@ -137,7 +137,7 @@ export default function ServicesGrid() {
       {/* Watermark removed to avoid gray tones */}
 
       <div className="w-full max-w-[1600px] ml-0 md:ml-8 px-6 md:px-12 lg:px-24 relative z-20">
-        
+
         {/* Título de Alto Impacto (Estilo Sección 4 - Balanceado) */}
         <div className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-12">
           <div className="space-y-1">
@@ -147,7 +147,7 @@ export default function ServicesGrid() {
             </h2>
             <div className="w-24 h-[4px] bg-7l-gold mt-6"></div>
           </div>
-          
+
           <div className="max-w-md pb-2 border-l-[3px] border-7l-gold pl-5">
             <p className="font-montserrat text-[12px] !text-black tracking-[0.05em] leading-[1.8] font-semibold">
               Despliegue estratégico de capacidades operativas para sectores de <span className="text-7l-gold font-bold">alta complejidad técnica y logística.</span>
@@ -167,13 +167,12 @@ export default function ServicesGrid() {
                     setActiveTab(service.category);
                     setAutoplay(false);
                   }}
-                  className={`relative py-5 text-[11px] font-montserrat font-bold uppercase tracking-[0.15em] transition-all whitespace-nowrap outline-none ${
-                    isActive ? "text-[#0D0D0D]" : "text-[#0D0D0D]/50 hover:text-7l-gold"
-                  }`}
+                  className={`relative py-5 text-[11px] font-montserrat font-bold uppercase tracking-[0.15em] transition-all whitespace-nowrap outline-none ${isActive ? "text-[#0D0D0D]" : "text-[#0D0D0D]/50 hover:text-7l-gold"
+                    }`}
                 >
                   {service.category}
                   {isActive && (
-                    <motion.div 
+                    <motion.div
                       layoutId="servicesActiveTab"
                       className="absolute bottom-0 left-0 right-0 h-[3px] bg-7l-gold z-30"
                     />
@@ -187,7 +186,7 @@ export default function ServicesGrid() {
         </div>
 
         {/* Services Grid with Animation */}
-        <div 
+        <div
           className="min-h-[320px] md:min-h-[450px]"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -201,19 +200,19 @@ export default function ServicesGrid() {
               exit="exit"
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
             >
-                {displayItems.map((item, idx) => {
-                  // Variación dinámica del encuadre para evitar repetición visual
-                  const objectPositions = ["object-center", "object-top", "object-bottom", "object-left"];
-                  const currentPosition = objectPositions[idx % objectPositions.length];
+              {displayItems.map((item, idx) => {
+                // Variación dinámica del encuadre para evitar repetición visual
+                const objectPositions = ["object-center", "object-top", "object-bottom", "object-left"];
+                const currentPosition = objectPositions[idx % objectPositions.length];
 
-                  return (
-                  <motion.div 
-                    key={item.id} 
+                return (
+                  <motion.div
+                    key={item.id}
                     variants={itemVariants}
                     onClick={() => setAutoplay(false)}
                     className="group bg-white border border-[#0D0D0D]/5 hover:border-7l-gold/30 transition-all duration-700 flex flex-col relative overflow-hidden cursor-pointer h-full min-h-[320px] md:min-h-[460px] w-full shadow-[0_4px_15px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1"
                   >
-                    
+
                     {/* Media Frame (Protagonismo Recuperado) */}
                     <div className="relative h-[190px] shrink-0 w-full overflow-hidden transition-all duration-700">
                       <Image
@@ -226,16 +225,16 @@ export default function ServicesGrid() {
 
                     {/* Content Frame - Jerarquía Pro Max */}
                     <div className="p-6 flex-1 flex flex-col relative z-30">
-                      
+
                       {/* Capability Tag */}
                       <div className="flex items-center gap-3 mb-3">
                         <div className="w-6 h-[2px] bg-7l-gold"></div>
                         <span className="font-montserrat text-[9px] font-black text-7l-gold tracking-[0.2em] uppercase">{item.tag}</span>
                       </div>
-                      
+
                       {/* Title Group - Montserrat Black (Refinado y Armónico) */}
                       <div className="mb-2 min-h-[40px] flex items-start">
-                        <h3 
+                        <h3
                           className="text-h3 !text-[#0D0D0D] !text-[15px] leading-[1.2] group-hover:text-7l-gold transition-colors duration-300 font-black"
                         >
                           {item.title}
@@ -244,7 +243,7 @@ export default function ServicesGrid() {
 
                       {/* Description (Jerarquía Refinada - Negro Puro Absoluto) */}
                       <div className="flex-1">
-                        <p 
+                        <p
                           className="text-[12px] font-montserrat font-semibold !text-black leading-relaxed mb-4"
                         >
                           {item.desc}
@@ -254,8 +253,8 @@ export default function ServicesGrid() {
                       {/* Professional Action Footer - Alineación Perfecta */}
                       <div className="pt-4 border-t border-[#0D0D0D]/10 flex items-center mt-auto">
                         <Magnetic range={40} strength={0.3}>
-                          <Link 
-                            href="/servicios" 
+                          <Link
+                            href="/servicios"
                             className="group/btn inline-flex items-center gap-4 text-[10px] font-montserrat font-black tracking-[0.3em] text-[#0D0D0D] uppercase transition-all"
                           >
                             <span className="group-hover:text-7l-gold transition-colors duration-500">CONSULTAR</span>
@@ -265,20 +264,21 @@ export default function ServicesGrid() {
                       </div>
                     </div>
                   </motion.div>
-                )})}
+                )
+              })}
             </motion.div>
           </AnimatePresence>
         </div>
 
         {/* Navigation Arrows - Minimalist (Estilo Sección 4 / Bloque Industrial) */}
         <div className="mt-16 flex justify-center gap-4 relative z-30">
-          <button 
+          <button
             onClick={handlePrevTab}
             className="w-14 h-14 rounded-none border border-[#0D0D0D]/20 bg-white flex items-center justify-center hover:bg-[#0D0D0D] hover:border-7l-gold hover:text-7l-gold transition-all duration-500 ease-out text-[#0D0D0D] group"
           >
             <ArrowRight size={20} className="rotate-180 group-hover:-translate-x-1 transition-transform duration-500 ease-out" />
           </button>
-          <button 
+          <button
             onClick={handleNextTab}
             className="w-14 h-14 rounded-none border border-[#0D0D0D]/20 bg-white flex items-center justify-center hover:bg-[#0D0D0D] hover:border-7l-gold hover:text-7l-gold transition-all duration-500 ease-out text-[#0D0D0D] group"
           >
@@ -288,7 +288,7 @@ export default function ServicesGrid() {
       </div>
 
       {/* Vertical Branding Detail (Logo Oficial - Posición Fija y Consolidada de Producción) */}
-      <div 
+      <div
         className="absolute h-full w-[40%] flex items-center justify-center z-0 pointer-events-none select-none hidden xl:flex overflow-hidden"
         style={{
           right: "-16%",
@@ -296,13 +296,13 @@ export default function ServicesGrid() {
           transform: "translateY(calc(-50% + -125px))",
         }}
       >
-        <div 
+        <div
           className="relative"
           style={{
             width: "497px",
             height: "374px",
             transform: "rotate(-90deg)",
-            opacity: 0.12,
+            opacity: 1,
           }}
         >
           <Image
@@ -317,14 +317,14 @@ export default function ServicesGrid() {
       {/* WOW Element: MOTONIVELADORA Showcase - Corporate Style */}
       <div className="absolute bottom-0 right-[-5%] w-[45%] xl:w-[42%] pointer-events-none z-10 hidden lg:block overflow-hidden">
         <motion.div
-           initial={{ x: 100, opacity: 0 }}
-           whileInView={{ x: 20, opacity: 1 }}
-           viewport={{ once: true }}
-           transition={{ duration: 1.2, ease: "easeOut" }}
-           className="relative"
+          initial={{ x: 100, opacity: 0 }}
+          whileInView={{ x: 20, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="relative"
         >
           <Image
-            src="/images/equipment/motoniveladora.png"
+            src="/images/equipment/motoniveladora.webp"
             alt="Motoniveladora Lormar"
             width={1000}
             height={800}

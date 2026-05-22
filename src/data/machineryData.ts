@@ -92,7 +92,7 @@ export const machineryCategories: MachineryCategory[] = [
       { name: 'Finisher y Escarificadoras de Asfalto', image: '/images/equipment/pavimentadora.webp' },
       { name: 'Rodillos Lisos y Compactadores de Neumáticos', image: '/images/equipment/compactador.webp' },
       { name: 'Camión Rosco y Barredoras Autopropulsadas', image: '/images/equipment/camion_rosco_ia.webp' },
-      { name: 'Trompos y Camiones Trompo Mezcladores de Concreto', image: '/images/equipment/DJI_0281.JPG' },
+      { name: 'Trompos y Camiones Trompo Mezcladores de Concreto', image: '/images/equipment/DJI_0281.webp' },
     ],
     bg: 'gold',
     image: machineryImages.asfalto,
