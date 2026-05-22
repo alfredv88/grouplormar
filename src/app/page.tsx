@@ -1,22 +1,23 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { ArrowUpRight } from "lucide-react";
 import Magnetic from "@/components/ui/Magnetic";
 import Hero from "@/components/home/Hero";
 import LogoStrip from "@/components/home/LogoStrip";
 import ServicesGrid from "@/components/home/ServicesGrid";
-import EquipmentShowcase from "@/components/home/EquipmentShowcase";
-import YardParallax from "@/components/home/YardParallax";
-import StatsCounter from "@/components/home/StatsCounter";
-import ComplianceHSE from "@/components/home/ComplianceHSE";
-import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
-import StrategicLocation from "@/components/home/StrategicLocation";
-import AboutSection from "@/components/home/AboutSection";
-import ProcessSection from "@/components/home/ProcessSection";
-import SustainabilitySection from "@/components/home/SustainabilitySection";
-import GenteSection from "@/components/home/GenteSection";
+
+// Dynamic Imports (Lazy Loading for components below the fold)
+const EquipmentShowcase = dynamic(() => import("@/components/home/EquipmentShowcase"));
+const YardParallax = dynamic(() => import("@/components/home/YardParallax"));
+const StatsCounter = dynamic(() => import("@/components/home/StatsCounter"));
+const ComplianceHSE = dynamic(() => import("@/components/home/ComplianceHSE"));
+const TestimonialsCarousel = dynamic(() => import("@/components/home/TestimonialsCarousel"));
+const StrategicLocation = dynamic(() => import("@/components/home/StrategicLocation"));
+const AboutSection = dynamic(() => import("@/components/home/AboutSection"));
+const ProcessSection = dynamic(() => import("@/components/home/ProcessSection"));
+const SustainabilitySection = dynamic(() => import("@/components/home/SustainabilitySection"));
+const GenteSection = dynamic(() => import("@/components/home/GenteSection"));
 
 export default function Home() {
   return (
