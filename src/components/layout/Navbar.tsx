@@ -46,10 +46,7 @@ export default function Navbar() {
            {/* Right: Contact Utilities & Social */}
           <div className="flex items-center gap-8">
               <div className="flex items-center gap-8">
-                <a href="tel:+584141816152" className="flex items-center gap-2 group transition-colors">
-                  <Phone size={12} className="text-7l-gold" />
-                  <span className="font-mono text-[10px] text-white tracking-wider">+58 414 181 61 52</span>
-                </a>
+
                 <a href="mailto:negocios@grouplormar.com" className="flex items-center gap-2 group transition-colors">
                   <Mail size={12} className="text-7l-gold" />
                   <span className="font-mono text-[10px] text-white tracking-wider uppercase">negocios@grouplormar.com</span>
@@ -173,10 +170,7 @@ export default function Navbar() {
             </Link>
 
             <div className="mt-auto pb-10 flex flex-col gap-4 border-t border-[#E8E8E8] pt-8">
-              <a href="tel:+584141816162" className="flex items-center gap-3 text-[#6B7280]">
-                <Phone size={14} className="text-7l-gold" />
-                <span className="font-montserrat text-[10px] tracking-wider">+58 414 181 61 62</span>
-              </a>
+
               <a href="mailto:negocios@grouplormar.com" className="flex items-center gap-3 text-[#6B7280]">
                 <Mail size={14} className="text-7l-gold" />
                 <span className="font-montserrat text-[10px] tracking-wider">NEGOCIOS@GROUPLORMAR.COM</span>
