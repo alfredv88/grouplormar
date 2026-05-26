@@ -348,7 +348,7 @@ export default function ServiciosPage() {
                   {/* Badges HUD Oficiales */}
                   {service.badges && service.badges.length > 0 && (
                     <div className="flex flex-wrap gap-3 mt-6">
-                      {service.badges.map((badge, idx) => (
+                      {service.badges.map((badge: string, idx: number) => (
                         <div key={idx} className={`flex items-center gap-2 px-3 py-1.5 border text-[9px] font-black uppercase tracking-widest ${
                           isTinted || service.bg === 'dark' || service.bg === 'black' ? 'border-7l-gold/30 text-white bg-7l-gold/5' : 
                           isGold ? 'border-black/20 text-black bg-black/5' :
