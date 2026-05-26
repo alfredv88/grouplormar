@@ -169,7 +169,7 @@ function MachineryCategoryPanel({ cat: baseCat, index }: { cat: MachineryCategor
               style.bg === 'bg-[#F7F7F7]' ? 'text-zinc-900' :
               'text-white'
             }`}>
-              {cat.items.map((item, i) => {
+              {cat.items.map((item: string, i: number) => {
                 const isActive = i === activeIndex;
                 return (
                   <li 
