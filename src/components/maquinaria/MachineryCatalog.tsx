@@ -4,9 +4,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { Shield, Settings, ArrowRight } from 'lucide-react';
 import { useInView } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { machineryCategories, MachineryCategory } from '@/data/machineryData';
 
-function MachineryCategoryPanel({ cat, index }: { cat: MachineryCategory; index: number }) {
+function MachineryCategoryPanel({ cat: baseCat, index }: { cat: MachineryCategory; index: number }) {
+  const t = useTranslations("MachineryCatalog");
+  const localizedCategories = t.raw("categories") as any[];
+  const cat = { ...baseCat, ...localizedCategories[index] };
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -37,7 +42,7 @@ function MachineryCategoryPanel({ cat, index }: { cat: MachineryCategory; index:
   };
 
   const style = getBgStyle(index);
-  const currentImage = cat.items[activeIndex]?.image || cat.image;
+  const currentImage = baseCat.items[activeIndex]?.image || baseCat.image;
 
   return (
     <React.Fragment>
@@ -62,25 +67,28 @@ function MachineryCategoryPanel({ cat, index }: { cat: MachineryCategory; index:
           <div className="relative z-20 w-full max-w-6xl mx-auto px-6 text-center">
             <Settings size={40} className="text-7l-gold mx-auto mb-6 animate-[spin_12s_linear_infinite]" />
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-future text-white uppercase tracking-widest mb-12">
-              POTENCIA BRUTA <br /><span className="text-7l-gold">AL SERVICIO</span>
+              {t.rich("potenciaBruta", {
+                br: () => <br />,
+                gold: (chunks) => <span className="text-7l-gold">{chunks}</span>
+              })}
             </h2>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-y border-white/10 py-12 bg-white/[0.02] backdrop-blur-md">
               <div className="flex flex-col items-center">
                 <span className="text-4xl md:text-5xl font-montserrat font-black text-white mb-2">100<span className="text-7l-gold text-xl">Ton</span></span>
-                <span className="text-[10px] md:text-xs uppercase tracking-widest text-zinc-400 font-bold">Capacidad Izamiento</span>
+                <span className="text-[10px] md:text-xs uppercase tracking-widest text-zinc-400 font-bold">{t("capacidadIzamiento")}</span>
               </div>
               <div className="flex flex-col items-center">
                 <span className="text-4xl md:text-5xl font-montserrat font-black text-white mb-2">140<span className="text-7l-gold text-xl">Ton</span></span>
-                <span className="text-[10px] md:text-xs uppercase tracking-widest text-zinc-400 font-bold">Carga Transporte</span>
+                <span className="text-[10px] md:text-xs uppercase tracking-widest text-zinc-400 font-bold">{t("cargaTransporte")}</span>
               </div>
               <div className="flex flex-col items-center">
                 <span className="text-4xl md:text-5xl font-montserrat font-black text-white mb-2">24/7</span>
-                <span className="text-[10px] md:text-xs uppercase tracking-widest text-zinc-400 font-bold">Disponibilidad</span>
+                <span className="text-[10px] md:text-xs uppercase tracking-widest text-zinc-400 font-bold">{t("disponibilidad")}</span>
               </div>
               <div className="flex flex-col items-center">
                 <span className="text-4xl md:text-5xl font-montserrat font-black text-white mb-2">100<span className="text-7l-gold text-xl">%</span></span>
-                <span className="text-[10px] md:text-xs uppercase tracking-widest text-zinc-400 font-bold">Flota Propia</span>
+                <span className="text-[10px] md:text-xs uppercase tracking-widest text-zinc-400 font-bold">{t("flotaPropia")}</span>
               </div>
             </div>
           </div>
@@ -95,7 +103,7 @@ function MachineryCategoryPanel({ cat, index }: { cat: MachineryCategory; index:
           <div className="absolute inset-0 transition-opacity duration-700 flex items-center justify-center p-4 md:p-8">
             <Image
               src={currentImage}
-              alt={cat.items[activeIndex]?.name || cat.category}
+              alt={cat.items[activeIndex] || cat.category}
               fill
               className="object-contain p-4 lg:p-8 drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-transform duration-[2000ms] ease-out group-hover:scale-105"
             />
@@ -180,7 +188,7 @@ function MachineryCategoryPanel({ cat, index }: { cat: MachineryCategory; index:
                       isActive ? 'h-3 scale-110' : 'h-1.5'
                     } ${style.isGold ? 'bg-black' : 'bg-7l-gold'}`} /> 
                     <span className={`leading-relaxed transition-colors duration-300 ${isActive && style.bg !== 'bg-7l-gold' ? 'text-7l-gold' : isActive && style.bg === 'bg-7l-gold' ? 'text-white' : ''}`}>
-                      {item.name}
+                      {item}
                     </span>
                   </li>
                 );
@@ -198,7 +206,7 @@ function MachineryCategoryPanel({ cat, index }: { cat: MachineryCategory; index:
               }`}
             >
               <span className="transition-transform duration-300 group-hover/btn:translate-x-0.5">
-                Consultar Disponibilidad
+                {t("consultarDisponibilidad")}
               </span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1.5" />
             </a>
@@ -211,6 +219,8 @@ function MachineryCategoryPanel({ cat, index }: { cat: MachineryCategory; index:
 }
 
 export default function MachineryCatalog() {
+  const t = useTranslations("MachineryCatalog");
+
   return (
     <>
       {machineryCategories.map((cat, index) => (
@@ -224,18 +234,20 @@ export default function MachineryCatalog() {
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <Shield size={36} className="text-7l-gold mx-auto mb-8" />
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-future text-white uppercase mb-6 leading-tight">
-            AUTONOMÍA TOTAL EN <br />
-            <span className="text-7l-gold">LA EJECUCIÓN</span>
+            {t.rich("autonomiaTotal", {
+              br: () => <br />,
+              gold: (chunks) => <span className="text-7l-gold">{chunks}</span>
+            })}
           </h2>
           <p className="text-zinc-400 font-montserrat mb-10 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-            Eliminamos las dependencias operativas. Controlar 100% de la maquinaria nos permite mitigar riesgos, asegurar disponibilidad inmediata y reducir costos ocultos en proyectos críticos.
+            {t("autonomiaDesc")}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button className="w-full sm:w-auto bg-7l-gold text-black font-montserrat font-bold py-4 px-8 tracking-widest hover:bg-white transition-colors uppercase text-xs shadow-lg shadow-7l-gold/20">
-              Solicitar Equipos
+              {t("solicitarEquipos")}
             </button>
             <button className="w-full sm:w-auto border border-white/20 text-white font-montserrat font-bold py-4 px-8 tracking-widest hover:border-7l-gold hover:text-7l-gold transition-colors uppercase text-xs">
-              Soporte Técnico
+              {t("soporteTecnico")}
             </button>
           </div>
         </div>

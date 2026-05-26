@@ -2,8 +2,11 @@
 
 import React from "react";
 import { Phone, Mail, Clock } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const ContactInfo = () => {
+    const t = useTranslations("ContactoPage");
+
     return (
         <div className="space-y-16 flex flex-col justify-between py-6">
             <div className="space-y-14">
@@ -13,7 +16,7 @@ const ContactInfo = () => {
                         <Phone size={24} />
                     </div>
                     <div className="space-y-6 w-full">
-                        <h4 className="text-xl font-future uppercase leading-none text-white tracking-widest">Directorio Ejecutivo</h4>
+                        <h4 className="text-xl font-future uppercase leading-none text-white tracking-widest">{t("directorioEjecutivo")}</h4>
                         
                         <div className="space-y-4 w-full max-w-lg">
                             {/* Napoleón Bellaville */}
@@ -21,7 +24,7 @@ const ContactInfo = () => {
                                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-7l-gold scale-y-0 group-hover/card:scale-y-100 transition-transform origin-top"></div>
                                 <div className="space-y-1">
                                     <p className="text-[10px] font-future uppercase tracking-widest text-7l-gold">Napoleón Bellaville</p>
-                                    <p className="text-[11px] font-montserrat text-zinc-400 font-medium">Director Ejecutivo</p>
+                                    <p className="text-[11px] font-montserrat text-zinc-400 font-medium">{t("directorEjecutivo")}</p>
                                     <p className="text-sm font-montserrat font-bold text-white tracking-wider mt-1">+58 414 181 61 62</p>
                                 </div>
                                 <div className="flex items-center gap-2 self-start sm:self-center">
@@ -31,7 +34,7 @@ const ContactInfo = () => {
                                         title="Llamar directo"
                                     >
                                         <Phone size={12} />
-                                        <span>Llamar</span>
+                                        <span>{t("llamar")}</span>
                                     </a>
                                     <a 
                                         href="https://wa.me/584141816162" 
@@ -52,7 +55,7 @@ const ContactInfo = () => {
                                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-7l-gold scale-y-0 group-hover/card:scale-y-100 transition-transform origin-top"></div>
                                 <div className="space-y-1">
                                     <p className="text-[10px] font-future uppercase tracking-widest text-7l-gold">Brayhan Bellaville</p>
-                                    <p className="text-[11px] font-montserrat text-zinc-400 font-medium">Director de Operaciones</p>
+                                    <p className="text-[11px] font-montserrat text-zinc-400 font-medium">{t("directorOperaciones")}</p>
                                     <p className="text-sm font-montserrat font-bold text-white tracking-wider mt-1">+58 412 944 86 72</p>
                                 </div>
                                 <div className="flex items-center gap-2 self-start sm:self-center">
@@ -62,7 +65,7 @@ const ContactInfo = () => {
                                         title="Llamar directo"
                                     >
                                         <Phone size={12} />
-                                        <span>Llamar</span>
+                                        <span>{t("llamar")}</span>
                                     </a>
                                     <a 
                                         href="https://wa.me/584129448672" 
@@ -87,7 +90,7 @@ const ContactInfo = () => {
                         <Mail size={24} />
                     </div>
                     <div>
-                        <h4 className="text-xl font-future uppercase leading-none mb-4 text-white tracking-widest">Canal de Negocios</h4>
+                        <h4 className="text-xl font-future uppercase leading-none mb-4 text-white tracking-widest">{t("canalNegocios")}</h4>
                         <a href="mailto:negocios@grouplormar.com" className="text-lg font-montserrat font-light text-7l-gold hover:text-white transition-colors border-b border-7l-gold/30 pb-1">
                             negocios@grouplormar.com
                         </a>
@@ -100,9 +103,9 @@ const ContactInfo = () => {
                         <Clock size={24} />
                     </div>
                     <div className="space-y-2">
-                        <h4 className="text-xl font-future uppercase leading-none mb-2 text-white tracking-widest">Horario Operativo</h4>
-                        <p className="text-sm font-montserrat font-light text-white/80">Lunes — Viernes: 08:00 AM - 05:00 PM</p>
-                        <p className="text-[10px] font-montserrat font-medium text-7l-gold uppercase tracking-widest">Soporte 24/7 para emergencias críticas.</p>
+                        <h4 className="text-xl font-future uppercase leading-none mb-2 text-white tracking-widest">{t("horarioOperativo")}</h4>
+                        <p className="text-sm font-montserrat font-light text-white/80">{t("diasHorario")}</p>
+                        <p className="text-[10px] font-montserrat font-medium text-7l-gold uppercase tracking-widest">{t("soporteEmergencias")}</p>
                     </div>
                 </div>
             </div>
@@ -112,9 +115,8 @@ const ContactInfo = () => {
                     <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-7l-gold opacity-0 group-hover:opacity-100 transition-all"></div>
                     <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-7l-gold opacity-0 group-hover:opacity-100 transition-all"></div>
                     
-                    <h5 className="font-future text-[11px] uppercase tracking-[0.3em] text-7l-gold">¿Eres Proveedor?</h5>
-                    <p className="text-[10px] font-montserrat text-white/40 uppercase tracking-[0.2em]">
-                        ENVÍANOS TU BROCHURE A: <span className="text-white/80">PROCURA@GROUPLORMAR.COM</span>
+                    <h5 className="font-future text-[11px] uppercase tracking-[0.3em] text-7l-gold">{t("eresProveedor")}</h5>
+                    <p className="text-[10px] font-montserrat text-white/40 uppercase tracking-[0.2em]" dangerouslySetInnerHTML={{ __html: t("envianosBrochure") }}>
                     </p>
                 </div>
             </div>

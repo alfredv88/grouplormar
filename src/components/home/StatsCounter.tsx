@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 function AnimatedNumber({ value, prefix = "" }: { value: number, prefix?: string }) {
   const ref = useRef(null);
@@ -19,10 +20,12 @@ function AnimatedNumber({ value, prefix = "" }: { value: number, prefix?: string
 }
 
 export default function StatsCounter() {
+  const t = useTranslations('StatsCounter');
+
   const stats = [
-    { num: 16, prefix: "+", label: "Años de Experiencia" },
-    { num: 200, prefix: "+", label: "Proyectos Ejecutados" },
-    { num: 50, prefix: "+", label: "Unidades Especializadas" }
+    { num: 16, prefix: "+", label: t("experiencia") },
+    { num: 200, prefix: "+", label: t("proyectos") },
+    { num: 50, prefix: "+", label: t("unidades") }
   ];
 
   return (

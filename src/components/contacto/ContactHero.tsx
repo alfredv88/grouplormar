@@ -1,8 +1,11 @@
 "use client";
 
 import React from "react";
+import { useTranslations } from "next-intl";
 
 const ContactHero = () => {
+    const t = useTranslations("ContactoPage");
+
     return (
         <section className="h-[60vh] flex flex-col justify-center relative bg-black border-b border-white/5 overflow-hidden">
             <div className="absolute inset-0 z-0 opacity-40">
@@ -23,13 +26,18 @@ const ContactHero = () => {
 
             <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
               <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.5em] uppercase mb-4 block">
-                CENTRO DE OPERACIONES Y CONTACTO
+                {t("centroOperaciones")}
               </span>
               <h1 className="text-5xl md:text-7xl font-future text-white uppercase tracking-normal mb-6 leading-none">
-                <span className="text-7l-gold">ASESORÍA</span> <br />DIRECTA
+                {t.rich("asesoriaDirecta", {
+                  br: () => <br />,
+                  gold: (chunks) => <span className="text-7l-gold">{chunks}</span>
+                })}
               </h1>
               <p className="text-zinc-400 text-sm md:text-base font-montserrat font-medium max-w-2xl leading-relaxed">
-                Inicia el proceso de cotización para tu proyecto industrial. Nuestro equipo de procura e ingeniería evaluará tu requerimiento de <span className="text-white font-medium italic">inmediato.</span>
+                {t.rich("heroDescripcion", {
+                  white: (chunks) => <span className="text-white font-medium italic">{chunks}</span>
+                })}
               </p>
             </div>
         </section>

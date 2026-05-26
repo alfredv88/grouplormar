@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FileDown, ArrowRight, Shield, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -13,32 +14,8 @@ const fadeInUp = {
 };
 
 export default function ResponsabilidadPage() {
-  const complianceItems = [
-    {
-      label: "RIF CORPORATIVO (SENIAT)",
-      status: "ACTIVO",
-      number: "J-30657965-6",
-      period: "VIGENCIA DE LEY",
-    },
-    {
-      label: "RACDA MANEJADOR (TRANSPORTE)",
-      status: "VIGENTE",
-      number: "N° 03-04-TSMDP-2024-11956",
-      period: "MATERIALES PELIGROSOS",
-    },
-    {
-      label: "RACDA GENERADOR (MINEC)",
-      status: "VIGENTE",
-      number: "N° 01-13-02-02-03-2025-635",
-      period: "DESECHOS RECUPERABLES",
-    },
-    {
-      label: "RNC HABILITADO (SNC)",
-      status: "HABILITADO",
-      number: "N° 2025060651014000225",
-      period: "CONTRATACIÓN PÚBLICA",
-    },
-  ];
+  const t = useTranslations("ResponsabilidadPage");
+  const complianceItems = t.raw("complianceItems") as any[];
 
   return (
     <main className="bg-black text-white min-h-screen">
@@ -70,7 +47,7 @@ export default function ResponsabilidadPage() {
             transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
           >
             <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.5em] uppercase mb-4 block">
-              LORMAR CORPORATION
+              {t("lormarCorporation")}
             </span>
           </motion.div>
 
@@ -80,7 +57,10 @@ export default function ResponsabilidadPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           >
-            <span className="text-7l-gold">RESPONSABILIDAD</span> <br />CORPORATIVA
+            {t.rich("responsabilidadCorporativa", {
+              br: () => <br />,
+              gold: (chunks) => <span className="text-7l-gold">{chunks}</span>
+            })}
           </motion.h1>
 
           <motion.p
@@ -89,7 +69,7 @@ export default function ResponsabilidadPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
           >
-            Transparencia operativa, cumplimiento normativo y trazabilidad documental como pilares de nuestra gestión corporativa.
+            {t("heroDescripcion")}
           </motion.p>
         </div>
       </section>
@@ -99,10 +79,12 @@ export default function ResponsabilidadPage() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
           <motion.div {...fadeInUp}>
             <span className="font-montserrat text-zinc-500 text-[10px] font-black tracking-[0.5em] uppercase mb-4 block">
-              Estatus Legal
+              {t("estatusLegal")}
             </span>
             <h2 className="text-4xl md:text-5xl font-future text-white mb-12 uppercase leading-none">
-              COMPLIANCE <span className="text-7l-gold">& HSE</span>
+              {t.rich("complianceHSE", {
+                gold: (chunks) => <span className="text-7l-gold">{chunks}</span>
+              })}
             </h2>
           </motion.div>
 
@@ -157,13 +139,15 @@ export default function ResponsabilidadPage() {
             {...fadeInUp}
           >
             <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.5em] uppercase mb-4 block">
-              Documentación Oficial
+              {t("documentacionOficial")}
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-future text-white uppercase leading-none mb-6">
-              DOSSIER <span className="text-7l-gold">CORPORATIVO</span>
+              {t.rich("dossierCorporativo", {
+                gold: (chunks) => <span className="text-7l-gold">{chunks}</span>
+              })}
             </h2>
             <p className="text-zinc-400 text-sm md:text-base font-montserrat font-medium max-w-xl mx-auto leading-relaxed">
-              Descargue nuestro brochure oficial con información detallada sobre capacidades operativas, flota propia, certificaciones y trayectoria.
+              {t("dossierDesc")}
             </p>
           </motion.div>
 
@@ -194,19 +178,21 @@ export default function ResponsabilidadPage() {
               <div className="flex-1 text-center md:text-left space-y-4">
                 <div className="space-y-1">
                   <h3 className="font-future text-2xl md:text-3xl text-white uppercase tracking-wider">
-                    Brochure <span className="text-7l-gold">Lormar</span>
+                    {t.rich("brochureLormar", {
+                      gold: (chunks) => <span className="text-7l-gold">{chunks}</span>
+                    })}
                   </h3>
                   <p className="font-montserrat text-[10px] text-zinc-500 font-black tracking-[0.3em] uppercase">
-                    Grupo Lormar Corporation C.A.
+                    {t("brochureSub")}
                   </p>
                 </div>
 
                 <p className="font-montserrat text-sm text-zinc-400 leading-relaxed max-w-md">
-                  Documento integral que presenta nuestro portafolio de servicios, catálogo de maquinaria pesada, credenciales legales, estructura organizativa y capacidad de ejecución en el sector industrial y petrolero.
+                  {t("brochureInfo")}
                 </p>
 
                 <ul className="flex flex-wrap gap-3 justify-center md:justify-start pt-2">
-                  {['Servicios', 'Maquinaria', 'HSE', 'Certificaciones'].map((tag) => (
+                  {(t.raw("tags") as string[]).map((tag) => (
                     <li key={tag} className="px-3 py-1 border border-white/10 font-montserrat text-[9px] text-zinc-400 font-bold tracking-widest uppercase">
                       {tag}
                     </li>
@@ -223,7 +209,7 @@ export default function ResponsabilidadPage() {
                 >
                   <FileDown size={16} className="text-black" />
                   <span className="font-montserrat text-[10px] font-black text-black tracking-[0.3em] uppercase">
-                    Descargar
+                    {t("descargar")}
                   </span>
                 </a>
               </div>
@@ -239,9 +225,9 @@ export default function ResponsabilidadPage() {
             {...fadeInUp}
           >
             <p className="font-montserrat text-[11px] text-zinc-500 font-medium">
-              ¿Requiere documentación adicional o certificaciones específicas?{' '}
+              {t("requiereDocumentacion")}{' '}
               <Link href="/contacto" className="text-7l-gold hover:text-white transition-colors inline-flex items-center gap-1">
-                Contáctenos <ArrowRight size={10} />
+                {t("contactenos")} <ArrowRight size={10} />
               </Link>
             </p>
           </motion.div>

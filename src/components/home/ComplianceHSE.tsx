@@ -3,34 +3,11 @@
 import React from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function ComplianceHSE() {
-  const complianceHub = [
-    {
-      label: "RIF CORPORATIVO (SENIAT)",
-      status: "ACTIVO",
-      number: "J-30657965-6",
-      period: "VIGENCIA DE LEY",
-    },
-    {
-      label: "RACDA MANEJADOR (TRANSPORTE)",
-      status: "VIGENTE",
-      number: "N° 03-04-TSMDP-2024-11956",
-      period: "MATERIALES PELIGROSOS",
-    },
-    {
-      label: "RACDA GENERADOR (MINEC)",
-      status: "VIGENTE",
-      number: "N° 01-13-02-02-03-2025-635",
-      period: "DESECHOS RECUPERABLES",
-    },
-    {
-      label: "RNC HABILITADO (SNC)",
-      status: "HABILITADO",
-      number: "N° 2025060651014000225",
-      period: "CONTRATACIÓN PÚBLICA",
-    },
-  ];
+  const t = useTranslations("ComplianceHSE");
+  const complianceHub = t.raw("items") as { label: string; status: string; number: string; period: string }[];
 
   return (
     <section className="py-24 md:py-28 bg-[#060606] border-y border-white/5 relative" id="compliance">
@@ -42,14 +19,17 @@ export default function ComplianceHSE() {
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-4">
               <span className="font-montserrat text-7l-gold text-[8px] font-black tracking-[0.5em] uppercase block mb-4">
-                Soberanía Operacional
+                {t("soberania")}
               </span>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-future text-white uppercase tracking-normal leading-[1.1]">
-                COMPLIANCE <br /> <span className="text-7l-gold">&amp; HSE</span>
+                {t.rich("titulo", {
+                  br: () => <br />,
+                  gold: (chunks) => <span className="text-7l-gold">{chunks}</span>
+                })}
               </h2>
               <div className="w-16 h-[2px] bg-7l-gold mt-6 mb-8" />
               <p className="font-montserrat text-[13px] text-zinc-400 leading-relaxed max-w-sm font-medium">
-                Garantizamos absoluta transparencia técnica y legal. Respaldamos cada licitación corporativa con certificaciones oficiales vigentes.
+                {t("descripcion")}
               </p>
             </div>
           </div>
@@ -94,7 +74,7 @@ export default function ComplianceHSE() {
                 className="inline-flex items-center gap-6 bg-7l-gold px-8 py-4 hover:bg-7l-gold/90 transition-all duration-300 group rounded-none"
               >
                 <span className="font-montserrat text-[10px] font-black text-black tracking-[0.4em] uppercase">
-                  VER SOPORTE VISUAL &amp; CERTIFICADOS
+                  {t("verSoporte")}
                 </span>
                 <ArrowRight size={12} className="text-black transition-transform group-hover:translate-x-1.5 duration-300" />
               </Link>

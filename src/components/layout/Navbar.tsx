@@ -6,6 +6,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Mail, Facebook, Instagram, Linkedin } from "lucide-react";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useTranslations } from "next-intl";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -14,11 +16,13 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
 
+  const t = useTranslations('Navbar');
+
   const links = [
-    { href: "/", label: "INICIO" },
-    { href: "/nosotros", label: "NOSOTROS" },
-    { href: "/servicios", label: "SERVICIOS" },
-    { href: "/maquinaria", label: "MAQUINARIA" },
+    { href: "/", label: t('inicio') },
+    { href: "/nosotros", label: t('nosotros') },
+    { href: "/servicios", label: t('servicios') },
+    { href: "/maquinaria", label: t('maquinaria') },
   ];
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -46,7 +50,7 @@ export default function Navbar() {
            {/* Right: Contact Utilities & Social */}
           <div className="flex items-center gap-8">
               <div className="flex items-center gap-8">
-
+                <LanguageSwitcher />
                 <a href="mailto:negocios@grouplormar.com" className="flex items-center gap-2 group transition-colors">
                   <Mail size={12} className="text-7l-gold" />
                   <span className="font-mono text-[10px] text-white tracking-wider uppercase">negocios@grouplormar.com</span>
@@ -88,7 +92,7 @@ export default function Navbar() {
             </Link>
 
             {/* DESKTOP LINKS */}
-            <div className="hidden md:flex items-center gap-10 lg:gap-14">
+            <div className="hidden lg:flex items-center gap-8 xl:gap-14">
               {links.map((link) => (
                 <Link
                   key={link.href}
@@ -114,14 +118,14 @@ export default function Navbar() {
                 href="/contacto"
                 className="group relative px-6 py-3 bg-7l-gold text-7l-black font-montserrat font-black tracking-[0.3em] text-[10px] overflow-hidden transition-all duration-300 hover:shadow-[0_4px_20px_rgba(242,169,0,0.35)] hover:scale-105"
               >
-                COTIZAR
+                {t('cotizar')}
               </Link>
             </div>
 
             {/* MOBILE TOGGLE */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`md:hidden p-2 transition-colors rounded-sm ${isScrolled ? 'text-[#1A1A1A]' : 'text-white bg-black/20 backdrop-blur-sm drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]'}`}
+              className={`lg:hidden p-2 transition-colors rounded-sm ${isScrolled ? 'text-[#1A1A1A]' : 'text-white bg-black/20 backdrop-blur-sm drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]'}`}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -166,11 +170,11 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
               className="mt-8 py-5 bg-7l-gold text-7l-black font-montserrat font-black tracking-[0.4em] text-sm uppercase text-center"
             >
-              SOLICITAR COTIZACIÓN
+              {t('solicitarCotizacion')}
             </Link>
 
             <div className="mt-auto pb-10 flex flex-col gap-4 border-t border-[#E8E8E8] pt-8">
-
+              <LanguageSwitcher isMobile={true} />
               <a href="mailto:negocios@grouplormar.com" className="flex items-center gap-3 text-[#6B7280]">
                 <Mail size={14} className="text-7l-gold" />
                 <span className="font-montserrat text-[10px] tracking-wider">NEGOCIOS@GROUPLORMAR.COM</span>

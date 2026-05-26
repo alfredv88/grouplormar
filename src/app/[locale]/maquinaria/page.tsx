@@ -1,5 +1,6 @@
 import React from 'react';
 import MachineryCatalog from '@/components/maquinaria/MachineryCatalog';
+import { useTranslations } from 'next-intl';
 
 export const metadata = {
   title: 'Catálogo de Maquinarias | Grupo Lormar',
@@ -7,6 +8,7 @@ export const metadata = {
 };
 
 export default function MaquinariasPage() {
+  const t = useTranslations("MaquinariaPage");
   return (
     <main className="bg-black min-h-screen text-white">
       
@@ -30,13 +32,16 @@ export default function MaquinariasPage() {
 
         <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
           <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.5em] uppercase mb-4 block">
-            LORMAR CORPORATION
+            {t("lormarCorporation")}
           </span>
           <h1 className="text-5xl md:text-7xl font-future text-white uppercase tracking-normal mb-6 leading-none">
-            <span className="text-7l-gold">MÚSCULO</span> <br />OPERATIVO
+            {t.rich("musculoOperativo", {
+              br: () => <br />,
+              gold: (chunks) => <span className="text-7l-gold">{chunks}</span>
+            })}
           </h1>
           <p className="text-zinc-400 text-sm md:text-base font-montserrat font-medium max-w-2xl leading-relaxed">
-            Toda la maquinaria listada es propiedad de Grupo Lormar. Sin intermediarios, garantizamos disponibilidad inmediata, autonomía de ejecución y mantenimiento riguroso para la industria pesada.
+            {t("heroDescripcion")}
           </p>
         </div>
       </section>

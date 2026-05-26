@@ -5,8 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function GenteSection() {
+  const t = useTranslations("GenteSection");
+
   return (
     <section className="relative w-full overflow-hidden flex flex-col md:flex-row-reverse min-h-[600px]">
       
@@ -43,10 +46,13 @@ export default function GenteSection() {
             className="space-y-4"
           >
             <span className="font-montserrat text-black/60 text-[10px] font-black tracking-[0.5em] uppercase">
-              CAPITAL HUMANO
+              {t("capitalHumano")}
             </span>
             <h2 className="text-5xl md:text-6xl font-future !text-black leading-none uppercase">
-              TALENTO <br /> <span className="text-white">ESTRATÉGICO</span>
+              {t.rich("talentoEstrategico", {
+                br: () => <br />,
+                white: (chunks) => <span className="text-white">{chunks}</span>
+              })}
             </h2>
           </motion.div>
 
@@ -57,7 +63,7 @@ export default function GenteSection() {
             transition={{ delay: 0.2 }}
             className="text-lg md:text-xl font-montserrat !text-white leading-relaxed font-medium max-w-lg"
           >
-            En Grupo Lormar creemos en el valor de las personas. Nuestro equipo de profesionales cuenta con una visión internacional y una formación técnica de élite, siendo el motor fundamental de nuestra solidez y crecimiento continuo.
+            {t("descripcion")}
           </motion.p>
 
           <motion.div
@@ -71,7 +77,7 @@ export default function GenteSection() {
               className="inline-flex items-center gap-6 bg-black px-8 py-4 hover:bg-black/90 transition-all duration-300 group rounded-none"
             >
               <span className="font-montserrat text-[10px] font-black text-7l-gold tracking-[0.4em] uppercase">
-                Descubre Más
+                {t("descubreMas")}
               </span>
               <ArrowRight size={12} className="text-7l-gold transition-transform group-hover:translate-x-1.5 duration-300" />
             </Link>

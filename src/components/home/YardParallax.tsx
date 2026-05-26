@@ -2,8 +2,10 @@
 
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function YardParallax() {
+  const t = useTranslations('YardParallax');
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -97,11 +99,11 @@ export default function YardParallax() {
           className="max-w-5xl"
         >
           <span className="font-montserrat text-7l-gold tracking-[0.8em] text-[9px] font-black uppercase mb-8 block opacity-80">
-            VISIÓN DIRECTA // ACTIVOS
+            {t('visionDirecta')}
           </span>
           
           <h2 className="text-5xl md:text-8xl font-future text-white uppercase leading-[0.9] tracking-normal">
-            CAPACIDAD <br /> <span className="text-7l-gold">INSTALADA</span> REAL
+            {t('capacidad')} <br /> <span className="text-7l-gold">{t('instalada')}</span> {t('real')}
           </h2>
         </motion.div>
       </motion.div>

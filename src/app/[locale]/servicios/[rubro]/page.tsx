@@ -2,7 +2,8 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, CheckCircle2 } from 'lucide-react';
-import { services } from '@/data/servicesData';
+import { useTranslations } from 'next-intl';
+import { services as baseServices } from '@/data/servicesData';
 
 // Mapeo seguro de slugs para la generación estática
 const slugToIndex: Record<string, number> = {
@@ -26,7 +27,12 @@ export default function ServicioDetallePage({ params }: { params: { rubro: strin
     notFound();
   }
 
-  const service = services[index];
+  const t = useTranslations("ServiciosPage");
+  const tDetail = useTranslations("ServicioDetalle");
+  const localizedServices = t.raw("items") as any[];
+
+  // Merge the localized service data with the base service structural data (bg, images, badges)
+  const service = { ...baseServices[index], ...localizedServices[index] };
 
   // Variables de estilo inmersivo basadas en la estética del brochure
   const isGold = service.bg === 'gold';
@@ -61,11 +67,11 @@ export default function ServicioDetallePage({ params }: { params: { rubro: strin
         <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-start">
           <Link href="/servicios" className="flex items-center text-zinc-400 hover:text-7l-gold transition-colors font-montserrat text-[10px] md:text-xs uppercase font-bold tracking-widest mb-8">
             <ChevronRight size={14} className="rotate-180 mr-1" />
-            Volver a Portafolio de Servicios
+            {tDetail("volverServicios")}
           </Link>
 
           <div className="inline-block px-3 py-1.5 bg-7l-gold/10 border border-7l-gold/30 text-7l-gold font-black uppercase text-[10px] tracking-widest mb-6 shadow-sm backdrop-blur-sm">
-            División Operativa Especializada
+            {tDetail("divisionOperativa")}
           </div>
 
           <h1
@@ -88,7 +94,9 @@ export default function ServicioDetallePage({ params }: { params: { rubro: strin
           <div className="lg:col-span-8">
             <h2 className="font-future text-2xl md:text-3xl mb-8 tracking-widest uppercase flex items-center gap-4">
               <span className={`w-8 h-[2px] ${isGold || isWhite ? 'bg-zinc-800' : 'bg-7l-gold'}`} />
-              Alcance <span className={isGold || isWhite ? 'text-zinc-600' : 'text-zinc-500'}>Técnico</span>
+              {tDetail.rich("alcanceTecnico", {
+                zinc: (chunks) => <span className={isGold || isWhite ? 'text-zinc-600' : 'text-zinc-500'}>{chunks}</span>
+              })}
             </h2>
             <p className={`font-montserrat text-base md:text-lg leading-relaxed ${isGold ? 'text-zinc-800' : isWhite ? 'text-zinc-700' : 'text-zinc-400'}`}>
               {service.description}
@@ -149,18 +157,18 @@ export default function ServicioDetallePage({ params }: { params: { rubro: strin
             <div className={`mt-12 p-8 border ${isGold || isWhite ? 'border-black bg-black text-white' :
                 'border-7l-gold/20 bg-[#111] text-white'
               }`}>
-              <h4 className="font-future text-xl tracking-widest uppercase mb-4">Ejecución Garantizada</h4>
+              <h4 className="font-future text-xl tracking-widest uppercase mb-4">{tDetail("ejecucionGarantizada")}</h4>
               <p className="font-montserrat text-sm text-zinc-400 mb-8 leading-relaxed">
-                Contamos con maquinaria pesada propia y músculo operativo listo para movilización inmediata.
+                {tDetail("ejecucionDesc")}
               </p>
 
               <Link href="/maquinaria" className="flex items-center justify-between w-full py-4 border-b border-white/10 font-montserrat text-[11px] font-bold uppercase tracking-widest hover:text-7l-gold hover:border-7l-gold transition-colors mb-2">
-                <span>Ver Flota Pesada</span>
+                <span>{tDetail("verFlota")}</span>
                 <ArrowRight size={14} />
               </Link>
 
               <Link href="/contacto" className="flex items-center justify-between w-full py-4 border-b border-white/10 font-montserrat text-[11px] font-bold uppercase tracking-widest hover:text-7l-gold hover:border-7l-gold transition-colors">
-                <span>Contactar Asesoría Técnica</span>
+                <span>{tDetail("contactarAsesoria")}</span>
                 <ArrowRight size={14} />
               </Link>
             </div>

@@ -5,8 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function SustainabilitySection() {
+  const t = useTranslations("SustainabilitySection");
+
   return (
     <section className="relative w-full overflow-hidden flex flex-col md:flex-row min-h-[600px] bg-[#0a1111]">
       
@@ -44,10 +47,13 @@ export default function SustainabilitySection() {
             className="space-y-4"
           >
             <span className="font-montserrat text-zinc-500 text-[10px] font-black tracking-[0.5em] uppercase">
-              GESTIÓN AMBIENTAL
+              {t("gestionAmbiental")}
             </span>
             <h2 className="text-5xl md:text-6xl font-future text-white leading-none uppercase">
-              VALOR <br /> <span className="text-7l-gold">SOSTENIBLE</span>
+              {t.rich("valorSostenible", {
+                br: () => <br />,
+                gold: (chunks) => <span className="text-7l-gold">{chunks}</span>
+              })}
             </h2>
           </motion.div>
 
@@ -58,7 +64,7 @@ export default function SustainabilitySection() {
             transition={{ delay: 0.2 }}
             className="text-zinc-400 text-sm md:text-base font-montserrat font-medium max-w-lg leading-relaxed"
           >
-            Nuestro compromiso es generar valor sostenible integrando aspectos ambientales y sociales en cada fase operativa. Garantizamos la remediación and el manejo integral bajo estrictos protocolos RACDA.
+            {t("descripcion")}
           </motion.p>
 
           <motion.div
@@ -72,7 +78,7 @@ export default function SustainabilitySection() {
               className="inline-flex items-center gap-6 bg-7l-gold px-8 py-4 hover:bg-7l-gold/90 transition-all duration-300 group rounded-none"
             >
               <span className="font-montserrat text-[10px] font-black text-black tracking-[0.4em] uppercase">
-                COMPROMISO
+                {t("compromiso")}
               </span>
               <ArrowRight size={12} className="text-black transition-transform group-hover:translate-x-1.5 duration-300" />
             </Link>

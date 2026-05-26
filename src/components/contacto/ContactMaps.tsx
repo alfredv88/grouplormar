@@ -2,8 +2,11 @@
 
 import React from "react";
 import { MapPin, Factory } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const ContactMaps = () => {
+    const t = useTranslations("ContactoPage");
+
     return (
         <section className="bg-7l-black py-32 px-10 md:px-20 lg:px-32 border-t border-white/5 relative">
             <div className="absolute inset-0 bg-industrial-grid opacity-5 pointer-events-none"></div>
@@ -11,7 +14,10 @@ const ContactMaps = () => {
             <div className="max-w-[1800px] mx-auto space-y-20 relative z-10">
                 <div className="space-y-4">
                     <h2 className="text-6xl md:text-[80px] font-future uppercase text-white leading-none">
-                        NUESTRAS <br /> <span className="text-7l-gold">SEDES</span>
+                        {t.rich("nuestrasSedes", {
+                            br: () => <br />,
+                            gold: (chunks) => <span className="text-7l-gold">{chunks}</span>
+                        })}
                     </h2>
                     <div className="h-[2px] w-32 bg-7l-gold"></div>
                 </div>
@@ -31,10 +37,10 @@ const ContactMaps = () => {
                         <div className="space-y-4">
                             <div className="flex items-center gap-4 group-hover:translate-x-2 transition-transform">
                                 <MapPin size={28} className="text-7l-gold" /> 
-                                <h4 className="text-2xl md:text-3xl font-future uppercase leading-none text-white">Oficina Administrativa</h4>
+                                <h4 className="text-2xl md:text-3xl font-future uppercase leading-none text-white">{t("oficinaAdministrativa")}</h4>
                             </div>
                             <p className="text-xs font-montserrat font-medium uppercase tracking-[0.1em] text-white/50 border-l-2 border-7l-gold pl-6 max-w-md">
-                                AV. JORGE RODRÍGUEZ CC MT, NIVEL PB OF 05 SECTOR LAS GARZAS, LECHERÍA ANZOÁTEGUI. CP 6016
+                                {t("dirOficina")}
                             </p>
                         </div>
                     </div>
@@ -53,10 +59,10 @@ const ContactMaps = () => {
                         <div className="space-y-4">
                             <div className="flex items-center gap-4 group-hover:translate-x-2 transition-transform">
                                 <Factory size={28} className="text-7l-gold" /> 
-                                <h4 className="text-2xl md:text-3xl font-future uppercase leading-none text-white">Base Operativa</h4>
+                                <h4 className="text-2xl md:text-3xl font-future uppercase leading-none text-white">{t("baseOperativa")}</h4>
                             </div>
                             <p className="text-xs font-montserrat font-medium uppercase tracking-[0.1em] text-white/50 border-l-2 border-7l-gold pl-6 max-w-md">
-                                AUTOPISTA RÓMULO BETANCOURT, TERRENO S/N, SECTOR LOS POTOCOS, BARCELONA EDO. ANZOÁTEGUI.
+                                {t("dirBase")}
                             </p>
                         </div>
                     </div>

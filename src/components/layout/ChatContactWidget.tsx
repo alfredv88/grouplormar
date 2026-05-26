@@ -1,39 +1,41 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { X, Send, CheckCircle2, Loader2, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const contactSchema = z.object({
-    name: z.string().min(2, 'El nombre es muy corto'),
-    email: z.string().email('Email inválido'),
-    subject: z.string().min(1, 'Selecciona un asunto'),
-    message: z.string().min(10, 'El mensaje debe tener al menos 10 caracteres'),
-});
-
-type ContactForm = z.infer<typeof contactSchema>;
+import { useTranslations } from 'next-intl';
 
 export default function ChatContactWidget() {
+    const t = useTranslations('ChatContactWidget');
     const [isOpen, setIsOpen] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [isError, setIsError] = useState(false);
+
+    const contactSchema = useMemo(() => z.object({
+        name: z.string().min(2, t('errNombreCorto')),
+        email: z.string().email(t('errEmailInvalido')),
+        subject: z.string().min(1, t('errAsuntoRequerido')),
+        message: z.string().min(10, t('errMensajeCorto')),
+    }), [t]);
+
+    type ContactFormType = z.infer<typeof contactSchema>;
 
     const {
         register,
         handleSubmit,
         reset,
         formState: { errors, isSubmitting },
-    } = useForm<ContactForm>({
+    } = useForm<ContactFormType>({
         resolver: zodResolver(contactSchema),
         defaultValues: {
             subject: 'Consulta General',
         }
     });
 
-    const onSubmit = async (data: ContactForm) => {
+    const onSubmit = async (data: ContactFormType) => {
         try {
             setIsError(false);
             const response = await fetch('/api/contact', {
@@ -71,7 +73,7 @@ export default function ChatContactWidget() {
                     {/* Content */}
                     <div className="relative z-10 flex flex-col items-center gap-0.5">
                         <div className="w-1 h-1 bg-7l-gold rounded-full shadow-[0_0_8px_rgba(242,169,0,0.8)]" />
-                        <span className="font-montserrat text-[6px] font-black text-white uppercase tracking-[0.25em] group-hover:text-7l-gold transition-colors">CONTACTO</span>
+                        <span className="font-montserrat text-[6px] font-black text-white uppercase tracking-[0.25em] group-hover:text-7l-gold transition-colors">{t('contacto')}</span>
                     </div>
 
                     {/* Hover Glow */}
@@ -111,11 +113,12 @@ export default function ChatContactWidget() {
                                 <div className="space-y-3">
                                     <div className="flex items-center gap-3">
                                         <div className="w-8 h-[2px] bg-7l-gold" />
-                                        <span className="font-montserrat text-[9px] font-black text-7l-gold uppercase tracking-[0.5em]">ENLACE OPERATIVO</span>
+                                        <span className="font-montserrat text-[9px] font-black text-7l-gold uppercase tracking-[0.5em]">{t('enlaceOperativo')}</span>
                                     </div>
                                     <h3 className="font-montserrat font-black text-3xl text-white uppercase tracking-tighter leading-none">
-                                        CONTACTO <br />
-                                        <span className="text-7l-gold">DIRECTO</span>
+                                        {t.rich('contactoDirecto', {
+                                            br: () => <br />
+                                        })}
                                     </h3>
                                 </div>
                                 <button 
@@ -139,8 +142,8 @@ export default function ChatContactWidget() {
                                             <CheckCircle2 size={60} className="text-7l-gold relative z-10" />
                                         </div>
                                         <div className="space-y-3">
-                                            <h4 className="font-montserrat font-black text-2xl text-white uppercase tracking-tighter">DATOS TRANSMITIDOS</h4>
-                                            <p className="font-montserrat text-xs text-white/40 leading-relaxed uppercase tracking-widest">Un especialista técnico procesará su solicitud.</p>
+                                            <h4 className="font-montserrat font-black text-2xl text-white uppercase tracking-tighter">{t('datosTransmitidos')}</h4>
+                                            <p className="font-montserrat text-xs text-white/40 leading-relaxed uppercase tracking-widest">{t('procesarSolicitud')}</p>
                                         </div>
                                     </motion.div>
                                 ) : (
@@ -148,46 +151,46 @@ export default function ChatContactWidget() {
                                         <div className="space-y-6">
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                                 <div className="space-y-2">
-                                                    <label className="block font-montserrat text-[10px] font-bold text-zinc-300 uppercase tracking-[0.2em]">Nombre</label>
+                                                    <label className="block font-montserrat text-[10px] font-bold text-zinc-300 uppercase tracking-[0.2em]">{t('nombre')}</label>
                                                     <input 
                                                         {...register('name')}
                                                         className="w-full bg-white/5 border border-white/15 px-4 py-3 text-white font-montserrat text-sm focus:outline-none focus:border-7l-gold focus:bg-white/10 transition-all placeholder:text-zinc-500"
-                                                        placeholder="S. APELLIDO"
+                                                        placeholder={t('nombrePlaceholder')}
                                                     />
                                                     {errors.name && <span className="font-montserrat text-[10px] text-red-400 mt-1 block">{errors.name.message}</span>}
                                                 </div>
                                                 <div className="space-y-2">
-                                                    <label className="block font-montserrat text-[10px] font-bold text-zinc-300 uppercase tracking-[0.2em]">Correo</label>
+                                                    <label className="block font-montserrat text-[10px] font-bold text-zinc-300 uppercase tracking-[0.2em]">{t('correo')}</label>
                                                     <input 
                                                         {...register('email')}
                                                         type="email"
                                                         className="w-full bg-white/5 border border-white/15 px-4 py-3 text-white font-montserrat text-sm focus:outline-none focus:border-7l-gold focus:bg-white/10 transition-all placeholder:text-zinc-500"
-                                                        placeholder="CORP@MAIL.COM"
+                                                        placeholder={t('correoPlaceholder')}
                                                     />
                                                     {errors.email && <span className="font-montserrat text-[10px] text-red-400 mt-1 block">{errors.email.message}</span>}
                                                 </div>
                                             </div>
 
                                             <div className="space-y-2">
-                                                <label className="block font-montserrat text-[10px] font-bold text-zinc-300 uppercase tracking-[0.2em]">Departamento</label>
+                                                <label className="block font-montserrat text-[10px] font-bold text-zinc-300 uppercase tracking-[0.2em]">{t('departamento')}</label>
                                                 <select 
                                                     {...register('subject')}
                                                     className="w-full bg-7l-black border border-white/15 px-4 py-3 text-white font-montserrat text-sm focus:outline-none focus:border-7l-gold transition-all"
                                                 >
-                                                    <option value="Consulta General">CONSULTA GENERAL</option>
-                                                    <option value="Operaciones">OPERACIONES</option>
-                                                    <option value="Ingeniería">INGENIERÍA</option>
+                                                    <option value="Consulta General">{t('consultaGeneral')}</option>
+                                                    <option value="Operaciones">{t('operaciones')}</option>
+                                                    <option value="Ingeniería">{t('ingenieria')}</option>
                                                 </select>
                                                 {errors.subject && <span className="font-montserrat text-[10px] text-red-400 mt-1 block">{errors.subject.message}</span>}
                                             </div>
 
                                             <div className="space-y-2">
-                                                <label className="block font-montserrat text-[10px] font-bold text-zinc-300 uppercase tracking-[0.2em]">Mensaje</label>
+                                                <label className="block font-montserrat text-[10px] font-bold text-zinc-300 uppercase tracking-[0.2em]">{t('mensaje')}</label>
                                                 <textarea 
                                                     {...register('message')}
                                                     rows={4}
                                                     className="w-full bg-white/5 border border-white/15 px-4 py-3 text-white font-montserrat text-sm focus:outline-none focus:border-7l-gold focus:bg-white/10 transition-all placeholder:text-zinc-500 resize-none"
-                                                    placeholder="REQUERIMIENTO TÉCNICO..."
+                                                    placeholder={t('mensajePlaceholder')}
                                                 />
                                                 {errors.message && <span className="font-montserrat text-[10px] text-red-400 mt-1 block">{errors.message.message}</span>}
                                             </div>
@@ -202,7 +205,7 @@ export default function ChatContactWidget() {
                                                 <Loader2 className="animate-spin text-7l-black" size={18} />
                                             ) : (
                                                 <>
-                                                    <span>ENVIAR REQUERIMIENTO</span>
+                                                    <span>{t('enviarRequerimiento')}</span>
                                                     <ArrowRight size={16} className="text-7l-black" />
                                                 </>
                                             )}

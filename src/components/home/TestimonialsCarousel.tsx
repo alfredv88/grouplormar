@@ -2,35 +2,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
-
-const endorsements = [
-  {
-    quote: "La precisión y cumplimiento de Lormar en la estabilización de plataformas superó nuestras expectativas contractuales.",
-    name: "ING. CARLOS M.",
-    role: "GERENCIA DE PROYECTOS",
-    company: "PETROMONAGAS"
-  },
-  {
-    quote: "Un músculo logístico impecable. Redujeron nuestros tiempos de parada de planta gracias a la amplia disponibilidad de su maquinaria.",
-    name: "ARQ. SOFÍA V.",
-    role: "DIRECCIÓN DE OPERACIONES",
-    company: "CONSORCIO VIAL"
-  },
-  {
-    quote: "Ejecución técnica sin fisuras. Su protocolo de Cero Accidentes y calidad operativa son el estándar que buscamos en el sector.",
-    name: "ING. ROBERTO S.",
-    role: "SUPERINTENDENTE DE PLANTA",
-    company: "OPERADOR PRINCIPAL"
-  },
-  {
-    quote: "Confiamos la fase estructural a Lormar. El nivel de ingeniería, respuestas de emergencia y la trazabilidad de equipos fue absoluto.",
-    name: "LIC. ANDRÉS G.",
-    role: "GERENCIA DE PROCURA",
-    company: "SERVICIOS EPC"
-  }
-];
+import { useTranslations } from "next-intl";
 
 export default function TestimonialsCarousel() {
+  const t = useTranslations("TestimonialsCarousel");
+  const endorsements = t.raw("endorsements") as { quote: string; name: string; role: string; company: string }[];
   const [isPaused, setIsPaused] = useState(false);
 
   // Duplicamos el set de cartas para el scroll infinito suave
@@ -38,7 +14,7 @@ export default function TestimonialsCarousel() {
 
   // Helper para obtener la inicial del nombre real sin prefijos profesionales
   const getInitial = (fullName: string) => {
-    const cleanName = fullName.replace(/^(ING\.|ARQ\.|LIC\.)\s+/, '');
+    const cleanName = fullName.replace(/^(ING\.|ARQ\.|LIC\.|ENG\.|ARCH\.)\s+/, '');
     return cleanName.charAt(0) || 'L';
   };
 
@@ -49,14 +25,14 @@ export default function TestimonialsCarousel() {
         {/* Header Corporativo Elegante (Estilo Sostenibilidad Unificado - Alineado a la Derecha) */}
         <div className="px-6 md:px-12 lg:px-20 max-w-4xl mb-20 flex flex-col gap-6 ml-auto items-end text-right">
           <span className="text-[10px] uppercase font-montserrat tracking-[0.4em] text-zinc-400 font-bold block">
-            RESPALDO
+            {t("respaldo")}
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-future !text-[#0D0D0D] uppercase leading-[0.9] tracking-normal flex flex-col items-end">
-            <span>REFERENCIAS</span>
-            <span className="text-7l-gold -mt-1">COMERCIALES</span>
+            <span>{t("referencias")}</span>
+            <span className="text-7l-gold -mt-1">{t("comerciales")}</span>
           </h2>
           <p className="!text-zinc-500 text-[14px] md:text-[15px] leading-relaxed font-montserrat font-medium max-w-2xl mt-2 text-right">
-            No exigimos confianza ciega; la construimos. Las principales operadoras de los sectores estratégicos avalan nuestro músculo técnico y rigurosa disciplina operacional.
+            {t("descripcion")}
           </p>
         </div>
 

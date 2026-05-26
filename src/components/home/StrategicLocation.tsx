@@ -3,27 +3,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { MapPin, ChevronRight, Globe, Play } from "lucide-react";
-import { BROCHURE_DATA } from "@/constants/brochureData";
+import { useTranslations } from "next-intl";
 
 export default function StrategicLocation() {
-  const hubs = [
-    {
-      id: "ADMIN",
-      label: "SEDE ADMINISTRATIVA",
-      location: "Lechería, Anzoátegui",
-      address: BROCHURE_DATA.contact?.admin || "AV JORGE RODRIGUEZ CC MT NIVEL PB LOCAL 05",
-      type: "GESTIÓN Y NEGOCIOS",
-      coords: "10.1878° N, 64.6917° W"
-    },
-    {
-      id: "BASE",
-      label: "PATIO CENTRAL Y TALLERES",
-      location: "Barcelona, Anzoátegui",
-      address: BROCHURE_DATA.contact?.base || "AUTOPISTA RÓMULO BETANCOURT, SECTOR LOS POTOCOS",
-      type: "FLOTA Y LOGÍSTICA PESADA",
-      coords: "10.1121° N, 64.7001° W"
-    }
-  ];
+  const t = useTranslations("StrategicLocation");
+  const hubs = t.raw("hubs") as { id: string; label: string; location: string; address: string }[];
 
   return (
     <section className="py-24 bg-[#0a1111] border-b border-white/5 relative overflow-hidden" id="location">
@@ -32,10 +16,12 @@ export default function StrategicLocation() {
         {/* HEADER (LEFT ALIGNED) */}
         <div className="text-left mb-16 max-w-3xl">
           <span className="font-montserrat text-7l-gold text-[7px] font-bold tracking-[0.5em] uppercase block mb-6">
-            Red Industrial Global
+            {t("redIndustrial")}
           </span>
           <h2 className="text-4xl md:text-5xl font-future text-white uppercase tracking-normal leading-[0.9]">
-            PRESENCIA <span className="text-7l-gold-text">ESTRATÉGICA</span>
+            {t.rich("presencia", {
+              gold: (chunks) => <span className="text-7l-gold-text">{chunks}</span>
+            })}
           </h2>
           <div className="w-12 h-[2px] bg-7l-gold mt-8" />
         </div>
@@ -80,8 +66,8 @@ export default function StrategicLocation() {
             </div>
 
             <div className="mt-8 flex justify-between items-center text-[7px] font-montserrat text-7l-gold tracking-[0.5em] uppercase">
-               <span>Red Logística Central Anzoátegui</span>
-               <span>100% Propiedad de Activos</span>
+               <span>{t("redLogistica")}</span>
+               <span>{t("propiedadActivos")}</span>
             </div>
           </div>
 
@@ -107,15 +93,15 @@ export default function StrategicLocation() {
               <div className="absolute top-4 left-4 z-10">
                  <div className="flex items-center gap-2.5 bg-black/40 backdrop-blur-md px-2.5 py-1.5 border border-white/10">
                     <div className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
-                     <span className="font-montserrat text-[6px] text-white tracking-[0.2em] uppercase font-bold">INSTALACIONES_VIVO</span>
+                     <span className="font-montserrat text-[6px] text-white tracking-[0.2em] uppercase font-bold">{t("instalacionesVivo")}</span>
                  </div>
               </div>
             </motion.div>
 
             <div className="mt-8 space-y-4">
-              <h3 className="font-future text-xl text-white uppercase tracking-normal">INFRAESTRUCTURA PROPIA</h3>
+              <h3 className="font-future text-xl text-white uppercase tracking-normal">{t("infraestructuraPropia")}</h3>
               <p className="font-montserrat text-[13px] text-white leading-relaxed max-w-xl font-medium">
-                Operamos desde activos integrales en el corazón industrial de Anzoátegui. Cada sede está equipada con tecnología de punta y personal certificado, garantizando la continuidad técnica y administrativa de todos nuestros proyectos.
+                {t("descripcion")}
               </p>
             </div>
           </div>

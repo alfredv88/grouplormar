@@ -3,6 +3,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { ArrowUpRight } from "lucide-react";
 import Magnetic from "@/components/ui/Magnetic";
+import { useTranslations } from "next-intl";
 import Hero from "@/components/home/Hero";
 import LogoStrip from "@/components/home/LogoStrip";
 import ServicesGrid from "@/components/home/ServicesGrid";
@@ -20,6 +21,7 @@ const SustainabilitySection = dynamic(() => import("@/components/home/Sustainabi
 const GenteSection = dynamic(() => import("@/components/home/GenteSection"));
 
 export default function Home() {
+  const t = useTranslations('HomeCTA');
   return (
     <main className="relative min-h-screen bg-7l-black font-montserrat selection:bg-7l-gold selection:text-7l-black">
       {/* ATMOSPHERIC LAYER */}
@@ -92,10 +94,12 @@ export default function Home() {
       <section className="py-20 bg-[#080808] border-t border-white/10 relative overflow-hidden">
         <div className="w-full max-w-[1200px] mx-auto px-6 relative z-10 flex flex-col items-center text-center">
           <span className="font-montserrat text-7l-gold text-[9px] font-black tracking-[0.5em] uppercase mb-6 block">
-            Executive Engagement
+            {t('overline')}
           </span>
           <h2 className="text-4xl md:text-5xl font-future text-white uppercase tracking-normal mb-8 max-w-4xl leading-[1.1]">
-            CONSOLIDE SU PRÓXIMO <span className="text-7l-gold">PROYECTO</span>
+            {t.rich('titulo', {
+              gold: (chunks) => <span className="text-7l-gold">{chunks}</span>
+            })}
           </h2>
 
           <Magnetic range={100} strength={0.35}>
@@ -104,7 +108,7 @@ export default function Home() {
                 <ArrowUpRight className="text-7l-gold transition-all duration-500 group-hover:rotate-45" size={28} />
               </div>
               <span className="font-montserrat text-[12px] font-black text-white tracking-[0.4em] uppercase group-hover:text-7l-gold transition-colors">
-                INICIAR LICITACIÓN
+                {t('iniciarLicitacion')}
               </span>
             </Link>
           </Magnetic>

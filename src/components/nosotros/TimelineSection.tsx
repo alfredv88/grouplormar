@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 interface Milestone {
   year: string;
@@ -10,34 +11,9 @@ interface Milestone {
   description: string;
 }
 
-const milestones: Milestone[] = [
-  {
-    year: '2010',
-    title: 'Fundación Estratégica',
-    subtitle: 'LOGÍSTICA CRÍTICA PESADA',
-    description: 'Inicio de operaciones enfocado en transporte pesado y movilización de cargas de gran escala.',
-  },
-  {
-    year: '2015',
-    title: 'Expansión Técnica',
-    subtitle: 'MONTAJE E INGENIERÍA INDUSTRIAL',
-    description: 'Integración del área de servicios mecánicos y soporte de ingeniería para el sector de hidrocarburos.',
-  },
-  {
-    year: '2020',
-    title: 'Consolidación de Flota',
-    subtitle: 'MÚSCULO OPERATIVO PROPIO',
-    description: 'Adquisición estratégica de grúas telescópicas y maquinaria pesada propia de última gama.',
-  },
-  {
-    year: '2024',
-    title: 'Liderazgo Nacional',
-    subtitle: 'PROYECTOS MULTIDISCIPLINARIOS',
-    description: 'Consolidación en el país como el principal aliado para obras civiles e infraestructura industrial.',
-  },
-];
-
 export default function TimelineSection() {
+  const t = useTranslations("NosotrosTimelineSection");
+  const milestones = t.raw("milestones") as Milestone[];
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   // Position settings matching precise coordinates
@@ -55,11 +31,13 @@ export default function TimelineSection() {
         {/* Header */}
         <div className="text-center max-w-xl mx-auto mb-16 md:mb-24">
           <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.5em] uppercase mb-3 block" style={{ color: '#F9B331' }}>
-            TRAYECTORIA
+            {t("trayectoria")}
           </span>
           <h2 className="text-3xl md:text-4xl font-future leading-none uppercase" style={{ color: '#09090b' }}>
-            EVOLUCIÓN <br />
-            <span className="text-7l-gold" style={{ color: '#F9B331' }}>CONSTANTE</span>
+            {t.rich("evolucion", {
+              br: () => <br />,
+              gold: (chunks) => <span className="text-7l-gold" style={{ color: '#F9B331' }}>{chunks}</span>
+            })}
           </h2>
           <div className="w-10 h-[1px] bg-7l-gold mx-auto mt-4" style={{ backgroundColor: '#F9B331' }} />
         </div>

@@ -3,8 +3,8 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { BROCHURE_DATA } from "@/constants/brochureData";
 import { HardHat, Truck, ShieldCheck, Zap, Lightbulb, Sliders, Copy, Check } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 // Mapeo de iconos para los valores basado en la estética del brochure
 const VALUE_ICONS = [
@@ -16,6 +16,7 @@ const VALUE_ICONS = [
 ];
 
 export default function AboutSection() {
+  const t = useTranslations('AboutSection');
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -28,6 +29,8 @@ export default function AboutSection() {
   // Parallax transform for the 120T crane (glides upward and scales up as you scroll)
   const craneY = useTransform(scrollYProgress, [0, 1], [150, -50]);
   const craneScale = useTransform(scrollYProgress, [0, 1], [0.95, 1.08]);
+
+  const valuesKeys = ["responsabilidad", "integridad", "calidad", "eficiencia", "innovacion"];
 
   return (
     <section ref={containerRef} id="nosotros" className="py-24 lg:py-40 flex items-center min-h-[80vh] bg-[#F7F7F7] relative overflow-hidden cinematic-reveal border-b border-[#0D0D0D]/5">
@@ -92,23 +95,23 @@ export default function AboutSection() {
           <div className="lg:col-span-5 space-y-12">
             <div className="space-y-4">
               <h2 className="text-h2 flex flex-col !text-[#0d0d0d]">
-                <span className="text-7l-gold-text drop-shadow-sm">ADN</span>
-                <span className="-mt-2">NUESTRO</span>
+                <span className="text-7l-gold-text drop-shadow-sm">{t('adn')}</span>
+                <span className="-mt-2">{t('nuestro')}</span>
               </h2>
               <div className="w-32 h-[6px] bg-7l-gold"></div>
             </div>
 
             <div className="space-y-8">
                <h3 className="font-montserrat font-black leading-none uppercase tracking-[0.1em]" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 24px)', color: '#0d0d0d' }}>
-                 SOLIDEZ <span className="text-7l-gold-text">SIN FRONTERAS.</span>
+                 {t('solidez')} <span className="text-7l-gold-text">{t('sinFronteras')}</span>
                </h3>
                
                <p className="font-montserrat text-lg leading-relaxed font-bold italic border-l-4 border-7l-gold pl-6" style={{ color: '#0d0d0d' }}>
-                 &ldquo;{BROCHURE_DATA.identity.profile}&rdquo;
+                 &ldquo;{t('perfil')}&rdquo;
                </p>
 
                <p className="font-montserrat text-[clamp(14px,1.5vw,16px)] leading-relaxed font-bold" style={{ color: '#0d0d0d' }}>
-                 Elevamos los estándares de ejecución en el oriente del país, consolidando una infraestructura de activos propia que garantiza respuestas inmediatas y soluciones de ingeniería de alta gama.
+                 {t('descripcion')}
                </p>
             </div>
           </div>
@@ -117,13 +120,13 @@ export default function AboutSection() {
           <div className="lg:col-span-7 border-t border-gray-200 pt-8 lg:border-t-0 lg:border-l lg:border-gray-100 lg:pl-16 lg:pt-2">
                    <div className="flex items-center gap-3 mb-4">
                      <div className="w-10 h-[1px] bg-7l-gold"></div>
-                      <span className="font-montserrat text-[10px] font-black tracking-[0.3em] uppercase" style={{ color: '#0d0d0d' }}>PRINCIPIOS FUNDAMENTALES</span>
+                      <span className="font-montserrat text-[10px] font-black tracking-[0.3em] uppercase" style={{ color: '#0d0d0d' }}>{t('principiosFundamentales')}</span>
                    </div>
 
              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-               {BROCHURE_DATA.values.map((val, idx) => (
+               {valuesKeys.map((key, idx) => (
                   <motion.div
-                    key={val.title}
+                    key={key}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -136,11 +139,11 @@ export default function AboutSection() {
                           {VALUE_ICONS[idx]}
                         </div>
                         <h4 className="text-h4 !text-[#0D0D0D] !text-[14px] group-hover:text-7l-gold transition-colors duration-500">
-                          {val.title}
+                          {t(`valores.${key}.title`)}
                         </h4>
                       </div>
                       <p className="font-montserrat text-[13px] leading-relaxed font-bold !text-[#0D0D0D] opacity-90 group-hover:opacity-100 transition-opacity">
-                        {val.description}
+                        {t(`valores.${key}.description`)}
                       </p>
                     </div>
                   </motion.div>

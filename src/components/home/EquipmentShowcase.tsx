@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { ChevronRight, ArrowRight, ArrowLeft, ArrowUpRight } from "lucide-react";
 import { BROCHURE_DATA } from "@/constants/brochureData";
 import Magnetic from "@/components/ui/Magnetic";
+import { useTranslations } from "next-intl";
 
 const equipmentImages: Record<string, string> = {
   "izamiento": "/images/equipment/grua-120t.webp",
@@ -23,6 +24,7 @@ const showcaseCategories = BROCHURE_DATA.machinery;
 const ITEM_HEIGHT = 48;
 
 export default function EquipmentShowcase() {
+  const t = useTranslations('EquipmentShowcase');
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [autoplay, setAutoplay] = useState(true);
@@ -117,10 +119,10 @@ export default function EquipmentShowcase() {
         <div className="lg:col-span-3 flex flex-col relative z-10 pt-0 lg:pt-4">
           <div className="mb-8 lg:mb-16">
             <h2 className="text-h2 mb-4">
-              MAQUINARIA <br /> <span className="text-7l-gold">Y EQUIPOS</span>
+              {t('titulo1')} <br /> <span className="text-7l-gold">{t('titulo2')}</span>
             </h2>
             <p className="font-montserrat text-[10px] text-white tracking-[0.2em] uppercase leading-relaxed max-w-[200px] font-bold">
-              Infraestructura técnica para ejecución de alto impacto operativo.
+              {t('subtitulo')}
             </p>
           </div>
 
@@ -141,7 +143,7 @@ export default function EquipmentShowcase() {
                   className="h-[48px] lg:h-[48px] flex items-center justify-between cursor-pointer group lg:pl-6 px-3 lg:px-0 transition-all border lg:border-0 border-white/10 rounded-none lg:rounded-none"
                 >
                   <span className={`font-montserrat text-[9px] lg:text-[10px] font-bold tracking-[0.15em] lg:tracking-[0.2em] uppercase transition-all duration-300 lg:transform lg:group-hover:translate-x-2 ${isActive ? 'text-7l-gold' : 'text-white/60 group-hover:text-7l-gold'}`}>
-                    {cat.title}
+                    {t(`categories.${cat.id}`)}
                   </span>
                   <ChevronRight size={12} className={`hidden lg:block transition-all duration-300 ${isActive ? 'text-7l-gold scale-110 opacity-100' : 'opacity-0 group-hover:opacity-50 group-hover:translate-x-1'}`} />
                 </div>
@@ -149,15 +151,7 @@ export default function EquipmentShowcase() {
             })}
           </div>
 
-          <div className="mt-8 lg:mt-20">
-            <Link 
-              href="/portafolio" 
-              className="group/btn inline-flex items-center gap-4 text-[10px] font-montserrat font-black tracking-[0.3em] text-white uppercase transition-all"
-            >
-              <span className="group-hover/btn:text-7l-gold transition-colors duration-500">VER CATÁLOGO</span>
-              <div className="w-8 h-[2px] bg-white/20 group-hover/btn:w-12 group-hover/btn:bg-7l-gold transition-all duration-500 ease-out" />
-            </Link>
-          </div>
+
         </div>
 
         {/* Right Side: Cards (Framer Motion Kinetic Carousel) */}
@@ -185,68 +179,60 @@ export default function EquipmentShowcase() {
                 }
               }}
             >
-              {showcaseCategories.map((cat) => (
-                <div key={cat.id} className="relative flex-none select-none" onClick={() => setAutoplay(false)}>
-                  <div 
-                    className="bg-[#080808] border border-zinc-900 hover:border-7l-gold/50 transition-all duration-500 flex flex-col group overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.8)] relative"
-                    style={{ width: `${cardWidth}px`, height: '560px' }}
-                  >
-                    
-                    {/* Media Frame - Dominancia Visual (100% Nítido y Brillante) */}
-                    <div className="h-[250px] shrink-0 relative overflow-hidden bg-[#080808] pointer-events-none">
-                      <div
-                        className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-105"
-                        style={{ backgroundImage: equipmentImages[cat.id] ? `url('${equipmentImages[cat.id]}')` : 'none' }}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity duration-700" />
-                    </div>
-
-                    {/* Content Frame */}
-                    <div className="p-8 flex flex-col flex-1 relative z-30">
+              {showcaseCategories.map((cat) => {
+                const localizedItems = t.raw(`items.${cat.id}`) as string[];
+                return (
+                  <div key={cat.id} className="relative flex-none select-none" onClick={() => setAutoplay(false)}>
+                    <div 
+                      className="bg-[#080808] border border-zinc-900 hover:border-7l-gold/50 transition-all duration-500 flex flex-col group overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.8)] relative"
+                      style={{ width: `${cardWidth}px`, height: '560px' }}
+                    >
                       
-                      {/* Header Group */}
-                      <div className="mb-6 flex flex-col gap-1">
-                        <div className="flex items-center justify-between mb-1">
-                          <span className="text-[7px] font-montserrat text-7l-gold tracking-[0.4em] uppercase font-black">
-                            FICHA TÉCNICA
-                          </span>
-                          <span className="font-mono text-[8px] text-white tracking-tighter uppercase font-bold">
-                            LRM-MOD-{cat.id.substring(0, 3).toUpperCase()}
-                          </span>
-                        </div>
+                      {/* Media Frame - Dominancia Visual (100% Nítido y Brillante) */}
+                      <div className="h-[250px] shrink-0 relative overflow-hidden bg-[#080808] pointer-events-none">
+                        <div
+                          className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-105"
+                          style={{ backgroundImage: equipmentImages[cat.id] ? `url('${equipmentImages[cat.id]}')` : 'none' }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity duration-700" />
+                      </div>
+
+                      {/* Content Frame */}
+                      <div className="p-8 flex flex-col flex-1 relative z-30">
                         
-                        <h3 className="text-h3 !text-[18px] leading-[1.2] block min-h-[44px]">
-                          {cat.title}
-                        </h3>
-                      </div>
+                        {/* Header Group */}
+                        <div className="mb-6 flex flex-col gap-1">
+                          <div className="flex items-center justify-between mb-1">
+                            <span className="text-[7px] font-montserrat text-7l-gold tracking-[0.4em] uppercase font-black">
+                              {t('fichaTecnica')}
+                            </span>
+                            <span className="font-mono text-[8px] text-white tracking-tighter uppercase font-bold">
+                              LRM-MOD-{cat.id.substring(0, 3).toUpperCase()}
+                            </span>
+                          </div>
+                          
+                          <h3 className="text-h3 !text-[18px] leading-[1.2] block min-h-[44px]">
+                            {t(`categories.${cat.id}`)}
+                          </h3>
+                        </div>
 
-                      {/* Inventory List */}
-                      <div className="space-y-3 flex-1 border-l border-7l-gold/30 pl-6 ml-1 mt-1">
-                        {cat.items.slice(0, 4).map((item, idx) => (
-                          <p key={idx} className="font-montserrat text-[10px] text-white uppercase tracking-[0.1em] leading-tight font-semibold opacity-70 group-hover:opacity-100 transition-opacity">
-                            {item}
-                          </p>
-                        ))}
-                      </div>
+                        {/* Inventory List */}
+                        <div className="space-y-3 flex-1 border-l border-7l-gold/30 pl-6 ml-1 mt-1">
+                          {localizedItems.slice(0, 4).map((item, idx) => (
+                            <p key={idx} className="font-montserrat text-[10px] text-white uppercase tracking-[0.1em] leading-tight font-semibold opacity-70 group-hover:opacity-100 transition-opacity">
+                              {item}
+                            </p>
+                          ))}
+                        </div>
 
-                      {/* Clean Action Footer */}
-                      <div className="pt-6 mt-auto flex items-center justify-end">
-                        <Link href="/portafolio" className="flex items-center gap-4 cursor-pointer group/action">
-                          <span className="font-montserrat text-[9px] font-black text-white uppercase tracking-[0.2em] group-hover/action:text-7l-gold transition-colors">
-                            VER FLOTA
-                          </span>
-                          <Magnetic range={40} strength={0.25}>
-                            <div className="w-11 h-11 border border-white/10 flex items-center justify-center group-hover/action:border-7l-gold group-hover/action:bg-7l-gold/5 transition-all duration-500 rounded-none relative overflow-hidden">
-                              <ArrowUpRight size={16} className="text-white group-hover/action:text-7l-gold transition-all duration-500 group-hover/action:rotate-45" />
-                            </div>
-                          </Magnetic>
-                        </Link>
-                      </div>
+                        {/* Clean Action Footer */}
 
+
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </motion.div>
           </div>
 

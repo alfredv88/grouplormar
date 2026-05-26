@@ -2,34 +2,11 @@
 
 import React from "react";
 import { CheckCircle2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function ComplianceHSE() {
-  const complianceHub = [
-    {
-      label: "RIF CORPORATIVO (SENIAT)",
-      status: "ACTIVO",
-      number: "J-30657965-6",
-      period: "VIGENCIA DE LEY",
-    },
-    {
-      label: "RACDA MANEJADOR (TRANSPORTE)",
-      status: "VIGENTE",
-      number: "N° 03-04-TSMDP-2024-11956",
-      period: "MATERIALES PELIGROSOS",
-    },
-    {
-      label: "RACDA GENERADOR (MINEC)",
-      status: "VIGENTE",
-      number: "N° 01-13-02-02-03-2025-635",
-      period: "DESECHOS RECUPERABLES",
-    },
-    {
-      label: "RNC HABILITADO (SNC)",
-      status: "HABILITADO",
-      number: "N° 2025060651014000225",
-      period: "CONTRATACIÓN PÚBLICA",
-    },
-  ];
+  const t = useTranslations("NosotrosComplianceHSE");
+  const complianceHub = t.raw("items") as { label: string; status: string; number: string; period: string }[];
 
   return (
     <section className="py-24 md:py-32 bg-[#060606] border-y border-white/5 relative font-montserrat" id="compliance">
@@ -43,15 +20,18 @@ export default function ComplianceHSE() {
               <div className="flex items-center gap-4">
                 <div className="w-8 h-[2px] bg-7l-gold"></div>
                 <span className="text-7l-gold text-[10px] font-bold uppercase tracking-[0.5em]">
-                  SOPORTE LEGAL
+                  {t("soporteLegal")}
                 </span>
               </div>
               
               <h2 className="text-4xl md:text-5xl font-future text-white uppercase leading-tight">
-                COMPLIANCE <br /> <span className="text-7l-gold">&amp; HSE</span>
+                {t.rich("titulo", {
+                  br: () => <br />,
+                  gold: (chunks) => <span className="text-7l-gold">{chunks}</span>
+                })}
               </h2>
               <p className="text-white/60 text-base md:text-lg font-light max-w-xl leading-relaxed">
-                Garantizamos absoluta transparencia técnica y legal en todas nuestras operaciones. Respaldamos cada licitación corporativa con certificaciones oficiales vigentes emitidas por los entes reguladores.
+                {t("descripcion")}
               </p>
             </div>
           </div>

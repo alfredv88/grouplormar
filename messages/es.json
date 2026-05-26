@@ -1,0 +1,589 @@
+{
+  "Index": {
+    "title": "Inicio"
+  },
+  "Navbar": {
+    "inicio": "INICIO",
+    "nosotros": "NOSOTROS",
+    "servicios": "SERVICIOS",
+    "maquinaria": "MAQUINARIA",
+    "cotizar": "COTIZAR",
+    "solicitarCotizacion": "SOLICITAR COTIZACIÓN"
+  },
+  "Footer": {
+    "descripcion": "Liderazgo industrial con activos propios. Ejecución técnica de alto nivel para los sectores estratégicos de Venezuela desde 2010.",
+    "centrosOperativos": "CENTROS OPERATIVOS",
+    "domicilioFiscal": "DOMICILIO FISCAL",
+    "domicilioContenido": "Av. Jorge Rodríguez CC MT Nivel PB Local 05. <br></br> Sector Las Garzas, Lechería.",
+    "directorioEjecutivo": "DIRECTORIO EJECUTIVO",
+    "contactoDirecto": "CONTACTO DIRECTO",
+    "presidenteEjecutivo": "Presidente Ejecutivo",
+    "vicepresidenteEjecutivo": "Vicepresidente Ejecutivo",
+    "explorarCapacidades": "Explorar Capacidades de Ingeniería",
+    "precisionIndustrial": "PRECISIÓN INDUSTRIAL AL SERVICIO DEL PAÍS"
+  },
+  "ChatContactWidget": {
+    "contacto": "CONTACTO",
+    "enlaceOperativo": "ENLACE OPERATIVO",
+    "contactoDirecto": "CONTACTO <br></br> DIRECTO",
+    "datosTransmitidos": "DATOS TRANSMITIDOS",
+    "procesarSolicitud": "Un especialista técnico procesará su solicitud.",
+    "nombre": "Nombre",
+    "nombrePlaceholder": "S. APELLIDO",
+    "correo": "Correo",
+    "correoPlaceholder": "CORP@MAIL.COM",
+    "departamento": "Departamento",
+    "consultaGeneral": "CONSULTA GENERAL",
+    "operaciones": "OPERACIONES",
+    "ingenieria": "INGENIERÍA",
+    "mensaje": "Mensaje",
+    "mensajePlaceholder": "REQUERIMIENTO TÉCNICO...",
+    "enviarRequerimiento": "ENVIAR REQUERIMIENTO",
+    "errNombreCorto": "El nombre es muy corto",
+    "errEmailInvalido": "Email inválido",
+    "errAsuntoRequerido": "Selecciona un asunto",
+    "errMensajeCorto": "El mensaje debe tener al menos 10 caracteres"
+  },
+  "Hero": {
+    "overline": "Infraestructura & Excelencia Operativa",
+    "titulo1": "SERVICIOS Y",
+    "titulo2": "CONSTRUCCIONES",
+    "descripcion": "Ejecución técnica de alto nivel en áreas de civil, mecánica e instrumentación. Garantizamos <gold>autonomía total</gold> con flota propia.",
+    "explorar": "EXPLORAR",
+    "descubra": "Descubra"
+  },
+  "AboutSection": {
+    "adn": "ADN",
+    "nuestro": "NUESTRO",
+    "solidez": "SOLIDEZ",
+    "sinFronteras": "SIN FRONTERAS.",
+    "perfil": "Organización de profesionales con visión internacional, cumplimiento de normativas y gestión de mejora continua.",
+    "descripcion": "Elevamos los estándares de ejecución en el oriente del país, consolidando una infraestructura de activos propia que garantiza respuestas inmediatas y soluciones de ingeniería de alta gama.",
+    "principiosFundamentales": "PRINCIPIOS FUNDAMENTALES",
+    "valores": {
+      "responsabilidad": {
+        "title": "Responsabilidad",
+        "description": "Cumplimiento de compromisos con clientes y proveedores."
+      },
+      "integridad": {
+        "title": "Integridad y Honestidad",
+        "description": "Administración de recursos de manera ética y transparente."
+      },
+      "calidad": {
+        "title": "Calidad",
+        "description": "Altos estándares nacionales e internacionales."
+      },
+      "eficiencia": {
+        "title": "Eficiencia",
+        "description": "Optimización de recursos tangibles e intangibles."
+      },
+      "innovacion": {
+        "title": "Innovación",
+        "description": "Generación de valor agregado y mejora continua."
+      }
+    }
+  },
+  "ServicesGrid": {
+    "soluciones": "SOLUCIONES",
+    "corporativas": "CORPORATIVAS",
+    "descripcionSeccion": "Despliegue estratégico de capacidades operativas para sectores de <gold>alta complejidad técnica y logística.</gold>",
+    "consultar": "CONSULTAR",
+    "tags": {
+      "Construcción": "Fases I+P+E",
+      "Mantenimiento": "Inspección NDT",
+      "Servicios a Pozos": "Faja Petrolífera",
+      "Gestión Ambiental": "RACDA G/M",
+      "Servicio Logístico": "Activos Propios",
+      "certificado": "Certificado"
+    },
+    "categories": {
+      "Construcción": "Construcción",
+      "Mantenimiento": "Mantenimiento",
+      "Servicios a Pozos": "Servicios a Pozos",
+      "Gestión Ambiental": "Gestión Ambiental",
+      "Servicio Logístico": "Servicio Logístico"
+    },
+    "items": {
+      "Construcción": [
+        { "title": "Desarrollo Integral", "desc": "Diseño, procura y ejecución de obras civiles, mecánicas, eléctricas e instrumentación." },
+        { "title": "Facilidades de Producción y Superficie", "desc": "Baterías de separación, estaciones de flujo, oleoductos y gasoductos." },
+        { "title": "Infraestructura Civil y Soporte", "desc": "Construcción de macollas, vías de acceso, campamentos y tanques." },
+        { "title": "Instalaciones Eléctricas e Instrumentación", "desc": "Subestaciones, sistemas de control y automatización." }
+      ],
+      "Mantenimiento": [
+        { "title": "Correctivo y Reparación", "desc": "Equipos rotatorios (bombas, compresores) y estáticos (tuberías, recipientes a presión)." },
+        { "title": "Integridad de Tuberías y Equipos", "desc": "Limpieza, pruebas no destructivas (NDT) e inspección técnica." },
+        { "title": "Autonomía de Flota", "desc": "Garantía de disponibilidad 24/7 de nuestros activos mediante programas de mantenimiento interno preventivo y correctivo." }
+      ],
+      "Servicios a Pozos": [
+        { "title": "Estimulación y Reacondicionamiento", "desc": "Estimulación y reacondicionamiento de pozos inactivos." },
+        { "title": "Sustitución de Componentes", "desc": "Sustitución de variadores de frecuencia y bombas de cavidad progresiva." },
+        { "title": "Suministro Logístico", "desc": "Suministro de equipos pesados transversales de logística operacional." }
+      ],
+      "Gestión Ambiental": [
+        { "title": "Manejo Integral de Residuos", "desc": "Recolección, transporte y disposición de desechos peligrosos (RACDA)." },
+        { "title": "Saneamiento y Remediación", "desc": "Limpieza de derrames de hidrocarburos y biorremediación de suelos." }
+      ],
+      "Servicio Logístico": [
+        { "title": "Transporte Terrestre Especializado", "desc": "Movilización de equipos sobredimensionados y tuberías." },
+        { "title": "Izamiento y Posicionamiento de Cargas", "desc": "Maniobras críticas de montaje y desmontaje." },
+        { "title": "Gestión de Flota", "desc": "Mantenimiento preventivo y correctivo dedicado." }
+      ]
+    }
+  },
+  "StatsCounter": {
+    "experiencia": "Años de Experiencia",
+    "proyectos": "Proyectos Ejecutados",
+    "unidades": "Unidades Especializadas"
+  },
+  "EquipmentShowcase": {
+    "titulo1": "MAQUINARIA",
+    "titulo2": "Y EQUIPOS",
+    "subtitulo": "Infraestructura técnica para ejecución de alto impacto operativo.",
+    "verCatalogo": "VER CATÁLOGO",
+    "fichaTecnica": "FICHA TÉCNICA",
+    "verFlota": "VER FLOTA",
+    "categories": {
+      "izamiento": "Equipos de Izamiento",
+      "pala-mecanica": "Equipos de Pala Mecánica",
+      "servicios-pozo": "Equipos de Servicios a Pozo",
+      "movimiento-tierra": "Equipos de Movimiento de Tierra",
+      "transporte": "Equipos de Transporte",
+      "elevadores": "Elevadores",
+      "asfalto": "Equipos de Pavimentación Asfáltica",
+      "concreto": "Equipos de Manejo de Concreto",
+      "equipos-menores": "Equipos Menores y Soporte"
+    },
+    "items": {
+      "izamiento": ["Grúas Telescópicas (15T - 100T)", "Brazos Hidráulicos (6T - 25T)", "Montacargas (6T - 25T)"],
+      "pala-mecanica": ["Cargadores Frontales", "Excavadoras", "Retroexcavadoras", "Minicargadores"],
+      "servicios-pozo": ["Cabilleros (350 HP)", "Unidades Hot Oil", "Equipos Well Testing", "Flush-By"],
+      "movimiento-tierra": ["Tractores", "Mototraíllas", "Motoniveladoras", "Vibrocompactadores", "Compactador Pata de Cabra"],
+      "transporte": ["Chutos con Lowboy (60T - 140T)", "Unidades de Vacío (Vacuum 160 Bbl)", "Chutos con Bateas / Volquetas", "Equipos de Succión de Alta Potencia (Supervactor)"],
+      "elevadores": ["Manlifts", "Camiones Cesta"],
+      "asfalto": ["Finishers", "Escarificadoras", "Rodillos Lisos / Neumáticos", "Camiones Rosco", "Barredoras Autopropulsadas"],
+      "concreto": ["Camiones Trompo Mezclador", "Trompos Mezcladores"],
+      "equipos-menores": ["Plantas Eléctricas (100 - 1000 KVA)", "Compresores de Aire (180 - 185 CFM)", "Motobombas (80 HP)", "Torres de Iluminación", "Máquinas de Soldar", "Sandblasting / Pintura Airless"]
+    }
+  },
+  "YardParallax": {
+    "visionDirecta": "VISIÓN DIRECTA // ACTIVOS",
+    "capacidad": "CAPACIDAD",
+    "instalada": "INSTALADA",
+    "real": "REAL"
+  },
+  "HomeCTA": {
+    "overline": "Executive Engagement",
+    "titulo": "CONSOLIDE SU PRÓXIMO <gold>PROYECTO</gold>",
+    "iniciarLicitacion": "INICIAR LICITACIÓN"
+  },
+  "ProcessSection": {
+    "nuestroProceso": "NUESTRO <gold>PROCESO</gold>",
+    "steps": [
+      { "num": "01", "title": "Consulta", "desc": "Evaluación técnica y determinación de la logística crítica del proyecto." },
+      { "num": "02", "title": "Operación", "desc": "Planificación de despliegue y movilización optimizada de maquinaria pesada." },
+      { "num": "03", "title": "Ejecución", "desc": "Labor en campo bajo los más estrictos protocolos de seguridad ISO." },
+      { "num": "04", "title": "Certificación", "desc": "Validación final, gestión de equipos y soporte operativo continuo." }
+    ]
+  },
+  "SustainabilitySection": {
+    "gestionAmbiental": "GESTIÓN AMBIENTAL",
+    "valorSostenible": "VALOR <br></br> <gold>SOSTENIBLE</gold>",
+    "descripcion": "Nuestro compromiso es generar valor sostenible integrando aspectos ambientales y sociales en cada fase operativa. Garantizamos la remediación y el manejo integral bajo estrictos protocolos RACDA.",
+    "compromiso": "COMPROMISO"
+  },
+  "GenteSection": {
+    "capitalHumano": "CAPITAL HUMANO",
+    "talentoEstrategico": "TALENTO <br></br> <white>ESTRATÉGICO</white>",
+    "descripcion": "En Grupo Lormar creemos en el valor de las personas. Nuestro equipo de profesionales cuenta con una visión internacional y una formación técnica de élite, siendo el motor fundamental de nuestra solidez y crecimiento continuo.",
+    "descubreMas": "Descubre Más"
+  },
+  "ComplianceHSE": {
+    "soberania": "Soberanía Operacional",
+    "titulo": "COMPLIANCE <br></br> <gold>& HSE</gold>",
+    "descripcion": "Garantizamos absoluta transparencia técnica y legal. Respaldamos cada licitación corporativa con certificaciones oficiales vigentes.",
+    "verSoporte": "VER SOPORTE VISUAL & CERTIFICADOS",
+    "items": [
+      { "label": "RIF CORPORATIVO (SENIAT)", "status": "ACTIVO", "number": "J-30657965-6", "period": "VIGENCIA DE LEY" },
+      { "label": "RACDA MANEJADOR (TRANSPORTE)", "status": "VIGENTE", "number": "N° 03-04-TSMDP-2024-11956", "period": "MATERIALES PELIGROSOS" },
+      { "label": "RACDA GENERADOR (MINEC)", "status": "VIGENTE", "number": "N° 01-13-02-02-03-2025-635", "period": "DESECHOS RECUPERABLES" },
+      { "label": "RNC HABILITADO (SNC)", "status": "HABILITADO", "number": "N° 2025060651014000225", "period": "CONTRATACIÓN PÚBLICA" }
+    ]
+  },
+  "TestimonialsCarousel": {
+    "respaldo": "RESPALDO",
+    "referencias": "REFERENCIAS",
+    "comerciales": "COMERCIALES",
+    "descripcion": "No exigimos confianza ciega; la construimos. Las principales operadoras de los sectores estratégicos avalan nuestro músculo técnico y rigurosa disciplina operacional.",
+    "endorsements": [
+      {
+        "quote": "La precisión y cumplimiento de Lormar en la estabilización de plataformas superó nuestras expectativas contractuales.",
+        "name": "ING. CARLOS M.",
+        "role": "GERENCIA DE PROYECTOS",
+        "company": "PETROMONAGAS"
+      },
+      {
+        "quote": "Un músculo logístico impecable. Redujeron nuestros tiempos de parada de planta gracias a la amplia disponibilidad de su maquinaria.",
+        "name": "ARQ. SOFÍA V.",
+        "role": "DIRECCIÓN DE OPERACIONES",
+        "company": "CONSORCIO VIAL"
+      },
+      {
+        "quote": "Ejecución técnica sin fisuras. Su protocolo de Cero Accidentes y calidad operativa son el estándar que buscamos en el sector.",
+        "name": "ING. ROBERTO S.",
+        "role": "SUPERINTENDENTE DE PLANTA",
+        "company": "OPERADOR PRINCIPAL"
+      },
+      {
+        "quote": "Confiamos la fase estructural a Lormar. El nivel de ingeniería, respuestas de emergencia y la trazabilidad de equipos fue absoluto.",
+        "name": "LIC. ANDRÉS G.",
+        "role": "GERENCIA DE PROCURA",
+        "company": "SERVICIOS EPC"
+      }
+    ]
+  },
+  "StrategicLocation": {
+    "redIndustrial": "Red Industrial Global",
+    "presencia": "PRESENCIA <gold>ESTRATÉGICA</gold>",
+    "redLogistica": "Red Logística Central Anzoátegui",
+    "propiedadActivos": "100% Propiedad de Activos",
+    "instalacionesVivo": "INSTALACIONES_VIVO",
+    "infraestructuraPropia": "INFRAESTRUCTURA PROPIA",
+    "descripcion": "Operamos desde activos integrales en el corazón industrial de Anzoátegui. Cada sede está equipada con tecnología de punta y personal certificado, garantizando la continuidad técnica y administrativa de todos nuestros proyectos.",
+    "hubs": [
+      {
+        "id": "ADMIN",
+        "label": "SEDE ADMINISTRATIVA",
+        "location": "Lechería, Anzoátegui",
+        "address": "AV JORGE RODRIGUEZ CC MT NIVEL PB LOCAL 05"
+      },
+      {
+        "id": "BASE",
+        "label": "PATIO CENTRAL Y TALLERES",
+        "location": "Barcelona, Anzoátegui",
+        "address": "AUTOPISTA RÓMULO BETANCOURT, SECTOR LOS POTOCOS"
+      }
+    ]
+  },
+  "NosotrosPage": {
+    "lormarCorporation": "LORMAR CORPORATION",
+    "autoridadIndustrial": "<gold>AUTORIDAD</gold> <br></br>INDUSTRIAL",
+    "heroDescripcion": "No subcontratamos nuestro éxito. Con flota pesada propia y un equipo de ingeniería de élite, ejecutamos donde otros ven imposibles.",
+    "identidad": "Identidad",
+    "quienesSomos": "¿QUIÉNES <br></br><gold>SOMOS?</gold>",
+    "somosDescripcion": "Somos una empresa que cuenta con un equipo de profesionales altamente capacitados. Competitivos dentro del mercado nacional, con una visión internacional, cumpliendo con las normativas establecidas por nuestros clientes y en estándares nacionales e internacionales en materia de calidad, seguridad y ambiente.",
+    "direccion": "Dirección",
+    "mision": "MISIÓN",
+    "misionDescripcion": "Brindar servicios de ingeniería de alta calidad en las áreas civiles, mecánica, eléctrica e instrumentación. Estamos comprometidos a satisfacer y superar las expectativas de nuestros clientes, garantizando el cumplimiento de sus exigencias.",
+    "vision": "VISIÓN",
+    "visionDescripcion": "Alcanzar un alto nivel de competitividad, asegurar el crecimiento como una empresa sólida que cumple con sus objetivos, bajo el ritmo propuesto de estar entre las empresas certificadas en aseguramiento y control de la calidad.",
+    "principios": "Principios",
+    "nuestrosValores": "NUESTROS <gold>VALORES</gold>",
+    "valores": [
+      { "name": "SEGURIDAD (HSE)", "desc": "Priorizamos la integridad de nuestro personal y el cuidado del medio ambiente en cada operación." },
+      { "name": "CALIDAD", "desc": "Cumplimos con las normativas y estándares más exigentes a nivel nacional e internacional." },
+      { "name": "COMPROMISO", "desc": "Garantizamos la ejecución de proyectos complejos superando las expectativas de nuestros clientes." },
+      { "name": "INNOVACIÓN", "desc": "Invertimos constantemente en flota propia y tecnología de punta para mantener el liderazgo." }
+    ]
+  },
+  "NosotrosComplianceHSE": {
+    "soporteLegal": "SOPORTE LEGAL",
+    "titulo": "COMPLIANCE <br></br> <gold>& HSE</gold>",
+    "descripcion": "Garantizamos absoluta transparencia técnica y legal en todas nuestras operaciones. Respaldamos cada licitación corporativa con certificaciones oficiales vigentes emitidas por los entes reguladores.",
+    "items": [
+      { "label": "RIF CORPORATIVO (SENIAT)", "status": "ACTIVO", "number": "J-30657965-6", "period": "VIGENCIA DE LEY" },
+      { "label": "RACDA MANEJADOR (TRANSPORTE)", "status": "VIGENTE", "number": "N° 03-04-TSMDP-2024-11956", "period": "MATERIALES PELIGROSOS" },
+      { "label": "RACDA GENERADOR (MINEC)", "status": "VIGENTE", "number": "N° 01-13-02-02-03-2025-635", "period": "DESECHOS RECUPERABLES" },
+      { "label": "RNC HABILITADO (SNC)", "status": "HABILITADO", "number": "N° 2025060651014000225", "period": "CONTRATACIÓN PÚBLICA" }
+    ]
+  },
+  "NosotrosTimelineSection": {
+    "trayectoria": "TRAYECTORIA",
+    "evolucion": "EVOLUCIÓN <br></br> <gold>CONSTANTE</gold>",
+    "milestones": [
+      { "year": "2010", "title": "Fundación Estratégica", "subtitle": "LOGÍSTICA CRÍTICA PESADA", "description": "Inicio de operaciones enfocado en transporte pesado y movilización de cargas de gran escala." },
+      { "year": "2015", "title": "Expansión Técnica", "subtitle": "MONTAJE E INGENIERÍA INDUSTRIAL", "description": "Integración del área de servicios mecánicos y soporte de ingeniería para el sector de hidrocarburos." },
+      { "year": "2020", "title": "Consolidación de Flota", "subtitle": "MÚSCULO OPERATIVO PROPIO", "description": "Adquisición estratégica de grúas telescópicas y maquinaria pesada propia de última gama." },
+      { "year": "2024", "title": "Liderazgo Nacional", "subtitle": "PROYECTOS MULTIDISCIPLINARIOS", "description": "Consolidación en el país como el principal aliado para obras civiles e infraestructura industrial." }
+    ]
+  },
+  "ServiciosPage": {
+    "serviciosEIngenieria": "SERVICIOS E INGENIERÍA",
+    "divisionesOperativas": "<gold>DIVISIONES</gold> <br></br>OPERATIVAS",
+    "heroDescripcion": "Capacidad de respuesta inmediata y rigor de ingeniería aplicado en 5 áreas clave de la industria, soportadas íntegramente por activos y flota de maquinaria propia.",
+    
+    "potenciaOperativa": "POTENCIA OPERATIVA",
+    "ingenieriaTransforma": "INGENIERÍA QUE TRANSFORMA VISIONES EN <gold>INFRAESTRUCTURA REAL</gold>",
+    "ingenieriaDesc": "Nuestra flota propia de maquinaria vial y soporte pesado garantiza un control total sobre los plazos y la calidad en cada obra electromecánica y civil.",
+    
+    "compromisoConformidad": "COMPROMISO Y CONFORMIDAD",
+    "hseCumplimiento": "HSE Y CUMPLIMIENTO <white>RACDA OFICIAL</white>",
+    "hseDesc": "Operamos bajo estrictos estándares internacionales de higiene, seguridad y ambiente, garantizados por nuestras certificaciones vigentes del MINEC.",
+    
+    "alianzaEstrategica": "ALIANZA ESTRATÉGICA",
+    "listoParaIniciar": "¿LISTO PARA INICIAR <br className=\"md:hidden\"></br> SU <gold>PROYECTO?</gold>",
+    "alianzaDesc": "Póngase en contacto con nuestra división de ingeniería para evaluar y presupuestar su obra con el máximo nivel de rigor técnico y profesionalismo.",
+    "contactarTecnica": "Contactar División Técnica",
+    
+    "items": [
+      {
+        "category": "CONSTRUCCIÓN",
+        "title": "INGENIERÍA Y <gold>CONSTRUCCIÓN</gold>",
+        "subtitle": "Diseño, desarrollo y montaje de obras electromecánicas y civiles.",
+        "description": "Ejecutamos obras complejas desde cero: tendido de tuberías (oleoductos/gasoductos), montaje de subestaciones, facilidades de producción en superficie e infraestructura civil crítica con control de calidad absoluto y estricta adherencia a plazos.",
+        "specifications": [
+          { "label": "Desarrollo Integral", "detail": "Diseño, adquisición de materiales y ejecución de obras civiles, mecánica, eléctrica y de instrumentación." },
+          { "label": "Facilidades de Superficie", "detail": "Construcción de baterías de separación, estaciones de flujo, oleoductos, gasoductos y líneas de recolección." },
+          { "label": "Infraestructura Civil", "detail": "Construcción de locaciones de pozos, vías de acceso, campamentos, tanques de almacenamiento y obras de drenaje." },
+          { "label": "Eléctrica e Instrumentación", "detail": "Montaje de subestaciones, sistemas de control, automatización y cableado para la operación de equipos y plantas." }
+        ],
+        "ctaText": "Ficha Técnica de Obras"
+      },
+      {
+        "category": "MANTENIMIENTO",
+        "title": "INTEGRIDAD Y <white>MANTENIMIENTO</white>",
+        "subtitle": "Continuidad operativa y preservación de activos industriales.",
+        "description": "Programas integrales de mantenimiento preventivo y correctivo para equipos mecánicos rotatorios y estáticos, pruebas no destructivas (NDT), y paradas de planta planificadas bajo altos estándares internacionales para evitar pérdidas de producción.",
+        "specifications": [
+          { "label": "Mantenimiento Correctivo", "detail": "Reparación de equipos rotatorios (bombas, compresores, turbinas) y estáticos (tuberías, recipientes a presión)." },
+          { "label": "Integridad de Tuberías", "detail": "Servicios de limpieza, pruebas no destructivas (NDT), inspección y reemplazo de líneas de producción y transferencia." },
+          { "label": "Autonomía de Flota", "detail": "Garantía de disponibilidad 24/7 de nuestros activos mediante programas de mantenimiento interno preventivo y correctivo." }
+        ],
+        "ctaText": "Ficha Técnica de Integridad"
+      },
+      {
+        "category": "SOLUCIONES A POZOS",
+        "title": "OPERACIONES EN <gold>POZOS (WORKOVER)</gold>",
+        "subtitle": "Reactivación y optimización de pozos energéticos.",
+        "description": "Operaciones especializadas con equipos propios de pulling (cabillero de 350HP), Flush-By, Well Testing y Hot Oil para maximizar la productividad y restablecer pozos inactivos con seguridad total en sitio.",
+        "specifications": [
+          { "label": "Estimulación y Flujo", "detail": "Soluciones integrales para mejorar el flujo de hidrocarburos y reacondicionamiento de pozos inactivos." },
+          { "label": "Sustitución de Equipos", "detail": "Sustitución de equipos esenciales, incluyendo variadores de frecuencia y bombas de cavidad progresiva." },
+          { "label": "Soporte Logístico", "detail": "Suministro de equipos pesados para actividades logísticas transversales de operación a pozos." }
+        ],
+        "ctaText": "Ficha de Equipos de Pozo"
+      },
+      {
+        "category": "GESTIÓN AMBIENTAL",
+        "title": "SANEAMIENTO Y <gold>RACDA</gold>",
+        "subtitle": "Gestión ecológica integral de desechos peligrosos.",
+        "description": "Servicio habilitado de transporte y disposición final de desechos peligrosos y no peligrosos, respaldado por certificación RACDA del MINEC. Limpieza técnica de derrames e implementación de procesos de biorremediación autorizados.",
+        "specifications": [
+          { "label": "Manejo de Residuos", "detail": "Recolección, transporte y disposición final de desechos peligrosos y no peligrosos, cortes de perforación y fluidos." },
+          { "label": "Saneamiento y Remediación", "detail": "Limpieza de derrames de hidrocarburos, y biorremediación de suelos y cuerpos de agua afectados." }
+        ],
+        "ctaText": "Ver Constancia RACDA"
+      },
+      {
+        "category": "LOGÍSTICA Y TRANSPORTE",
+        "title": "IZAMIENTO Y <gold>LOGÍSTICA</gold>",
+        "subtitle": "Músculo operativo pesado de alcance nacional.",
+        "description": "Maniobras críticas de izamiento con grúas telescópicas certificadas (de 15 a 100 Ton), montacargas de alta capacidad, y movilización terrestre especializada de cargas sobredimensionadas con chutos, bateas y lowboys propios de 60 a 140 toneladas.",
+        "specifications": [
+          { "label": "Transporte Especializado", "detail": "Movilización de equipos sobredimensionados (taladros, bombas, generadores) y tuberías de gran diámetro a larga distancia." },
+          { "label": "Alquiler de Maquinaria", "detail": "Suministro de grúas (móviles y sobre orugas), excavadoras, montacargas pesados y tractores de cadena." },
+          { "label": "Izamiento y Posicionamiento", "detail": "Servicios especializados de izaje crítico y maniobras para el montaje y desmontaje de estructuras y plantas." },
+          { "label": "Mantenimiento de Flota", "detail": "Administración, mantenimiento preventivo y correctivo de la flota de transporte y maquinaria pesada." }
+        ],
+        "ctaText": "Capacidad de Flota"
+      }
+    ]
+  },
+  "ServicioDetalle": {
+    "volverServicios": "Volver a Servicios",
+    "divisionOperativa": "División Operativa Especializada",
+    "alcanceTecnico": "Alcance <zinc>Técnico</zinc>",
+    "ejecucionGarantizada": "Ejecución Garantizada",
+    "ejecucionDesc": "Contamos con maquinaria pesada propia y músculo operativo listo para movilización inmediata.",
+    "verFlota": "Ver Flota Pesada",
+    "contactarAsesoria": "Contactar Asesoría Técnica"
+  },
+  "MaquinariaPage": {
+    "lormarCorporation": "LORMAR CORPORATION",
+    "musculoOperativo": "<gold>MÚSCULO</gold> <br></br>OPERATIVO",
+    "heroDescripcion": "Toda la maquinaria listada es propiedad de Grupo Lormar. Sin intermediarios, garantizamos disponibilidad inmediata, autonomía de ejecución y mantenimiento riguroso para la industria pesada."
+  },
+  "MachineryCatalog": {
+    "potenciaBruta": "POTENCIA BRUTA <br></br><gold>AL SERVICIO</gold>",
+    "capacidadIzamiento": "Capacidad Izamiento",
+    "cargaTransporte": "Carga Transporte",
+    "disponibilidad": "Disponibilidad",
+    "flotaPropia": "Flota Propia",
+    "consultarDisponibilidad": "Consultar Disponibilidad",
+    "autonomiaTotal": "AUTONOMÍA TOTAL EN <br></br><gold>LA EJECUCIÓN</gold>",
+    "autonomiaDesc": "Eliminamos las dependencias operativas. Controlar 100% de la maquinaria nos permite mitigar riesgos, asegurar disponibilidad inmediata y reducir costos ocultos en proyectos críticos.",
+    "solicitarEquipos": "Solicitar Equipos",
+    "soporteTecnico": "Soporte Técnico",
+    
+    "categories": [
+      {
+        "category": "DIVISIÓN DE IZAMIENTO",
+        "title": "IZAMIENTO Y <white>ELEVACIÓN</white>",
+        "description": "Flota especializada para maniobras de izaje crítico, montaje de estructuras pesadas y posicionamiento en altura con equipos certificados y operadores de alta precisión.",
+        "items": [
+          "Grúas Telescópicas (15, 45, 60, 75 y 100 Ton)",
+          "Brazos Hidráulicos (6, 15, 20 y 25 Ton)",
+          "Montacargas pesados (6 a 25 Ton)",
+          "Manlift y Camión Cesta"
+        ]
+      },
+      {
+        "category": "DIVISIÓN DE MOVIMIENTO",
+        "title": "MOVIMIENTO <br></br><gold>DE TIERRA</gold>",
+        "description": "Equipos pesados para remoción a gran escala, acondicionamiento de terrenos, nivelación topográfica y compactación de fundaciones para locaciones petroleras y civiles.",
+        "items": [
+          "Tractores y Mototraíllas",
+          "Motoniveladoras",
+          "Excavadoras y Retroexcavadoras",
+          "Excavadoras con Martillo",
+          "Cargadores Frontales y Minishowers",
+          "Compactadores"
+        ]
+      },
+      {
+        "category": "DIVISIÓN LOGÍSTICA",
+        "title": "TRANSPORTE Y <br></br><white>LOGÍSTICA</white>",
+        "description": "Músculo logístico pesado diseñado para la movilización segura de cargas sobredimensionadas, fluidos industriales y apoyo transversal en proyectos a nivel nacional.",
+        "items": [
+          "Chutos con Lowboy (60 a 140 Ton)",
+          "Chutos con Batea y Volqueta",
+          "Vacuum de 160 BLS y Supervactor",
+          "Camiones Volteo, Cisterna, Cava, 350",
+          "Camionetas Pick Up (Flota Liviana)"
+        ]
+      },
+      {
+        "category": "DIVISIÓN DE POZOS",
+        "title": "SERVICIOS <br></br><gold>A POZOS</gold>",
+        "description": "Unidades móviles especializadas para reacondicionamiento (workover), estimulación de producción y mantenimiento de pozos directamente en campo.",
+        "items": [
+          "Cabillero de 350HP",
+          "Camión Hot Oil",
+          "Equipos Flush-By",
+          "Camión Hidrojet Industrial"
+        ]
+      },
+      {
+        "category": "DIVISIÓN CIVIL",
+        "title": "OBRAS CIVILES Y <br></br><white>ASFALTO</white>",
+        "description": "Maquinaria autopropulsada para pavimentación, mezclado, colocación y compactación de concreto y asfalto en obras viales e infraestructuras de gran envergadura.",
+        "items": [
+          "Finisher y Escarificadoras de Asfalto",
+          "Rodillos Lisos y Compactadores de Neumáticos",
+          "Camión Rosco y Barredoras Autopropulsadas",
+          "Trompos y Camiones Trompo Mezcladores de Concreto"
+        ]
+      },
+      {
+        "category": "SOPORTE Y CAMPAMENTO",
+        "title": "EQUIPOS <br></br><gold>MENORES Y SOPORTE</gold>",
+        "description": "Infraestructura móvil y generación de energía continua para garantizar la autonomía operativa total de nuestros campamentos en zonas aisladas.",
+        "items": [
+          "Plantas Eléctricas",
+          "Compresores de Aire",
+          "Torres de Iluminación",
+          "Máquinas de Soldar",
+          "Motobombas (6\" x 6\" de 80HP)",
+          "Tráilers y Oficinas Móviles",
+          "Baños Portátiles y Lavamanos"
+        ]
+      }
+    ]
+  },
+  "ResponsabilidadPage": {
+    "lormarCorporation": "LORMAR CORPORATION",
+    "responsabilidadCorporativa": "<gold>RESPONSABILIDAD</gold> <br></br>CORPORATIVA",
+    "heroDescripcion": "Transparencia operativa, cumplimiento normativo y trazabilidad documental como pilares de nuestra gestión corporativa.",
+    
+    "estatusLegal": "Estatus Legal",
+    "complianceHSE": "COMPLIANCE <gold>& HSE</gold>",
+    
+    "complianceItems": [
+      {
+        "label": "RIF CORPORATIVO (SENIAT)",
+        "status": "ACTIVO",
+        "number": "J-30657965-6",
+        "period": "VIGENCIA DE LEY"
+      },
+      {
+        "label": "RACDA MANEJADOR (TRANSPORTE)",
+        "status": "VIGENTE",
+        "number": "N° 03-04-TSMDP-2024-11956",
+        "period": "MATERIALES PELIGROSOS"
+      },
+      {
+        "label": "RACDA GENERADOR (MINEC)",
+        "status": "VIGENTE",
+        "number": "N° 01-13-02-02-03-2025-635",
+        "period": "DESECHOS RECUPERABLES"
+      },
+      {
+        "label": "RNC HABILITADO (SNC)",
+        "status": "HABILITADO",
+        "number": "N° 2025060651014000225",
+        "period": "CONTRATACIÓN PÚBLICA"
+      }
+    ],
+    
+    "documentacionOficial": "Documentación Oficial",
+    "dossierCorporativo": "DOSSIER <gold>CORPORATIVO</gold>",
+    "dossierDesc": "Descargue nuestro brochure oficial con información detallada sobre capacidades operativas, flota propia, certificaciones y trayectoria.",
+    
+    "brochureLormar": "Brochure <gold>Lormar</gold>",
+    "brochureSub": "Grupo Lormar Corporation C.A.",
+    "brochureInfo": "Documento integral que presenta nuestro portafolio de servicios, catálogo de maquinaria pesada, credenciales legales, estructura organizativa y capacidad de ejecución en el sector industrial y petrolero.",
+    "tags": ["Servicios", "Maquinaria", "HSE", "Certificaciones"],
+    "descargar": "Descargar",
+    
+    "requiereDocumentacion": "¿Requiere documentación adicional o certificaciones específicas?",
+    "contactenos": "Contáctenos"
+  },
+  "ContactoPage": {
+    "centroOperaciones": "CENTRO DE OPERACIONES Y CONTACTO",
+    "asesoriaDirecta": "<gold>ASESORÍA</gold> <br></br>DIRECTA",
+    "heroDescripcion": "Inicia el proceso de cotización para tu proyecto industrial. Nuestro equipo de procura e ingeniería evaluará tu requerimiento de <white>inmediato.</white>",
+    
+    "solicitudFlotaTitle": "SOLICITUD DE FLOTA / EQUIPOS",
+    "solicitudFlotaBody": "Requerimiento de disponibilidad para: {item}.\n\nPor favor, contactarme para detallar alcance, ubicación de la obra y fechas estimadas.",
+    "servicioEspecializadoTitle": "SERVICIO ESPECIALIZADO",
+    "servicioEspecializadoBody": "Requerimiento de asesoría para: {item}.\n\nPor favor, contactarme para detallar alcance, ubicación de la obra y requerimientos técnicos.",
+    
+    "solicitudTecnica": "Solicitud <gold>Técnica</gold>",
+    "formDescripcion": "Central de operaciones y requerimientos. Complete sus datos para que nuestro departamento de ingeniería estructure una propuesta adaptada a la magnitud de su proyecto.",
+    
+    "nombreApellido": "Nombre y Apellido",
+    "ejNombre": "EJ: ING. JUAN PÉREZ",
+    "correoCorporativo": "Correo Corporativo",
+    "ejCorreo": "CORREO@EMPRESA.COM",
+    "clasificacionOperativa": "Clasificación Operativa",
+    
+    "opcionIntegral": "PROYECTO INTEGRAL (LLAVE EN MANO)",
+    "opcionFlota": "ARRENDAMIENTO DE FLOTA Y EQUIPOS",
+    "opcionServicio": "SERVICIO TÉCNICO ESPECIALIZADO",
+    "opcionProcura": "PROCURA INTERNACIONAL",
+    "opcionOtros": "OTROS",
+    
+    "especificacionesTecnicas": "Especificaciones Técnicas",
+    "ejEspecificaciones": "DETALLE AQUÍ EL ALCANCE DE SU SOLICITUD, UBICACIÓN DE LA OBRA Y TIEMPOS DE EJECUCIÓN ESTIMADOS...",
+    "transmitirRequerimiento": "TRANSMITIR REQUERIMIENTO",
+    
+    "directorioEjecutivo": "Directorio Ejecutivo",
+    "directorEjecutivo": "Director Ejecutivo",
+    "directorOperaciones": "Director de Operaciones",
+    "llamar": "Llamar",
+    
+    "canalNegocios": "Canal de Negocios",
+    "horarioOperativo": "Horario Operativo",
+    "diasHorario": "Lunes — Viernes: 08:00 AM - 05:00 PM",
+    "soporteEmergencias": "Soporte 24/7 para emergencias críticas.",
+    
+    "eresProveedor": "¿Eres Proveedor?",
+    "envianosBrochure": "ENVÍANOS TU BROCHURE A: <white>PROCURA@GROUPLORMAR.COM</white>",
+    
+    "nuestrasSedes": "NUESTRAS <br></br> <gold>SEDES</gold>",
+    "oficinaAdministrativa": "Oficina Administrativa",
+    "dirOficina": "AV. JORGE RODRÍGUEZ CC MT, NIVEL PB OF 05 SECTOR LAS GARZAS, LECHERÍA ANZOÁTEGUI. CP 6016",
+    "baseOperativa": "Base Operativa",
+    "dirBase": "AUTOPISTA RÓMULO BETANCOURT, TERRENO S/N, SECTOR LOS POTOCOS, BARCELONA EDO. ANZOÁTEGUI."
+  }
+}

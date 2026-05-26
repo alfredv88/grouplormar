@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { BROCHURE_DATA } from "@/constants/brochureData";
 import Magnetic from "@/components/ui/Magnetic";
+import { useTranslations } from "next-intl";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -48,6 +49,7 @@ const itemVariants = {
 };
 
 export default function ServicesGrid() {
+  const t = useTranslations('ServicesGrid');
   const [activeTab, setActiveTab] = useState(BROCHURE_DATA.services[0].category);
   const [autoplay, setAutoplay] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
@@ -64,16 +66,16 @@ export default function ServicesGrid() {
     return () => clearInterval(interval);
   }, [autoplay, isHovered, activeTab]);
 
-  // Las coordenadas exactas seleccionadas por el usuario se han fijado de forma fija para producción. No se requiere estado dinámico.
-
   // Obtener los datos de la categoría activa
   const currentCategoryData = BROCHURE_DATA.services.find(s => s.category === activeTab);
 
-  // Procesar los items para extraer título y descripción (Lógica Original)
+  // Procesar los items para extraer título y descripción (Lógica Localizada)
   const displayItems = currentCategoryData?.items.map((item, idx) => {
     const parts = item.split(": ");
-    const title = parts.length > 1 ? parts[0] : item;
-    const desc = parts.length > 1 ? parts[1] : "Servicios especializados con los más altos estándares de calidad y seguridad industrial.";
+    const rawTitle = parts.length > 1 ? parts[0] : item;
+
+    const localizedTitle = t(`items.${activeTab}.${idx}.title`);
+    const localizedDesc = t(`items.${activeTab}.${idx}.desc`);
 
     // Mapeo de imágenes específicas por servicio individual
     const itemImageMap: Record<string, string> = {
@@ -100,20 +102,20 @@ export default function ServicesGrid() {
       "Servicio Logístico": "/images/services/logistica_real.webp",
     };
 
-    const technicalTags: Record<string, string> = {
-      "Construcción": "Fases I+P+E",
-      "Mantenimiento": "Inspección NDT",
-      "Servicios a Pozos": "Faja Petrolífera",
-      "Gestión Ambiental": "RACDA G/M",
-      "Servicio Logístico": "Activos Propios",
+    const tagKeys: Record<string, string> = {
+      "Construcción": "Construcción",
+      "Mantenimiento": "Mantenimiento",
+      "Servicios a Pozos": "Servicios a Pozos",
+      "Gestión Ambiental": "Gestión Ambiental",
+      "Servicio Logístico": "Servicio Logístico",
     };
 
     return {
       id: idx,
-      title: title.toUpperCase(),
-      desc: desc,
-      img: itemImageMap[title] || categoryImageMap[activeTab] || "/images/equipment/hero_excavator.webp",
-      tag: technicalTags[activeTab] || "Certificado"
+      title: localizedTitle.toUpperCase(),
+      desc: localizedDesc,
+      img: itemImageMap[rawTitle] || categoryImageMap[activeTab] || "/images/equipment/hero_excavator.webp",
+      tag: t(`tags.${tagKeys[activeTab]}`) || t("tags.certificado")
     };
   }) || [];
 
@@ -133,29 +135,29 @@ export default function ServicesGrid() {
 
   return (
     <section className="py-16 bg-[#F7F7F7] relative border-b border-[#0D0D0D] overflow-hidden" id="servicios">
-      {/* Background Vertical Branding (Margin Layer) */}
-      {/* Watermark removed to avoid gray tones */}
 
       <div className="w-full max-w-[1600px] ml-0 md:ml-8 px-6 md:px-12 lg:px-24 relative z-20">
 
-        {/* Título de Alto Impacto (Estilo Sección 4 - Balanceado) */}
+        {/* Título de Alto Impacto */}
         <div className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-12">
           <div className="space-y-1">
             <h2 className="text-h2 flex flex-col">
-              <span className="text-7l-gold">SOLUCIONES</span>
-              <span className="text-[#0D0D0D]">CORPORATIVAS</span>
+              <span className="text-7l-gold">{t('soluciones')}</span>
+              <span className="text-[#0D0D0D]">{t('corporativas')}</span>
             </h2>
             <div className="w-24 h-[4px] bg-7l-gold mt-6"></div>
           </div>
 
           <div className="max-w-md pb-2 border-l-[3px] border-7l-gold pl-5">
             <p className="font-montserrat text-[12px] !text-black tracking-[0.05em] leading-[1.8] font-semibold">
-              Despliegue estratégico de capacidades operativas para sectores de <span className="text-7l-gold font-bold">alta complejidad técnica y logística.</span>
+              {t.rich('descripcionSeccion', {
+                gold: (chunks) => <span className="text-7l-gold font-bold">{chunks}</span>
+              })}
             </p>
           </div>
         </div>
 
-        {/* Navegación Ejecutiva (Contraste Refinado - Estilo Barra de Progreso S4) */}
+        {/* Navegación Ejecutiva */}
         <div className="relative mb-12">
           <div className="flex flex-nowrap overflow-x-auto no-scrollbar gap-10 md:gap-14 pb-2 relative z-20">
             {BROCHURE_DATA.services.map((service) => {
@@ -170,7 +172,7 @@ export default function ServicesGrid() {
                   className={`relative py-5 text-[11px] font-montserrat font-bold uppercase tracking-[0.15em] transition-all whitespace-nowrap outline-none ${isActive ? "text-[#0D0D0D]" : "text-[#0D0D0D]/50 hover:text-7l-gold"
                     }`}
                 >
-                  {service.category}
+                  {t(`categories.${service.category}`)}
                   {isActive && (
                     <motion.div
                       layoutId="servicesActiveTab"
@@ -181,7 +183,7 @@ export default function ServicesGrid() {
               )
             })}
           </div>
-          {/* Progress Track (Estilo Sección 4 Adaptado) */}
+          {/* Progress Track */}
           <div className="absolute bottom-[8px] left-0 right-0 h-[1px] bg-[#0D0D0D]/10 z-10" />
         </div>
 
@@ -201,7 +203,6 @@ export default function ServicesGrid() {
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
             >
               {displayItems.map((item, idx) => {
-                // Variación dinámica del encuadre para evitar repetición visual
                 const objectPositions = ["object-center", "object-top", "object-bottom", "object-left"];
                 const currentPosition = objectPositions[idx % objectPositions.length];
 
@@ -213,7 +214,7 @@ export default function ServicesGrid() {
                     className="group bg-white border border-[#0D0D0D]/5 hover:border-7l-gold/30 transition-all duration-700 flex flex-col relative overflow-hidden cursor-pointer h-full min-h-[320px] md:min-h-[460px] w-full shadow-[0_4px_15px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1"
                   >
 
-                    {/* Media Frame (Protagonismo Recuperado) */}
+                    {/* Media Frame */}
                     <div className="relative h-[190px] shrink-0 w-full overflow-hidden transition-all duration-700">
                       <Image
                         src={item.img}
@@ -223,7 +224,7 @@ export default function ServicesGrid() {
                       />
                     </div>
 
-                    {/* Content Frame - Jerarquía Pro Max */}
+                    {/* Content Frame */}
                     <div className="p-6 flex-1 flex flex-col relative z-30">
 
                       {/* Capability Tag */}
@@ -232,7 +233,7 @@ export default function ServicesGrid() {
                         <span className="font-montserrat text-[9px] font-black text-7l-gold tracking-[0.2em] uppercase">{item.tag}</span>
                       </div>
 
-                      {/* Title Group - Montserrat Black (Refinado y Armónico) */}
+                      {/* Title Group */}
                       <div className="mb-2 min-h-[40px] flex items-start">
                         <h3
                           className="text-h3 !text-[#0D0D0D] !text-[15px] leading-[1.2] group-hover:text-7l-gold transition-colors duration-300 font-black"
@@ -241,7 +242,7 @@ export default function ServicesGrid() {
                         </h3>
                       </div>
 
-                      {/* Description (Jerarquía Refinada - Negro Puro Absoluto) */}
+                      {/* Description */}
                       <div className="flex-1">
                         <p
                           className="text-[12px] font-montserrat font-semibold !text-black leading-relaxed mb-4"
@@ -250,14 +251,14 @@ export default function ServicesGrid() {
                         </p>
                       </div>
 
-                      {/* Professional Action Footer - Alineación Perfecta */}
+                      {/* Action Footer */}
                       <div className="pt-4 border-t border-[#0D0D0D]/10 flex items-center mt-auto">
                         <Magnetic range={40} strength={0.3}>
                           <Link
                             href="/servicios"
                             className="group/btn inline-flex items-center gap-4 text-[10px] font-montserrat font-black tracking-[0.3em] text-[#0D0D0D] uppercase transition-all"
                           >
-                            <span className="group-hover:text-7l-gold transition-colors duration-500">CONSULTAR</span>
+                            <span className="group-hover:text-7l-gold transition-colors duration-500">{t('consultar')}</span>
                             <div className="w-8 h-[2px] bg-[#0D0D0D] group-hover:w-12 group-hover:bg-7l-gold transition-all duration-500 ease-out" />
                           </Link>
                         </Magnetic>
@@ -270,7 +271,7 @@ export default function ServicesGrid() {
           </AnimatePresence>
         </div>
 
-        {/* Navigation Arrows - Minimalist (Estilo Sección 4 / Bloque Industrial) */}
+        {/* Navigation Arrows */}
         <div className="mt-16 flex justify-center gap-4 relative z-30">
           <button
             onClick={handlePrevTab}
@@ -287,7 +288,7 @@ export default function ServicesGrid() {
         </div>
       </div>
 
-      {/* Vertical Branding Detail (Logo Oficial - Posición Fija y Consolidada de Producción) */}
+      {/* Vertical Branding Detail */}
       <div
         className="absolute h-full w-[40%] flex items-center justify-center z-0 pointer-events-none select-none hidden xl:flex overflow-hidden"
         style={{
@@ -314,7 +315,7 @@ export default function ServicesGrid() {
         </div>
       </div>
 
-      {/* WOW Element: MOTONIVELADORA Showcase - Corporate Style */}
+      {/* WOW Element: MOTONIVELADORA Showcase */}
       <div className="absolute bottom-0 right-[-5%] w-[45%] xl:w-[42%] pointer-events-none z-10 hidden lg:block overflow-hidden">
         <motion.div
           initial={{ x: 100, opacity: 0 }}

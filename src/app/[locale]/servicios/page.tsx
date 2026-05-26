@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { ArrowRight, ChevronRight, ChevronDown, CheckCircle2 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 import { services } from '@/data/servicesData';
 
@@ -124,6 +125,9 @@ const ServiceAccordion = ({ specifications, isGold, isWhite }: { specifications:
 };
 
 export default function ServiciosPage() {
+  const t = useTranslations("ServiciosPage");
+  const localizedServices = t.raw("items") as any[];
+
   return (
     <main className="bg-black text-white min-h-screen">
       {/* HERO DE ENTRADA */}
@@ -152,7 +156,7 @@ export default function ServiciosPage() {
             transition={{ duration: 0.6, ease: 'easeOut' as const }}
             className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.5em] uppercase mb-4 block"
           >
-            SERVICIOS E INGENIERÍA
+            {t("serviciosEIngenieria")}
           </motion.span>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -160,7 +164,10 @@ export default function ServiciosPage() {
             transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' as const }}
             className="text-5xl md:text-7xl font-future text-white uppercase tracking-normal mb-6 leading-none"
           >
-            <span className="text-7l-gold">DIVISIONES</span> <br />OPERATIVAS
+            {t.rich("divisionesOperativas", {
+              br: () => <br />,
+              gold: (chunks) => <span className="text-7l-gold">{chunks}</span>
+            })}
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -168,19 +175,18 @@ export default function ServiciosPage() {
             transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' as const }}
             className="text-zinc-400 text-sm md:text-base font-montserrat font-medium max-w-2xl leading-relaxed"
           >
-            Capacidad de respuesta inmediata y rigor de ingeniería aplicado en 5 áreas clave de la industria, soportadas íntegramente por activos y flota de maquinaria propia.
+            {t("heroDescripcion")}
           </motion.p>
         </div>
       </section>
 
       {/* LISTADO DE DIVISIONES CON ALTERNANCIA INMERSIVA */}
-      {services.map((service, index) => {
+      {services.map((serviceBase, index) => {
+        const service = { ...serviceBase, ...localizedServices[index] };
         const isGold = service.bg === 'gold';
         const isWhite = service.bg === 'white';
         const isTinted = service.bg === 'tinted';
         const isEven = index % 2 === 0;
-
-
 
         return (
           <React.Fragment key={service.id}>
@@ -212,13 +218,15 @@ export default function ServiciosPage() {
                 
                 <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 text-center relative z-20">
                   <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.6em] uppercase mb-4 block">
-                    POTENCIA OPERATIVA
+                    {t("potenciaOperativa")}
                   </span>
                   <h2 className="text-4xl md:text-6xl font-future text-white uppercase tracking-normal max-w-4xl mx-auto leading-tight mb-6">
-                    INGENIERÍA QUE TRANSFORMA VISIONES EN <span className="text-7l-gold">INFRAESTRUCTURA REAL</span>
+                    {t.rich("ingenieriaTransforma", {
+                      gold: (chunks) => <span className="text-7l-gold">{chunks}</span>
+                    })}
                   </h2>
                   <p className="text-zinc-300 font-montserrat font-semibold text-sm md:text-base max-w-2xl mx-auto leading-relaxed drop-shadow-md">
-                    Nuestra flota propia de maquinaria vial y soporte pesado garantiza un control total sobre los plazos y la calidad en cada obra electromecánica y civil.
+                    {t("ingenieriaDesc")}
                   </p>
                 </div>
               </section>
@@ -233,13 +241,15 @@ export default function ServiciosPage() {
                 
                 <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 text-center relative z-10">
                   <span className="font-montserrat !text-black/60 text-[10px] font-black tracking-[0.6em] uppercase mb-4 block">
-                    COMPROMISO Y CONFORMIDAD
+                    {t("compromisoConformidad")}
                   </span>
                   <h2 className="text-4xl md:text-6xl font-future !text-black uppercase tracking-normal max-w-4xl mx-auto leading-tight mb-6">
-                    HSE Y CUMPLIMIENTO <span className="text-white">RACDA OFICIAL</span>
+                    {t.rich("hseCumplimiento", {
+                      white: (chunks) => <span className="text-white">{chunks}</span>
+                    })}
                   </h2>
                   <p className="!text-white font-montserrat font-semibold text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-                    Operamos bajo estrictos estándares internacionales de higiene, seguridad y ambiente, garantizados por nuestras certificaciones vigentes del MINEC.
+                    {t("hseDesc")}
                   </p>
                 </div>
               </section>
@@ -392,19 +402,22 @@ export default function ServiciosPage() {
         
         <div className="max-w-[1400px] mx-auto px-6 relative z-10">
           <span className="font-montserrat !text-7l-gold text-[10px] font-black tracking-[0.5em] uppercase mb-4 block">
-            ALIANZA ESTRATÉGICA
+            {t("alianzaEstrategica")}
           </span>
           <h2 className="text-4xl md:text-6xl font-future !text-black leading-none uppercase max-w-4xl mx-auto mb-6">
-            ¿LISTO PARA INICIAR <br className="md:hidden" /> SU <span className="text-7l-gold">PROYECTO?</span>
+            {t.rich("listoParaIniciar", {
+              br: () => <br className="md:hidden" />,
+              gold: (chunks) => <span className="text-7l-gold">{chunks}</span>
+            })}
           </h2>
           <p className="font-montserrat !text-zinc-700 font-bold text-sm md:text-base max-w-xl mx-auto mb-8 leading-relaxed">
-            Póngase en contacto con nuestra división de ingeniería para evaluar y presupuestar su obra con el máximo nivel de rigor técnico y profesionalismo.
+            {t("alianzaDesc")}
           </p>
           <a 
             href="/contacto"
             className="inline-flex items-center space-x-3 bg-black text-7l-gold hover:text-white px-9 py-4.5 font-montserrat font-black text-xs tracking-[0.2em] uppercase transition-all duration-300 group hover:shadow-2xl hover:shadow-black/30"
           >
-            <span>Contactar División Técnica</span>
+            <span>{t("contactarTecnica")}</span>
             <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </div>

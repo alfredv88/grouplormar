@@ -5,6 +5,7 @@ import { Target, Eye } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ComplianceHSE from '@/components/nosotros/ComplianceHSE';
 import TimelineSection from '@/components/nosotros/TimelineSection';
+import { useTranslations } from 'next-intl';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -14,12 +15,8 @@ const fadeInUp = {
 };
 
 export default function NosotrosPage() {
-  const values = [
-    { name: "SEGURIDAD (HSE)", desc: "Priorizamos la integridad de nuestro personal y el cuidado del medio ambiente en cada operación." },
-    { name: "CALIDAD", desc: "Cumplimos con las normativas y estándares más exigentes a nivel nacional e internacional." },
-    { name: "COMPROMISO", desc: "Garantizamos la ejecución de proyectos complejos superando las expectativas de nuestros clientes." },
-    { name: "INNOVACIÓN", desc: "Invertimos constantemente en flota propia y tecnología de punta para mantener el liderazgo." }
-  ];
+  const t = useTranslations("NosotrosPage");
+  const values = t.raw("valores") as { name: string; desc: string }[];
 
   return (
     <main className="bg-black text-white min-h-screen">
@@ -51,7 +48,7 @@ export default function NosotrosPage() {
             transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
           >
             <span className="font-montserrat text-7l-gold text-[10px] font-black tracking-[0.5em] uppercase mb-4 block" style={{ color: '#F9B331' }}>
-              LORMAR CORPORATION
+              {t("lormarCorporation")}
             </span>
           </motion.div>
 
@@ -61,7 +58,10 @@ export default function NosotrosPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           >
-            <span className="text-7l-gold" style={{ color: '#F9B331' }}>AUTORIDAD</span> <br />INDUSTRIAL
+            {t.rich("autoridadIndustrial", {
+              br: () => <br />,
+              gold: (chunks) => <span className="text-7l-gold" style={{ color: '#F9B331' }}>{chunks}</span>
+            })}
           </motion.h1>
 
           <motion.p 
@@ -70,7 +70,7 @@ export default function NosotrosPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
           >
-            No subcontratamos nuestro éxito. Con flota pesada propia y un equipo de ingeniería de élite, ejecutamos donde otros ven imposibles.
+            {t("heroDescripcion")}
           </motion.p>
         </div>
       </section>
@@ -90,14 +90,16 @@ export default function NosotrosPage() {
           {...fadeInUp}
         >
           <span className="font-montserrat text-zinc-500 text-[10px] font-black tracking-[0.5em] uppercase">
-            Identidad
+            {t("identidad")}
           </span>
           <h2 className="text-5xl md:text-6xl font-future text-white leading-none uppercase">
-            ¿QUIÉNES <br />
-            <span className="text-7l-gold" style={{ color: '#F9B331' }}>SOMOS?</span>
+            {t.rich("quienesSomos", {
+              br: () => <br />,
+              gold: (chunks) => <span className="text-7l-gold" style={{ color: '#F9B331' }}>{chunks}</span>
+            })}
           </h2>
           <p className="text-zinc-400 text-sm md:text-base font-medium max-w-lg leading-relaxed">
-            Somos una empresa que cuenta con un equipo de profesionales altamente capacitados. Competitivos dentro del mercado nacional, con una visión internacional, cumpliendo con las normativas establecidas por nuestros clientes y en estándares nacionales e internacionales en materia de calidad, seguridad y ambiente.
+            {t("somosDescripcion")}
           </p>
         </motion.div>
       </section>
@@ -122,24 +124,24 @@ export default function NosotrosPage() {
           {...fadeInUp}
         >
           <span className="font-montserrat text-black/60 text-[10px] font-black tracking-[0.5em] uppercase">
-            Dirección
+            {t("direccion")}
           </span>
           
           <div className="space-y-4">
             <h2 className="text-4xl font-future !text-black leading-none uppercase flex items-center gap-3">
-              <Target size={32} className="!text-black" /> MISIÓN
+              <Target size={32} className="!text-black" /> {t("mision")}
             </h2>
             <p className="text-lg md:text-xl font-montserrat !text-white leading-relaxed font-medium max-w-lg">
-              Brindar servicios de ingeniería de alta calidad en las áreas civiles, mecánica, eléctrica e instrumentación. Estamos comprometidos a satisfacer y superar las expectativas de nuestros clientes, garantizando el cumplimiento de sus exigencias.
+              {t("misionDescripcion")}
             </p>
           </div>
 
           <div className="space-y-4">
             <h2 className="text-4xl font-future !text-black leading-none uppercase flex items-center gap-3">
-              <Eye size={32} className="!text-black" /> VISIÓN
+              <Eye size={32} className="!text-black" /> {t("vision")}
             </h2>
             <p className="text-lg md:text-xl font-montserrat !text-white leading-relaxed font-medium max-w-lg">
-              Alcanzar un alto nivel de competitividad, asegurar el crecimiento como una empresa sólida que cumple con sus objetivos, bajo el ritmo propuesto de estar entre las empresas certificadas en aseguramiento y control de la calidad.
+              {t("visionDescripcion")}
             </p>
           </div>
         </motion.div>
@@ -150,10 +152,12 @@ export default function NosotrosPage() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
           <motion.div {...fadeInUp}>
             <span className="font-montserrat text-zinc-500 text-[10px] font-black tracking-[0.5em] uppercase mb-4 block">
-              Principios
+              {t("principios")}
             </span>
             <h2 className="text-4xl md:text-5xl font-future text-white mb-12 uppercase">
-              NUESTROS <span className="text-7l-gold" style={{ color: '#F9B331' }}>VALORES</span>
+              {t.rich("nuestrosValores", {
+                gold: (chunks) => <span className="text-7l-gold" style={{ color: '#F9B331' }}>{chunks}</span>
+              })}
             </h2>
           </motion.div>
 

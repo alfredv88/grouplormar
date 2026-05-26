@@ -2,14 +2,11 @@
  
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
  
 export default function ProcessSection() {
-  const steps = [
-    { num: "01", title: "Consulta", desc: "Evaluación técnica y determinación de la logística crítica del proyecto." },
-    { num: "02", title: "Operación", desc: "Planificación de despliegue y movilización optimizada de maquinaria pesada." },
-    { num: "03", title: "Ejecución", desc: "Labor en campo bajo los más estrictos protocolos de seguridad ISO." },
-    { num: "04", title: "Certificación", desc: "Validación final, gestión de equipos y soporte operativo continuo." }
-  ];
+  const t = useTranslations("ProcessSection");
+  const steps = t.raw("steps") as { num: string; title: string; desc: string }[];
  
   return (
     <section className="relative py-28 px-6 overflow-hidden bg-[#F7F7F7] border-y border-[#0D0D0D]/5" id="proceso">
@@ -19,7 +16,9 @@ export default function ProcessSection() {
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-10 mb-20">
           <h2 className="text-3xl md:text-5xl font-future !text-[#0D0D0D] uppercase leading-none tracking-normal flex gap-3">
-            NUESTRO <span className="!text-7l-gold-text">PROCESO</span>
+            {t.rich("nuestroProceso", {
+              gold: (chunks) => <span className="!text-7l-gold-text">{chunks}</span>
+            })}
           </h2>
           <div className="h-[2px] flex-1 bg-[#0D0D0D]/5 relative overflow-hidden">
             <motion.div

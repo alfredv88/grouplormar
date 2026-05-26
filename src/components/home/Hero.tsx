@@ -5,8 +5,10 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Magnetic from "@/components/ui/Magnetic";
+import { useTranslations } from "next-intl";
 
 export default function Hero() {
+  const t = useTranslations('Hero');
   const [currentVideo, setCurrentVideo] = useState(0);
   const containerRef = useRef(null);
   
@@ -81,7 +83,7 @@ export default function Hero() {
               transition={{ ...transition, delay: 0.4 }}
               className="font-montserrat text-white tracking-[0.6em] text-[10px] font-bold uppercase"
             >
-              Infraestructura & Excelencia Operativa
+              {t('overline')}
             </motion.span>
           </div>
 
@@ -94,7 +96,7 @@ export default function Hero() {
                 transition={{ ...transition, delay: 0.6 }}
                 className="block text-white"
               >
-                SERVICIOS Y
+                {t('titulo1')}
               </motion.span>
               <motion.span 
                 initial={{ y: "110%" }}
@@ -102,7 +104,7 @@ export default function Hero() {
                 transition={{ ...transition, delay: 0.8 }}
                 className="block text-7l-gold"
               >
-                CONSTRUCCIONES
+                {t('titulo2')}
               </motion.span>
             </h1>
           </div>
@@ -116,8 +118,9 @@ export default function Hero() {
                   transition={{ ...transition, delay: 1.2 }}
                   className="text-base md:text-lg text-white font-montserrat font-bold leading-relaxed tracking-wide max-w-2xl border-l-[3px] border-7l-gold pl-4 md:pl-10"
                 >
-                  Ejecución técnica de alto nivel en áreas de civil, mecánica e instrumentación. 
-                  Garantizamos <span className="text-7l-gold font-black italic underline decoration-7l-gold underline-offset-8 uppercase tracking-[0.2em] ml-2">autonomía total</span> con flota propia.
+                  {t.rich('descripcion', {
+                    gold: (chunks) => <span className="text-7l-gold font-black italic underline decoration-7l-gold underline-offset-8 uppercase tracking-[0.2em] ml-2">{chunks}</span>
+                  })}
                 </motion.p>
 
               <motion.div 
@@ -132,7 +135,7 @@ export default function Hero() {
                     className="inline-flex items-center gap-4 bg-7l-gold px-6 py-3 transition-all hover:bg-7l-gold/90 group rounded-none"
                   >
                     <span className="font-montserrat text-[9px] font-black text-7l-black tracking-[0.4em] uppercase">
-                      EXPLORAR
+                      {t('explorar')}
                     </span>
                     <ArrowRight size={10} className="text-7l-black transition-transform group-hover:translate-x-1" />
                   </Link>
@@ -153,7 +156,7 @@ export default function Hero() {
         transition={{ delay: 2.5, duration: 2 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 hidden md:flex flex-col items-center gap-4"
       >
-        <span className="font-montserrat text-[8px] tracking-[0.4em] text-white font-bold uppercase mb-2">Descubra</span>
+        <span className="font-montserrat text-[8px] tracking-[0.4em] text-white font-bold uppercase mb-2">{t('descubra')}</span>
         <div className="w-[2px] h-16 bg-white/20 overflow-hidden">
           <motion.div 
             animate={{ y: [-64, 64] }}
