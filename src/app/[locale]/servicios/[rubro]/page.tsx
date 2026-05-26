@@ -104,7 +104,7 @@ export default function ServicioDetallePage({ params }: { params: { rubro: strin
 
             {/* Grid de Especificaciones Técnicas Extraídas del Brochure */}
             <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-6">
-              {service.specifications.map((spec, idx) => (
+              {service.specifications.map((spec: { label: string; detail: string }, idx: number) => (
                 <div
                   key={idx}
                   className={`p-6 md:p-8 border transition-all duration-300 ${isGold ? 'border-black/10 bg-black/5 hover:border-black/30 hover:-translate-y-1' :

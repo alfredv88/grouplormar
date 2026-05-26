@@ -1,5 +1,5 @@
 export const machineryImages = {
-  izamiento: '/images/equipment/izamiento_100t_real_daylight.webp',
+  izamiento: '/images/services/logistica_izamiento.webp',
   movimiento: '/images/equipment/excavadora_real_daylight.webp',
   transporte: '/images/services/logistica_transporte.webp',
   pozos: '/images/equipment/cabillero_real_daylight.webp',
