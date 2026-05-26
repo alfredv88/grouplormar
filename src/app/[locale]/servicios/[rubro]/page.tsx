@@ -126,7 +126,7 @@ export default function ServicioDetallePage({ params }: { params: { rubro: strin
             {/* Badges de Autoridad Corporativa */}
             {service.badges && service.badges.length > 0 && (
               <div className="mt-12 flex flex-wrap gap-4 pt-8 border-t border-black/10 dark:border-white/10">
-                {service.badges.map((badge, idx) => (
+                {service.badges.map((badge: string, idx: number) => (
                   <div key={idx} className={`flex items-center gap-2 px-4 py-2 border text-[10px] md:text-xs font-black uppercase tracking-widest shadow-sm ${isGold ? 'border-black/20 text-black bg-black/5' :
                       isWhite ? 'border-zinc-300 text-zinc-800 bg-white' :
                         'border-7l-gold/30 text-white bg-7l-gold/5'
@@ -142,7 +142,7 @@ export default function ServicioDetallePage({ params }: { params: { rubro: strin
           {/* COLUMNA DERECHA (1/3): Galería Menor y CTA Táctico */}
           <div className="lg:col-span-4 space-y-8">
             {/* Renderizar solo las imágenes 2 y 3 del servicio para complementar la lectura */}
-            {service.images.slice(1, 3).map((img, idx) => (
+            {service.images.slice(1, 3).map((img: string, idx: number) => (
               <div key={idx} className={`relative w-full aspect-[4/3] border group overflow-hidden ${isGold || isWhite ? 'border-black/10' : 'border-white/10'}`}>
                 <Image
                   src={img}
