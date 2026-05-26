@@ -9,7 +9,7 @@ import Magnetic from "@/components/ui/Magnetic";
 import { useTranslations } from "next-intl";
 
 const equipmentImages: Record<string, string> = {
-  "izamiento": "/images/equipment/grua-120t.webp",
+  "izamiento": "/images/services/logistica_izamiento.webp",
   "pala-mecanica": "/images/equipment/pala_mecanica.webp",
   "servicios-pozo": "/images/equipment/pulling_unit.webp",
   "movimiento-tierra": "/images/equipment/movimiento_tierra.webp",
