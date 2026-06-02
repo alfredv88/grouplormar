@@ -1,10 +1,12 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
     try {
         if (!process.env.RESEND_API_KEY) {
             console.error('RESEND_API_KEY is not defined in environment variables');
+        }
         if (!process.env.SMTP_EMAIL && !process.env.SMTP_PASSWORD) {
             console.log('Using Ethereal for email testing as no SMTP credentials provided');
         }
