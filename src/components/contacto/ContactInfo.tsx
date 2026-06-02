@@ -110,16 +110,7 @@ const ContactInfo = () => {
                 </div>
             </div>
 
-            <div className="pt-10 border-t border-white/5">
-                <div className="p-8 border border-white/5 bg-7l-black/40 text-center space-y-4 relative group hover:border-white/20 transition-all duration-500">
-                    <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-7l-gold opacity-0 group-hover:opacity-100 transition-all"></div>
-                    <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-7l-gold opacity-0 group-hover:opacity-100 transition-all"></div>
-                    
-                    <h5 className="font-future text-[11px] uppercase tracking-[0.3em] text-7l-gold">{t("eresProveedor")}</h5>
-                    <p className="text-[10px] font-montserrat text-white/40 uppercase tracking-[0.2em]" dangerouslySetInnerHTML={{ __html: t("envianosBrochure") }}>
-                    </p>
-                </div>
-            </div>
+
         </div>
     );
 };

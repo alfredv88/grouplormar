@@ -111,7 +111,7 @@ const ServiceAccordion = ({ specifications, isGold, isWhite }: { specifications:
                 className="overflow-hidden"
               >
                 <p className={`pt-1 pb-5 text-xs font-montserrat font-medium leading-relaxed ${
-                  isGold ? 'text-white' : isWhite ? 'text-zinc-600' : 'text-zinc-400'
+                  isGold ? '!text-white' : isWhite ? '!text-zinc-900' : '!text-zinc-300'
                 }`}>
                   {spec.detail}
                 </p>

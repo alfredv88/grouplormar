@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 
 export default function LogoStrip() {
   const clients = [
-    "SIDOR", "CVG VENALUM", "PDVSA", "FERROMINERA", "TGI", 
-    "PETROMONAGAS", "HYUNDAI", "STX", "SINOHYDRO", "HALLIBURTON"
+    "PDVSA PETRÓLEO", "PDVSA GAS", "PETROCEDEÑO", "CHEVRON", 
+    "SUPERMETANOL", "PEQUIVEN", "FERTILIZANTES DE ORIENTE", "PETROMIRANDA"
   ];
 
   return (

@@ -182,7 +182,7 @@
     "steps": [
       { "num": "01", "title": "Consultation", "desc": "Technical evaluation and determination of critical project logistics." },
       { "num": "02", "title": "Operation", "desc": "Deployment planning and optimized mobilization of heavy machinery." },
-      { "num": "03", "title": "Execution", "desc": "Field work under the strictest ISO safety protocols." },
+      { "num": "03", "title": "Execution", "desc": "Field work under the strictest safety protocols." },
       { "num": "04", "title": "Certification", "desc": "Final validation, equipment management and continuous operational support." }
     ]
   },

@@ -182,7 +182,7 @@
     "steps": [
       { "num": "01", "title": "Consulta", "desc": "Evaluación técnica y determinación de la logística crítica del proyecto." },
       { "num": "02", "title": "Operación", "desc": "Planificación de despliegue y movilización optimizada de maquinaria pesada." },
-      { "num": "03", "title": "Ejecución", "desc": "Labor en campo bajo los más estrictos protocolos de seguridad ISO." },
+      { "num": "03", "title": "Ejecución", "desc": "Labor en campo bajo los más estrictos protocolos de seguridad." },
       { "num": "04", "title": "Certificación", "desc": "Validación final, gestión de equipos y soporte operativo continuo." }
     ]
   },
